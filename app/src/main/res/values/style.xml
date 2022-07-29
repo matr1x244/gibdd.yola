@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--myBottomAppBarStyle-->
+    <style name="myBottomAppBarStyle" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">@color/light_blue_600</item>
+    </style>
+
+    <!--myChipsStyleActionBaseStyle-->
+    <style name="myChipsStyleActionBaseStyle" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="rippleColor">@color/yellow</item>
+    </style>
+
+</resources>
