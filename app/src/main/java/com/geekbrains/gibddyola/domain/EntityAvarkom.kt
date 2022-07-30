@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class EntityAvarkom(
-    val id: Int,
+    val idAvarkom: Int,
     val textName: String,
     val textAbout: String,
     val textRaiting: String,

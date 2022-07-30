@@ -1,6 +1,9 @@
 package com.geekbrains.gibddyola.ui.main
 
+import android.Manifest
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -13,7 +16,9 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekbrains.gibddyola.MainActivity
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
@@ -69,12 +74,12 @@ class MainFragment : Fragment() {
         }
     }
 
-    fun buttonPhone() {
-        val number = "709-709"
+    private fun buttonPhone() {
         binding.buttonPhone.setOnClickListener {
-            val intent = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse("tel:$number")
-            startActivity(intent)
+                val number = "709-709"
+                val intent = Intent(Intent.ACTION_CALL)
+                intent.data = Uri.parse("tel:$number")
+                startActivity(intent)
         }
     }
 

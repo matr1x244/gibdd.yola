@@ -61,9 +61,10 @@ class AboutFragment : Fragment() {
 
     private fun buttonPhone() {
         val number = "709-709"
+        val intent = Intent(Intent.ACTION_CALL)
+        intent.data = Uri.parse("tel:$number")
+
         binding.buttonPhone.setOnClickListener {
-            val intent = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse("tel:$number")
             startActivity(intent)
         }
     }

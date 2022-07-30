@@ -5,4 +5,5 @@
     <string name="text_hello">Аварийный комиссар в Йошкар-Оле помощь при ДТП: ГИБДД12.рф</string>
     <string name="item_text_raiting">Рейтинг аваркома</string>
     <string name="call_phone_avarkom">Вызвать аварийного комиссара</string>
+    <string name="dialog_call">Разрешите приложению, совершать звонок</string>
 </resources>

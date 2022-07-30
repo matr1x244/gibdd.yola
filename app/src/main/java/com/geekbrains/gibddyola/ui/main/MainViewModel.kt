@@ -23,5 +23,4 @@ class MainViewModel(private val repository: LocalRepositoryImpl) : ViewModel() {
             }
         }
     }
-
 }
