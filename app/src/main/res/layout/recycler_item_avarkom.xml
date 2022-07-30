@@ -15,10 +15,10 @@
             android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/standart_padding"
+            android:layout_margin="@dimen/dp5"
             android:hapticFeedbackEnabled="false"
-            app:cardCornerRadius="@dimen/standart_padding"
-            app:cardElevation="@dimen/standart_padding">
+            app:cardCornerRadius="@dimen/dp5"
+            app:cardElevation="@dimen/dp5">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                     android:layout_margin="10dp"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:paddingStart="@dimen/standart_padding"
+                    android:paddingStart="@dimen/dp5"
                     android:text="@string/item_text_name"
                     android:textColor="@color/black"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
@@ -58,7 +58,7 @@
                     android:maxLength="30"
                     android:singleLine="true"
                     android:ellipsize="end"
-                    android:paddingStart="@dimen/standart_padding"
+                    android:paddingStart="@dimen/dp5"
                     android:text="@string/item_text_about"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
