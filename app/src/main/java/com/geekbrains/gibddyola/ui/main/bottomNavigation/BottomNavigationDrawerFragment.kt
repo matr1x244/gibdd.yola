@@ -38,7 +38,7 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 //                }
                 R.id.navigation_stock_fragment -> {
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_activity_container, StockFragment.newInstance())
+                        .add(R.id.main_activity_container, StockFragment.newInstance())
                         .addToBackStack(null)
                         .commit()
                 }

@@ -59,12 +59,14 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                     for (ok in permissions.indices) perms[permissions[ok]] = grantResults[ok]
                     if (perms[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED) {
                     } else {
-                        showDialogPhoneCopy(R.string.dialog_call, DialogInterface.OnClickListener { dialog, which ->
+                        showDialogPhoneCopy(
+                            R.string.dialog_call,
+                            DialogInterface.OnClickListener { dialog, which ->
                                 when (which) {
                                     DialogInterface.BUTTON_POSITIVE -> checkPermissionsCallPhone()
                                     DialogInterface.BUTTON_NEGATIVE -> checkPermissionsCallPhone()
                                 }
-                        })
+                            })
                     }
                 }
             }
@@ -100,6 +102,12 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
     override fun aboutFragment(localClick: EntityAvarkom) {
         supportFragmentManager
             .beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
             .addToBackStack(null)
             .add(R.id.main_activity_container, AboutFragment.newInstance(localClick))
             .commit()
