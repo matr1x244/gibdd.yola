@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229108232718",
+    "project_id": "gibdd-18ab0",
+    "storage_bucket": "gibdd-18ab0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229108232718:android:9a504b59dab2ccea85c25f",
+        "android_client_info": {
+          "package_name": "com.geekbrains.gibddyola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229108232718-4cbe2nchimgdivl3s33u0366gpij2bek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8T4CQa8r0dp78eDsLgxHCVnWqfJ5zung"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229108232718-4cbe2nchimgdivl3s33u0366gpij2bek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
