@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.geekbrains.gibddyola.R
@@ -48,14 +49,14 @@ class TwoStockFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             delay(5_00)
             withContext(Dispatchers.Main) {
-                val url =
-                    "https://a.mktgcdn.com/p/Tv0NlplCu9rrGz2vDjeTLFgPh17FuTKfbU_Ao00cNE8/1075x1613.jpg"
                 Glide.with(this@TwoStockFragment)
-                    .load(url)
+                    .load(POSTERS_TWO)
                     .centerInside()
                     .transform(RoundedCorners(10))
                     .transition(DrawableTransitionOptions.withCrossFade(2000))
                     .error(R.mipmap.no_internet)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
                     .into(binding.imageViewTwoStock)
             }
         }

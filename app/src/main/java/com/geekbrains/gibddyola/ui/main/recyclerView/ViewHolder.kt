@@ -27,7 +27,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: EntityAvarkom, listener: EntityAvarkom.() -> Unit) {
 
         Glide.with(binding.avatar)
-            .load(R.mipmap.profile)
+            .load(R.mipmap.profile_new)
             .transform(CircleCrop(), RoundedCorners(16))
             .transition(DrawableTransitionOptions.withCrossFade(2000))
             .into(binding.avatar)

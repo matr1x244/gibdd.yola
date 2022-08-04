@@ -15,11 +15,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.geekbrains.gibddyola.MainActivity
+import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.main.bottomNavigation.BottomNavigationDrawerFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.Adapters
+import com.geekbrains.gibddyola.ui.stock.POSTERS_TWO
+import kotlinx.coroutines.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
@@ -53,6 +60,20 @@ class MainFragment : Fragment() {
 
         initViews()
         initIncomingEvents()
+        banner()
+    }
+
+    private fun banner() {
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(5_00)
+            withContext(Dispatchers.Main) {
+                Glide.with(binding.imageViewMain)
+                    .load(R.mipmap.logo)
+                    .centerInside()
+                    .transform(RoundedCorners(15))
+                    .into(binding.imageViewMain)
+            }
+        }
     }
 
     private fun initViews() {

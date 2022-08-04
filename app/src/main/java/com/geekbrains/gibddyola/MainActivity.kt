@@ -2,11 +2,13 @@ package com.geekbrains.gibddyola
 
 import android.Manifest
 import android.animation.ObjectAnimator
-import android.content.DialogInterface
+import android.content.*
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
@@ -17,6 +19,7 @@ import com.geekbrains.gibddyola.domain.ControllerOpenFragment
 import com.geekbrains.gibddyola.domain.EntityAvarkom
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
+import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity(), ControllerOpenFragment {
@@ -31,10 +34,6 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                 .commitNow()
         }
         checkPermissionsCallPhone()
-
-        FirebaseMessaging.getInstance().token.addOnSuccessListener {
-            println("token: $it")
-        }
     }
 
     fun checkPermissionsCallPhone(): Boolean {
@@ -110,6 +109,10 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             .addToBackStack(null)
             .add(R.id.main_activity_container, AboutFragment.newInstance(localClick))
             .commit()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 }

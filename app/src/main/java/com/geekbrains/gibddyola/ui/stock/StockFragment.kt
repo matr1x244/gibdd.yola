@@ -14,6 +14,9 @@ import com.geekbrains.gibddyola.ui.stock.viewpager.ViewPagerAdapter
 import com.geekbrains.gibddyola.ui.stock.viewpager.ZoomOutPageTransformer
 import com.google.android.material.tabs.TabLayoutMediator
 
+const val POSTERS_ONE = "https://гибдд12.рф/img/photos/posters/1.jpg"
+const val POSTERS_TWO = "https://гибдд12.рф/img/photos/posters/2.jpg"
+
 class StockFragment : Fragment() {
 
     companion object {
@@ -56,6 +59,7 @@ class StockFragment : Fragment() {
         binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setIcon(R.drawable.ic_car_wash)
         binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setIcon(R.drawable.ic_car_wash)
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
