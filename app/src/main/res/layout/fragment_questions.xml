@@ -38,10 +38,9 @@
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="40dp"
             android:gravity="center"
-            android:text="ВОПРОС"
+            android:text="Вопрос"
             android:textColor="@color/white"
             android:textSize="20sp">
-
         </TextView>
 
         <ImageView

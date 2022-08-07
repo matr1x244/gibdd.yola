@@ -11,6 +11,8 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentTwoStockBinding
+import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes
+import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes.generateId
 import kotlinx.coroutines.*
 
 
@@ -58,6 +60,8 @@ class TwoStockFragment : Fragment() {
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
                     .into(binding.imageViewTwoStock)
+
+                binding.textviewPromoCodId.text = generateId()
             }
         }
     }

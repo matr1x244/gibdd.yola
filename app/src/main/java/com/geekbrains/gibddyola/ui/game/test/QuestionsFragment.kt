@@ -15,6 +15,8 @@ import com.geekbrains.gibddyola.data.LocalRepositoryGameImpl
 import com.geekbrains.gibddyola.databinding.FragmentQuestionsBinding
 
 import com.geekbrains.gibddyola.domain.game.Question
+import java.util.*
+import kotlin.collections.ArrayList
 
 var score = 0
 
@@ -49,6 +51,7 @@ class QuestionsFragment : Fragment() {
                 ?.add(R.id.container_questions_fragment, ResultsQuestionsFragment.newInstance())
                 ?.commitNow()
         }
+
 
         val allOptions = arrayListOf(
             binding.textviewAnswerOne,

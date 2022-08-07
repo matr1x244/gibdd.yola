@@ -23,7 +23,10 @@ import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.main.bottomNavigation.BottomNavigationDrawerFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.Adapters
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
@@ -85,6 +88,7 @@ class MainFragment : Fragment() {
             adapters.setData(it)
         }
     }
+
 
     private fun buttonPhone() {
         binding.buttonPhone.setOnClickListener {

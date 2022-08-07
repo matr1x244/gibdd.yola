@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.geekbrains.gibddyola.MainActivity
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentOneStockBinding
+import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes
+import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes.generateId
 import kotlinx.coroutines.*
 
 class OneStockFragment : Fragment() {
@@ -60,6 +60,8 @@ class OneStockFragment : Fragment() {
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
                     .into(binding.imageViewOneStock)
+
+                binding.textviewPromoCodId.text = generateId()
             }
         }
     }
