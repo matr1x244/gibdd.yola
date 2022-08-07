@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.domain
+package com.geekbrains.gibddyola.domain.employee
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

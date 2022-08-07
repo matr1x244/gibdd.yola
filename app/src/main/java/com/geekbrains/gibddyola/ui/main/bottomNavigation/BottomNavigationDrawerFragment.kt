@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.BottomNavigationLayoutBinding
+import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -33,9 +34,12 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
         binding.navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
-//                R.id.navigation_three -> {
-//                    startActivity(Intent(requireContext(), LayoutActivity::class.java))
-//                }
+                R.id.navigation_game_fragment -> {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .add(R.id.main_activity_container, QuestionsFragment.newInstance())
+                        .addToBackStack(null)
+                        .commit()
+                }
                 R.id.navigation_stock_fragment -> {
                     requireActivity().supportFragmentManager.beginTransaction()
                         .add(R.id.main_activity_container, StockFragment.newInstance())

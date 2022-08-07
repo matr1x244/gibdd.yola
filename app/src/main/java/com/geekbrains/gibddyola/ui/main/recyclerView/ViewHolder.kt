@@ -10,7 +10,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.RecyclerItemAvarkomBinding
-import com.geekbrains.gibddyola.domain.EntityAvarkom
+import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

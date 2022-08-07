@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAboutBinding
-import com.geekbrains.gibddyola.domain.EntityAvarkom
+import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 
 class AboutFragment : Fragment() {
 

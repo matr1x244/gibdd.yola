@@ -1,7 +1,7 @@
 package com.geekbrains.gibddyola.data
 
-import com.geekbrains.gibddyola.domain.EntityAvarkom
-import com.geekbrains.gibddyola.domain.Repository
+import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
+import com.geekbrains.gibddyola.domain.employee.Repository
 
 class LocalRepositoryImpl : Repository {
 

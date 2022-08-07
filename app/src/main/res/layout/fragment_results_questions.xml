@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container_fragment_results_questions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    android:orientation="vertical">
+
+    <com.geekbrains.gibddyola.utils.EquilateralImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/driver_license">
+
+    </com.geekbrains.gibddyola.utils.EquilateralImageView>
+
+    <TextView
+        android:id="@+id/textview_name_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:gravity="center"
+        android:text="Результат тестирования ПДД"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/textview_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:alpha="0.7"
+        android:gravity="center"
+        android:text="Количество правильных ответов: Х/200"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"></TextView>
+
+    <Button
+        android:id="@+id/btn_reload_game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/white"
+        android:text="Пройти тест еще раз"
+        android:textColor="#975AFF"
+        android:textSize="15sp">
+
+    </Button>
+
+</LinearLayout>

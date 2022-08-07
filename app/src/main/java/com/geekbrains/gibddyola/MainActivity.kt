@@ -4,23 +4,19 @@ import android.Manifest
 import android.animation.ObjectAnimator
 import android.content.*
 import android.content.pm.PackageManager
-import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.geekbrains.gibddyola.domain.ControllerOpenFragment
-import com.geekbrains.gibddyola.domain.EntityAvarkom
+import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
+import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
-import com.geekbrains.gibddyola.ui.stock.StockFragment
-import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
@@ -30,7 +26,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.main_activity_container, MainFragment.newInstance())
+                .replace(R.id.main_activity_container, MainFragment.newInstance())
                 .commitNow()
         }
         checkPermissionsCallPhone()

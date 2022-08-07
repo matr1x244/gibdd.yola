@@ -3,7 +3,7 @@ package com.geekbrains.gibddyola.ui.main.recyclerView
 import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.geekbrains.gibddyola.domain.EntityAvarkom
+import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 
 class Adapters(private val itemClick: (EntityAvarkom) -> Unit) :
     RecyclerView.Adapter<ViewHolder>() {
