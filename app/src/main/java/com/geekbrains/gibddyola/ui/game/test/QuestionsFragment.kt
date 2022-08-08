@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.LocalRepositoryGameImpl
+import com.geekbrains.gibddyola.data.LocalRepositoryGameImplNew
 import com.geekbrains.gibddyola.databinding.FragmentQuestionsBinding
 
 import com.geekbrains.gibddyola.domain.game.Question
@@ -60,6 +61,8 @@ class QuestionsFragment : Fragment() {
             binding.textviewAnswerFour
         )
         val questions: ArrayList<Question> = LocalRepositoryGameImpl().getQuestions()
+        val questionsNew = LocalRepositoryGameImplNew().getQuestions()
+        val questionNew = questionsNew[currentQuestionId]
 
         //        следующий вопрос
         fun changeQuestion() {
@@ -70,6 +73,7 @@ class QuestionsFragment : Fragment() {
             currentQuestionId += 1
 
             val question = questions[currentQuestionId]
+
 
             binding.textviewTittle.text = question.text
 
@@ -82,11 +86,11 @@ class QuestionsFragment : Fragment() {
 
             binding.progressBar.progress = currentQuestionId
 
-            binding.textviewAnswerOne.text = question.answer1
-            binding.textviewAnswerTwo.text = question.answer2
-            binding.textviewAnswerThree.text = question.answer3
+            binding.textviewAnswerOne.text = questionNew.answer[0].first
+            binding.textviewAnswerTwo.text = questionNew.answer[1].first
+            binding.textviewAnswerThree.text = questionNew.answer[2].first
             if (question.answer4 != null) {
-                binding.textviewAnswerFour.text = question.answer4
+                binding.textviewAnswerFour.text = questionNew.answer[3].first
             } else {
                 binding.textviewAnswerFour.visibility = View.INVISIBLE
             }
@@ -124,6 +128,26 @@ class QuestionsFragment : Fragment() {
          * тут логика правильных ответов
          * containsKey - значение boolean
          */
+        var selectedAnswerId = -1
+        var userAnswer = false
+        binding.textviewAnswerOne.setOnClickListener {
+            if (selectedAnswerId < 0) userAnswer = questionNew.answer[0].second
+        }
+        binding.textviewAnswerTwo.setOnClickListener {
+            if (selectedAnswerId < 0) userAnswer = questionNew.answer[1].second
+        }
+        binding.textviewAnswerThree.setOnClickListener {
+            if (selectedAnswerId < 0) userAnswer = questionNew.answer[2].second
+        }
+        binding.textviewAnswerFour.setOnClickListener {
+            if (selectedAnswerId < 0) userAnswer = questionNew.answer[3].second
+        }
+        binding.btnAnswerNext.setOnClickListener {
+//            if (userAnswer)
+        }
+
+
+
         binding.btnAnswerNext.setOnClickListener {
             if (selectedAnswers.containsKey(currentQuestionId)) {
                 // If this is the last question, calculate score
