@@ -50,7 +50,7 @@ class AboutFragment : Fragment() {
 //            error(R.drawable.ic_video)
 //            scale(Scale.FILL)}
 
-        binding.avatar.setImageResource(R.mipmap.profile)
+        binding.avatar.setImageResource(R.mipmap.profile_new)
         binding.itemTextName.text = about?.textName
         binding.itemTextAbout.text = about?.textAbout
     }
