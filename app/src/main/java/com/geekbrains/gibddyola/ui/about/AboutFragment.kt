@@ -50,6 +50,7 @@ class AboutFragment : Fragment() {
 
         Glide.with(binding.avatar)
             .load(about?.avatar)
+            .transform(RoundedCorners(10))
             .into(binding.avatar)
 
         binding.itemTextName.text = about?.textName
