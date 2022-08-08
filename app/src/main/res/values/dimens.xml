@@ -12,4 +12,6 @@
     <dimen name="dp90">90dp</dimen>
     <dimen name="dp32">32dp</dimen>
     <dimen name="dp26">26dp</dimen>
+    <dimen name="dp0">0dp</dimen>
+    <dimen name="dp7">7dp</dimen>
 </resources>

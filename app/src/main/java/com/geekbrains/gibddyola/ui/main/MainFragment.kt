@@ -102,7 +102,6 @@ class MainFragment : Fragment() {
         }
     }
 
-
     fun recyclerViewMain() {
         binding.recyclerViewListAvarkom.layoutManager = LinearLayoutManager(context)
         adapters.setHasStableIds(true)
@@ -134,7 +133,7 @@ class MainFragment : Fragment() {
                 //анимация переходы
                 R.anim.slide_in,
                 R.anim.slide_out
-            ).add(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
+            ).add(R.id.fragment_main_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.optionOneContainer.setOnClickListener {
@@ -148,7 +147,6 @@ class MainFragment : Fragment() {
     }
 
     private fun rotateFab() {
-
         var flag = false
         val duration = 1000L
 

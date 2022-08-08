@@ -21,8 +21,6 @@ class OneStockFragment : Fragment() {
     val binding: FragmentOneStockBinding
         get() = _binding!!
 
-    val url = "https://гибдд12.рф/img/photos/posters/1.jpg"
-
     companion object {
         @JvmStatic
         fun newInstance() = OneStockFragment()
