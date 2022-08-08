@@ -80,9 +80,9 @@ class MainFragment : Fragment() {
     private fun initViews() {
         recyclerViewMain()
         textEditTitle()
-        buttonPhone()
         rotateFab()
-        nextFragment()
+        nextFragmentOpen()
+        buttonPhone()
         viewModel.onShowListAvarkom()
     }
 
@@ -128,13 +128,13 @@ class MainFragment : Fragment() {
         binding.textHello.text = spannableStringBuilder
     }
 
-    private fun nextFragment() {
+    private fun nextFragmentOpen() {
         binding.optionTwoContainer.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
                 R.anim.slide_out
-            ).add(R.id.fragment_main_container, StockFragment.newInstance()).addToBackStack("")
+            ).add(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.optionOneContainer.setOnClickListener {
@@ -155,7 +155,7 @@ class MainFragment : Fragment() {
         binding.btnFabMain.setOnClickListener {
             flag = !flag
             if (flag) {
-                ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 405f)
+                ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 505f)
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
                     .setDuration(duration).start()
@@ -163,8 +163,8 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
 
                 binding.optionOneContainer.animate()
-                    .alpha(10f)
-                    .setDuration(duration * 4)
+                    .alpha(0.8f)
+                    .setDuration(duration * 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -172,8 +172,8 @@ class MainFragment : Fragment() {
                         }
                     })
                 binding.optionTwoContainer.animate()
-                    .alpha(10f)
-                    .setDuration(duration * 4)
+                    .alpha(0.8f)
+                    .setDuration(duration * 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -182,8 +182,7 @@ class MainFragment : Fragment() {
                     })
 
                 binding.transparentBackground.animate()
-                    .alpha(1.0f)
-                    .setDuration(duration)
+                    .alpha(1.0f).duration = duration
             } else {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                     .setDuration(duration).start()
@@ -211,12 +210,10 @@ class MainFragment : Fragment() {
                         }
                     })
                 binding.transparentBackground.animate()
-                    .alpha(0f)
-                    .setDuration(duration)
+                    .alpha(0f).duration = duration
             }
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

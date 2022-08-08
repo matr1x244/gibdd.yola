@@ -32,14 +32,6 @@
             </intent-filter>
         </activity>
 
-<!--        <activity-->
-<!--            android:name=".ui.game.test.QuestionsActivity">-->
-<!--        </activity>-->
-
-<!--        <activity-->
-<!--            android:name=".ui.game.test.ResultsActivity">-->
-<!--        </activity>-->
-
         <service
             android:name=".utils.MessagingServicePush"
             android:exported="true">
