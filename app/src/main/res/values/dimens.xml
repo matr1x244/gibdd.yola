@@ -8,4 +8,8 @@
     <dimen name="dp10">10dp</dimen>
     <dimen name="title_text_20sp">20sp</dimen>
     <dimen name="layout_margin_10dp">10dp</dimen>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp90">90dp</dimen>
+    <dimen name="dp32">32dp</dimen>
+    <dimen name="dp26">26dp</dimen>
 </resources>

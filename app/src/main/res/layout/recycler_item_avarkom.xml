@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container_item_list_avarkom_recycler"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -26,10 +25,11 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/avatar"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="@dimen/dp90"
+                    android:layout_height="@dimen/dp90"
                     android:layout_gravity="center_horizontal"
                     android:cropToPadding="true"
+                    android:padding="@dimen/dp1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -38,8 +38,8 @@
                     android:id="@+id/item_text_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp10"
                     android:layout_marginTop="@dimen/layout_margin_10dp"
-                    android:layout_margin="10dp"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:paddingStart="@dimen/dp5"
@@ -52,12 +52,11 @@
                     android:id="@+id/item_text_small_about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginBottom="16dp"
-                    android:maxLength="30"
-                    android:singleLine="true"
+                    android:layout_margin="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp16"
                     android:ellipsize="end"
                     android:paddingStart="@dimen/dp5"
+                    android:singleLine="true"
                     android:text="@string/item_text_about"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/avatar"

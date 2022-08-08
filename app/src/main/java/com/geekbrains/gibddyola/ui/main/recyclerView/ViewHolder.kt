@@ -1,6 +1,5 @@
 package com.geekbrains.gibddyola.ui.main.recyclerView
 
-import android.graphics.drawable.RotateDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,13 +27,13 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: EntityAvarkom, listener: EntityAvarkom.() -> Unit) {
 
         Glide.with(binding.avatar)
-            .load(R.mipmap.av_al)
+            .load(item.avatar)
             .transform(CircleCrop(), RoundedCorners(16))
             .transition(DrawableTransitionOptions.withCrossFade(2000))
             .into(binding.avatar)
 
         binding.itemTextName.text = item.textName
-        binding.itemTextSmallAbout.text = item.textRaiting
+        binding.itemTextSmallAbout.text = item.textJobYear
         binding.root.setOnClickListener {
             listener.invoke(item)
         }

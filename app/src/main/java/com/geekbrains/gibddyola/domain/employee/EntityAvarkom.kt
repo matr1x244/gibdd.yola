@@ -8,6 +8,6 @@ data class EntityAvarkom(
     val idAvarkom: Int,
     val textName: String,
     val textAbout: String,
-    val textRaiting: String,
+    val textJobYear: String,
     val avatar: Int?
 ) : Parcelable

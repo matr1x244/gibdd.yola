@@ -50,7 +50,7 @@
             android:layout_gravity="center"
             android:contentDescription="image"
             android:padding="5dp"
-            android:src="@mipmap/test"/>
+            android:src="@mipmap/photo"/>
 
         <!-- Option 1 & 2 -->
 

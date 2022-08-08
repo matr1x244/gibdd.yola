@@ -14,7 +14,8 @@
         android:padding="@dimen/dp5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/logo" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_hello"
@@ -32,9 +33,9 @@
         android:id="@+id/button_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/call_phone_avarkom"
-        android:backgroundTint="@color/light_blue_500"
         android:layout_margin="@dimen/dp5"
+        android:backgroundTint="@color/light_blue_500"
+        android:text="@string/call_phone_avarkom"
         app:cornerRadius="@dimen/dp10"
         app:icon="@android:drawable/stat_sys_phone_call"
         app:iconGravity="start"
@@ -51,19 +52,101 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_phone"
-        app:layout_constraintVertical_bias="0.020" />
+        app:layout_constraintTop_toBottomOf="@+id/button_phone" />
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_app_bar"
-        style="@style/myBottomAppBarStyle"
+    <FrameLayout
+        android:id="@+id/transparent_background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:animateLayoutChanges="true"
+        android:background="@color/white"
+        android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar"
-        tools:ignore="BottomAppBar" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/option_one_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:alpha="0"
+            android:clickable="false"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/dp32"
+            android:paddingBottom="@dimen/dp32">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp5"
+                android:text="@string/game"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_game" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/option_two_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:alpha="0"
+            android:clickable="false"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/dp32"
+            android:paddingBottom="@dimen/dp32">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp5"
+                android:text="@string/sell"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                app:srcCompat="@drawable/ic_stock" />
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_fab_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/dp16"
+            android:layout_marginBottom="@dimen/dp16"
+            android:elevation="@dimen/dp5" />
+
+        <ImageView
+            android:id="@+id/fab_main_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/dp26"
+            android:layout_marginBottom="@dimen/dp26"
+            android:elevation="@dimen/dp10"
+            app:srcCompat="@drawable/ic_steering" />
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

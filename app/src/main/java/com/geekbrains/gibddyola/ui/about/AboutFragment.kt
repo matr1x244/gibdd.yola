@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAboutBinding
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
@@ -44,15 +48,13 @@ class AboutFragment : Fragment() {
     private fun detailAbout() {
         val about = detailAboutArguments()
 
-//        val url_path_posters_adapter = "https://st.kp.yandex.net/images/film_big/${films.id}.jpg"
-//        itemPoster.load(url_path_posters_adapter) {
-//            precision(Precision.EXACT)
-//            error(R.drawable.ic_video)
-//            scale(Scale.FILL)}
+        Glide.with(binding.avatar)
+            .load(about?.avatar)
+            .into(binding.avatar)
 
-        binding.avatar.setImageResource(R.mipmap.profile_new)
         binding.itemTextName.text = about?.textName
-        binding.itemTextAbout.text = about?.textAbout
+        binding.itemTextJobYear.text = about?.textJobYear
+        binding.itemTextBio.text = about?.textAbout
     }
 
     private fun detailAboutArguments(): EntityAvarkom? {

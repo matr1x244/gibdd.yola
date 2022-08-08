@@ -6,4 +6,7 @@
     <string name="item_text_raiting">Рейтинг аваркома</string>
     <string name="call_phone_avarkom">Вызвать аварийного комиссара</string>
     <string name="dialog_call">Разрешите приложению, совершать звонок</string>
+    <string name="item_text_bio">Биография</string>
+    <string name="sell">Скидки %</string>
+    <string name="game">Мини-игра ПДД</string>
 </resources>
