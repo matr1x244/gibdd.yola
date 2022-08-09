@@ -22,6 +22,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
+import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.Adapters
 import com.geekbrains.gibddyola.ui.stock.StockFragment
@@ -148,6 +149,27 @@ class MainFragment : Fragment() {
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
+//        binding.optionThreeContainer.setOnClickListener {
+//            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+//                //анимация переходы
+//                R.anim.slide_in,
+//                R.anim.fade_out,
+//                R.anim.fade_in,
+//                R.anim.slide_out
+//            ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
+//                .commit()
+//        }
+        binding.optionFourContainer.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                //анимация переходы
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
+                .addToBackStack("")
+                .commit()
+        }
     }
 
     private fun rotateFab() {
@@ -163,9 +185,15 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -20f, -130f)
                     .setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionThreeContainer, View.TRANSLATION_Y, -80f, -390f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionFourContainer, View.TRANSLATION_Y, -110f, -520f)
+                    .setDuration(duration).start()
                 /*макет доступность*/
                 binding.optionOneContainer.visibility = View.VISIBLE
                 binding.optionTwoContainer.visibility = View.VISIBLE
+                binding.optionThreeContainer.visibility = View.VISIBLE
+                binding.optionFourContainer.visibility = View.VISIBLE
                 binding.transparentBackground.isClickable = true
 
                 binding.optionOneContainer.animate()
@@ -184,7 +212,22 @@ class MainFragment : Fragment() {
                             super.onAnimationEnd(animation)
                         }
                     })
-
+                binding.optionThreeContainer.animate()
+                    .alpha(0.8f)
+                    .setDuration(duration * 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
+                binding.optionFourContainer.animate()
+                    .alpha(0.8f)
+                    .setDuration(duration * 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
                 binding.transparentBackground.animate()
                     .alpha(1.0f).duration = duration
             } else {
@@ -194,8 +237,19 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -130f, -20f)
                     .setDuration(duration).start()
+                ObjectAnimator.ofFloat(
+                    binding.optionThreeContainer,
+                    View.TRANSLATION_Y,
+                    -390f,
+                    -80f
+                )
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionFourContainer, View.TRANSLATION_Y, -520f, -110f)
+                    .setDuration(duration).start()
                 binding.optionOneContainer.visibility = View.INVISIBLE
                 binding.optionTwoContainer.visibility = View.INVISIBLE
+                binding.optionThreeContainer.visibility = View.INVISIBLE
+                binding.optionFourContainer.visibility = View.INVISIBLE
                 binding.transparentBackground.isClickable = false
 
                 binding.optionOneContainer.animate()
@@ -207,6 +261,22 @@ class MainFragment : Fragment() {
                         }
                     })
                 binding.optionTwoContainer.animate()
+                    .alpha(0f)
+                    .setDuration(duration / 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
+                binding.optionThreeContainer.animate()
+                    .alpha(0f)
+                    .setDuration(duration / 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
+                binding.optionFourContainer.animate()
                     .alpha(0f)
                     .setDuration(duration / 2)
                     .setListener(object : AnimatorListenerAdapter() {

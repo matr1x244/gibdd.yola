@@ -8,14 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentStockBinding
-import com.geekbrains.gibddyola.ui.stock.viewpager.ONE_STOCK_KEY
-import com.geekbrains.gibddyola.ui.stock.viewpager.TWO_STOCK_KEY
-import com.geekbrains.gibddyola.ui.stock.viewpager.ViewPagerAdapter
-import com.geekbrains.gibddyola.ui.stock.viewpager.ZoomOutPageTransformer
+import com.geekbrains.gibddyola.ui.stock.viewpager.*
 import com.google.android.material.tabs.TabLayoutMediator
 
 const val POSTERS_ONE = "https://гибдд12.рф/img/photos/posters/1.jpg"
 const val POSTERS_TWO = "https://гибдд12.рф/img/photos/posters/2.jpg"
+const val POSTERS_THREE = "https://гибдд12.рф/img/photos/posters/3.jpg"
 
 class StockFragment : Fragment() {
 
@@ -52,12 +50,14 @@ class StockFragment : Fragment() {
             tab.text = when (position) {
                 ONE_STOCK_KEY -> "Скидка № 1"
                 TWO_STOCK_KEY -> "Скидка № 2"
+                THREE_STOCK_KEY -> "Скидка № 3"
                 else -> "Скидка № 1"
             }
         }.attach()
 
-        binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setIcon(R.drawable.ic_car_wash)
-        binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setIcon(R.drawable.ic_car_wash)
+        binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
+        binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
+        binding.tabLayout.getTabAt(THREE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
     }
 
 
