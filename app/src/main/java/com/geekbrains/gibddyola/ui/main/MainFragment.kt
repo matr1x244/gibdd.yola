@@ -133,7 +133,7 @@ class MainFragment : Fragment() {
                 //анимация переходы
                 R.anim.slide_in,
                 R.anim.slide_out
-            ).add(R.id.fragment_main_container, StockFragment.newInstance()).addToBackStack("")
+            ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.optionOneContainer.setOnClickListener {
@@ -141,7 +141,7 @@ class MainFragment : Fragment() {
                 //анимация переходы
                 R.anim.slide_in,
                 R.anim.slide_out
-            ).add(R.id.fragment_main_container, QuestionsFragment.newInstance()).addToBackStack("")
+            ).add(R.id.main_activity_container, QuestionsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
     }
@@ -166,7 +166,7 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-                            binding.optionOneContainer.isClickable = true
+                            binding.optionOneContainer.isClickable = false
                         }
                     })
                 binding.optionTwoContainer.animate()
@@ -175,7 +175,7 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-                            binding.optionTwoContainer.isClickable = true
+                            binding.optionTwoContainer.isClickable = false
                         }
                     })
 

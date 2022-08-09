@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_activity_container, MainFragment.newInstance())
+                .add(R.id.main_activity_container, MainFragment.newInstance())
                 .commitNow()
         }
         checkPermissionsCallPhone()
@@ -102,8 +102,8 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(R.anim.slide_in, R.anim.slide_out)
-            .addToBackStack(null)
             .add(R.id.main_activity_container, AboutFragment.newInstance(localClick))
+            .addToBackStack("")
             .commit()
     }
 
