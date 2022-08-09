@@ -68,7 +68,7 @@
         android:layout_height="match_parent"
         android:alpha="0"
         android:animateLayoutChanges="true"
-        android:background="@color/yellow"
+        android:background="@color/white"
         android:clickable="false"
         android:foregroundGravity="right"
         app:layout_constraintCircleRadius="@dimen/dp26"
@@ -78,17 +78,16 @@
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/option_one_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="bottom"
             android:alpha="0"
             android:visibility="invisible"
             android:orientation="horizontal"
@@ -98,23 +97,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/dp5"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/dp26"
                 android:text="@string/game"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
                 app:srcCompat="@drawable/ic_game" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/option_two_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="bottom"
             android:alpha="0"
             android:visibility="invisible"
             android:orientation="horizontal"
@@ -124,17 +124,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/dp5"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/dp26"
                 android:text="@string/sell"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
+                android:layout_alignParentEnd="true"
                 app:srcCompat="@drawable/ic_stock" />
-        </LinearLayout>
+        </RelativeLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_fab_main"

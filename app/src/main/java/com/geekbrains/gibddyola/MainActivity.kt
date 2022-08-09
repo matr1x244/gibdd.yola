@@ -102,7 +102,11 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
     override fun aboutFragment(localClick: EntityAvarkom) {
         supportFragmentManager
             .beginTransaction()
-            .setCustomAnimations(R.anim.slide_in, R.anim.slide_out)
+            .setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out)
             .replace(R.id.main_activity_container, AboutFragment.newInstance(localClick))
             .addToBackStack("")
             .commit()
