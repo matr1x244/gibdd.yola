@@ -61,18 +61,17 @@
 
     </LinearLayout>
 
+<!--    макет с белым фоном -->
     <FrameLayout
         android:id="@+id/transparent_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
         android:alpha="0"
         android:animateLayoutChanges="true"
-        android:background="@color/white"
+        android:background="@color/yellow"
         android:clickable="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintCircleRadius="@dimen/dp26"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <FrameLayout
         android:id="@+id/frame_layout"
@@ -90,7 +89,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:alpha="0"
-            android:clickable="false"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
             android:paddingBottom="@dimen/dp32">
@@ -116,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:alpha="0"
-            android:clickable="false"
+            android:visibility="visible" <!--VISIBILITY-->
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
             android:paddingBottom="@dimen/dp32">

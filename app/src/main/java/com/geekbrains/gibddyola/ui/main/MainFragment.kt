@@ -165,7 +165,7 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-                            binding.optionOneContainer.isClickable = false
+                            binding.optionOneContainer.isClickable = true
                         }
                     })
                 binding.optionTwoContainer.animate()
@@ -174,7 +174,7 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-                            binding.optionTwoContainer.isClickable = false
+                            binding.optionTwoContainer.isClickable = true
                         }
                     })
 
@@ -195,6 +195,9 @@ class MainFragment : Fragment() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
                             binding.optionOneContainer.isClickable = false
+
+                            // visibility CONTEINER делать?
+                            binding.optionOneContainer.visibility = View.INVISIBLE
                         }
                     })
                 binding.optionTwoContainer.animate()
