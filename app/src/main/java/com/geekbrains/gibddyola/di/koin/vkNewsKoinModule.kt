@@ -28,4 +28,6 @@ val vkWallNewsModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+
 }

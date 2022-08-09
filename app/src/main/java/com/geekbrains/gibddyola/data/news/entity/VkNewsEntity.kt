@@ -1,6 +1,6 @@
 package com.geekbrains.gibddyola.data.news.entity
 
-data class VkWallNewsEntity(
+data class VkNewsEntity(
     val response: Response
 ) {
     data class Response(
