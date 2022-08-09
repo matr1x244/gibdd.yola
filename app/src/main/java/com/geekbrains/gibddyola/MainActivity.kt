@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(R.anim.slide_in, R.anim.slide_out)
-            .add(R.id.main_activity_container, AboutFragment.newInstance(localClick))
+            .replace(R.id.main_activity_container, AboutFragment.newInstance(localClick))
             .addToBackStack("")
             .commit()
     }
