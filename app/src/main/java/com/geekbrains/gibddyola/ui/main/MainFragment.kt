@@ -104,7 +104,6 @@ class MainFragment : Fragment() {
 
     fun recyclerViewMain() {
         binding.recyclerViewListAvarkom.layoutManager = LinearLayoutManager(context)
-        adapters.setHasStableIds(true)
         binding.recyclerViewListAvarkom.adapter = adapters
     }
 
@@ -141,7 +140,7 @@ class MainFragment : Fragment() {
                 //анимация переходы
                 R.anim.slide_in,
                 R.anim.slide_out
-            ).add(R.id.main_activity_container, QuestionsFragment.newInstance()).addToBackStack("")
+            ).replace(R.id.main_activity_container, QuestionsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
     }

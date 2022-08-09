@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         permissions: Array<String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             1 -> {
                 val perms = HashMap<String, Int>()
