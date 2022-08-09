@@ -61,7 +61,6 @@
 
     </LinearLayout>
 
-<!--    макет с белым фоном -->
     <FrameLayout
         android:id="@+id/transparent_background"
         android:layout_width="match_parent"
@@ -69,10 +68,9 @@
         android:alpha="0"
         android:animateLayoutChanges="true"
         android:background="@color/white"
-        android:clickable="false"
         android:foregroundGravity="right"
-        app:layout_constraintCircleRadius="@dimen/dp26"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="@dimen/dp26" />
 
     <FrameLayout
         android:id="@+id/frame_layout"
@@ -89,19 +87,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:alpha="0"
-            android:visibility="invisible"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
-            android:paddingBottom="@dimen/dp32">
+            android:paddingBottom="@dimen/dp32"
+            android:visibility="invisible">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="@dimen/dp26"
                 android:text="@string/game"
-                android:textStyle="bold"
-                android:layout_alignParentEnd="true"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -116,19 +114,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:alpha="0"
-            android:visibility="invisible"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
-            android:paddingBottom="@dimen/dp32">
+            android:paddingBottom="@dimen/dp32"
+            android:visibility="invisible">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="@dimen/dp26"
                 android:text="@string/sell"
-                android:textStyle="bold"
-                android:layout_alignParentEnd="true"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"

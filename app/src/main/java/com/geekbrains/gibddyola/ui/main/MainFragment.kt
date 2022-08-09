@@ -166,6 +166,7 @@ class MainFragment : Fragment() {
                 /*макет доступность*/
                 binding.optionOneContainer.visibility = View.VISIBLE
                 binding.optionTwoContainer.visibility = View.VISIBLE
+                binding.transparentBackground.isClickable = true
 
                 binding.optionOneContainer.animate()
                     .alpha(0.8f)
@@ -173,7 +174,6 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-//                            binding.optionOneContainer.isClickable = true
                         }
                     })
                 binding.optionTwoContainer.animate()
@@ -182,7 +182,6 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-//                            binding.optionTwoContainer.isClickable = true
                         }
                     })
 
@@ -197,6 +196,7 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
                 binding.optionOneContainer.visibility = View.INVISIBLE
                 binding.optionTwoContainer.visibility = View.INVISIBLE
+                binding.transparentBackground.isClickable = false
 
                 binding.optionOneContainer.animate()
                     .alpha(0f)
@@ -204,7 +204,6 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-//                            binding.optionOneContainer.isClickable = false
                         }
                     })
                 binding.optionTwoContainer.animate()
@@ -213,7 +212,6 @@ class MainFragment : Fragment() {
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-//                            binding.optionTwoContainer.isClickable = false
                         }
                     })
                 binding.transparentBackground.animate()
