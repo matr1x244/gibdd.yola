@@ -102,12 +102,12 @@ class MainFragment : Fragment() {
         }
     }
 
-    fun recyclerViewMain() {
+    private fun recyclerViewMain() {
         binding.recyclerViewListAvarkom.layoutManager = LinearLayoutManager(context)
         binding.recyclerViewListAvarkom.adapter = adapters
     }
 
-    fun textEditTitle() {
+    private fun textEditTitle() {
         val textTitle = binding.textHello.text
         val spannableStringBuilder = SpannableStringBuilder(textTitle)
         val red = ForegroundColorSpan(Color.RED)
