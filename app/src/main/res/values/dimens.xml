@@ -14,4 +14,5 @@
     <dimen name="dp26">26dp</dimen>
     <dimen name="dp0">0dp</dimen>
     <dimen name="dp7">7dp</dimen>
+    <dimen name="vk_news_item_height">100dp</dimen>
 </resources>
