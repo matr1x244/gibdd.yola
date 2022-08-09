@@ -127,20 +127,20 @@ class MainFragment : Fragment() {
     }
 
     private fun nextFragmentOpen() {
-        binding.optionTwoContainer.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                //анимация переходы
-                R.anim.slide_in,
-                R.anim.slide_out
-            ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
-                .commit()
-        }
         binding.optionOneContainer.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
                 R.anim.slide_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance()).addToBackStack("")
+                .commit()
+        }
+        binding.optionTwoContainer.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                //анимация переходы
+                R.anim.slide_in,
+                R.anim.slide_out
+            ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
     }
@@ -158,6 +158,9 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -20f, -130f)
                     .setDuration(duration).start()
+                /*макет доступность*/
+                binding.optionOneContainer.visibility = View.VISIBLE
+                binding.optionTwoContainer.visibility = View.VISIBLE
 
                 binding.optionOneContainer.animate()
                     .alpha(0.8f)
@@ -197,7 +200,7 @@ class MainFragment : Fragment() {
                             binding.optionOneContainer.isClickable = false
 
                             // visibility CONTEINER делать?
-                            binding.optionOneContainer.visibility = View.INVISIBLE
+//                            binding.optionOneContainer.visibility = View.INVISIBLE
                         }
                     })
                 binding.optionTwoContainer.animate()

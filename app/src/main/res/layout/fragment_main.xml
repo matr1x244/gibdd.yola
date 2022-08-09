@@ -88,7 +88,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:alpha="0"
+            android:alpha="1"
+            android:visibility="invisible"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
             android:paddingBottom="@dimen/dp32">
@@ -113,8 +114,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:alpha="0"
-            android:visibility="visible" <!--VISIBILITY-->
+            android:alpha="1"
+            android:visibility="invisible"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
             android:paddingBottom="@dimen/dp32">
