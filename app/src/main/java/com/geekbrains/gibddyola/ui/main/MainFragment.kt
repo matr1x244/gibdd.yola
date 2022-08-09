@@ -131,6 +131,8 @@ class MainFragment : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
                 R.anim.slide_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance()).addToBackStack("")
                 .commit()
@@ -139,6 +141,8 @@ class MainFragment : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
                 R.anim.slide_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
@@ -198,9 +202,6 @@ class MainFragment : Fragment() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
                             binding.optionOneContainer.isClickable = false
-
-                            // visibility CONTEINER делать?
-//                            binding.optionOneContainer.visibility = View.INVISIBLE
                         }
                     })
                 binding.optionTwoContainer.animate()

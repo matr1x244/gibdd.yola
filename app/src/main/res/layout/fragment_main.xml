@@ -65,11 +65,12 @@
     <FrameLayout
         android:id="@+id/transparent_background"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:alpha="0"
         android:animateLayoutChanges="true"
         android:background="@color/yellow"
         android:clickable="false"
+        android:foregroundGravity="right"
         app:layout_constraintCircleRadius="@dimen/dp26"
         app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -85,10 +86,10 @@
 
         <LinearLayout
             android:id="@+id/option_one_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:alpha="1"
+            android:alpha="0"
             android:visibility="invisible"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
@@ -111,10 +112,10 @@
 
         <LinearLayout
             android:id="@+id/option_two_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:alpha="1"
+            android:alpha="0"
             android:visibility="invisible"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
