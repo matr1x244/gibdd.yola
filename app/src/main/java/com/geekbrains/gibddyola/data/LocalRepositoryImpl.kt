@@ -46,7 +46,7 @@ class LocalRepositoryImpl : Repository {
                 "$yearJob 2003 года",
                 R.mipmap.av_aya
             )
-        ).shuffled()
+        )
     }
 
 }

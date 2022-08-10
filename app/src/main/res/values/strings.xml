@@ -9,4 +9,14 @@
     <string name="item_text_bio">Биография</string>
     <string name="sell">Скидки %</string>
     <string name="game">Мини-игра ПДД</string>
+    <string name="news">Новости</string>
+    <string name="company">О компании</string>
+    <string name="item_tittle_company">Свяжитесь с нами</string>
+    <string name="item_contact_call">Контакты для связи</string>
+    <string name="item_contact_call_about">+7 (8362) 709–709</string>
+    <string name="item_contact_adress">Адрес подразделения</string>
+    <string name="item_contact_contact_about">ул. Красноармейская, 84а, офис 2 Йошкар-ола, 424000, Россия</string>
+    <string name="item_contact_work_time">Часы работы канцелярии</string>
+    <string name="item_contact_time">ПН–ПТ: 09:00–18:00 СБ-ВС: Выходной</string>
+    <string name="company_face">ИП Ковалёва Ю.С. инн 121524178574 огрнип 316121500063612 г. Йошкар-Ола, ул.Красноармейская, д.84а, офис 2.</string>
 </resources>

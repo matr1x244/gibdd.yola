@@ -5,6 +5,7 @@
     android:id="@+id/fragment_main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/dp5"
     android:orientation="vertical"
     tools:context=".ui.main.MainFragment">
 
@@ -41,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp5"
-            android:backgroundTint="@color/light_blue_500"
+            android:backgroundTint="@color/light_blue_300"
             android:text="@string/call_phone_avarkom"
             app:cornerRadius="@dimen/dp10"
             app:icon="@android:drawable/stat_sys_phone_call"
@@ -61,79 +62,137 @@
 
     </LinearLayout>
 
-<!--    макет с белым фоном -->
     <FrameLayout
         android:id="@+id/transparent_background"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:alpha="0"
         android:animateLayoutChanges="true"
-        android:background="@color/yellow"
-        android:clickable="false"
-        app:layout_constraintCircleRadius="@dimen/dp26"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:background="@color/white"
+        android:foregroundGravity="right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="@dimen/dp26" />
 
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/option_one_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:alpha="1"
-            android:visibility="invisible"
+            android:layout_gravity="bottom"
+            android:alpha="0"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
-            android:paddingBottom="@dimen/dp32">
+            android:paddingBottom="@dimen/dp32"
+            android:visibility="invisible">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/dp5"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/dp26"
+                android:padding="@dimen/dp5"
                 android:text="@string/game"
                 android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
                 app:srcCompat="@drawable/ic_game" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/option_two_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:alpha="1"
-            android:visibility="invisible"
+            android:layout_gravity="bottom"
+            android:alpha="0"
             android:orientation="horizontal"
             android:paddingEnd="@dimen/dp32"
-            android:paddingBottom="@dimen/dp32">
+            android:paddingBottom="@dimen/dp32"
+            android:visibility="invisible">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/dp5"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/dp26"
+                android:padding="@dimen/dp5"
                 android:text="@string/sell"
                 android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
+                android:layout_alignParentEnd="true"
                 app:srcCompat="@drawable/ic_stock" />
-        </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/option_three_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:alpha="0"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/dp32"
+            android:paddingBottom="@dimen/dp32"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/dp26"
+                android:padding="@dimen/dp5"
+                android:text="@string/news"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/ic_news" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/option_four_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:alpha="0"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/dp32"
+            android:paddingBottom="@dimen/dp32"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/dp26"
+                android:padding="@dimen/dp5"
+                android:text="@string/company"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/ic_company" />
+        </RelativeLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_fab_main"
@@ -142,7 +201,8 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/dp16"
             android:layout_marginBottom="@dimen/dp16"
-            android:elevation="@dimen/dp5" />
+            android:elevation="@dimen/dp5"
+            android:backgroundTint="@color/light_blue_200"/>
 
         <ImageView
             android:id="@+id/fab_main_image"
