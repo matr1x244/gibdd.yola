@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.ui.news.recyclerView
+package com.geekbrains.gibddyola.ui.news.list.recyclerView
 
 import android.view.LayoutInflater
 import android.view.View

@@ -4,9 +4,10 @@ import com.geekbrains.gibddyola.data.news.RepoVkNewsUseCaseImpl
 import com.geekbrains.gibddyola.data.news.VkData
 import com.geekbrains.gibddyola.data.news.api.VkApi
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
-import com.geekbrains.gibddyola.ui.news.VkNewsFragment
-import com.geekbrains.gibddyola.ui.news.recyclerView.VkNewsRVAdapter
-import com.geekbrains.gibddyola.ui.news.viewModel.VkNewsViewModel
+import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsRVAdapter
+import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
+import com.geekbrains.gibddyola.ui.news.list.recyclerView.VkNewsRVAdapter
+import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -40,5 +41,9 @@ val vkNewsKoinModule = module {
         viewModel(named("vk_news_view_model")) {
             VkNewsViewModel(get(named("repo_usecase")))
         }
+    }
+
+    single<VkNewsDetailsRVAdapter>(named("vk_news_details_rv_adapter")) {
+        VkNewsDetailsRVAdapter()
     }
 }

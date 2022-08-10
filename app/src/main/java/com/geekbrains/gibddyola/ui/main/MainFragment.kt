@@ -25,7 +25,7 @@ import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.Adapters
-import com.geekbrains.gibddyola.ui.news.VkNewsFragment
+import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

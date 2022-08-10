@@ -1,9 +1,9 @@
-package com.geekbrains.gibddyola.ui.news.viewModel
+package com.geekbrains.gibddyola.ui.news.list.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
-import com.geekbrains.gibddyola.ui.news.VkNewsContract
+import com.geekbrains.gibddyola.ui.news.list.VkNewsContract
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel

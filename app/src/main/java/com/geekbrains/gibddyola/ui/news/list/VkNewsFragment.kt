@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.ui.news
+package com.geekbrains.gibddyola.ui.news.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsBinding
-import com.geekbrains.gibddyola.ui.news.recyclerView.VkNewsRVAdapter
-import com.geekbrains.gibddyola.ui.news.viewModel.VkNewsViewModel
+import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment
+import com.geekbrains.gibddyola.ui.news.list.recyclerView.VkNewsRVAdapter
+import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
@@ -92,9 +94,13 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private fun setAdapterClicker() {
         adapter.setOnItemClickListener(object : VkNewsRVAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                Toast.makeText(requireContext(), newsList[position].text, Toast.LENGTH_SHORT).show()
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
+                        newsList[position]
+                    ))
+                    .addToBackStack(null)
+                    .commit()
             }
-
         })
     }
 

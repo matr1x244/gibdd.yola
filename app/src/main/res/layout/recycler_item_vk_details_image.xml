@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vk_news_details_rv_image_container"
+    android:layout_width="match_parent"
+    android:background="@color/light_blue_50"
+    android:layout_height="@dimen/vk_news_full_image_height"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/vk_news_details_rv_item_image"
+        android:layout_width="match_parent"
+        tools:src="@drawable/ic_icon_logo_background"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,12 +1,18 @@
 package com.geekbrains.gibddyola.data.news.entity
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class VkNewsEntity(
     val response: Response
-) {
+) : Parcelable {
+    @Parcelize
     data class Response(
         val count: Int,
         val items: List<Item>
-    ) {
+    ) : Parcelable {
+        @Parcelize
         data class Item(
             val attachments: List<Attachment>?,
             val carousel_offset: Int?,
@@ -26,12 +32,14 @@ data class VkNewsEntity(
             val short_text_rate: Double,
             val text: String,
             val views: Views
-        ) {
+        ) : Parcelable {
+            @Parcelize
             data class Attachment(
                 val photo: Photo?,
                 val type: String,
                 val video: Video?
-            ) {
+            ) : Parcelable {
+                @Parcelize
                 data class Photo(
                     val access_key: String,
                     val album_id: Int,
@@ -43,15 +51,16 @@ data class VkNewsEntity(
                     val sizes: List<Size>,
                     val text: String,
                     val user_id: Int
-                ) {
+                ) : Parcelable {
+                    @Parcelize
                     data class Size(
                         val height: Int,
                         val type: String,
                         val url: String,
                         val width: Int
-                    )
+                    ) : Parcelable
                 }
-
+                @Parcelize
                 data class Video(
                     val access_key: String,
                     val can_add: Int,
@@ -76,52 +85,60 @@ data class VkNewsEntity(
                     val type: String,
                     val views: Int,
                     val width: Int
-                ) {
+                ) : Parcelable {
+                    @Parcelize
                     data class FirstFrame(
                         val height: Int,
                         val url: String,
                         val width: Int
-                    )
+                    ) : Parcelable
 
+                    @Parcelize
                     data class Image(
                         val height: Int,
                         val url: String,
                         val width: Int,
                         val with_padding: Int?
-                    )
+                    ) : Parcelable
                 }
             }
 
+            @Parcelize
             data class Comments(
                 val can_post: Int,
                 val count: Int,
                 val groups_can_post: Boolean
-            )
+            ) : Parcelable
 
+            @Parcelize
             data class Donut(
                 val is_donut: Boolean
-            )
+            ) : Parcelable
 
+            @Parcelize
             data class Likes(
                 val can_like: Int,
                 val can_publish: Int,
                 val count: Int,
                 val user_likes: Int
-            )
+            ) : Parcelable
 
+            @Parcelize
             data class PostSource(
                 val platform: String,
                 val type: String
-            )
+            ) : Parcelable
 
+            @Parcelize
             data class Reposts(
                 val count: Int,
                 val user_reposted: Int
-            )
+            ) : Parcelable
 
+            @Parcelize
             data class Views(
                 val count: Int
-            )
+            ) : Parcelable
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.ui.news
+package com.geekbrains.gibddyola.ui.news.list
 
 import androidx.lifecycle.LiveData
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
