@@ -8,6 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class VkNewsViewModel(
     private val repoNewsUseCase: RepoVkNewsUseCase
@@ -23,7 +24,11 @@ class VkNewsViewModel(
     override fun setNews() {
         inProgress.postValue(true)
         coroutineScope.launch {
-            vkNews.postValue(repoNewsUseCase.receiveNewsAsync().await().response.items)
+            try {
+                vkNews.postValue(repoNewsUseCase.receiveNewsAsync().await().response.items)
+            } catch (e: Exception) {
+                onError.postValue(e)
+            }
         }
         inProgress.postValue(false)
     }

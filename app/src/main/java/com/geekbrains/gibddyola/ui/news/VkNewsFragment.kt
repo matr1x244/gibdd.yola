@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsBinding
 import com.geekbrains.gibddyola.ui.news.recyclerView.VkNewsRVAdapter
 import com.geekbrains.gibddyola.ui.news.viewModel.VkNewsViewModel
@@ -16,6 +18,8 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
 
     private var _binding: FragmentVkNewsBinding? = null
     private val binding get() = _binding!!
+
+    private val newsList = mutableListOf<VkNewsEntity.Response.Item>()
 
     private val scope by lazy {
         getKoin().getOrCreateScope<VkNewsFragment>(SCOPE_ID)
@@ -41,9 +45,11 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
         super.onViewCreated(view, savedInstanceState)
 
         initRV()
+        onProcessLoading()
+        onError()
         viewModel.setNews()
-        showProcessLoading()
         setData()
+        setAdapterClicker()
     }
 
     companion object {
@@ -59,12 +65,13 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     override fun setData() {
         viewModel.vkNews.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
-                adapter.setData(it)
+                newsList.addAll(it)
+                adapter.setData(newsList)
             }
         }
     }
 
-    private fun showProcessLoading() {
+    override fun onProcessLoading() {
         viewModel.inProgress.observe(viewLifecycleOwner) {
             if (it) {
                 binding.vkNewsLoadingProcessLayout.visibility = View.VISIBLE
@@ -72,6 +79,23 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
                 binding.vkNewsLoadingProcessLayout.visibility = View.GONE
             }
         }
+    }
+
+    override fun onError() {
+        viewModel.onError.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Toast.makeText(requireContext(), "Error: $it", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setAdapterClicker() {
+        adapter.setOnItemClickListener(object : VkNewsRVAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                Toast.makeText(requireContext(), newsList[position].text, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     override fun onDestroy() {

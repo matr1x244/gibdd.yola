@@ -14,6 +14,8 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsRVAdapter.VkNewsViewHolder>()
 
     private val data = mutableListOf<VkNewsEntity.Response.Item>()
 
+    private lateinit var mListener: OnItemClickListener
+
     fun setData(resultData: List<VkNewsEntity.Response.Item>) {
         data.clear()
         data.addAll(resultData)
@@ -23,7 +25,7 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsRVAdapter.VkNewsViewHolder>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VkNewsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycler_item_vk_news, parent, false)
-        return VkNewsViewHolder(view)
+        return VkNewsViewHolder(view, mListener)
     }
 
     override fun onBindViewHolder(holder: VkNewsViewHolder, position: Int) {
@@ -34,9 +36,22 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsRVAdapter.VkNewsViewHolder>()
         return data.size
     }
 
-    inner class VkNewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        mListener = listener
+    }
+
+    inner class VkNewsViewHolder(
+        itemView: View,
+        listener: OnItemClickListener
+    ) : RecyclerView.ViewHolder(itemView) {
         private val image: EquilateralImageView = itemView.findViewById(R.id.vk_news_item_image)
         private val text: TextView = itemView.findViewById(R.id.vk_news_item_text)
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(absoluteAdapterPosition)
+            }
+        }
 
         fun bind(item: VkNewsEntity.Response.Item) {
             var imageUrl = ""
@@ -67,5 +82,9 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsRVAdapter.VkNewsViewHolder>()
                 }
             }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
     }
 }

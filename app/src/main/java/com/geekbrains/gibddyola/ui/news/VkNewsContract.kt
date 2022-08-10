@@ -6,6 +6,8 @@ import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 interface VkNewsContract {
     interface View {
         fun setData()
+        fun onProcessLoading()
+        fun onError()
     }
 
     abstract class ViewModel : androidx.lifecycle.ViewModel() {

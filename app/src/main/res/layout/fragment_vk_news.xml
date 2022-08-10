@@ -23,7 +23,6 @@
         android:layout_height="0dp"
         android:alpha="0.3"
         android:background="@color/light_blue_50"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +33,7 @@
             android:id="@+id/vk_news_loading_progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:elevation="10dp" />
+            android:layout_gravity="center" />
 
     </FrameLayout>
 
