@@ -94,7 +94,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private fun setAdapterClicker() {
         adapter.setOnItemClickListener(object : VkNewsRVAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                parentFragmentManager.beginTransaction()
+                requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
                         newsList[position]
                     ))
