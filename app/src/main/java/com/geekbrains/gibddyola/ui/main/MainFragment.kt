@@ -25,6 +25,7 @@ import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.Adapters
+import com.geekbrains.gibddyola.ui.news.VkNewsFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +54,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -149,16 +150,16 @@ class MainFragment : Fragment() {
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
-//        binding.optionThreeContainer.setOnClickListener {
-//            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-//                //анимация переходы
-//                R.anim.slide_in,
-//                R.anim.fade_out,
-//                R.anim.fade_in,
-//                R.anim.slide_out
-//            ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
-//                .commit()
-//        }
+        binding.optionThreeContainer.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                //анимация переходы
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
+                .commit()
+        }
         binding.optionFourContainer.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы

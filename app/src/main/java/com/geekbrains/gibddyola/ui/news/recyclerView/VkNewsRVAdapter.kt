@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.ui.news
+package com.geekbrains.gibddyola.ui.news.recyclerView
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,9 +14,9 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsRVAdapter.VkNewsViewHolder>()
 
     private val data = mutableListOf<VkNewsEntity.Response.Item>()
 
-    fun setData(resultData: VkNewsEntity) {
+    fun setData(resultData: List<VkNewsEntity.Response.Item>) {
         data.clear()
-        data.addAll(resultData.response.items)
+        data.addAll(resultData)
         notifyDataSetChanged()
     }
 
@@ -40,20 +40,32 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsRVAdapter.VkNewsViewHolder>()
 
         fun bind(item: VkNewsEntity.Response.Item) {
             var imageUrl = ""
-            item.attachments?.forEach { attachment ->
-                if (attachment.photo?.sizes?.get(1)?.url?.isNotEmpty() == true) {
-                    image.visibility = View.VISIBLE
-                    imageUrl = attachment.photo.sizes[1].url
-                } else {
+            if (item.text.isNotBlank()) {
+                if (item.attachments.isNullOrEmpty()) {
                     image.visibility = View.GONE
+                } else {
+                    item.attachments.forEach { attachment ->
+                        if (attachment.type == "photo") {
+                            if (attachment.photo?.sizes?.get(1)?.url?.isNotEmpty() == true) {
+                                image.visibility = View.VISIBLE
+                                imageUrl = attachment.photo.sizes[1].url
+                            }
+                        } else if (attachment.type == "video") {
+                            if (attachment.video?.image?.get(1)?.url?.isNotEmpty() == true) {
+                                image.visibility = View.VISIBLE
+                                imageUrl = attachment.video.image[0].url
+                            }
+                        }
+                    }
+
+                    if (imageUrl.isNotEmpty()) {
+                        Glide.with(itemView)
+                            .load(imageUrl)
+                            .into(image)
+                    }
+                    text.text = item.text
                 }
             }
-            if (imageUrl.isNotEmpty()) {
-                Glide.with(itemView)
-                    .load(imageUrl)
-                    .into(image)
-            }
-            text.text = item.text
         }
     }
 }

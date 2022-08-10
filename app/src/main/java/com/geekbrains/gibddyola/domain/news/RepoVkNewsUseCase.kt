@@ -5,5 +5,5 @@ import kotlinx.coroutines.Deferred
 
 
 interface RepoVkNewsUseCase {
-    suspend fun receiveNewsAsync(): Deferred<List<VkNewsEntity.Response.Item>>
+    suspend fun receiveNewsAsync(): Deferred<VkNewsEntity>
 }

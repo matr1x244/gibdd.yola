@@ -5,8 +5,8 @@ import com.geekbrains.gibddyola.data.news.VkData
 import com.geekbrains.gibddyola.data.news.api.VkApi
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
 import com.geekbrains.gibddyola.ui.news.VkNewsFragment
-import com.geekbrains.gibddyola.ui.news.VkNewsRVAdapter
-import com.geekbrains.gibddyola.ui.news.VkNewsViewModel
+import com.geekbrains.gibddyola.ui.news.recyclerView.VkNewsRVAdapter
+import com.geekbrains.gibddyola.ui.news.viewModel.VkNewsViewModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -14,8 +14,8 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-val vkWallNewsModule = module {
-    single(named("base_url")) { VkData.BASE_URL }
+val vkNewsKoinModule = module {
+    single(named("base_url")) { VkData.API_URL }
 
     single<VkApi>(named("vk_api")) {
         get<Retrofit>().create(VkApi::class.java)

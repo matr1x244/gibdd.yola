@@ -8,8 +8,13 @@ import kotlinx.coroutines.Deferred
 
 class RepoVkNewsUseCaseImpl(private val api: VkApi) : RepoVkNewsUseCase {
 
-    override suspend fun receiveNewsAsync(): Deferred<List<VkNewsEntity.Response.Item>> {
-     return api.listWallNewsAsync()
+    override suspend fun receiveNewsAsync(): Deferred<VkNewsEntity> {
+     return api.listWallNewsAsync(
+         VkData.COUNT,
+         VkData.FILTER,
+         VkData.SDK_VER,
+         VkData.VK_TOKEN
+     )
     }
 
 }

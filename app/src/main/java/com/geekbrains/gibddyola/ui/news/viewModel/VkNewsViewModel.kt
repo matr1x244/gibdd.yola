@@ -1,8 +1,9 @@
-package com.geekbrains.gibddyola.ui.news
+package com.geekbrains.gibddyola.ui.news.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
+import com.geekbrains.gibddyola.ui.news.VkNewsContract
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
@@ -22,7 +23,7 @@ class VkNewsViewModel(
     override fun setNews() {
         inProgress.postValue(true)
         coroutineScope.launch {
-            vkNews.postValue(repoNewsUseCase.receiveNewsAsync().await())
+            vkNews.postValue(repoNewsUseCase.receiveNewsAsync().await().response.items)
         }
         inProgress.postValue(false)
     }
