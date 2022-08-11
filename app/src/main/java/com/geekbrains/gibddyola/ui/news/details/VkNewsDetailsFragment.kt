@@ -132,16 +132,6 @@ class VkNewsDetailsFragment : Fragment() {
         }
     }
 
-    override fun onPause() {
-        videoAdapter.releasePlayer()
-        super.onPause()
-    }
-
-    override fun onStop() {
-        videoAdapter.releasePlayer()
-        super.onStop()
-    }
-
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
