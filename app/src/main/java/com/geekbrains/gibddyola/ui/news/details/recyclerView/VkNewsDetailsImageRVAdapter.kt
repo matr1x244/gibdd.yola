@@ -9,8 +9,8 @@ import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 
-class VkNewsDetailsRVAdapter :
-    RecyclerView.Adapter<VkNewsDetailsRVAdapter.VkNewsDetailsViewHolder>() {
+class VkNewsDetailsImageRVAdapter :
+    RecyclerView.Adapter<VkNewsDetailsImageRVAdapter.VkNewsDetailsViewHolder>() {
 
     private val images = mutableListOf<VkNewsEntity.Response.Item.Attachment.Photo.Size?>()
 
