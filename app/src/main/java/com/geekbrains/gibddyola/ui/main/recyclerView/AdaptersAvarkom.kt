@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 
-class Adapters(private val itemClick: (EntityAvarkom) -> Unit) :
-    RecyclerView.Adapter<ViewHolder>() {
+class AdaptersAvarkom(private val itemClick: (EntityAvarkom) -> Unit) :
+    RecyclerView.Adapter<ViewHolderAvarkom>() {
 
     var localListData: MutableList<EntityAvarkom> = mutableListOf()
 
@@ -17,11 +17,11 @@ class Adapters(private val itemClick: (EntityAvarkom) -> Unit) :
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.createView(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderAvarkom {
+        return ViewHolderAvarkom.createView(parent)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderAvarkom, position: Int) {
         holder.bind(getItem(position), itemClick)
     }
 

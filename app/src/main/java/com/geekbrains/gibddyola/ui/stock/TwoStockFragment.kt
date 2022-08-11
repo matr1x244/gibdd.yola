@@ -11,7 +11,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentTwoStockBinding
-import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes
+import com.geekbrains.gibddyola.ui.stock.StockUrl.ALPHA_DURATION_POSTER
+import com.geekbrains.gibddyola.ui.stock.StockUrl.DELAY_TIME_POSTER
+import com.geekbrains.gibddyola.ui.stock.StockUrl.POSTERS_TWO
 import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes.generateId
 import kotlinx.coroutines.*
 
@@ -49,13 +51,13 @@ class TwoStockFragment : Fragment() {
 
     private fun startStockImage() {
         CoroutineScope(Dispatchers.IO).launch {
-            delay(5_00)
+            delay(DELAY_TIME_POSTER)
             withContext(Dispatchers.Main) {
                 Glide.with(this@TwoStockFragment)
                     .load(POSTERS_TWO)
                     .centerInside()
                     .transform(RoundedCorners(10))
-                    .transition(DrawableTransitionOptions.withCrossFade(2000))
+                    .transition(DrawableTransitionOptions.withCrossFade(ALPHA_DURATION_POSTER))
                     .error(R.mipmap.no_internet)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)

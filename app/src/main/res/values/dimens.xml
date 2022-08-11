@@ -18,4 +18,5 @@
     <dimen name="vk_news_item_only_photo_height">150dp</dimen>
     <dimen name="sp12_text">12sp</dimen>
     <dimen name="vk_news_full_image_height">250dp</dimen>
+    <dimen name="dp60">60dp</dimen>
 </resources>

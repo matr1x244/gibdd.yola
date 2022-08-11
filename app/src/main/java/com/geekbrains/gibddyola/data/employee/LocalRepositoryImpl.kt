@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.data
+package com.geekbrains.gibddyola.data.employee
 
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom

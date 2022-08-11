@@ -8,11 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.geekbrains.gibddyola.R
-import com.geekbrains.gibddyola.databinding.FragmentAboutBinding
+import com.geekbrains.gibddyola.databinding.FragmentAboutAvarkomDetailBinding
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 
 class AboutFragment : Fragment() {
@@ -26,14 +23,14 @@ class AboutFragment : Fragment() {
         }
     }
 
-    private var _binding: FragmentAboutBinding? = null
+    private var _binding: FragmentAboutAvarkomDetailBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAboutBinding.inflate(inflater, container, false)
+        _binding = FragmentAboutAvarkomDetailBinding.inflate(inflater, container, false)
         return binding.root
 
     }

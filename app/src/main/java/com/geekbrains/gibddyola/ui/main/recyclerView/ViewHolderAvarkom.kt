@@ -12,15 +12,15 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.RecyclerItemAvarkomBinding
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 
-class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ViewHolderAvarkom(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private var binding = RecyclerItemAvarkomBinding.bind(itemView)
 
     companion object {
-        fun createView(parent: ViewGroup): ViewHolder {
+        fun createView(parent: ViewGroup): ViewHolderAvarkom {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.recycler_item_avarkom, parent, false)
-            return ViewHolder(view)
+            return ViewHolderAvarkom(view)
         }
     }
 
@@ -29,7 +29,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         Glide.with(binding.avatar)
             .load(item.avatar)
             .transform(CircleCrop(), RoundedCorners(16))
-            .transition(DrawableTransitionOptions.withCrossFade(2000))
+            .transition(DrawableTransitionOptions.withCrossFade(1000))
             .into(binding.avatar)
 
         binding.itemTextName.text = item.textName

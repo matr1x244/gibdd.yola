@@ -24,7 +24,7 @@ import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
-import com.geekbrains.gibddyola.ui.main.recyclerView.Adapters
+import com.geekbrains.gibddyola.ui.main.recyclerView.AdaptersAvarkom
 import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import kotlinx.coroutines.CoroutineScope
@@ -41,7 +41,7 @@ class MainFragment : Fragment() {
     private val controller by lazy { activity as ControllerOpenFragment }
     private val viewModel: MainViewModel by viewModel()
 
-    private var adapters = Adapters {
+    private var adaptersAvarkom = AdaptersAvarkom {
         controller.aboutFragment(it)
         Toast.makeText(context, it.textName, Toast.LENGTH_SHORT).show()
     }
@@ -90,7 +90,7 @@ class MainFragment : Fragment() {
 
     private fun initIncomingEvents() {
         viewModel.repos.observe(viewLifecycleOwner) {
-            adapters.setData(it)
+            adaptersAvarkom.setData(it)
         }
     }
 
@@ -106,7 +106,7 @@ class MainFragment : Fragment() {
 
     private fun recyclerViewMain() {
         binding.recyclerViewListAvarkom.layoutManager = LinearLayoutManager(context)
-        binding.recyclerViewListAvarkom.adapter = adapters
+        binding.recyclerViewListAvarkom.adapter = adaptersAvarkom
     }
 
     private fun textEditTitle() {
@@ -174,12 +174,12 @@ class MainFragment : Fragment() {
     }
 
     private fun rotateFab() {
-        var flag = false
-        val duration = 1000L
+        var openMenu = false
+        val duration = 300L
 
         binding.btnFabMain.setOnClickListener {
-            flag = !flag
-            if (flag) {
+            openMenu = !openMenu
+            if (openMenu) {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 505f)
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)

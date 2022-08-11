@@ -2,7 +2,7 @@ package com.geekbrains.gibddyola
 
 import android.Manifest
 import android.animation.ObjectAnimator
-import android.content.*
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -19,6 +19,7 @@ import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity(), ControllerOpenFragment {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,7 +107,8 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                 R.anim.slide_in,
                 R.anim.fade_out,
                 R.anim.fade_in,
-                R.anim.slide_out)
+                R.anim.slide_out
+            )
             .replace(R.id.main_activity_container, AboutFragment.newInstance(localClick))
             .addToBackStack("")
             .commit()
