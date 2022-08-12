@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
-import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
@@ -36,8 +35,7 @@ class CompanyFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MapKitFactory.setApiKey(API_KEY)
-        MapKitFactory.initialize(requireContext())
+        MapKitInitializer.initialize(API_KEY, requireActivity())
     }
 
     override fun onCreateView(
@@ -56,7 +54,6 @@ class CompanyFragment : Fragment() {
     }
 
     private fun maps() {
-
         binding.mapView.map?.mapObjects?.addPlacemark(
             pointOfficeParking,
             ImageProvider.fromResource(requireContext(), R.mipmap.cars_crash)
@@ -106,16 +103,16 @@ class CompanyFragment : Fragment() {
         binding.itemTittle.text = spannableStringBuilder
     }
 
-    override fun onStart() {
-        super.onStart()
-        MapKitFactory.getInstance().onStart()
-        yandexMap?.onStart()
-    }
-
     override fun onStop() {
         yandexMap?.onStop()
         MapKitFactory.getInstance().onStop()
         super.onStop()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        MapKitFactory.getInstance().onStart()
+        yandexMap?.onStart()
     }
 
     override fun onDestroyView() {

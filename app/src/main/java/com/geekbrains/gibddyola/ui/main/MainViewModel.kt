@@ -16,7 +16,7 @@ class MainViewModel(private val repository: LocalRepositoryImpl) : ViewModel() {
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     fun onShowListAvarkom() {
-        coroutineScope.launch(Dispatchers.IO) {
+        coroutineScope.launch {
             var result = repository.getListAvarkom()
             withContext(Dispatchers.Main) {
                 _repos.postValue(result)

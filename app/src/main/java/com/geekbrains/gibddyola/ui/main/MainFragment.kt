@@ -129,7 +129,7 @@ class MainFragment : Fragment() {
     }
 
     private fun nextFragmentOpen() {
-        binding.optionOneContainer.setOnClickListener {
+        binding.testTextView1.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
@@ -140,7 +140,7 @@ class MainFragment : Fragment() {
                 .addToBackStack("")
                 .commit()
         }
-        binding.optionTwoContainer.setOnClickListener {
+        binding.testTextView2.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
@@ -150,7 +150,7 @@ class MainFragment : Fragment() {
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
-        binding.optionThreeContainer.setOnClickListener {
+        binding.testTextView3.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
@@ -160,7 +160,7 @@ class MainFragment : Fragment() {
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
-        binding.optionFourContainer.setOnClickListener {
+        binding.testTextView4.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.slide_in,
@@ -238,12 +238,7 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -130f, -20f)
                     .setDuration(duration).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionThreeContainer,
-                    View.TRANSLATION_Y,
-                    -390f,
-                    -80f
-                )
+                ObjectAnimator.ofFloat(binding.optionThreeContainer, View.TRANSLATION_Y, -390f, -80f)
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionFourContainer, View.TRANSLATION_Y, -520f, -110f)
                     .setDuration(duration).start()
