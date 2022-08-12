@@ -5,46 +5,77 @@
     android:id="@+id/vk_news_details_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/dp20"
     tools:context=".ui.news.details.VkNewsDetailsFragment">
 
-    <WebView
-        android:id="@+id/vk_news_details_web_view"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/vk_news_full_image_height"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/vk_news_details_rv_image"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/vk_news_full_image_height"
-        android:layout_margin="@dimen/dp10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/recycler_item_vk_details_image" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/vk_news_details_rv_video"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/vk_news_full_image_height"
-        android:layout_margin="@dimen/dp10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/recycler_item_vk_details_video" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/vk_news_details_text_view"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/dp10"
-        android:background="@color/light_blue_50"
-        android:scrollbars="vertical"
+        app:cardCornerRadius="@dimen/dp26"
+        app:contentPadding="@dimen/dp5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vk_news_details_rv_image" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/vk_news_details_web_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/vk_news_full_image_height"
+                android:layout_margin="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vk_news_details_rv_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/vk_news_full_image_height"
+                android:layout_margin="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/recycler_item_vk_details_image" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vk_news_details_rv_video"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/vk_news_full_image_height"
+                android:layout_margin="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/recycler_item_vk_details_video" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vk_news_details_text_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/dp10"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vk_news_details_rv_image" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <FrameLayout
+        android:id="@+id/vk_news_hiding_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:animateLayoutChanges="true"
+        android:clickable="false"
+        android:background="@color/white"
+        android:foregroundGravity="right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="@dimen/dp26" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

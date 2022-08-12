@@ -52,6 +52,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
         onError()
         viewModel.setNews()
         setData()
+        isBlocked()
         setAdapterClicker()
     }
 
@@ -95,19 +96,42 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private fun setAdapterClicker() {
         adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
+                binding.vkNewsHidingScreen.visibility = View.VISIBLE
+                binding.vkNewsHidingScreen.isEnabled = false
+                binding.vkNewsRvList.isEnabled = false
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
-                        newsList[position]
-                    ))
+                    .add(
+                        R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
+                            newsList[position],
+                            viewModel
+                        )
+                    )
                     .addToBackStack(null)
                     .commit()
+                viewModel.blockScreen(true)
             }
         })
+    }
+
+    private fun isBlocked() {
+        viewModel.isBlocked.observe(viewLifecycleOwner) {
+            disableBackground(it)
+        }
+    }
+
+    private fun disableBackground(isBlock: Boolean) {
+        if (!isBlock) binding.vkNewsHidingScreen.visibility = View.GONE
+        adapter.isClickable = !isBlock
+        binding.vkNewsRvList.layoutManager = object : LinearLayoutManager(requireContext()) {
+            override fun canScrollVertically(): Boolean {
+                return !isBlock
+            }
+        }
+        binding.vkNewsRvList.adapter = adapter
     }
 
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
     }
-
 }

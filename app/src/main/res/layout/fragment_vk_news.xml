@@ -17,11 +17,24 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/recycler_item_vk_news" />
 
+    <View
+        android:id="@+id/vk_news_hiding_screen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.5"
+        android:background="@color/black"
+        android:visibility="gone"
+        android:elevation="@dimen/dp100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:id="@+id/vk_news_loading_process_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha="0.3"
+        android:alpha="0.6"
         android:background="@color/light_blue_50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

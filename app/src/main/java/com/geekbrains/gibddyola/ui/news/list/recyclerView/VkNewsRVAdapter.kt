@@ -10,7 +10,9 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsViewHolder>() {
 
     private val data = mutableListOf<VkNewsEntity.Response.Item>()
 
-    private lateinit var mListener: OnItemClickListener
+    var isClickable = true
+
+    private var mListener: OnItemClickListener? = null
 
     fun setData(resultData: List<VkNewsEntity.Response.Item>) {
         data.clear()
@@ -21,7 +23,12 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VkNewsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycler_item_vk_news, parent, false)
-        return VkNewsViewHolder(view, mListener)
+        return if (isClickable) {
+            VkNewsViewHolder(view, mListener)
+        } else {
+            VkNewsViewHolder(view, null)
+        }
+
     }
 
     override fun onBindViewHolder(holder: VkNewsViewHolder, position: Int) {

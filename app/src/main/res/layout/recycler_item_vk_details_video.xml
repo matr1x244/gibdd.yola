@@ -5,7 +5,6 @@
     android:id="@+id/vk_news_details_rv_video_container"
     android:layout_width="match_parent"
     android:layout_height="@dimen/vk_news_full_image_height"
-    android:background="@color/light_blue_50"
     android:orientation="horizontal">
 
     <com.geekbrains.gibddyola.utils.EquilateralImageView

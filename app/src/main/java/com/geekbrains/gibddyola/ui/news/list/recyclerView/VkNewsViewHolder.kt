@@ -10,14 +10,16 @@ import com.geekbrains.gibddyola.utils.EquilateralImageView
 
 class VkNewsViewHolder(
     itemView: View,
-    listener: OnItemClickListener
+    listener: OnItemClickListener?
 ) : RecyclerView.ViewHolder(itemView) {
     private val image: EquilateralImageView = itemView.findViewById(R.id.vk_news_item_image)
     private val text: TextView = itemView.findViewById(R.id.vk_news_item_text)
 
     init {
-        itemView.setOnClickListener {
-            listener.onItemClick(absoluteAdapterPosition)
+        if (listener != null) {
+            itemView.setOnClickListener {
+                listener.onItemClick(absoluteAdapterPosition)
+            }
         }
     }
 

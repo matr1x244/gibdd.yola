@@ -36,10 +36,12 @@ val vkNewsKoinModule = module {
             .build()
     }
 
+
     scope<VkNewsFragment> {
         scoped(named("vk_news_rv_adapter")) {
             VkNewsRVAdapter()
         }
+
         viewModel(named("vk_news_view_model")) {
             VkNewsViewModel(get(named("repo_usecase")))
         }
