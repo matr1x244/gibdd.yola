@@ -13,6 +13,7 @@
         android:layout_height="@dimen/play_btn_size"
         android:src="@drawable/ic_play_btn_2"
         android:elevation="@dimen/dp26"
+        android:alpha="0.8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

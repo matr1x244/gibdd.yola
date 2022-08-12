@@ -99,7 +99,13 @@ class VkNewsDetailsFragment : Fragment() {
     private fun setAdapterClicker() {
         videoAdapter.setOnDetailsItemClickListener(object : OnDetailsItemClickListener {
             override fun onItemClick(position: Int) {
-                Toast.makeText(requireContext(), "CLICK!", Toast.LENGTH_SHORT).show()
+                val videoUrl = "https://vk.com/video${
+                    itemData?.attachments?.get(position)?.video?.owner_id
+                }_${
+                    itemData?.attachments?.get(position)?.video?.id
+                }"
+
+                binding.vkNewsDetailsWebView.loadUrl(videoUrl)
             }
         })
     }
