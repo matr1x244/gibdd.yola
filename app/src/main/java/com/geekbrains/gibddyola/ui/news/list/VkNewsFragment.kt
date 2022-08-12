@@ -11,6 +11,7 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsBinding
 import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment
+import com.geekbrains.gibddyola.ui.news.list.recyclerView.OnItemClickListener
 import com.geekbrains.gibddyola.ui.news.list.recyclerView.VkNewsRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
 import org.koin.android.ext.android.getKoin
@@ -92,7 +93,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     }
 
     private fun setAdapterClicker() {
-        adapter.setOnItemClickListener(object : VkNewsRVAdapter.OnItemClickListener {
+        adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.main_activity_container, VkNewsDetailsFragment.newInstance(

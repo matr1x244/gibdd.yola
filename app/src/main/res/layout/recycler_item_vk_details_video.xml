@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vk_news_details_rv_video_container"
     android:layout_width="match_parent"
     android:layout_height="@dimen/vk_news_full_image_height"
     android:background="@color/light_blue_50"
     android:orientation="horizontal">
 
-    <WebView
-        android:id="@+id/vk_news_details_rv_item_video"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <com.geekbrains.gibddyola.utils.EquilateralImageView
+        android:layout_width="@dimen/play_btn_size"
+        android:layout_height="@dimen/play_btn_size"
+        android:src="@drawable/ic_play_btn_2"
+        android:elevation="@dimen/dp26"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/vk_news_details_rv_item_video_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_icon_logo_background" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

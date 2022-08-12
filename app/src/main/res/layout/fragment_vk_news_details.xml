@@ -24,7 +24,7 @@
         android:layout_margin="@dimen/dp10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vk_news_details_rv_image"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/recycler_item_vk_details_video" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -37,6 +37,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vk_news_details_rv_video" />
+        app:layout_constraintTop_toBottomOf="@id/vk_news_details_rv_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

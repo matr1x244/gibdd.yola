@@ -4,6 +4,7 @@ import com.geekbrains.gibddyola.data.news.RepoVkNewsUseCaseImpl
 import com.geekbrains.gibddyola.data.news.VkData
 import com.geekbrains.gibddyola.data.news.api.VkApi
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
+import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsImageRVAdapter
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsVideoRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
@@ -44,11 +45,13 @@ val vkNewsKoinModule = module {
         }
     }
 
-    single<VkNewsDetailsImageRVAdapter>(named("vk_news_details_image_rv_adapter")) {
-        VkNewsDetailsImageRVAdapter()
-    }
+    scope<VkNewsDetailsFragment> {
+        scoped<VkNewsDetailsImageRVAdapter>(named("vk_news_details_image_rv_adapter")) {
+            VkNewsDetailsImageRVAdapter()
+        }
 
-    single<VkNewsDetailsVideoRVAdapter>(named("vk_news_details_video_rv_adapter")) {
-        VkNewsDetailsVideoRVAdapter()
+        scoped<VkNewsDetailsVideoRVAdapter>(named("vk_news_details_video_rv_adapter")) {
+            VkNewsDetailsVideoRVAdapter()
+        }
     }
 }
