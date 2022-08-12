@@ -230,7 +230,7 @@ class MainFragment : Fragment() {
                         }
                     })
                 binding.transparentBackground.animate()
-                    .alpha(1.0f).duration = duration
+                    .alpha(0.8f).duration = duration
             } else {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                     .setDuration(duration).start()

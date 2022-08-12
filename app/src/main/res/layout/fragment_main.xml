@@ -101,6 +101,8 @@
                 android:layout_marginEnd="@dimen/dp26"
                 android:padding="@dimen/dp5"
                 android:text="@string/game"
+                android:background="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <ImageView
@@ -129,6 +131,8 @@
                 android:layout_marginEnd="@dimen/dp26"
                 android:padding="@dimen/dp5"
                 android:text="@string/sell"
+                android:background="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <ImageView
@@ -157,6 +161,8 @@
                 android:layout_marginEnd="@dimen/dp26"
                 android:padding="@dimen/dp5"
                 android:text="@string/news"
+                android:background="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <ImageView
@@ -185,6 +191,8 @@
                 android:layout_marginEnd="@dimen/dp26"
                 android:padding="@dimen/dp5"
                 android:text="@string/company"
+                android:background="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <ImageView
