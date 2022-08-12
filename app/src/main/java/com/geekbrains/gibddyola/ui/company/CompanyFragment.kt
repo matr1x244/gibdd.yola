@@ -17,6 +17,9 @@ import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
 import com.yandex.runtime.image.ImageProvider
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 const val API_KEY = "ffdf1ffa-349f-4d48-bba7-812ec5201452"
 
@@ -58,12 +61,12 @@ class CompanyFragment : Fragment() {
             pointOfficeParking,
             ImageProvider.fromResource(requireContext(), R.mipmap.cars_crash)
         )
-
-        binding.mapView.map?.move(
-            CameraPosition(pointOffice, 17.2f, 0.0f, 0.0f),
-            Animation(Animation.Type.SMOOTH, 1f), null
-        )
-
+        CoroutineScope(Dispatchers.IO).launch {
+            binding.mapView.map?.move(
+                CameraPosition(pointOffice, 17.2f, 0.0f, 0.0f),
+                Animation(Animation.Type.SMOOTH, 1f), null
+            )
+        }
         binding.zoomUp.setOnClickListener {
             binding.mapView.map.move(
                 CameraPosition(
@@ -74,7 +77,6 @@ class CompanyFragment : Fragment() {
                 null
             )
         }
-
         binding.zoomDown.setOnClickListener {
             binding.mapView.map.move(
                 CameraPosition(
