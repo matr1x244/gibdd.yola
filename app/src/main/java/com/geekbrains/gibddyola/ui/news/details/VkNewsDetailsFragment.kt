@@ -2,7 +2,6 @@ package com.geekbrains.gibddyola.ui.news.details
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -139,7 +138,7 @@ class VkNewsDetailsFragment : Fragment() {
     }
 
     private fun convertCounts(count: Int): String {
-        var resultString = ""
+        var resultString: String
         if (count > 999) {
             resultString = "${count / 1000}"
             resultString += if ((count % 1000) >= 100) {
