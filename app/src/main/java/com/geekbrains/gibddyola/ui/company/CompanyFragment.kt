@@ -1,6 +1,8 @@
 package com.geekbrains.gibddyola.ui.company
 
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -81,6 +83,12 @@ class CompanyFragment : Fragment() {
                 Animation(Animation.Type.SMOOTH, 1f),
                 null
             )
+        }
+        binding.itemTextMapsLicense.setOnClickListener {
+            val siteMapsYandex = "https://yandex.ru/legal/maps_termsofuse"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(siteMapsYandex)
+            startActivity(intent)
         }
     }
 

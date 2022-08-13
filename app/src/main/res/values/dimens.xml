@@ -30,4 +30,6 @@
     <dimen name="likes_views_inner_text_width">25dp</dimen>
     <dimen name="play_btn_size">100dp</dimen>
     <dimen name="vk_view_post_size">20dp</dimen>
+    <!--Yandex MAPS-->
+    <dimen name="text_size_license_yandex_maps">10sp</dimen>
 </resources>
