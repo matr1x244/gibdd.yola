@@ -2,11 +2,11 @@ package com.geekbrains.gibddyola.ui.news.details
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
@@ -100,6 +100,12 @@ class VkNewsDetailsFragment : Fragment() {
             binding.vkNewsDetailsTextView.text = itemData!!.text
             binding.vkNewsDetailsTextView.movementMethod = ScrollingMovementMethod()
         }
+        if (binding.vkNewsDetailsLikesText.text.isNullOrEmpty()) {
+            binding.vkNewsDetailsLikesText.text = convertCounts(itemData!!.likes.count)
+        }
+        if (binding.vkNewsDetailsViewsText.text.isNullOrEmpty()) {
+            binding.vkNewsDetailsViewsText.text = convertCounts(itemData!!.views.count)
+        }
     }
 
     private fun setAdapterClicker() {
@@ -130,6 +136,21 @@ class VkNewsDetailsFragment : Fragment() {
             binding.vkNewsDetailsTextView.visibility = View.GONE
         }
 
+    }
+
+    private fun convertCounts(count: Int): String {
+        var resultString = ""
+        if (count > 999) {
+            resultString = "${count / 1000}"
+            resultString += if ((count % 1000) >= 100) {
+                ",${(count % 1000) / 100}K"
+            } else {
+                "K"
+            }
+        } else {
+            resultString = count.toString()
+        }
+        return resultString
     }
 
     override fun onStop() {
