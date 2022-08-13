@@ -31,8 +31,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="@dimen/dp5"
-                    android:textSize="@dimen/vk_news_time_text_size"
                     android:text="@string/vk_news_item_time"
+                    android:textSize="@dimen/vk_news_time_text_size"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -41,8 +41,8 @@
                     android:id="@+id/vk_news_item_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/dp5"
                     android:justificationMode="inter_word"
+                    android:padding="@dimen/dp5"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -52,14 +52,14 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/vk_news_item_image"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/vk_news_item_text"
                     tools:src="@mipmap/no_image_vk_logo" />
 
                 <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroup"
+                    android:id="@+id/chip_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="@dimen/dp5"
@@ -70,10 +70,11 @@
                         android:id="@+id/like_vk"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checkable="false"
                         android:text="@string/like_vk_chips"
                         android:textSize="@dimen/like_vk_text_size"
-                        android:checkable="false"
                         app:chipIcon="@drawable/ic_heart_like" />
+
 
                 </com.google.android.material.chip.ChipGroup>
 

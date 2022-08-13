@@ -1,23 +1,21 @@
 package com.geekbrains.gibddyola.ui.news.list.recyclerView
 
-import android.graphics.Color
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
-import com.geekbrains.gibddyola.utils.EquilateralImageView
 
 class VkNewsViewHolder(
     itemView: View,
     listener: OnItemClickListener?
 ) : RecyclerView.ViewHolder(itemView) {
-    private val image: ImageView = itemView.findViewById(R.id.vk_news_item_image)
+    private val image: AppCompatImageView = itemView.findViewById(R.id.vk_news_item_image)
     private val text: TextView = itemView.findViewById(R.id.vk_news_item_text)
 
     init {
@@ -38,7 +36,7 @@ class VkNewsViewHolder(
                     if (attachment.type == "photo") {
                         if (attachment.photo?.sizes?.get(1)?.url?.isNotEmpty() == true) {
                             image.visibility = View.VISIBLE
-                            imageUrl = attachment.photo.sizes[1].url
+                            imageUrl = attachment.photo.sizes[3].url
                         }
                     }
                     if (attachment.type == "video") {
