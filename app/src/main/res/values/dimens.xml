@@ -32,4 +32,6 @@
     <dimen name="vk_view_post_size">20dp</dimen>
     <!--Yandex MAPS-->
     <dimen name="text_size_license_yandex_maps">10sp</dimen>
+    <dimen name="vk_news_title_text_size">13sp</dimen>
+    <dimen name="vk_news_item_logo_image">40dp</dimen>
 </resources>
