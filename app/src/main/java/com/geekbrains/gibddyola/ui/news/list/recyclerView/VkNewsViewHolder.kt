@@ -5,6 +5,7 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -16,7 +17,7 @@ class VkNewsViewHolder(
     itemView: View,
     listener: OnItemClickListener?
 ) : RecyclerView.ViewHolder(itemView) {
-    private val image: EquilateralImageView = itemView.findViewById(R.id.vk_news_item_image)
+    private val image: ImageView = itemView.findViewById(R.id.vk_news_item_image)
     private val text: TextView = itemView.findViewById(R.id.vk_news_item_text)
 
     init {

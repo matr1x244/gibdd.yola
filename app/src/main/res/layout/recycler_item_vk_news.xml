@@ -49,7 +49,7 @@
                     app:layout_constraintTop_toBottomOf="@id/vk_news_item_time"
                     tools:text="@string/vk_news_block_textview" />
 
-                <com.geekbrains.gibddyola.utils.EquilateralImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/vk_news_item_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

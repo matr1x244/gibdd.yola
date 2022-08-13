@@ -14,9 +14,18 @@
     <dimen name="dp26">26dp</dimen>
     <dimen name="dp0">0dp</dimen>
     <dimen name="dp7">7dp</dimen>
+    <dimen name="sp12_text">12sp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp3">3dp</dimen>
+    <dimen name="dp100">100dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <!--VK BLOCKS-->
     <dimen name="vk_news_item_height">100dp</dimen>
     <dimen name="vk_news_item_only_photo_height">150dp</dimen>
-    <dimen name="sp12_text">12sp</dimen>
     <dimen name="vk_news_full_image_height">250dp</dimen>
-    <dimen name="dp60">60dp</dimen>
+    <dimen name="vk_news_time_text_size">8sp</dimen>
+    <dimen name="like_vk_text_size">10sp</dimen>
+    <dimen name="likes_views_inner_images_size">18dp</dimen>
+    <dimen name="likes_views_inner_text_width">25dp</dimen>
+    <dimen name="play_btn_size">100dp</dimen>
 </resources>
