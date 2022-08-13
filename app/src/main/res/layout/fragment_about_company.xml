@@ -180,6 +180,18 @@
                     app:fabSize="mini"
                     app:srcCompat="@drawable/ic_minus" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_text_maps_license"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingStart="@dimen/dp5"
+                    android:textSize="@dimen/text_size_license_yandex_maps"
+                    android:text="@string/text_view_license_yandex_maps"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
             </com.yandex.mapkit.mapview.MapView>
 
         </com.google.android.material.card.MaterialCardView>
