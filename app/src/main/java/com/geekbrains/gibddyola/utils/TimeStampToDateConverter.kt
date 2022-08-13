@@ -3,7 +3,7 @@ package com.geekbrains.gibddyola.utils
 import java.text.SimpleDateFormat
 import java.util.*
 
-object TimeStampToDataConverter {
+object TimeStampToDateConverter {
     fun convert(dateTime: Int): String {
         val cal = Calendar.getInstance()
         val tz = cal.timeZone
