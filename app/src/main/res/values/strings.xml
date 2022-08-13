@@ -22,4 +22,5 @@
     <string name="vk_news_block_textview">Новостной блок</string>
     <string name="vk_news_item_time">Время публикации</string>
     <string name="like_vk_chips">Кол-во лайков</string>
+    <string name="vk_view_post">просмотры</string>
 </resources>

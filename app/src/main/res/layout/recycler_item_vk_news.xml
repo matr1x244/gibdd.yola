@@ -60,7 +60,7 @@
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chip_group"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="@dimen/dp5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -73,10 +73,24 @@
                         android:checkable="false"
                         android:text="@string/like_vk_chips"
                         android:textSize="@dimen/like_vk_text_size"
-                        app:chipIcon="@drawable/ic_heart_like" />
-
+                        app:chipIcon="@mipmap/ic_heart"
+                        app:rippleColor="@color/light_blue_200" />
 
                 </com.google.android.material.chip.ChipGroup>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/see_post_vk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="false"
+                    android:alpha="0.5"
+                    app:chipIconSize="@dimen/dp15"
+                    android:text="@string/vk_view_post"
+                    android:textSize="@dimen/view_vk_text_size"
+                    app:chipBackgroundColor="@color/white"
+                    app:chipIcon="@drawable/ic_view_vk_post"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/chip_group" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

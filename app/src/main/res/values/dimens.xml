@@ -25,7 +25,9 @@
     <dimen name="vk_news_full_image_height">250dp</dimen>
     <dimen name="vk_news_time_text_size">8sp</dimen>
     <dimen name="like_vk_text_size">10sp</dimen>
+    <dimen name="view_vk_text_size">8sp</dimen>
     <dimen name="likes_views_inner_images_size">18dp</dimen>
     <dimen name="likes_views_inner_text_width">25dp</dimen>
     <dimen name="play_btn_size">100dp</dimen>
+    <dimen name="dp15">vk_view_post_size</dimen>
 </resources>
