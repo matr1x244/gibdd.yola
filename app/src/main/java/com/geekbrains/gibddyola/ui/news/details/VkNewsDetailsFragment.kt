@@ -14,6 +14,7 @@ import com.geekbrains.gibddyola.ui.news.details.recyclerView.OnDetailsItemClickL
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsImageRVAdapter
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsVideoRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
+import com.geekbrains.gibddyola.utils.ConvertCounts
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
@@ -100,10 +101,10 @@ class VkNewsDetailsFragment : Fragment() {
             binding.vkNewsDetailsTextView.movementMethod = ScrollingMovementMethod()
         }
         if (binding.vkNewsDetailsLikesText.text.isNullOrEmpty()) {
-            binding.vkNewsDetailsLikesText.text = convertCounts(itemData!!.likes.count)
+            binding.vkNewsDetailsLikesText.text = ConvertCounts.convert(itemData!!.likes.count)
         }
         if (binding.vkNewsDetailsViewsText.text.isNullOrEmpty()) {
-            binding.vkNewsDetailsViewsText.text = convertCounts(itemData!!.views.count)
+            binding.vkNewsDetailsViewsText.text = ConvertCounts.convert(itemData!!.views.count)
         }
     }
 
@@ -135,21 +136,6 @@ class VkNewsDetailsFragment : Fragment() {
             binding.vkNewsDetailsTextView.visibility = View.GONE
         }
 
-    }
-
-    private fun convertCounts(count: Int): String {
-        var resultString: String
-        if (count > 999) {
-            resultString = "${count / 1000}"
-            resultString += if ((count % 1000) >= 100) {
-                ",${(count % 1000) / 100}K"
-            } else {
-                "K"
-            }
-        } else {
-            resultString = count.toString()
-        }
-        return resultString
     }
 
     override fun onStop() {

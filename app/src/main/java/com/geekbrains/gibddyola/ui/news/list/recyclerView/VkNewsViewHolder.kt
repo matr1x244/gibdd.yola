@@ -1,15 +1,18 @@
 package com.geekbrains.gibddyola.ui.news.list.recyclerView
 
+import android.icu.util.TimeZone
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import java.util.*
 
 class VkNewsViewHolder(
     itemView: View,
@@ -31,23 +34,31 @@ class VkNewsViewHolder(
         if (item.text.isNotEmpty()) {
             if (item.attachments.isNullOrEmpty()) {
                 image.visibility = View.GONE
-            } else {
-                item.attachments.forEach { attachment ->
-                    if (attachment.type == "photo") {
-                        if (attachment.photo?.sizes?.get(1)?.url?.isNotEmpty() == true) {
-                            image.visibility = View.VISIBLE
-                            imageUrl = attachment.photo.sizes[3].url
-                        }
+            }
+        }
+
+        if (!item.attachments.isNullOrEmpty()) {
+            item.attachments.forEach { attachment ->
+                if (attachment.type == "photo") {
+                    if (attachment.photo?.sizes?.get(3)?.url?.isNotEmpty() == true) {
+                        image.visibility = View.VISIBLE
+                        imageUrl = attachment.photo.sizes[3].url
                     }
-                    if (attachment.type == "video") {
-                        if (attachment.video?.image?.get(1)?.url?.isNotEmpty() == true) {
-                            image.visibility = View.VISIBLE
-                            imageUrl = attachment.video.image[0].url
-                        }
+                }
+                if (attachment.type == "video") {
+                    if (attachment.video?.image?.get(1)?.url?.isNotEmpty() == true) {
+                        image.visibility = View.VISIBLE
+                        imageUrl = attachment.video.image[2].url
                     }
                 }
             }
         }
+
+        val postDateTime = itemView.findViewById<AppCompatTextView>(R.id.vk_news_item_time)
+        val sdf = java.text.SimpleDateFormat("dd/MM/YYYY")
+        val offset: Int = TimeZone.getDefault().rawOffset + TimeZone.getDefault().dstSavings
+        val date = Date(item.date.toLong() * 1000L - offset)
+        postDateTime.text = sdf.format(date).toString()
 
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
