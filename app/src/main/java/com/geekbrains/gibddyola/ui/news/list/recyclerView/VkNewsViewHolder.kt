@@ -52,7 +52,7 @@ class VkNewsViewHolder(
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
                 .load(imageUrl)
-                .error(R.mipmap.logo)
+                .error(R.mipmap.no_image_vk_logo)
                 .into(image)
         }
 
