@@ -93,7 +93,7 @@
             android:paddingBottom="@dimen/dp32"
             android:visibility="invisible">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/test_text_view1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
             android:paddingBottom="@dimen/dp32"
             android:visibility="invisible">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/test_text_view2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
             android:paddingBottom="@dimen/dp32"
             android:visibility="invisible">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/test_text_view3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
             android:paddingBottom="@dimen/dp32"
             android:visibility="invisible">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/test_text_view4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
