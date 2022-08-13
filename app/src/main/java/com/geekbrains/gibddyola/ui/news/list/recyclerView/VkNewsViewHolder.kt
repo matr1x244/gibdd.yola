@@ -1,6 +1,5 @@
 package com.geekbrains.gibddyola.ui.news.list.recyclerView
 
-import android.icu.util.TimeZone
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
-import java.util.*
+import com.geekbrains.gibddyola.utils.TimeStampToDataConverter
 
 class VkNewsViewHolder(
     itemView: View,
@@ -55,10 +54,7 @@ class VkNewsViewHolder(
         }
 
         val postDateTime = itemView.findViewById<AppCompatTextView>(R.id.vk_news_item_time)
-        val sdf = java.text.SimpleDateFormat("dd/MM/YYYY")
-        val offset: Int = TimeZone.getDefault().rawOffset + TimeZone.getDefault().dstSavings
-        val date = Date(item.date.toLong() * 1000L - offset)
-        postDateTime.text = sdf.format(date).toString()
+        postDateTime.text = TimeStampToDataConverter.convert(item.date)
 
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
