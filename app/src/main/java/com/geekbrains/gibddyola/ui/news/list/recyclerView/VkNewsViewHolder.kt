@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.utils.ConvertCounts
 import com.geekbrains.gibddyola.utils.TimeStampToDataConverter
 import com.google.android.material.chip.Chip
 
@@ -60,10 +61,13 @@ class VkNewsViewHolder(
         val postLikes = itemView.findViewById<Chip>(R.id.like_vk)
         postLikes.text = item.likes.count.toString()
 
+        val postViews = itemView.findViewById<Chip>(R.id.see_post_vk)
+        postViews.text = ConvertCounts.convert(item.views.count)
+
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
                 .load(imageUrl)
-                .error(R.mipmap.no_image_vk_logo)
+                .error(R.mipmap.none_image_question)
                 .into(image)
         }
 
