@@ -11,6 +11,7 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsBinding
 import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment
+import com.geekbrains.gibddyola.ui.news.list.recyclerView.OnItemClickListener
 import com.geekbrains.gibddyola.ui.news.list.recyclerView.VkNewsRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
 import org.koin.android.ext.android.getKoin
@@ -51,6 +52,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
         onError()
         viewModel.setNews()
         setData()
+        isBlocked()
         setAdapterClicker()
     }
 
@@ -92,21 +94,44 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     }
 
     private fun setAdapterClicker() {
-        adapter.setOnItemClickListener(object : VkNewsRVAdapter.OnItemClickListener {
+        adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
+                binding.vkNewsHidingScreen.visibility = View.VISIBLE
+                binding.vkNewsHidingScreen.isEnabled = false
+                binding.vkNewsRvList.isEnabled = false
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
-                        newsList[position]
-                    ))
+                    .add(
+                        R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
+                            newsList[position],
+                            viewModel
+                        )
+                    )
                     .addToBackStack(null)
                     .commit()
+                viewModel.blockScreen(true)
             }
         })
+    }
+
+    private fun isBlocked() {
+        viewModel.isBlocked.observe(viewLifecycleOwner) {
+            disableBackground(it)
+        }
+    }
+
+    private fun disableBackground(isBlock: Boolean) {
+        if (!isBlock) binding.vkNewsHidingScreen.visibility = View.GONE
+        adapter.isClickable = !isBlock
+        binding.vkNewsRvList.layoutManager = object : LinearLayoutManager(requireContext()) {
+            override fun canScrollVertically(): Boolean {
+                return !isBlock
+            }
+        }
+        binding.vkNewsRvList.adapter = adapter
     }
 
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
     }
-
 }

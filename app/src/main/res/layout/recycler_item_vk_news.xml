@@ -8,28 +8,79 @@
 
     <LinearLayout
         android:id="@+id/vk_news_with_photo_item_layout"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/vk_news_item_height"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp10"
-        android:background="@color/light_blue_50"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/vk_background_color_gray"
+        android:orientation="vertical">
 
-        <com.geekbrains.gibddyola.utils.EquilateralImageView
-            android:id="@+id/vk_news_item_image"
-            android:layout_width="@dimen/vk_news_item_height"
-            android:layout_height="@dimen/vk_news_item_height"
-            android:layout_marginEnd="@dimen/dp10"
-            tools:src="@drawable/ic_icon_logo_background" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/vk_news_item_text"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:text="@string/text_hello" />
+            android:layout_margin="@dimen/dp5"
+            android:hapticFeedbackEnabled="false"
+            app:cardCornerRadius="@dimen/dp5"
+            app:cardElevation="@dimen/dp5">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vk_news_item_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dp5"
+                    android:textSize="@dimen/vk_news_time_text_size"
+                    android:text="@string/vk_news_item_time"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vk_news_item_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dp5"
+                    android:justificationMode="inter_word"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vk_news_item_time"
+                    tools:text="@string/vk_news_block_textview" />
+
+                <com.geekbrains.gibddyola.utils.EquilateralImageView
+                    android:id="@+id/vk_news_item_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vk_news_item_text"
+                    tools:src="@mipmap/no_image_vk_logo" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dp5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vk_news_item_image">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/like_vk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/like_vk_chips"
+                        android:textSize="@dimen/like_vk_text_size"
+                        android:checkable="false"
+                        app:chipIcon="@drawable/ic_heart_like" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

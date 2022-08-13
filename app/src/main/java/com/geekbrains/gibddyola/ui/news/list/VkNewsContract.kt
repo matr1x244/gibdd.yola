@@ -14,6 +14,8 @@ interface VkNewsContract {
         abstract val vkNews: LiveData<List<VkNewsEntity.Response.Item>>
         abstract val inProgress: LiveData<Boolean>
         abstract val onError: LiveData<Throwable>
+        abstract val isBlocked: LiveData<Boolean>
         abstract fun setNews()
+        abstract fun blockScreen(isBlock: Boolean)
     }
 }

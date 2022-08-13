@@ -19,4 +19,7 @@
     <string name="item_contact_work_time">Часы работы канцелярии</string>
     <string name="item_contact_time">Режим работы</string>
     <string name="company_organization">ООО Организация</string>
+    <string name="vk_news_block_textview">Новостной блок</string>
+    <string name="vk_news_item_time">Время публикации</string>
+    <string name="like_vk_chips">Кол-во лайков</string>
 </resources>

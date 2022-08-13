@@ -19,4 +19,7 @@
     <color name="light_blue_400">#29B6F6</color>
     <color name="light_blue_500">#03A9F4</color>
     <color name="light_blue_600">#039BE5</color>
+
+    <color name="transparent_grey_300">#e0e0e0</color>
+    <color name="vk_background_color_gray">#e9ecf1</color>
 </resources>

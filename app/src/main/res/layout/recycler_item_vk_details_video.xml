@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vk_news_details_rv_video_container"
     android:layout_width="match_parent"
     android:layout_height="@dimen/vk_news_full_image_height"
-    android:background="@color/light_blue_50"
     android:orientation="horizontal">
 
-    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-        android:id="@+id/vk_news_details_rv_item_video"
+    <com.geekbrains.gibddyola.utils.EquilateralImageView
+        android:layout_width="@dimen/play_btn_size"
+        android:layout_height="@dimen/play_btn_size"
+        android:src="@drawable/ic_play_btn_2"
+        android:elevation="@dimen/dp26"
+        android:alpha="0.8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/vk_news_details_rv_item_video_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:autoPlay="false" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_icon_logo_background" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

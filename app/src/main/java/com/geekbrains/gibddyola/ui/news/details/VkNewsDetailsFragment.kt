@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsDetailsBinding
+import com.geekbrains.gibddyola.ui.news.details.recyclerView.OnDetailsItemClickListener
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsImageRVAdapter
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsVideoRVAdapter
-import org.koin.android.ext.android.inject
+import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
+import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
 class VkNewsDetailsFragment : Fragment() {
@@ -22,14 +24,19 @@ class VkNewsDetailsFragment : Fragment() {
 
     private var itemData: VkNewsEntity.Response.Item? = null
 
-    private val imageAdapter: VkNewsDetailsImageRVAdapter by
-    inject(named("vk_news_details_image_rv_adapter"))
+    private val scope by lazy {
+        getKoin().getOrCreateScope<VkNewsDetailsFragment>(SCOPE_ID)
+    }
 
-    private val videoAdapter: VkNewsDetailsVideoRVAdapter by
-    inject(named("vk_news_details_video_rv_adapter"))
+    private lateinit var viewModel: VkNewsViewModel
 
-    private var isVideo = false
-    private var isImage = false
+    private val imageAdapter: VkNewsDetailsImageRVAdapter by lazy {
+        scope.get(named("vk_news_details_image_rv_adapter"))
+    }
+
+    private val videoAdapter: VkNewsDetailsVideoRVAdapter by lazy {
+        scope.get(named("vk_news_details_video_rv_adapter"))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,17 +48,22 @@ class VkNewsDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         itemData = this.arguments?.getParcelable(ITEM_ID)
         initRV()
-        imageOrVideoSelector()
         setData()
+        setAdapterClicker()
+        imageOrTextSelector()
     }
 
     companion object {
+        private const val SCOPE_ID = "SCOPE_DETAILS_ID"
         private const val ITEM_ID = "ITEM_ID"
-        fun newInstance(item: VkNewsEntity.Response.Item): VkNewsDetailsFragment {
+        fun newInstance(
+            item: VkNewsEntity.Response.Item,
+            viewModel: VkNewsViewModel
+        ): VkNewsDetailsFragment {
             val fragment = VkNewsDetailsFragment()
+            fragment.viewModel = viewModel
             fragment.arguments = Bundle()
             fragment.arguments?.putParcelable(ITEM_ID, item)
             return fragment
@@ -76,38 +88,42 @@ class VkNewsDetailsFragment : Fragment() {
 
     private fun setData() {
         if (itemData != null) {
-            if (isImage) {
-                imageAdapter.setData(itemData!!)
-                setText()
-            }
-            if (isVideo) {
-                videoAdapter.setData(itemData!!)
-                setText()
-            }
+            imageAdapter.setData(itemData!!)
+            videoAdapter.setData(itemData!!)
+            setText()
         }
     }
 
     private fun setText() {
         if (binding.vkNewsDetailsTextView.text.isNullOrEmpty()) {
-            if (isVideo && itemData?.text?.contains("https://youtu.be") == true) {
-                binding.vkNewsDetailsTextView.text =
-                    itemData!!.attachments?.get(0)?.video?.description
-            } else {
-                binding.vkNewsDetailsTextView.text = itemData!!.text
-            }
+            binding.vkNewsDetailsTextView.text = itemData!!.text
             binding.vkNewsDetailsTextView.movementMethod = ScrollingMovementMethod()
+        }
+        if (binding.vkNewsDetailsLikesText.text.isNullOrEmpty()) {
+            binding.vkNewsDetailsLikesText.text = convertCounts(itemData!!.likes.count)
+        }
+        if (binding.vkNewsDetailsViewsText.text.isNullOrEmpty()) {
+            binding.vkNewsDetailsViewsText.text = convertCounts(itemData!!.views.count)
         }
     }
 
-    private fun imageOrVideoSelector() {
+    private fun setAdapterClicker() {
+        videoAdapter.setOnDetailsItemClickListener(object : OnDetailsItemClickListener {
+            override fun onItemClick(position: Int) {
+                val videoUrl = "https://vk.com/video${
+                    itemData?.attachments?.get(position)?.video?.owner_id
+                }_${
+                    itemData?.attachments?.get(position)?.video?.id
+                }"
 
-        itemData?.attachments?.forEach { attachment ->
-            if (attachment.type == "photo") {
-                isImage = true
+                binding.vkNewsDetailsWebView.loadUrl(videoUrl)
             }
-            if (attachment.type == "video") {
-                isVideo = true
-            }
+        })
+    }
+
+    private fun imageOrTextSelector() {
+        if (itemData?.attachments?.get(0)?.type == "photo") {
+            binding.vkNewsDetailsRvVideo.visibility = View.GONE
         }
 
         if (itemData?.attachments.isNullOrEmpty()) {
@@ -119,27 +135,26 @@ class VkNewsDetailsFragment : Fragment() {
             binding.vkNewsDetailsTextView.visibility = View.GONE
         }
 
-        if (isImage) {
-            binding.vkNewsDetailsRvImage.visibility = View.VISIBLE
-        } else {
-            binding.vkNewsDetailsRvImage.visibility = View.GONE
-        }
-
-        if (isVideo) {
-            binding.vkNewsDetailsRvVideo.visibility = View.VISIBLE
-        } else {
-            binding.vkNewsDetailsRvVideo.visibility = View.GONE
-        }
     }
 
-    override fun onPause() {
-        videoAdapter.releasePlayer()
-        super.onPause()
+    private fun convertCounts(count: Int): String {
+        var resultString: String
+        if (count > 999) {
+            resultString = "${count / 1000}"
+            resultString += if ((count % 1000) >= 100) {
+                ",${(count % 1000) / 100}K"
+            } else {
+                "K"
+            }
+        } else {
+            resultString = count.toString()
+        }
+        return resultString
     }
 
     override fun onStop() {
-        videoAdapter.releasePlayer()
         super.onStop()
+        viewModel.blockScreen(false)
     }
 
     override fun onDestroy() {

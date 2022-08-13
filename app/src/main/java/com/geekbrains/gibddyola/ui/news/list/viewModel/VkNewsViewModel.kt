@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class VkNewsViewModel(
     private val repoNewsUseCase: RepoVkNewsUseCase
@@ -17,6 +16,7 @@ class VkNewsViewModel(
         MutableLiveData<List<VkNewsEntity.Response.Item>>()
     override val inProgress: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     override val onError: MutableLiveData<Throwable> = MutableLiveData<Throwable>()
+    override val isBlocked: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
@@ -31,6 +31,10 @@ class VkNewsViewModel(
             }
         }
         inProgress.postValue(false)
+    }
+
+    override fun blockScreen(isBlock: Boolean) {
+        isBlocked.postValue(isBlock)
     }
 
     override fun onCleared() {
