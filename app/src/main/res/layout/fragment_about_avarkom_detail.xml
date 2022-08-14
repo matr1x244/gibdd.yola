@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container_fragment_about"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/vk_background_color_gray">
 
-    <com.geekbrains.gibddyola.utils.EquilateralImageView
-        android:id="@+id/avatar"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_detail_avarkom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:cropToPadding="true"
-        android:paddingTop="@dimen/dp5"
+        android:layout_height="350dp"
+        app:cardCornerRadius="@dimen/dp5"
+        app:cardElevation="@dimen/dp5"
+        app:layout_constraintBottom_toTopOf="@+id/item_text_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/profile_new" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dp3"
+            android:paddingBottom="@dimen/dp3">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/logo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_text_name"
@@ -26,7 +47,19 @@
         android:text="@string/item_text_name"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar" />
+        app:layout_constraintTop_toBottomOf="@+id/card_view_detail_avarkom" />
+
+    <View
+        android:id="@+id/bottom_sheet_line_one"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:background="@color/color_gray_transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/item_text_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_text_bio"
@@ -36,8 +69,21 @@
         android:padding="@dimen/dp5"
         android:paddingStart="@dimen/dp5"
         android:text="@string/item_text_bio"
+        android:scrollbars="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
+
+    <View
+        android:id="@+id/bottom_sheet_line_two"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:background="@color/color_gray_transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/item_text_bio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_text_bio" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_text_job_year"
@@ -49,6 +95,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_text_bio" />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_phone"
         android:layout_width="wrap_content"
@@ -56,8 +103,8 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/dp16"
         android:layout_marginBottom="@dimen/dp16"
-        android:elevation="@dimen/dp5"
         android:backgroundTint="@color/light_blue_200"
+        android:elevation="@dimen/dp5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/sym_action_call">

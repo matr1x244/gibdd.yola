@@ -8,7 +8,24 @@
 
     <!--myChipsStyleActionBaseStyle-->
     <style name="myChipsStyleActionBaseStyle" parent="Widget.MaterialComponents.Chip.Action">
-        <item name="rippleColor">@color/yellow</item>
+        <item name="rippleColor">@color/color_transparent</item>
+    </style>
+
+    <!--myTabsStyle-->
+    <style name="myTabsStyle" parent="Widget.Design.TabLayout">
+        <item name="tabTextColor">@color/black</item>
+        <item name="tabSelectedTextColor">@color/light_blue_500</item>
+        <item name="tabRippleColor">@color/light_blue_100</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicatorGravity">bottom</item>
+        <item name="tabIndicatorAnimationMode">elastic</item>
+        <item name="tabIndicatorAnimationDuration">5</item>
+        <item name="tabMaxWidth">0dp</item>
+    </style>
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
 </resources>
