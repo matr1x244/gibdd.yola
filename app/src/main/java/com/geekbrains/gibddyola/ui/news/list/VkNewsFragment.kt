@@ -24,8 +24,6 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private var _binding: FragmentVkNewsBinding? = null
     private val binding get() = _binding!!
 
-    private var currentPosition: Int = 0
-
     private val newsList = mutableListOf<VkNewsEntity.Response.Item>()
     private val groupInfo = mutableListOf<VkGroupEntity.Response>()
 
@@ -107,10 +105,6 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private fun setAdapterClicker() {
         adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
-                currentPosition = position
-                binding.vkNewsHidingScreen.visibility = View.VISIBLE
-                binding.vkNewsHidingScreen.isEnabled = false
-                binding.vkNewsRvList.isEnabled = false
                 requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                     //анимация переходы
                     R.anim.slide_in,
@@ -138,15 +132,14 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     }
 
     private fun disableBackground(isBlock: Boolean) {
-        if (!isBlock) binding.vkNewsHidingScreen.visibility = View.GONE
-        adapter.isClickable = !isBlock
-        binding.vkNewsRvList.layoutManager = object : LinearLayoutManager(requireContext()) {
-            override fun canScrollVertically(): Boolean {
-                return !isBlock
-            }
+        if (isBlock) {
+            binding.vkNewsHidingScreen.visibility = View.VISIBLE
+        } else {
+            binding.vkNewsHidingScreen.visibility = View.GONE
         }
-        binding.vkNewsRvList.adapter = adapter
-        if (!isBlock) binding.vkNewsRvList.scrollToPosition(currentPosition)
+        binding.vkNewsHidingScreen.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
     }
 
     override fun onDestroy() {
