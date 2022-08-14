@@ -8,6 +8,7 @@ import kotlinx.coroutines.Deferred
 class RepoVkGroupUseCaseImpl(private val api: VkApi) : RepoVkGroupUseCase {
     override suspend fun receiveGroupInfoAsync(): Deferred<VkGroupEntity> {
         return api.groupInfoAsync(
+            VkData.FIELDS,
             VkData.VK_TOKEN,
             VkData.SDK_VER
         )

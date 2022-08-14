@@ -5,8 +5,8 @@
     android:id="@+id/vk_news_details_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dp10"
     android:layout_gravity="center"
+    android:layout_margin="@dimen/dp10"
     tools:context=".ui.news.details.VkNewsDetailsFragment">
 
     <com.google.android.material.card.MaterialCardView
@@ -41,25 +41,33 @@
                     app:cardCornerRadius="@dimen/dp5"
                     app:cardElevation="@dimen/dp5">
 
-                <WebView
-                    android:id="@+id/vk_news_details_web_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/dp1"/>
+                    <WebView
+                        android:id="@+id/vk_news_details_web_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp1" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/vk_news_details_rv_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/vk_news_full_image_height"
-                    android:padding="@dimen/dp1"
-                    tools:listitem="@layout/recycler_item_vk_details_image" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/vk_news_details_rv_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/vk_news_full_image_height"
+                        android:padding="@dimen/dp1"
+                        tools:listitem="@layout/recycler_item_vk_details_image" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/vk_news_details_rv_video"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/vk_news_full_image_height"
-                    android:padding="@dimen/dp1"
-                    tools:listitem="@layout/recycler_item_vk_details_video" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/vk_news_details_rv_video"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/vk_news_full_image_height"
+                        android:padding="@dimen/dp1"
+                        tools:listitem="@layout/recycler_item_vk_details_video" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/vk_news_details_stock_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:padding="@dimen/dp1"
+                        android:src="@mipmap/logo" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -94,9 +102,9 @@
                     android:text="@string/vk_view_post"
                     android:textSize="@dimen/view_vk_text_size"
                     app:chipBackgroundColor="@color/color_transparent"
-                    app:rippleColor="@color/color_transparent"
                     app:chipIcon="@drawable/ic_view_vk_post"
-                    app:chipIconSize="@dimen/view_vk_text_size" />
+                    app:chipIconSize="@dimen/view_vk_text_size"
+                    app:rippleColor="@color/color_transparent" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -105,8 +113,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp10"
-                android:scrollbars="vertical"
                 android:paddingBottom="@dimen/dp3"
+                android:scrollbars="vertical"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

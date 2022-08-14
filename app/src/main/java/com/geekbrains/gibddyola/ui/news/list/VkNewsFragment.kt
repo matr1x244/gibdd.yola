@@ -115,6 +115,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
                     .add(
                         R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
                             newsList[position],
+                            groupInfo[0],
                             viewModel
                         )
                     )

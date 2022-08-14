@@ -10,4 +10,5 @@ object VkData {
     const val API_URL = "https://api.vk.com/method/"
     const val METHOD_WALL_GET = "wall.get"
     const val METHOD_GROUPS_GET_BY_ID = "groups.getById"
+    const val FIELDS = "description"
 }

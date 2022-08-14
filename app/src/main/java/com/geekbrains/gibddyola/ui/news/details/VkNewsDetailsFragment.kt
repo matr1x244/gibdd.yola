@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.data.news.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsDetailsBinding
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.OnDetailsItemClickListener
@@ -16,7 +16,6 @@ import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsImageR
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsVideoRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
 import com.geekbrains.gibddyola.utils.vkontakte.ConvertCounts
-import com.google.android.material.chip.Chip
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
@@ -26,6 +25,7 @@ class VkNewsDetailsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var itemData: VkNewsEntity.Response.Item? = null
+    private var groupData: VkGroupEntity.Response? = null
 
     private val scope by lazy {
         getKoin().getOrCreateScope<VkNewsDetailsFragment>(SCOPE_ID)
@@ -52,6 +52,7 @@ class VkNewsDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         itemData = this.arguments?.getParcelable(ITEM_ID)
+        groupData = this.arguments?.getParcelable(GROUP_ID)
         initRV()
         setData()
         setAdapterClicker()
@@ -61,14 +62,17 @@ class VkNewsDetailsFragment : Fragment() {
     companion object {
         private const val SCOPE_ID = "SCOPE_DETAILS_ID"
         private const val ITEM_ID = "ITEM_ID"
+        private const val GROUP_ID = "GROUP_ID"
         fun newInstance(
             item: VkNewsEntity.Response.Item,
+            groupData: VkGroupEntity.Response,
             viewModel: VkNewsViewModel
         ): VkNewsDetailsFragment {
             val fragment = VkNewsDetailsFragment()
             fragment.viewModel = viewModel
             fragment.arguments = Bundle()
             fragment.arguments?.putParcelable(ITEM_ID, item)
+            fragment.arguments?.putParcelable(GROUP_ID, groupData)
             return fragment
         }
     }
@@ -95,6 +99,11 @@ class VkNewsDetailsFragment : Fragment() {
             videoAdapter.setData(itemData!!)
             setText()
         }
+        if (itemData?.attachments.isNullOrEmpty()) {
+            binding.vkNewsDetailsStockPhoto.visibility = View.VISIBLE
+        } else {
+            binding.vkNewsDetailsStockPhoto.visibility = View.GONE
+        }
     }
 
     private fun setText() {
@@ -102,12 +111,11 @@ class VkNewsDetailsFragment : Fragment() {
             binding.vkNewsDetailsTextView.text = itemData!!.text
             binding.vkNewsDetailsTextView.movementMethod = ScrollingMovementMethod()
         }
-        if (binding.likeVk.text.isNullOrEmpty()) {
-            binding.likeVk.text = ConvertCounts.convert(itemData!!.likes.count)
+        if (itemData?.text.isNullOrEmpty()) {
+            binding.vkNewsDetailsTextView.text = groupData!!.description
         }
-        if (binding.seePostVk.text.isNullOrEmpty()) {
-            binding.seePostVk.text = ConvertCounts.convert(itemData!!.views.count)
-        }
+        binding.likeVk.text = ConvertCounts.convert(itemData!!.likes.count)
+        binding.seePostVk.text = ConvertCounts.convert(itemData!!.views.count)
     }
 
     private fun setAdapterClicker() {
@@ -128,16 +136,6 @@ class VkNewsDetailsFragment : Fragment() {
         if (itemData?.attachments?.get(0)?.type == "photo") {
             binding.vkNewsDetailsRvVideo.visibility = View.GONE
         }
-
-        if (itemData?.attachments.isNullOrEmpty()) {
-            binding.vkNewsDetailsRvImage.visibility = View.GONE
-            binding.vkNewsDetailsRvVideo.visibility = View.GONE
-        }
-
-        if (itemData?.text.isNullOrEmpty()) {
-            binding.vkNewsDetailsTextView.visibility = View.GONE
-        }
-
     }
 
     override fun onStop() {

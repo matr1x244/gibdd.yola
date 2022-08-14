@@ -18,6 +18,7 @@ interface VkApi {
 
     @GET("${VkData.METHOD_GROUPS_GET_BY_ID}?group_id=${VkData.GROUP_ID}")
     fun groupInfoAsync(
+        @Query("fields") fields: String,
         @Query("access_token") access_token: String,
         @Query("v") v: String
     ): Deferred<VkGroupEntity>
