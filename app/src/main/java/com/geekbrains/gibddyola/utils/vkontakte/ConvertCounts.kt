@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.utils
+package com.geekbrains.gibddyola.utils.vkontakte
 
 object ConvertCounts {
 

@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
-import com.geekbrains.gibddyola.utils.ConvertCounts
-import com.geekbrains.gibddyola.utils.TimeStampToDateConverter
+import com.geekbrains.gibddyola.utils.vkontakte.ConvertCounts
+import com.geekbrains.gibddyola.utils.vkontakte.TimeStampToDataConverter
 import com.google.android.material.chip.Chip
 
 class VkNewsViewHolder(
@@ -56,7 +56,7 @@ class VkNewsViewHolder(
         }
 
         val postDateTime = itemView.findViewById<AppCompatTextView>(R.id.vk_news_item_time)
-        postDateTime.text = TimeStampToDateConverter.convert(item.date)
+        postDateTime.text = TimeStampToDataConverter.convert(item.date)
 
         val postLikes = itemView.findViewById<Chip>(R.id.like_vk)
         postLikes.text = item.likes.count.toString()
