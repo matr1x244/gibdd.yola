@@ -14,6 +14,7 @@ class AdaptersAvarkom(private val itemClick: (EntityAvarkom) -> Unit) :
     fun setData(newList: List<EntityAvarkom>) {
         localListData.clear()
         localListData.addAll(newList)
+        localListData.shuffle()
         notifyDataSetChanged()
     }
 
