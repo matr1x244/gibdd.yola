@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.data.news.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.utils.vkontakte.ConvertCounts
 import com.geekbrains.gibddyola.utils.vkontakte.TimeStampToDataConverter
@@ -30,7 +31,10 @@ class VkNewsViewHolder(
         }
     }
 
-    fun bind(item: VkNewsEntity.Response.Item) {
+    fun bind(
+        item: VkNewsEntity.Response.Item,
+        groupInfo: VkGroupEntity.Response
+        ) {
         var imageUrl = ""
         if (item.text.isNotEmpty()) {
             if (item.attachments.isNullOrEmpty()) {
@@ -63,6 +67,15 @@ class VkNewsViewHolder(
 
         val postViews = itemView.findViewById<Chip>(R.id.see_post_vk)
         postViews.text = ConvertCounts.convert(item.views.count)
+
+        val groupName = itemView.findViewById<AppCompatTextView>(R.id.vk_news_item_tittle_group_name)
+        groupName.text = groupInfo.name
+
+        val groupPhoto = itemView.findViewById<AppCompatImageView>(R.id.vk_news_item_logo_image)
+        Glide.with(itemView)
+            .load(groupInfo.photo100)
+            .error(R.mipmap.logo)
+            .into(groupPhoto)
 
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)

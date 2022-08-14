@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.data.news.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsBinding
 import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment
@@ -25,6 +25,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private val binding get() = _binding!!
 
     private val newsList = mutableListOf<VkNewsEntity.Response.Item>()
+    private val groupInfo = mutableListOf<VkGroupEntity.Response>()
 
     private val scope by lazy {
         getKoin().getOrCreateScope<VkNewsFragment>(SCOPE_ID)
@@ -69,10 +70,13 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     }
 
     override fun setData() {
-        viewModel.vkNews.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty()) {
-                newsList.addAll(it)
-                adapter.setData(newsList)
+        viewModel.vkNews.observe(viewLifecycleOwner) { news ->
+            if (news.isNotEmpty()) {
+                newsList.addAll(news)
+                viewModel.groupInfo.observe(viewLifecycleOwner) { info ->
+                    groupInfo.addAll(info)
+                    adapter.setData(newsList, groupInfo)
+                }
             }
         }
     }

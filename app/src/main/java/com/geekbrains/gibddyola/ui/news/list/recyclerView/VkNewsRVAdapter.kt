@@ -4,19 +4,26 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.data.news.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
 
 class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsViewHolder>() {
 
     private val data = mutableListOf<VkNewsEntity.Response.Item>()
+    private val groupInfo = mutableListOf<VkGroupEntity.Response>()
 
     var isClickable = true
 
     private var mListener: OnItemClickListener? = null
 
-    fun setData(resultData: List<VkNewsEntity.Response.Item>) {
+    fun setData(
+        resultData: List<VkNewsEntity.Response.Item>,
+        groupInfoData: List<VkGroupEntity.Response>
+        ) {
         data.clear()
+        groupInfo.clear()
         data.addAll(resultData)
+        groupInfo.addAll(groupInfoData)
         notifyDataSetChanged()
     }
 
@@ -32,7 +39,7 @@ class VkNewsRVAdapter : RecyclerView.Adapter<VkNewsViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: VkNewsViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(data[position], groupInfo[0])
     }
 
     override fun getItemCount(): Int {
