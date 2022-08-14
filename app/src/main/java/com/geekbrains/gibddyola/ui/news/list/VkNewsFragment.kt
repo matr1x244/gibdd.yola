@@ -14,6 +14,8 @@ import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment
 import com.geekbrains.gibddyola.ui.news.list.recyclerView.OnItemClickListener
 import com.geekbrains.gibddyola.ui.news.list.recyclerView.VkNewsRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
+import com.geekbrains.gibddyola.utils.showSnackBarNoAction
+import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
@@ -88,7 +90,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     override fun onError() {
         viewModel.onError.observe(viewLifecycleOwner) {
             if (it != null) {
-                Toast.makeText(requireContext(), "Error: $it", Toast.LENGTH_SHORT).show()
+                binding.vkNewsFragmentContainer.showSnackBarNoAction("Нужна связь с космосом для обновления новостей", Snackbar.LENGTH_LONG)
             }
         }
     }
@@ -99,7 +101,13 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
                 binding.vkNewsHidingScreen.visibility = View.VISIBLE
                 binding.vkNewsHidingScreen.isEnabled = false
                 binding.vkNewsRvList.isEnabled = false
-                requireActivity().supportFragmentManager.beginTransaction()
+                requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                    //анимация переходы
+                    R.anim.slide_in,
+                    R.anim.fade_out,
+                    R.anim.fade_in,
+                    R.anim.slide_out
+                )
                     .add(
                         R.id.main_activity_container, VkNewsDetailsFragment.newInstance(
                             newsList[position],
