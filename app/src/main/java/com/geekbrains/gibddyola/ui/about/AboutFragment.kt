@@ -47,6 +47,7 @@ class AboutFragment : Fragment() {
 
         Glide.with(binding.avatar)
             .load(about?.avatar)
+            .centerInside()
             .transform(RoundedCorners(10))
             .into(binding.avatar)
 
