@@ -61,7 +61,7 @@ class AboutFragment : Fragment() {
     }
 
     private fun buttonPhone() {
-        val number = "709-709"
+        val number = "+7(8362)709-709"
         val intent = Intent(Intent.ACTION_CALL)
         intent.data = Uri.parse("tel:$number")
 

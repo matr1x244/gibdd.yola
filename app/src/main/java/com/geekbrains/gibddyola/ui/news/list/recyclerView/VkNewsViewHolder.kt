@@ -45,9 +45,9 @@ class VkNewsViewHolder(
         if (!item.attachments.isNullOrEmpty()) {
             item.attachments.forEach { attachment ->
                 if (attachment.type == "photo") {
-                    if (attachment.photo?.sizes?.get(3)?.url?.isNotEmpty() == true) {
+                    if (attachment.photo?.sizes?.get(2)?.url?.isNotEmpty() == true) {
                         image.visibility = View.VISIBLE
-                        imageUrl = attachment.photo.sizes[3].url
+                        imageUrl = attachment.photo.sizes[2].url
                     }
                 }
                 if (attachment.type == "video") {

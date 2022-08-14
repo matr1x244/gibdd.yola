@@ -104,10 +104,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(
-                R.anim.slide_in,
-                R.anim.fade_out,
-                R.anim.fade_in,
-                R.anim.slide_out
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             )
             .replace(R.id.main_activity_container, AboutFragment.newInstance(localClick))
             .addToBackStack("")
