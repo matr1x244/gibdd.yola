@@ -24,6 +24,8 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private var _binding: FragmentVkNewsBinding? = null
     private val binding get() = _binding!!
 
+    private var currentPosition: Int = 0
+
     private val newsList = mutableListOf<VkNewsEntity.Response.Item>()
     private val groupInfo = mutableListOf<VkGroupEntity.Response>()
 
@@ -94,7 +96,10 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     override fun onError() {
         viewModel.onError.observe(viewLifecycleOwner) {
             if (it != null) {
-                binding.vkNewsFragmentContainer.showSnackBarNoAction("Нужна связь с космосом для обновления новостей", Snackbar.LENGTH_LONG)
+                binding.vkNewsFragmentContainer.showSnackBarNoAction(
+                    "Нужна связь с космосом для обновления новостей",
+                    Snackbar.LENGTH_LONG
+                )
             }
         }
     }
@@ -102,6 +107,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
     private fun setAdapterClicker() {
         adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
+                currentPosition = position
                 binding.vkNewsHidingScreen.visibility = View.VISIBLE
                 binding.vkNewsHidingScreen.isEnabled = false
                 binding.vkNewsRvList.isEnabled = false
@@ -140,6 +146,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
             }
         }
         binding.vkNewsRvList.adapter = adapter
+        if (!isBlock) binding.vkNewsRvList.scrollToPosition(currentPosition)
     }
 
     override fun onDestroy() {
