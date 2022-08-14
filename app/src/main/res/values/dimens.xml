@@ -23,15 +23,15 @@
     <dimen name="vk_news_item_height">100dp</dimen>
     <dimen name="vk_news_item_only_photo_height">150dp</dimen>
     <dimen name="vk_news_full_image_height">250dp</dimen>
-    <dimen name="vk_news_time_text_size">8sp</dimen>
-    <dimen name="like_vk_text_size">10sp</dimen>
-    <dimen name="view_vk_text_size">10sp</dimen>
+    <dimen name="vk_news_time_text_size">10sp</dimen>
+    <dimen name="like_vk_text_size">11sp</dimen>
+    <dimen name="view_vk_text_size">11sp</dimen>
     <dimen name="likes_views_inner_images_size">18dp</dimen>
     <dimen name="likes_views_inner_text_width">25dp</dimen>
     <dimen name="play_btn_size">100dp</dimen>
     <dimen name="vk_view_post_size">20dp</dimen>
-    <!--Yandex MAPS-->
-    <dimen name="text_size_license_yandex_maps">10sp</dimen>
     <dimen name="vk_news_title_text_size">13sp</dimen>
     <dimen name="vk_news_item_logo_image">40dp</dimen>
+    <!--Yandex MAPS-->
+    <dimen name="text_size_license_yandex_maps">10sp</dimen>
 </resources>

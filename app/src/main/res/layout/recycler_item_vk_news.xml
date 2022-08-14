@@ -53,6 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingStart="@dimen/dp3"
+                    android:paddingBottom="@dimen/dp3"
                     android:text="@string/vk_news_item_time"
                     android:textSize="@dimen/vk_news_time_text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/vk_news_item_logo_image"

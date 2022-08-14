@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/vk_news_details_rv_item_image"
         android:layout_width="match_parent"
-        tools:src="@drawable/ic_icon_logo_background"
+        tools:src="@mipmap/logo"
         android:layout_height="match_parent" />
 
 </LinearLayout>

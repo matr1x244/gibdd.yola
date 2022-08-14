@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vk_news_details_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="@dimen/dp20"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp10"
+    android:layout_gravity="center"
     tools:context=".ui.news.details.VkNewsDetailsFragment">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:cardCornerRadius="@dimen/dp26"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="@dimen/dp5"
         app:contentPadding="@dimen/dp5"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,121 +26,106 @@
                 android:id="@+id/vk_news_details_media_container"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/vk_news_full_image_height"
-                android:layout_marginHorizontal="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginHorizontal="@dimen/dp1"
+                android:layout_marginTop="@dimen/dp5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_view_view_blocks"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp1"
+                    android:hapticFeedbackEnabled="false"
+                    app:cardCornerRadius="@dimen/dp5"
+                    app:cardElevation="@dimen/dp5">
+
                 <WebView
                     android:id="@+id/vk_news_details_web_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dp1"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/vk_news_details_rv_image"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/vk_news_full_image_height"
+                    android:padding="@dimen/dp1"
                     tools:listitem="@layout/recycler_item_vk_details_image" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/vk_news_details_rv_video"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/vk_news_full_image_height"
+                    android:padding="@dimen/dp1"
                     tools:listitem="@layout/recycler_item_vk_details_video" />
+
+                </com.google.android.material.card.MaterialCardView>
 
             </FrameLayout>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/vk_news_details_likes"
-                android:layout_width="wrap_content"
-                android:layout_height="22dp"
-                android:layout_marginStart="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp3"
-                app:cardCornerRadius="@dimen/dp10"
-                app:cardBackgroundColor="@color/transparent_grey_300"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vk_news_details_media_container">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/dp5">
-
-                    <com.geekbrains.gibddyola.utils.EquilateralImageView
-                        android:layout_width="@dimen/likes_views_inner_images_size"
-                        android:layout_height="@dimen/likes_views_inner_images_size"
-                        android:alpha="0.4"
-                        android:src="@drawable/ic_like" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/vk_news_details_likes_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/likes_views_inner_images_size"
-                        android:layout_marginStart="@dimen/dp3"
-                        android:textAlignment="viewEnd"
-                        android:textSize="12sp"
-                        tools:text="999" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <LinearLayout
-                android:id="@+id/vk_news_details_views"
-                android:layout_width="wrap_content"
-                android:layout_height="22dp"
-                android:layout_marginTop="@dimen/dp3"
-                android:layout_marginEnd="@dimen/dp10"
-                android:gravity="center_vertical|end"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="bottom"
+                android:paddingStart="@dimen/dp5"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vk_news_details_media_container">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vk_news_details_media_container">
 
-                <com.geekbrains.gibddyola.utils.EquilateralImageView
-                    android:layout_width="@dimen/likes_views_inner_images_size"
-                    android:layout_height="@dimen/likes_views_inner_images_size"
-                    android:alpha="0.4"
-                    android:src="@drawable/ic_viewed" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/vk_news_details_views_text"
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/like_vk"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/likes_views_inner_images_size"
-                    android:layout_marginStart="@dimen/dp3"
-                    android:textAlignment="viewEnd"
-                    android:textSize="12sp"
-                    tools:text="999" />
+                    android:layout_height="wrap_content"
+                    android:checkable="false"
+                    android:text="@string/like_vk_chips"
+                    android:textSize="@dimen/like_vk_text_size"
+                    app:chipIcon="@mipmap/ic_heart"
+                    app:rippleColor="@color/color_transparent" />
 
-            </LinearLayout>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/see_post_vk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:checkable="false"
+                    android:text="@string/vk_view_post"
+                    android:textSize="@dimen/view_vk_text_size"
+                    app:chipBackgroundColor="@color/color_transparent"
+                    app:rippleColor="@color/color_transparent"
+                    app:chipIcon="@drawable/ic_view_vk_post"
+                    app:chipIconSize="@dimen/view_vk_text_size" />
+
+            </com.google.android.material.chip.ChipGroup>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/vk_news_details_text_view"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp10"
                 android:scrollbars="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingBottom="@dimen/dp3"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vk_news_details_likes" />
+                app:layout_constraintTop_toBottomOf="@+id/chip_group" />
+
+            <FrameLayout
+                android:id="@+id/vk_news_hiding_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0"
+                android:animateLayoutChanges="true"
+                android:background="@color/white"
+                android:clickable="false"
+                android:foregroundGravity="right"
+                app:layout_constraintCircleRadius="@dimen/dp26"
+                tools:layout_editor_absoluteY="1dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-    <FrameLayout
-        android:id="@+id/vk_news_hiding_screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0"
-        android:animateLayoutChanges="true"
-        android:background="@color/white"
-        android:clickable="false"
-        android:foregroundGravity="right"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="@dimen/dp26" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
