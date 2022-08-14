@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.utils
+package com.geekbrains.gibddyola.utils.vkontakte
 
 import android.webkit.WebResourceRequest
 import android.webkit.WebView

@@ -14,7 +14,7 @@ import com.geekbrains.gibddyola.ui.news.details.recyclerView.OnDetailsItemClickL
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsImageRVAdapter
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsVideoRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
-import com.geekbrains.gibddyola.utils.ConvertCounts
+import com.geekbrains.gibddyola.utils.vkontakte.ConvertCounts
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
