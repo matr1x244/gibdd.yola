@@ -1,6 +1,5 @@
 package com.geekbrains.gibddyola.ui.news.list.recyclerView
 
-import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -28,8 +27,6 @@ class VkNewsViewHolder(
         if (listener != null) {
             itemView.setOnClickListener {
                 listener.onItemClick(absoluteAdapterPosition)
-                val sendPosition = Bundle()
-                sendPosition.putInt("POSITION", absoluteAdapterPosition)
             }
         }
     }
