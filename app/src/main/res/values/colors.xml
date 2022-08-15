@@ -11,6 +11,7 @@
     <color name="color_gray">#66000000</color>
     <color name="color_gray_transparent">#14000000</color>
     <color name="color_transparent">#00FFFFFF</color>
+    <color name="red_600">#E53935</color>
 
     <color name="light_blue_50">#E1F5FE</color>
     <color name="light_blue_100">#B3E5FC</color>
@@ -23,4 +24,15 @@
 
     <color name="transparent_grey_300">#e0e0e0</color>
     <color name="vk_background_color_gray">#e9ecf1</color>
+
+    <color name="amber_orange_50">#FBE9E7</color>
+    <color name="amber_orange_100">#FFCCBC</color>
+    <color name="amber_orange_200">#FFAB91</color>
+    <color name="amber_orange_300">#FF8A65</color>
+    <color name="amber_orange_400">#FF7043</color>
+    <color name="amber_orange_500">#FF5722</color>
+    <color name="amber_orange_600">#F4511E</color>
+    <color name="amber_orange_700">#E64A19</color>
+    <color name="amber_orange_800">#D84315</color>
+    <color name="amber_orange_900">#BF360C</color>
 </resources>

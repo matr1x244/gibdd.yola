@@ -77,10 +77,11 @@
                 android:id="@+id/chip_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foregroundGravity="bottom"
+                android:foregroundGravity="left"
                 android:padding="@dimen/dp1"
                 android:background="@color/vk_background_color_gray"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/dp5"
+                android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vk_news_details_media_container">
 
