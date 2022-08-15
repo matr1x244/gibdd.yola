@@ -8,10 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFDE03</color>
-    <color name="color_gray">#66000000</color>
+    <color name="red_600">#E53935</color>
+
+    <color name="color_gray">#A3000000</color>
     <color name="color_gray_transparent">#14000000</color>
     <color name="color_transparent">#00FFFFFF</color>
-    <color name="red_600">#E53935</color>
+    <color name="transparent_grey_300">#e0e0e0</color>
+    <color name="vk_background_color_gray">#e9ecf1</color>
+    <color name="yellow_600">#FDD835</color>
 
     <color name="light_blue_50">#E1F5FE</color>
     <color name="light_blue_100">#B3E5FC</color>
@@ -21,9 +25,6 @@
     <color name="light_blue_500">#03A9F4</color>
     <color name="light_blue_600">#039BE5</color>
     <color name="light_blue_900">#035DE5</color>
-
-    <color name="transparent_grey_300">#e0e0e0</color>
-    <color name="vk_background_color_gray">#e9ecf1</color>
 
     <color name="amber_orange_50">#FBE9E7</color>
     <color name="amber_orange_100">#FFCCBC</color>
@@ -35,4 +36,16 @@
     <color name="amber_orange_700">#E64A19</color>
     <color name="amber_orange_800">#D84315</color>
     <color name="amber_orange_900">#BF360C</color>
+
+    <color name="light_green_50">#F1F8E9</color>
+    <color name="light_green_100">#DCEDC8</color>
+    <color name="light_green_200">#C5E1A5</color>
+    <color name="light_green_300">#AED581</color>
+    <color name="light_green_400">#9CCC65</color>
+    <color name="light_green_500">#8BC34A</color>
+    <color name="gray_green_500">#4CAF50</color>
+    <color name="light_green_600">#8BC34A</color>
+    <color name="light_green_700">#689F38</color>
+    <color name="light_green_800">#558B2F</color>
+    <color name="light_green_A400">#76FF03</color>
 </resources>

@@ -19,6 +19,11 @@
     <dimen name="dp3">3dp</dimen>
     <dimen name="dp100">100dp</dimen>
     <dimen name="dp20">20dp</dimen>
+    <dimen name="dp22">22dp</dimen>
+    <dimen name="dp23">23dp</dimen>
+    <dimen name="dp95">95dp</dimen>
+    <dimen name="dp21">21dp</dimen>
+    <dimen name="dp96">96dp</dimen>
     <!--VK BLOCKS-->
     <dimen name="vk_news_item_height">100dp</dimen>
     <dimen name="vk_news_item_only_photo_height">150dp</dimen>
@@ -34,4 +39,7 @@
     <dimen name="vk_news_item_logo_image">40dp</dimen>
     <!--Yandex MAPS-->
     <dimen name="text_size_license_yandex_maps">10sp</dimen>
+    <!--Custom-->
+    <dimen name="fab_main_size_custom">65dp</dimen>
+
 </resources>

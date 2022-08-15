@@ -4,18 +4,22 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
+import android.text.style.BulletSpan
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -90,7 +94,6 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
         setTooltip()
     }
 
@@ -163,6 +166,19 @@ class MainFragment : Fragment() {
                 .addToBackStack("")
                 .commit()
         }
+        binding.fabMainImageCall.setOnClickListener {
+            val number = "+7(8362)709-709"
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:$number")
+            startActivity(intent)
+        }
+        binding.btnFabMainStock.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                //анимация переходы
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
+            ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
+                .commit()
+        }
     }
 
     private fun setTooltip() {
@@ -184,8 +200,18 @@ class MainFragment : Fragment() {
             editor.putInt(TOOLTIP_NUMBER, 0)
             editor.apply()
         }
-
         binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
+
+        val textAutoBlocks = binding.textTooltip.text
+        val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
+        spannableStringBuilder.setSpan(
+            BulletSpan(
+                10,
+                ContextCompat.getColor(requireContext(), R.color.red_600),
+                10
+            ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        binding.textTooltip.text = spannableStringBuilder
     }
 
     private fun rotateFab() {

@@ -27,4 +27,7 @@
     <string name="vk_news_item_tittle_group_name">Название группы</string>
     <string name="no_internet_stock">Для загрузки скидки, подключите интернет</string>
     <string name="no_internet_vk_news">Нужна связь с космосом для обновления новостей</string>
+    <string name="blocks_auto_help">Блок заметок</string>
+    <string name="text_view_blocks_auto_helper">Блок подсказок водителю</string>
+    <string name="my_team_avarkom">Наша команда аварийных комиссаров</string>
 </resources>
