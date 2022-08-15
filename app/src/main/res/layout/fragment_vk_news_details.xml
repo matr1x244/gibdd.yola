@@ -65,9 +65,9 @@
                         android:id="@+id/vk_news_details_stock_photo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:visibility="gone"
                         android:padding="@dimen/dp1"
-                        android:src="@mipmap/logo" />
+                        android:src="@mipmap/logo"
+                        android:visibility="gone" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -77,11 +77,14 @@
                 android:id="@+id/chip_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
                 android:foregroundGravity="bottom"
                 android:paddingStart="@dimen/dp5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vk_news_details_media_container">
+                app:layout_constraintTop_toBottomOf="@+id/vk_news_details_media_container"
+                app:rippleColor="@color/color_transparent">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/like_vk"

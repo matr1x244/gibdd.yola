@@ -138,13 +138,9 @@ class VkNewsDetailsFragment : Fragment() {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        viewModel.blockScreen(false)
-    }
-
     override fun onDestroy() {
         _binding = null
+        viewModel.blockScreen(false)
         super.onDestroy()
     }
 }
