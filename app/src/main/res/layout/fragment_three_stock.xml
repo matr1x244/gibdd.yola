@@ -32,7 +32,8 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textAllCaps="true"
-            android:maxLength="8"
+            android:maxLength="18"
+            android:textStyle="bold"
             android:layout_gravity="bottom|center"
             android:visibility="visible">
         </com.google.android.material.textview.MaterialTextView>

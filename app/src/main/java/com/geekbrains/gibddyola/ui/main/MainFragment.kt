@@ -97,7 +97,7 @@ class MainFragment : Fragment() {
 
     private fun buttonPhone() {
         binding.buttonPhone.setOnClickListener {
-            val number = "709-709"
+            val number = "+7(8362)709-709"
             val intent = Intent(Intent.ACTION_CALL)
             intent.data = Uri.parse("tel:$number")
             startActivity(intent)
@@ -132,10 +132,7 @@ class MainFragment : Fragment() {
         binding.testTextView1.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
-                R.anim.slide_in,
-                R.anim.fade_out,
-                R.anim.fade_in,
-                R.anim.slide_out
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
                 .addToBackStack("")
                 .commit()
@@ -143,30 +140,21 @@ class MainFragment : Fragment() {
         binding.testTextView2.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
-                R.anim.slide_in,
-                R.anim.fade_out,
-                R.anim.fade_in,
-                R.anim.slide_out
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.testTextView3.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
-                R.anim.slide_in,
-                R.anim.fade_out,
-                R.anim.fade_in,
-                R.anim.slide_out
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.testTextView4.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
-                R.anim.slide_in,
-                R.anim.fade_out,
-                R.anim.fade_in,
-                R.anim.slide_out
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
                 .addToBackStack("")
                 .commit()
@@ -186,9 +174,19 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -20f, -130f)
                     .setDuration(duration).start()
-                ObjectAnimator.ofFloat(binding.optionThreeContainer, View.TRANSLATION_Y, -80f, -390f)
+                ObjectAnimator.ofFloat(
+                    binding.optionThreeContainer,
+                    View.TRANSLATION_Y,
+                    -80f,
+                    -390f
+                )
                     .setDuration(duration).start()
-                ObjectAnimator.ofFloat(binding.optionFourContainer, View.TRANSLATION_Y, -110f, -520f)
+                ObjectAnimator.ofFloat(
+                    binding.optionFourContainer,
+                    View.TRANSLATION_Y,
+                    -110f,
+                    -520f
+                )
                     .setDuration(duration).start()
                 /*макет доступность*/
                 binding.optionOneContainer.visibility = View.VISIBLE
@@ -238,9 +236,19 @@ class MainFragment : Fragment() {
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -130f, -20f)
                     .setDuration(duration).start()
-                ObjectAnimator.ofFloat(binding.optionThreeContainer, View.TRANSLATION_Y, -390f, -80f)
+                ObjectAnimator.ofFloat(
+                    binding.optionThreeContainer,
+                    View.TRANSLATION_Y,
+                    -390f,
+                    -80f
+                )
                     .setDuration(duration).start()
-                ObjectAnimator.ofFloat(binding.optionFourContainer, View.TRANSLATION_Y, -520f, -110f)
+                ObjectAnimator.ofFloat(
+                    binding.optionFourContainer,
+                    View.TRANSLATION_Y,
+                    -520f,
+                    -110f
+                )
                     .setDuration(duration).start()
                 binding.optionOneContainer.visibility = View.INVISIBLE
                 binding.optionTwoContainer.visibility = View.INVISIBLE

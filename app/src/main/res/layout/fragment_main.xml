@@ -10,6 +10,7 @@
     tools:context=".ui.main.MainFragment">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -42,8 +43,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp5"
-            android:backgroundTint="@color/light_blue_300"
+            android:backgroundTint="@color/amber_orange_400"
             android:text="@string/call_phone_avarkom"
+            android:textColor="@color/cardview_dark_background"
             app:cornerRadius="@dimen/dp10"
             app:icon="@android:drawable/stat_sys_phone_call"
             app:iconGravity="start"
@@ -213,7 +215,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/dp16"
             android:layout_marginBottom="@dimen/dp16"
-            android:backgroundTint="@color/light_blue_200"
+            android:backgroundTint="@color/amber_orange_400"
             android:elevation="@dimen/dp5" />
 
         <ImageView
@@ -222,6 +224,44 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/dp26"
+            android:layout_marginBottom="@dimen/dp26"
+            android:elevation="@dimen/dp10"
+            app:srcCompat="@drawable/ic_steering" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_fab_main_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="@color/amber_orange_400"
+            android:elevation="@dimen/dp5"
+            android:layout_marginEnd="96dp"
+            android:layout_marginBottom="@dimen/dp16" />
+
+        <ImageView
+            android:id="@+id/fab_main_image_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="@dimen/dp26"
+            android:elevation="@dimen/dp10"
+            android:layout_marginEnd="105dp"
+            app:srcCompat="@drawable/ic_steering" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_fab_main_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:backgroundTint="@color/amber_orange_400"
+            android:elevation="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp16"/>
+
+        <ImageView
+            android:id="@+id/fab_main_image_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
             android:layout_marginBottom="@dimen/dp26"
             android:elevation="@dimen/dp10"
             app:srcCompat="@drawable/ic_steering" />

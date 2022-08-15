@@ -25,4 +25,6 @@
     <string name="vk_view_post">просмотры</string>
     <string name="text_view_license_yandex_maps">Условия использования Яндекс.Карт</string>
     <string name="vk_news_item_tittle_group_name">Название группы</string>
+    <string name="no_internet_stock">Для загрузки скидки, подключите интернет</string>
+    <string name="no_internet_vk_news">Нужна связь с космосом для обновления новостей</string>
 </resources>

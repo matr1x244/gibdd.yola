@@ -95,7 +95,7 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
         viewModel.onError.observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.vkNewsFragmentContainer.showSnackBarNoAction(
-                    "Нужна связь с космосом для обновления новостей",
+                    R.string.no_internet_vk_news,
                     Snackbar.LENGTH_LONG
                 )
             }
@@ -107,10 +107,8 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
             override fun onItemClick(position: Int) {
                 requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                     //анимация переходы
-                    R.anim.slide_in,
-                    R.anim.fade_out,
-                    R.anim.fade_in,
-                    R.anim.slide_out
+                    R.anim.zoom_in,
+                    R.anim.zoom_out
                 )
                     .add(
                         R.id.main_activity_container, VkNewsDetailsFragment.newInstance(

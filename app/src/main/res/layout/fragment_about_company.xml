@@ -114,6 +114,7 @@
                     android:gravity="center"
                     android:paddingTop="@dimen/dp1"
                     android:text="@string/item_contact_contact_about"
+                    android:linksClickable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_contact_adress" />
