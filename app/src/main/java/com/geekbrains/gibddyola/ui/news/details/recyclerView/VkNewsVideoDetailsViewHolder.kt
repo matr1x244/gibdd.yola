@@ -5,7 +5,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geekbrains.gibddyola.R
-import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 
 class VkNewsVideoDetailsViewHolder(
     itemView: View,

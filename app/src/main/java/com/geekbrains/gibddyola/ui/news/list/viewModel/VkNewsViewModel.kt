@@ -1,8 +1,8 @@
 package com.geekbrains.gibddyola.ui.news.list.viewModel
 
 import androidx.lifecycle.MutableLiveData
-import com.geekbrains.gibddyola.data.news.entity.VkGroupEntity
-import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 import com.geekbrains.gibddyola.domain.news.RepoVkGroupUseCase
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
 import com.geekbrains.gibddyola.ui.news.list.VkNewsContract

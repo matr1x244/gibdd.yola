@@ -38,21 +38,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_view_main" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_phone"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/tooltip_layout"
+            app:cardCornerRadius="@dimen/dp5"
+            app:cardBackgroundColor="@color/light_blue_300"
             android:layout_margin="@dimen/dp5"
-            android:backgroundTint="@color/amber_orange_400"
-            android:text="@string/call_phone_avarkom"
-            android:textColor="@color/cardview_dark_background"
-            app:cornerRadius="@dimen/dp10"
-            app:icon="@android:drawable/stat_sys_phone_call"
-            app:iconGravity="start"
-            app:iconTint="@color/yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_hello" />
+            app:layout_constraintTop_toBottomOf="@+id/text_hello">
+
+            <TextView
+                android:id="@+id/text_tooltip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                tools:text="@string/app_name"
+                android:padding="@dimen/dp5" />
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_list_avarkom"
@@ -60,7 +65,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_phone" />
+            app:layout_constraintTop_toBottomOf="@+id/tooltip_layout" />
 
     </LinearLayout>
 

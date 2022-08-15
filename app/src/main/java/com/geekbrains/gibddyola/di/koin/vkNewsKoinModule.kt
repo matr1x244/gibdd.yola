@@ -1,9 +1,9 @@
 package com.geekbrains.gibddyola.di.koin
 
-import com.geekbrains.gibddyola.data.news.RepoVkGroupUseCaseImpl
-import com.geekbrains.gibddyola.data.news.RepoVkNewsUseCaseImpl
-import com.geekbrains.gibddyola.data.news.VkData
-import com.geekbrains.gibddyola.data.news.api.VkApi
+import com.geekbrains.gibddyola.data.news.web.RepoVkGroupUseCaseImpl
+import com.geekbrains.gibddyola.data.news.web.RepoVkNewsUseCaseImpl
+import com.geekbrains.gibddyola.data.news.web.VkData
+import com.geekbrains.gibddyola.data.news.web.api.VkApi
 import com.geekbrains.gibddyola.domain.news.RepoVkGroupUseCase
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
 import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment

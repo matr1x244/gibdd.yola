@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.R
-import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 
 class VkNewsDetailsVideoRVAdapter :
     RecyclerView.Adapter<VkNewsVideoDetailsViewHolder>() {

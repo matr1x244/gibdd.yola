@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.data.news
+package com.geekbrains.gibddyola.data.news.web
 
 object VkData {
     const val VK_TOKEN =

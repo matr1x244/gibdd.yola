@@ -3,14 +3,15 @@ package com.geekbrains.gibddyola.ui.main
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
-import android.content.Intent
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.data.news.local.TooltipList
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
@@ -38,6 +40,8 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var sharedTooltips: SharedPreferences
+
     private val controller by lazy { activity as ControllerOpenFragment }
     private val viewModel: MainViewModel by viewModel()
 
@@ -47,6 +51,8 @@ class MainFragment : Fragment() {
     }
 
     companion object {
+        private const val SHARED_TOOLTIP_NAME = "shared_tooltip"
+        private const val TOOLTIP_NUMBER = "tooltip_number"
         fun newInstance() = MainFragment()
     }
 
@@ -61,6 +67,9 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        sharedTooltips = activity!!
+            .getSharedPreferences(SHARED_TOOLTIP_NAME, Context.MODE_PRIVATE)
 
         initViews()
         initIncomingEvents()
@@ -79,28 +88,23 @@ class MainFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        setTooltip()
+    }
+
     private fun initViews() {
         recyclerViewMain()
         textEditTitle()
         rotateFab()
         nextFragmentOpen()
-        buttonPhone()
         viewModel.onShowListAvarkom()
     }
 
     private fun initIncomingEvents() {
         viewModel.repos.observe(viewLifecycleOwner) {
             adaptersAvarkom.setData(it)
-        }
-    }
-
-
-    private fun buttonPhone() {
-        binding.buttonPhone.setOnClickListener {
-            val number = "+7(8362)709-709"
-            val intent = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse("tel:$number")
-            startActivity(intent)
         }
     }
 
@@ -159,6 +163,29 @@ class MainFragment : Fragment() {
                 .addToBackStack("")
                 .commit()
         }
+    }
+
+    private fun setTooltip() {
+        val tooltipSize = TooltipList.getTooltipSize()
+        var currentTooltipNumber = 0
+        if (sharedTooltips.contains(TOOLTIP_NUMBER)) {
+            currentTooltipNumber = sharedTooltips.getInt(TOOLTIP_NUMBER, 0)
+        } else {
+            val editor: SharedPreferences.Editor = sharedTooltips.edit()
+            editor.putInt(TOOLTIP_NUMBER, 0)
+            editor.apply()
+        }
+        if (currentTooltipNumber < tooltipSize) {
+            val editor: SharedPreferences.Editor = sharedTooltips.edit()
+            editor.putInt(TOOLTIP_NUMBER, currentTooltipNumber + 1)
+            editor.apply()
+        } else {
+            val editor: SharedPreferences.Editor = sharedTooltips.edit()
+            editor.putInt(TOOLTIP_NUMBER, 0)
+            editor.apply()
+        }
+
+        binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
     }
 
     private fun rotateFab() {

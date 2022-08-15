@@ -1,8 +1,8 @@
-package com.geekbrains.gibddyola.data.news.api
+package com.geekbrains.gibddyola.data.news.web.api
 
-import com.geekbrains.gibddyola.data.news.VkData
-import com.geekbrains.gibddyola.data.news.entity.VkGroupEntity
-import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.data.news.web.VkData
+import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query

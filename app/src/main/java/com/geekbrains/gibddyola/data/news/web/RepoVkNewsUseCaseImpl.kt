@@ -1,7 +1,7 @@
-package com.geekbrains.gibddyola.data.news
+package com.geekbrains.gibddyola.data.news.web
 
-import com.geekbrains.gibddyola.data.news.api.VkApi
-import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.data.news.web.api.VkApi
+import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 import com.geekbrains.gibddyola.domain.news.RepoVkNewsUseCase
 import kotlinx.coroutines.Deferred
 

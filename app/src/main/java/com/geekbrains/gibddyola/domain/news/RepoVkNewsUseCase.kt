@@ -1,6 +1,6 @@
 package com.geekbrains.gibddyola.domain.news
 
-import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 import kotlinx.coroutines.Deferred
 
 

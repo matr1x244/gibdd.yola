@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.geekbrains.gibddyola.data.news.entity.VkGroupEntity
-import com.geekbrains.gibddyola.data.news.entity.VkNewsEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
+import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsDetailsBinding
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.OnDetailsItemClickListener
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsImageRVAdapter

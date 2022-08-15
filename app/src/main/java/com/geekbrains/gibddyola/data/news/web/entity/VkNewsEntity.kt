@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola.data.news.entity
+package com.geekbrains.gibddyola.data.news.web.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
