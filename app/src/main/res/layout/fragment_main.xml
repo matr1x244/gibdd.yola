@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp3"
             android:elevation="@dimen/dp5"
-            app:cardBackgroundColor="@color/light_blue_300"
+            app:cardBackgroundColor="@color/light_blue_200"
             app:cardCornerRadius="@dimen/dp5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -228,7 +228,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/dp16"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="9dp"
             android:backgroundTint="@color/gray_green_500"
             android:elevation="@dimen/dp5"
             app:fabCustomSize="@dimen/fab_main_size_custom" />
@@ -239,7 +239,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/dp21"
-            android:layout_marginBottom="17dp"
+            android:layout_marginBottom="14dp"
             android:elevation="@dimen/dp10"
             app:srcCompat="@drawable/ic_setting" />
 
@@ -249,7 +249,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="90dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="9dp"
             android:backgroundTint="@color/yellow_600"
             android:elevation="@dimen/dp5"
             app:fabCustomSize="@dimen/fab_main_size_custom" />
@@ -260,7 +260,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="94dp"
-            android:layout_marginBottom="17dp"
+            android:layout_marginBottom="14dp"
             android:elevation="@dimen/dp10"
             app:srcCompat="@drawable/ic_hot_sale" />
 
@@ -268,8 +268,9 @@
             android:id="@+id/btn_fab_main_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="12dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="165dp"
+            android:layout_marginBottom="9dp"
             android:backgroundTint="@color/red_600"
             android:elevation="@dimen/dp5"
             app:fabCustomSize="@dimen/fab_main_size_custom" />
@@ -278,8 +279,9 @@
             android:id="@+id/fab_main_image_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="17dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="169dp"
+            android:layout_marginBottom="14dp"
             android:elevation="@dimen/dp10"
             app:srcCompat="@drawable/ic_sos_call" />
     </FrameLayout>
