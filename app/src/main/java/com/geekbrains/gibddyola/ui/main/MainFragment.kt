@@ -205,7 +205,7 @@ class MainFragment : Fragment() {
             spannableStringBuilder.setSpan(
                 BulletSpan(
                     10,
-                    ContextCompat.getColor(requireContext(), R.color.amber_orange_900),
+                    ContextCompat.getColor(requireContext(), R.color.light_green_600),
                     10
                 ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
             )

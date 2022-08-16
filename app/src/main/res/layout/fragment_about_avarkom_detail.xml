@@ -103,7 +103,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/dp16"
         android:layout_marginBottom="@dimen/dp16"
-        android:backgroundTint="@color/light_blue_200"
+        android:backgroundTint="@color/amber_orange_500"
         android:elevation="@dimen/dp5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ГИБДД12.рф Аварийный комиссар</string>
+    <string name="app_name">АВАРКОМ</string>
     <string name="item_text_about">Об аваркоме</string>
     <string name="item_text_name">ФИО</string>
     <string name="text_hello">Аварийный комиссар в Йошкар-Оле помощь при ДТП: ГИБДД12.рф</string>

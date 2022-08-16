@@ -34,6 +34,7 @@
             android:textAllCaps="true"
             android:maxLength="18"
             android:textStyle="bold"
+            android:textColor="@color/amber_orange_600"
             android:layout_gravity="bottom|center"
             android:visibility="visible">
         </com.google.android.material.textview.MaterialTextView>
