@@ -230,7 +230,8 @@
             android:layout_margin="@dimen/conteiner_botom_nav_margin"
             android:layout_marginBottom="@dimen/dp1"
             android:backgroundTint="@color/amber_orange_400"
-            app:cardCornerRadius="15dp">
+            app:cardCornerRadius="15dp"
+            app:cardElevation="@dimen/dp5">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
