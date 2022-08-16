@@ -30,4 +30,5 @@
     <string name="blocks_auto_help">Блок заметок</string>
     <string name="text_view_blocks_auto_helper">Блок подсказок водителю</string>
     <string name="my_team_avarkom">Наша команда аварийных комиссаров</string>
+    <string name="tv_count_questions">Пройдено: $s вопросов из $s</string>
 </resources>

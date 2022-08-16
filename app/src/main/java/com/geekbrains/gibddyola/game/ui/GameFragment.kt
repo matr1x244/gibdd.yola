@@ -41,7 +41,7 @@ class GameFragment : Fragment() {
                         btnNext.setOnClickListener {
                             activity!!.supportFragmentManager
                                 .beginTransaction()
-                                .add(R.id.main_activity_container, GameFragment())
+                                .replace(R.id.main_activity_container, GameFragment())
                                 .addToBackStack("")
                                 .commitAllowingStateLoss()
                         }
