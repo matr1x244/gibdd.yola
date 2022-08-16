@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--myBottomAppBarStyle-->
-    <style name="myBottomAppBarStyle" parent="Widget.MaterialComponents.BottomAppBar">
-        <item name="backgroundTint">@color/light_blue_600</item>
-    </style>
-
     <!--myChipsStyleActionBaseStyle-->
     <style name="myChipsStyleActionBaseStyle" parent="Widget.MaterialComponents.Chip.Action">
         <item name="rippleColor">@color/color_transparent</item>
@@ -14,8 +9,9 @@
     <!--myTabsStyle-->
     <style name="myTabsStyle" parent="Widget.Design.TabLayout">
         <item name="tabTextColor">@color/black</item>
-        <item name="tabSelectedTextColor">@color/light_blue_500</item>
-        <item name="tabRippleColor">@color/light_blue_100</item>
+        <item name="tabSelectedTextColor">@color/amber_orange_700</item>
+        <item name="tabRippleColor">@color/amber_orange_300</item>
+        <item name="tabIndicatorColor">@color/amber_orange_700</item>
         <item name="tabGravity">fill</item>
         <item name="tabIndicatorGravity">bottom</item>
         <item name="tabIndicatorAnimationMode">elastic</item>

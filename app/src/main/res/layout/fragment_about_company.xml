@@ -59,6 +59,7 @@
                     android:layout_margin="@dimen/dp5"
                     android:text="@string/item_contact_work_time"
                     android:textStyle="bold"
+                    android:textColor="@color/amber_orange_900"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_tittle" />
@@ -79,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/dp5"
                     android:text="@string/item_contact_call_about"
+                    android:textColor="@color/amber_orange_900"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_contact_contact_about" />
@@ -165,7 +167,7 @@
                     android:layout_gravity="top|end"
                     android:layout_marginTop="@dimen/dp10"
                     android:layout_marginEnd="@dimen/dp10"
-                    android:backgroundTint="@color/yellow"
+                    android:backgroundTint="@color/amber_orange_500"
                     app:fabSize="mini"
                     app:srcCompat="@drawable/ic_plus" />
 
@@ -177,7 +179,7 @@
                     android:layout_gravity="top|end"
                     android:layout_marginTop="@dimen/dp60"
                     android:layout_marginEnd="@dimen/dp10"
-                    android:backgroundTint="@color/yellow"
+                    android:backgroundTint="@color/amber_orange_500"
                     app:fabSize="mini"
                     app:srcCompat="@drawable/ic_minus" />
 

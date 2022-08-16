@@ -139,7 +139,6 @@ class MainFragment : Fragment() {
     private fun nextFragmentOpen() {
         binding.testTextView1.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                //анимация переходы
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
                 .addToBackStack("")
@@ -147,21 +146,18 @@ class MainFragment : Fragment() {
         }
         binding.testTextView2.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                //анимация переходы
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.testTextView3.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                //анимация переходы
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.testTextView4.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                //анимация переходы
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
                 .addToBackStack("")
@@ -173,9 +169,8 @@ class MainFragment : Fragment() {
             intent.data = Uri.parse("tel:$number")
             startActivity(intent)
         }
-        binding.btnFabMainStock.setOnClickListener {
+        binding.fabMainImageStock.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                //анимация переходы
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
@@ -210,7 +205,7 @@ class MainFragment : Fragment() {
             spannableStringBuilder.setSpan(
                 BulletSpan(
                     10,
-                    ContextCompat.getColor(requireContext(), R.color.red_600),
+                    ContextCompat.getColor(requireContext(), R.color.amber_orange_900),
                     10
                 ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
             )
@@ -222,10 +217,10 @@ class MainFragment : Fragment() {
         var openMenu = false
         val duration = 300L
 
-        binding.btnFabMain.setOnClickListener {
+        binding.fabMainImage.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
-                ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 505f)
+                ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
                     .setDuration(duration).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
                     .setDuration(duration).start()

@@ -12,7 +12,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical">
 
         <com.geekbrains.gibddyola.utils.EquilateralImageView
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp3"
             android:elevation="@dimen/dp5"
-            app:cardBackgroundColor="@color/light_blue_200"
+            app:cardBackgroundColor="@color/amber_orange_300"
             app:cardCornerRadius="@dimen/dp5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp5"
-                android:textColor="@color/black"
+                android:textColor="@color/transparent_grey_50"
                 tools:text="@string/text_view_blocks_auto_helper" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -222,91 +222,88 @@
                 app:srcCompat="@drawable/ic_company" />
         </RelativeLayout>
 
-        <!--ТЕСТОВО CONSTRAINT ПОТОМ УДАЛИТЬ-->
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom">
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btn_fab_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/light_blue_200"
-        android:elevation="@dimen/dp5"
-        android:text="Меню"
-        android:textSize="10sp"
-        app:icon="@drawable/ic_setting"
-        app:iconSize="15dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-        <ImageView
-            android:id="@+id/fab_main_image"
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/container_bottom_nav"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="13dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="@dimen/dp10"
-            app:srcCompat="@drawable/ic_setting"
-            android:visibility="gone"/>
+            android:layout_gravity="bottom|center"
+            android:layout_margin="@dimen/conteiner_botom_nav_margin"
+            android:layout_marginBottom="@dimen/dp1"
+            android:backgroundTint="@color/amber_orange_400"
+            app:cardCornerRadius="15dp">
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btn_fab_main_stock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:backgroundTint="@color/light_blue_200"
-        android:elevation="@dimen/dp5"
-        android:text="Скидки % "
-        android:textSize="10sp"
-        app:icon="@drawable/ic_sos_call"
-        app:iconSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_fab_main"
-        app:layout_constraintStart_toEndOf="@+id/btn_fab_main_call" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/fab_main_image_stock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="94dp"
-            android:layout_marginBottom="14dp"
-            android:elevation="@dimen/dp10"
-            app:srcCompat="@drawable/ic_hot_sale"
-            android:visibility="gone"/>
+                <ImageView
+                    android:id="@+id/fab_main_image_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/nav_image_view_layout_height"
+                    android:paddingTop="@dimen/nav_image_view_padding_top"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_call_nav"
+                    app:layout_constraintEnd_toStartOf="@+id/fab_main_image_stock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_sos_call" />
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btn_fab_main_call"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:backgroundTint="@color/light_blue_200"
-        android:elevation="@dimen/dp5"
-        android:text="Позвонить"
-        android:textSize="10sp"
-        app:icon="@drawable/ic_sos_call"
-        app:iconSize="15dp"
-        android:layout_marginStart="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/textView_call_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_view_call"
+                    android:textColor="@color/vk_background_color_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView_stock_nav"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/fab_main_image_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="169dp"
-            android:layout_marginBottom="14dp"
-            android:elevation="@dimen/dp10"
-            app:srcCompat="@drawable/ic_sos_call"
-            android:visibility="gone"/>
+                <ImageView
+                    android:id="@+id/fab_main_image_stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/nav_image_view_layout_height"
+                    android:paddingTop="@dimen/nav_image_view_padding_top"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_stock_nav"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_hot_sale" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textView_stock_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sell"
+                    android:textColor="@color/vk_background_color_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView_call_nav" />
+
+                <ImageView
+                    android:id="@+id/fab_main_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/nav_image_view_layout_height"
+                    android:paddingTop="@dimen/nav_image_view_padding_top"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_menu_nav"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/fab_main_image_stock"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_tyre" />
+
+                <TextView
+                    android:id="@+id/textView_menu_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_view_menu"
+                    android:textColor="@color/vk_background_color_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView_stock_nav"
+                    app:layout_constraintTop_toTopOf="@+id/textView_stock_nav" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </FrameLayout>
 

@@ -15,7 +15,6 @@
 
 
         <!-- Customize your theme here. -->
-        <item name="bottomAppBarStyle">@style/myBottomAppBarStyle</item>
         <item name="chipStyle">@style/myChipsStyleActionBaseStyle</item>
     </style>
 

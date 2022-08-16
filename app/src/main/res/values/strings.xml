@@ -7,7 +7,7 @@
     <string name="call_phone_avarkom">Вызвать аварийного комиссара</string>
     <string name="dialog_call">Разрешите приложению, совершать звонок</string>
     <string name="item_text_bio">Биография</string>
-    <string name="sell">Скидки %</string>
+    <string name="sell">Скидки</string>
     <string name="game">Мини-игра ПДД</string>
     <string name="news">Новости</string>
     <string name="company">О компании</string>
@@ -27,7 +27,10 @@
     <string name="vk_news_item_tittle_group_name">Название группы</string>
     <string name="no_internet_stock">Для загрузки скидки, подключите интернет</string>
     <string name="no_internet_vk_news">Нужна связь с космосом для обновления новостей</string>
+    <string name="internet_vk_news">Загружаем...</string>
     <string name="blocks_auto_help">Блок заметок</string>
     <string name="text_view_blocks_auto_helper">Блок подсказок водителю</string>
     <string name="my_team_avarkom">Наша команда аварийных комиссаров</string>
+    <string name="text_view_menu">Меню</string>
+    <string name="text_view_call">Позвонить</string>
 </resources>

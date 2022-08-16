@@ -14,6 +14,7 @@
     <color name="color_gray_transparent">#14000000</color>
     <color name="color_transparent">#00FFFFFF</color>
     <color name="transparent_grey_300">#e0e0e0</color>
+    <color name="transparent_grey_50">#FAFAFA</color>
     <color name="vk_background_color_gray">#e9ecf1</color>
     <color name="yellow_600">#FDD835</color>
 

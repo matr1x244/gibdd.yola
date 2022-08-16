@@ -41,5 +41,8 @@
     <dimen name="text_size_license_yandex_maps">10sp</dimen>
     <!--Custom-->
     <dimen name="fab_main_size_custom">65dp</dimen>
+    <dimen name="nav_image_view_padding_top">5dp</dimen>
+    <dimen name="nav_image_view_layout_height">35dp</dimen>
+    <dimen name="conteiner_botom_nav_margin">2dp</dimen>
 
 </resources>
