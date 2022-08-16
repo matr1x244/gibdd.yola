@@ -203,7 +203,7 @@ class MainFragment : Fragment() {
         }
         binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
 
-        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
         if (version) {
             val textAutoBlocks = binding.textTooltip.text
             val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
