@@ -19,6 +19,7 @@ class GameFragment : Fragment() {
     private val binding get() = _binding!!
     private var isCorrectAnswer: Boolean = false
     private var isCheckedAnswer = false
+    private var checkedAnswer = -1
 
     private val gameAdapter: GameFragmentAdapter by lazy {
         GameFragmentAdapter(object :
@@ -28,6 +29,7 @@ class GameFragment : Fragment() {
                     btnCheck.visibility = View.VISIBLE
                     isCorrectAnswer = question.answers[position].second
                     btnCheck.setOnClickListener {
+                        checkedAnswer = position
                         btnCheck.visibility = View.GONE
                         btnNext.visibility = View.VISIBLE
                         tvAnswerComment.text = question.answer_about
@@ -37,8 +39,6 @@ class GameFragment : Fragment() {
                         viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
 
                         btnNext.setOnClickListener {
-
-
                             activity!!.supportFragmentManager
                                 .beginTransaction()
                                 .add(R.id.main_activity_container, GameFragment())
@@ -77,7 +77,7 @@ class GameFragment : Fragment() {
                 with(binding) {
                     tvQuestion.text = appState.questions.question
                     appState.questions.image?.let { ivImageQuestion.setBackgroundResource(it) }
-                    gameAdapter.setData(appState.questions, isCheckedAnswer)
+                    gameAdapter.setData(appState.questions, isCheckedAnswer, checkedAnswer)
                     rvAnswers.adapter = gameAdapter
                 }
             }
