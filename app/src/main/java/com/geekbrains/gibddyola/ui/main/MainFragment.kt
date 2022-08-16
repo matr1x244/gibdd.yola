@@ -137,26 +137,26 @@ class MainFragment : Fragment() {
     }
 
     private fun nextFragmentOpen() {
-        binding.testTextView1.setOnClickListener {
+        binding.tvPlayGameMenu.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
                 .addToBackStack("")
                 .commit()
         }
-        binding.testTextView2.setOnClickListener {
+        binding.tvStockMenu.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
-        binding.testTextView3.setOnClickListener {
+        binding.tvNewsMenu.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
-        binding.testTextView4.setOnClickListener {
+        binding.tvAboutCompanyMenu.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
@@ -198,7 +198,7 @@ class MainFragment : Fragment() {
         }
         binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
 
-        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
         if (version) {
             val textAutoBlocks = binding.textTooltip.text
             val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
