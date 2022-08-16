@@ -1,27 +1,41 @@
 package com.geekbrains.gibddyola.game.ui
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.databinding.FragmentGameQuestionItemBinding
+import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 
 
 class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemViewClickListener) :
     RecyclerView.Adapter<GameFragmentAdapter.GameViewHolder>() {
 
     private lateinit var binding: FragmentGameQuestionItemBinding
-    private var questions: List<String> = listOf()
+    private lateinit var answers: QuestionDomain
+    private var trueAnswer = false
+    private var isChecked = false
 
-    fun setData(data: List<String>) {
-        questions = data
+    fun setData(answers: QuestionDomain, trueAnswer: Boolean) {
+        this.answers = answers
+        this.trueAnswer = trueAnswer
         notifyDataSetChanged()
     }
 
     inner class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(question: String) = with(binding) {
-            tvQuestionItem.text = question
-            root.setOnClickListener { itemClickListener.onItemViewClick(question) }
+        fun bind(question: QuestionDomain, position: Int, trueAnswer: Boolean) = with(binding) {
+            tvAnswerItem.text = question.answers[position].first
+            if (trueAnswer && question.answers[position].second) {
+                root.setBackgroundColor(Color.GREEN)
+            }
+            root.setOnClickListener {
+                if (!isChecked) {
+                    itemClickListener.onItemViewClick(answers, position)
+                    root.setBackgroundColor(Color.YELLOW)
+                }
+                isChecked = true
+            }
         }
     }
 
@@ -35,9 +49,9 @@ class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemView
     }
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
-        holder.bind(questions[position])
+        holder.bind(answers, position, trueAnswer)
     }
 
-    override fun getItemCount() = questions.size
+    override fun getItemCount() = answers.answers.size
 
 }

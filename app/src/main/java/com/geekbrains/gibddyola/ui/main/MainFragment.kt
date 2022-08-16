@@ -29,6 +29,7 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.local.TooltipList
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
+import com.geekbrains.gibddyola.game.ui.GameFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.AdaptersAvarkom
@@ -141,7 +142,7 @@ class MainFragment : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 //анимация переходы
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
+            ).replace(R.id.main_activity_container, GameFragment.newInstance())
                 .addToBackStack("")
                 .commit()
         }
