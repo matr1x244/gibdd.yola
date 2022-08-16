@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
@@ -202,16 +203,19 @@ class MainFragment : Fragment() {
         }
         binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
 
-        val textAutoBlocks = binding.textTooltip.text
-        val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
-        spannableStringBuilder.setSpan(
-            BulletSpan(
-                10,
-                ContextCompat.getColor(requireContext(), R.color.red_600),
-                10
-            ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        binding.textTooltip.text = spannableStringBuilder
+        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+        if (version) {
+            val textAutoBlocks = binding.textTooltip.text
+            val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
+            spannableStringBuilder.setSpan(
+                BulletSpan(
+                    10,
+                    ContextCompat.getColor(requireContext(), R.color.red_600),
+                    10
+                ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            binding.textTooltip.text = spannableStringBuilder
+        }
     }
 
     private fun rotateFab() {
