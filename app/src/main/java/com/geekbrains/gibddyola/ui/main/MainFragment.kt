@@ -20,6 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -54,6 +55,9 @@ class MainFragment : Fragment() {
         controller.aboutFragment(it)
         Toast.makeText(context, it.textName, Toast.LENGTH_SHORT).show()
     }
+
+    private var openMenu = false
+    private val durationAnimOpenMenu = 300L
 
     companion object {
         private const val SHARED_TOOLTIP_NAME = "shared_tooltip"
@@ -214,32 +218,29 @@ class MainFragment : Fragment() {
     }
 
     private fun rotateFab() {
-        var openMenu = false
-        val duration = 300L
-
         binding.fabMainImage.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -20f, -130f)
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(
                     binding.optionThreeContainer,
                     View.TRANSLATION_Y,
                     -80f,
                     -390f
                 )
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(
                     binding.optionFourContainer,
                     View.TRANSLATION_Y,
                     -110f,
                     -520f
                 )
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 /*макет доступность*/
                 binding.optionOneContainer.visibility = View.VISIBLE
                 binding.optionTwoContainer.visibility = View.VISIBLE
@@ -249,7 +250,7 @@ class MainFragment : Fragment() {
 
                 binding.optionOneContainer.animate()
                     .alpha(0.8f)
-                    .setDuration(duration * 2)
+                    .setDuration(durationAnimOpenMenu * 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -257,7 +258,7 @@ class MainFragment : Fragment() {
                     })
                 binding.optionTwoContainer.animate()
                     .alpha(0.8f)
-                    .setDuration(duration * 2)
+                    .setDuration(durationAnimOpenMenu * 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -265,7 +266,7 @@ class MainFragment : Fragment() {
                     })
                 binding.optionThreeContainer.animate()
                     .alpha(0.8f)
-                    .setDuration(duration * 2)
+                    .setDuration(durationAnimOpenMenu * 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -273,35 +274,35 @@ class MainFragment : Fragment() {
                     })
                 binding.optionFourContainer.animate()
                     .alpha(0.8f)
-                    .setDuration(duration * 2)
+                    .setDuration(durationAnimOpenMenu * 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
                         }
                     })
                 binding.transparentBackground.animate()
-                    .alpha(0.8f).duration = duration
+                    .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -130f, -20f)
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(
                     binding.optionThreeContainer,
                     View.TRANSLATION_Y,
                     -390f,
                     -80f
                 )
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(
                     binding.optionFourContainer,
                     View.TRANSLATION_Y,
                     -520f,
                     -110f
                 )
-                    .setDuration(duration).start()
+                    .setDuration(durationAnimOpenMenu).start()
                 binding.optionOneContainer.visibility = View.INVISIBLE
                 binding.optionTwoContainer.visibility = View.INVISIBLE
                 binding.optionThreeContainer.visibility = View.INVISIBLE
@@ -310,7 +311,7 @@ class MainFragment : Fragment() {
 
                 binding.optionOneContainer.animate()
                     .alpha(0f)
-                    .setDuration(duration / 2)
+                    .setDuration(durationAnimOpenMenu / 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -318,7 +319,7 @@ class MainFragment : Fragment() {
                     })
                 binding.optionTwoContainer.animate()
                     .alpha(0f)
-                    .setDuration(duration / 2)
+                    .setDuration(durationAnimOpenMenu / 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -326,7 +327,7 @@ class MainFragment : Fragment() {
                     })
                 binding.optionThreeContainer.animate()
                     .alpha(0f)
-                    .setDuration(duration / 2)
+                    .setDuration(durationAnimOpenMenu / 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
@@ -334,16 +335,51 @@ class MainFragment : Fragment() {
                     })
                 binding.optionFourContainer.animate()
                     .alpha(0f)
-                    .setDuration(duration / 2)
+                    .setDuration(durationAnimOpenMenu / 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
                         }
                     })
                 binding.transparentBackground.animate()
-                    .alpha(0f).duration = duration
+                    .alpha(0f).duration = durationAnimOpenMenu
             }
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        backStackCustom()
+    }
+
+    private fun backStackCustom() {
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                /**
+                 * custom menu back and exit app
+                 */
+//                openMenu = !openMenu
+                if (openMenu) {
+                    ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
+                        .setDuration(durationAnimOpenMenu).start()
+                    ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
+                        .setDuration(durationAnimOpenMenu).start()
+                    ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -20f, -130f)
+                        .setDuration(durationAnimOpenMenu).start()
+                    ObjectAnimator.ofFloat(binding.optionThreeContainer, View.TRANSLATION_Y, -80f, -390f)
+                        .setDuration(durationAnimOpenMenu).start()
+                    ObjectAnimator.ofFloat(binding.optionFourContainer, View.TRANSLATION_Y, -110f, -520f)
+                        .setDuration(durationAnimOpenMenu).start()
+
+                    Toast.makeText(requireActivity(), "IF BLOCK OPEN MENU?", Toast.LENGTH_SHORT).show()
+                } else{
+
+                    Toast.makeText(requireActivity(), "ELSE BLOCK - EXIT APP", Toast.LENGTH_SHORT).show()
+                    requireActivity().finish() // сворачиваем приложение
+                }
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this@MainFragment, callback)
     }
 
     override fun onDestroyView() {
