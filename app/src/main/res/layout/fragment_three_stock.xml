@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_three_stock"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/amber_orange_50">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="@dimen/dp10"
-        android:layout_margin="@dimen/title_text_20sp"
+        android:layout_margin="@dimen/card_view_stock_main_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/dp5"
+            android:background="@mipmap/background_stocks"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,49 +41,49 @@
             android:visibility="visible">
         </com.google.android.material.textview.MaterialTextView>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp7"
+                android:layout_marginLeft="@dimen/dp7"
+                android:layout_marginTop="@dimen/dp7"
+                android:layout_marginEnd="@dimen/dp7"
+                android:layout_marginRight="@dimen/dp7"
+                android:layout_marginBottom="@dimen/dp7"
+                android:src="@drawable/swipe_indicator_passive" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp7"
+                android:layout_marginLeft="@dimen/dp7"
+                android:layout_marginEnd="@dimen/dp7"
+                android:layout_marginRight="@dimen/dp7"
+                android:layout_marginBottom="@dimen/dp7"
+                android:src="@drawable/swipe_indicator_passive" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp7"
+                android:layout_marginLeft="@dimen/dp7"
+                android:layout_marginEnd="@dimen/dp7"
+                android:layout_marginRight="@dimen/dp7"
+                android:layout_marginBottom="@dimen/dp7"
+                android:src="@drawable/swipe_indicator_active" />
+
+        </LinearLayout>
+
+
     </com.google.android.material.card.MaterialCardView>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom|end"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp7"
-            android:layout_marginLeft="@dimen/dp7"
-            android:layout_marginTop="@dimen/dp7"
-            android:layout_marginEnd="@dimen/dp7"
-            android:layout_marginRight="@dimen/dp7"
-            android:layout_marginBottom="@dimen/dp7"
-            android:src="@drawable/swipe_indicator_passive" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp7"
-            android:layout_marginLeft="@dimen/dp7"
-            android:layout_marginEnd="@dimen/dp7"
-            android:layout_marginRight="@dimen/dp7"
-            android:layout_marginBottom="@dimen/dp7"
-            android:src="@drawable/swipe_indicator_passive" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp7"
-            android:layout_marginLeft="@dimen/dp7"
-            android:layout_marginEnd="@dimen/dp7"
-            android:layout_marginRight="@dimen/dp7"
-            android:layout_marginBottom="@dimen/dp7"
-            android:src="@drawable/swipe_indicator_active" />
-
-    </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,5 +44,6 @@
     <dimen name="nav_image_view_padding_top">5dp</dimen>
     <dimen name="nav_image_view_layout_height">35dp</dimen>
     <dimen name="conteiner_botom_nav_margin">2dp</dimen>
+    <dimen name="card_view_stock_main_margin">5dp</dimen>
 
 </resources>
