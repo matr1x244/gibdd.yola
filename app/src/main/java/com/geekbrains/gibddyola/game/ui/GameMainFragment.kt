@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.geekbrains.gibddyola.R
-import com.geekbrains.gibddyola.databinding.FragmentMainGameBinding
+import com.geekbrains.gibddyola.databinding.FragmentGameMainBinding
 
 class GameMainFragment : Fragment() {
-    private var _binding: FragmentMainGameBinding? = null
+    private var _binding: FragmentGameMainBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainGameBinding.inflate(inflater, container, false)
+        _binding = FragmentGameMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -26,7 +26,7 @@ class GameMainFragment : Fragment() {
             btnBeginGame.setOnClickListener {
                 activity!!.supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_activity_container, GameFragment())
+                    .replace(R.id.main_activity_container, GameFragment(0))
                     .addToBackStack("")
                     .commitAllowingStateLoss()
             }

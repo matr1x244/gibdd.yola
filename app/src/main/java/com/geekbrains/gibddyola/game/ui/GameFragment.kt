@@ -11,15 +11,14 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
+import com.geekbrains.gibddyola.ui.game.test.score
 
-class GameFragment : Fragment() {
+class GameFragment(private var score: Int) : Fragment() {
     private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
 
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
-    private var isCorrectAnswer: Boolean = false
-    private var isCheckedAnswer = false
-    private var checkedAnswer = -1
+    private var chooseAnswer = -1
 
     private val gameAdapter: GameFragmentAdapter by lazy {
         GameFragmentAdapter(object :
@@ -27,21 +26,21 @@ class GameFragment : Fragment() {
             override fun onItemViewClick(question: QuestionDomain, position: Int) {
                 with(binding) {
                     btnCheck.visibility = View.VISIBLE
-                    isCorrectAnswer = question.answers[position].second
                     btnCheck.setOnClickListener {
-                        checkedAnswer = position
+                        chooseAnswer = position
                         btnCheck.visibility = View.GONE
                         btnNext.visibility = View.VISIBLE
                         tvAnswerComment.text = question.answer_about
                         tvAnswerComment.visibility = View.VISIBLE
-                        isCheckedAnswer = true
 
                         viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
 
+                        if (question.answers[position].second) score++
+                        tvScore.text = score.toString()
                         btnNext.setOnClickListener {
                             activity!!.supportFragmentManager
                                 .beginTransaction()
-                                .replace(R.id.main_activity_container, GameFragment())
+                                .replace(R.id.main_activity_container, GameFragment(score))
                                 .addToBackStack("")
                                 .commitAllowingStateLoss()
                         }
@@ -77,7 +76,10 @@ class GameFragment : Fragment() {
                 with(binding) {
                     tvQuestion.text = appState.questions.question
                     appState.questions.image?.let { ivImageQuestion.setBackgroundResource(it) }
-                    gameAdapter.setData(appState.questions, isCheckedAnswer, checkedAnswer)
+                    gameAdapter.setData(
+                        appState.questions,
+                        chooseAnswer
+                    )
                     rvAnswers.adapter = gameAdapter
                 }
             }
@@ -85,11 +87,12 @@ class GameFragment : Fragment() {
         }
     }
 
+
     interface OnItemViewClickListener {
         fun onItemViewClick(question: QuestionDomain, position: Int)
     }
 
     companion object {
-        fun newInstance() = GameFragment()
+        fun newInstance() = GameFragment(score = score)
     }
 }

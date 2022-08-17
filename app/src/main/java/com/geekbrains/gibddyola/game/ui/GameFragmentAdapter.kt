@@ -14,26 +14,24 @@ class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemView
 
     private lateinit var binding: FragmentGameQuestionItemBinding
     private lateinit var answers: QuestionDomain
-    private var trueAnswer = false
     private var isChecked = false
-    private var checkedAnswer = -1
+    private var chooseAnswer = -1
 
-    fun setData(answers: QuestionDomain, trueAnswer: Boolean, checkedAnswer: Int) {
+    fun setData(answers: QuestionDomain, chooseAnswer: Int) {
         this.answers = answers
-        this.trueAnswer = trueAnswer
-        this.checkedAnswer = checkedAnswer
+        this.chooseAnswer = chooseAnswer
         notifyDataSetChanged()
     }
 
     inner class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(question: QuestionDomain, position: Int, trueAnswer: Boolean) = with(binding) {
+        fun bind(question: QuestionDomain, position: Int, isChooseAnswer: Boolean) = with(binding) {
             tvAnswerItem.text = question.answers[position].first
-            if (checkedAnswer == position) {
+            if (chooseAnswer == position) {
                 root.setBackgroundColor(Color.YELLOW)
             }
-            if (trueAnswer && question.answers[position].second) {
+            if (isChooseAnswer && question.answers[position].second) {
                 root.setBackgroundColor(Color.GREEN)
-            } else if (trueAnswer && !question.answers[position].second && checkedAnswer == position) {
+            } else if (isChooseAnswer && !question.answers[position].second && chooseAnswer == position) {
                 root.setBackgroundColor(Color.RED)
             }
             root.setOnClickListener {
@@ -56,9 +54,12 @@ class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemView
     }
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
-        holder.bind(answers, position, trueAnswer)
+        holder.bind(answers, position, isChooseAnswer(chooseAnswer))
     }
 
     override fun getItemCount() = answers.answers.size
 
+    private fun isChooseAnswer(choosePosition: Int): Boolean {
+        return choosePosition >= 0
+    }
 }
