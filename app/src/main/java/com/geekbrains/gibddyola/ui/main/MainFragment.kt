@@ -107,6 +107,7 @@ class MainFragment : Fragment() {
         textEditTitle()
         rotateFab()
         nextFragmentOpen()
+        backStackCustom()
         viewModel.onShowListAvarkom()
     }
 
@@ -347,39 +348,79 @@ class MainFragment : Fragment() {
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        backStackCustom()
-    }
-
     private fun backStackCustom() {
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 /**
                  * custom menu back and exit app
                  */
-//                openMenu = !openMenu
-                if (openMenu) {
-                    ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
+                openMenu = !openMenu
+                if (!openMenu) {
+                    ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                         .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
+                    ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
                         .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -20f, -130f)
+                    ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -130f, -20f)
                         .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(binding.optionThreeContainer, View.TRANSLATION_Y, -80f, -390f)
+                    ObjectAnimator.ofFloat(
+                        binding.optionThreeContainer,
+                        View.TRANSLATION_Y,
+                        -390f,
+                        -80f
+                    )
                         .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(binding.optionFourContainer, View.TRANSLATION_Y, -110f, -520f)
+                    ObjectAnimator.ofFloat(
+                        binding.optionFourContainer,
+                        View.TRANSLATION_Y,
+                        -520f,
+                        -110f
+                    )
                         .setDuration(durationAnimOpenMenu).start()
+                    binding.optionOneContainer.visibility = View.INVISIBLE
+                    binding.optionTwoContainer.visibility = View.INVISIBLE
+                    binding.optionThreeContainer.visibility = View.INVISIBLE
+                    binding.optionFourContainer.visibility = View.INVISIBLE
+                    binding.transparentBackground.isClickable = false
 
-                    Toast.makeText(requireActivity(), "IF BLOCK OPEN MENU?", Toast.LENGTH_SHORT).show()
+                    binding.optionOneContainer.animate()
+                        .alpha(0f)
+                        .setDuration(durationAnimOpenMenu / 2)
+                        .setListener(object : AnimatorListenerAdapter() {
+                            override fun onAnimationEnd(animation: Animator?) {
+                                super.onAnimationEnd(animation)
+                            }
+                        })
+                    binding.optionTwoContainer.animate()
+                        .alpha(0f)
+                        .setDuration(durationAnimOpenMenu / 2)
+                        .setListener(object : AnimatorListenerAdapter() {
+                            override fun onAnimationEnd(animation: Animator?) {
+                                super.onAnimationEnd(animation)
+                            }
+                        })
+                    binding.optionThreeContainer.animate()
+                        .alpha(0f)
+                        .setDuration(durationAnimOpenMenu / 2)
+                        .setListener(object : AnimatorListenerAdapter() {
+                            override fun onAnimationEnd(animation: Animator?) {
+                                super.onAnimationEnd(animation)
+                            }
+                        })
+                    binding.optionFourContainer.animate()
+                        .alpha(0f)
+                        .setDuration(durationAnimOpenMenu / 2)
+                        .setListener(object : AnimatorListenerAdapter() {
+                            override fun onAnimationEnd(animation: Animator?) {
+                                super.onAnimationEnd(animation)
+                            }
+                        })
+                    binding.transparentBackground.animate().alpha(0f).duration = durationAnimOpenMenu
                 } else{
-
-                    Toast.makeText(requireActivity(), "ELSE BLOCK - EXIT APP", Toast.LENGTH_SHORT).show()
-                    requireActivity().finish() // сворачиваем приложение
+                    requireActivity().finish()
                 }
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(this@MainFragment, callback)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun onDestroyView() {
