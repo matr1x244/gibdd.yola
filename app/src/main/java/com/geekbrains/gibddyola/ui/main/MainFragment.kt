@@ -108,7 +108,6 @@ class MainFragment : Fragment() {
         textEditTitle()
         rotateFab()
         nextFragmentOpen()
-//        backStackCustom()
         viewModel.onShowListAvarkom()
     }
 
@@ -144,7 +143,7 @@ class MainFragment : Fragment() {
 
     private fun nextFragmentOpen() {
         binding.tvPlayGameMenu.setOnClickListener {
-            binding.fabMainImage.performClick()
+            openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
@@ -152,21 +151,21 @@ class MainFragment : Fragment() {
                 .commit()
         }
         binding.tvStockMenu.setOnClickListener {
-            binding.fabMainImage.performClick()
+            openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.tvNewsMenu.setOnClickListener {
-            binding.fabMainImage.performClick()
+            openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.tvAboutCompanyMenu.setOnClickListener {
-            binding.fabMainImage.performClick()
+            openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
@@ -174,14 +173,14 @@ class MainFragment : Fragment() {
                 .commit()
         }
         binding.fabMainImageCall.setOnClickListener {
-            binding.fabMainImage.performClick()
+            openMenu = false
             val number = "+7(8362)709-709"
             val intent = Intent(Intent.ACTION_CALL)
             intent.data = Uri.parse("tel:$number")
             startActivity(intent)
         }
         binding.fabMainImageStock.setOnClickListener {
-            binding.fabMainImage.performClick()
+            openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
@@ -365,6 +364,10 @@ class MainFragment : Fragment() {
                 override fun handleOnBackPressed() {
                     if (openMenu) {
                         binding.fabMainImage.performClick()
+                    } else if (
+                        !requireActivity().supportFragmentManager.fragments.contains(this@MainFragment)
+                    ) {
+                        requireActivity().supportFragmentManager.popBackStack()
                     } else {
                         requireActivity().finish()
                     }
