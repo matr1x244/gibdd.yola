@@ -65,11 +65,6 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    override fun onAttachFragment(childFragment: Fragment) {
-        backStackCustom()
-        super.onAttachFragment(childFragment)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -105,6 +100,7 @@ class MainFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         setTooltip()
+        backStackCustom()
     }
 
     private fun initViews() {
@@ -148,6 +144,7 @@ class MainFragment : Fragment() {
 
     private fun nextFragmentOpen() {
         binding.tvPlayGameMenu.setOnClickListener {
+            binding.fabMainImage.performClick()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
@@ -155,18 +152,21 @@ class MainFragment : Fragment() {
                 .commit()
         }
         binding.tvStockMenu.setOnClickListener {
+            binding.fabMainImage.performClick()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.tvNewsMenu.setOnClickListener {
+            binding.fabMainImage.performClick()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.tvAboutCompanyMenu.setOnClickListener {
+            binding.fabMainImage.performClick()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
@@ -174,12 +174,14 @@ class MainFragment : Fragment() {
                 .commit()
         }
         binding.fabMainImageCall.setOnClickListener {
+            binding.fabMainImage.performClick()
             val number = "+7(8362)709-709"
             val intent = Intent(Intent.ACTION_CALL)
             intent.data = Uri.parse("tel:$number")
             startActivity(intent)
         }
         binding.fabMainImageStock.setOnClickListener {
+            binding.fabMainImage.performClick()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
@@ -359,81 +361,7 @@ class MainFragment : Fragment() {
                 /**
                  * custom menu back and exit app
                  */
-                openMenu = !openMenu
-                if (!openMenu) {
-                    ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
-                        .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(
-                        binding.optionOneContainer,
-                        View.TRANSLATION_Y,
-                        -260f,
-                        -50f
-                    )
-                        .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(
-                        binding.optionTwoContainer,
-                        View.TRANSLATION_Y,
-                        -130f,
-                        -20f
-                    )
-                        .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(
-                        binding.optionThreeContainer,
-                        View.TRANSLATION_Y,
-                        -390f,
-                        -80f
-                    )
-                        .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(
-                        binding.optionFourContainer,
-                        View.TRANSLATION_Y,
-                        -520f,
-                        -110f
-                    )
-                        .setDuration(durationAnimOpenMenu).start()
-                    binding.optionOneContainer.visibility = View.INVISIBLE
-                    binding.optionTwoContainer.visibility = View.INVISIBLE
-                    binding.optionThreeContainer.visibility = View.INVISIBLE
-                    binding.optionFourContainer.visibility = View.INVISIBLE
-                    binding.transparentBackground.isClickable = false
-
-                    binding.optionOneContainer.animate()
-                        .alpha(0f)
-                        .setDuration(durationAnimOpenMenu / 2)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                super.onAnimationEnd(animation)
-                            }
-                        })
-                    binding.optionTwoContainer.animate()
-                        .alpha(0f)
-                        .setDuration(durationAnimOpenMenu / 2)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                super.onAnimationEnd(animation)
-                            }
-                        })
-                    binding.optionThreeContainer.animate()
-                        .alpha(0f)
-                        .setDuration(durationAnimOpenMenu / 2)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                super.onAnimationEnd(animation)
-                            }
-                        })
-                    binding.optionFourContainer.animate()
-                        .alpha(0f)
-                        .setDuration(durationAnimOpenMenu / 2)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                super.onAnimationEnd(animation)
-                            }
-                        })
-                    binding.transparentBackground.animate().alpha(0f).duration =
-                        durationAnimOpenMenu
-                } else {
-                    requireActivity().finish()
-                }
+                binding.fabMainImage.performClick()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
