@@ -65,6 +65,11 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
+    override fun onAttachFragment(childFragment: Fragment) {
+        backStackCustom()
+        super.onAttachFragment(childFragment)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -107,7 +112,7 @@ class MainFragment : Fragment() {
         textEditTitle()
         rotateFab()
         nextFragmentOpen()
-        backStackCustom()
+//        backStackCustom()
         viewModel.onShowListAvarkom()
     }
 
@@ -358,9 +363,19 @@ class MainFragment : Fragment() {
                 if (!openMenu) {
                     ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                         .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
+                    ObjectAnimator.ofFloat(
+                        binding.optionOneContainer,
+                        View.TRANSLATION_Y,
+                        -260f,
+                        -50f
+                    )
                         .setDuration(durationAnimOpenMenu).start()
-                    ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -130f, -20f)
+                    ObjectAnimator.ofFloat(
+                        binding.optionTwoContainer,
+                        View.TRANSLATION_Y,
+                        -130f,
+                        -20f
+                    )
                         .setDuration(durationAnimOpenMenu).start()
                     ObjectAnimator.ofFloat(
                         binding.optionThreeContainer,
@@ -414,8 +429,9 @@ class MainFragment : Fragment() {
                                 super.onAnimationEnd(animation)
                             }
                         })
-                    binding.transparentBackground.animate().alpha(0f).duration = durationAnimOpenMenu
-                } else{
+                    binding.transparentBackground.animate().alpha(0f).duration =
+                        durationAnimOpenMenu
+                } else {
                     requireActivity().finish()
                 }
             }
@@ -427,4 +443,5 @@ class MainFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
