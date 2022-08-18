@@ -356,15 +356,20 @@ class MainFragment : Fragment() {
     }
 
     private fun backStackCustom() {
-        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                /**
-                 * custom menu back and exit app
-                 */
-                binding.fabMainImage.performClick()
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        /**
+         * custom menu back and exit app
+         */
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (openMenu) {
+                        binding.fabMainImage.performClick()
+                    } else {
+                        requireActivity().finish()
+                    }
+                }
+            })
     }
 
     override fun onDestroyView() {
