@@ -35,6 +35,7 @@ import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.AdaptersAvarkom
 import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
+import com.geekbrains.gibddyola.utils.CallIntent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -174,10 +175,7 @@ class MainFragment : Fragment() {
         }
         binding.fabMainImageCall.setOnClickListener {
             openMenu = false
-            val number = "+7(8362)709-709"
-            val intent = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse("tel:$number")
-            startActivity(intent)
+            CallIntent.start(requireActivity())
         }
         binding.fabMainImageStock.setOnClickListener {
             openMenu = false
