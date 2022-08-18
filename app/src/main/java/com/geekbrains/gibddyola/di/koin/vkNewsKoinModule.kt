@@ -12,6 +12,10 @@ import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsVideoR
 import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.news.list.recyclerView.VkNewsRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
+import com.geekbrains.gibddyola.utils.flow_loading.LoadingApi
+import com.geekbrains.gibddyola.utils.flow_loading.LoadingApiImpl
+import com.geekbrains.gibddyola.utils.flow_loading.LoadingDataSource
+import com.geekbrains.gibddyola.utils.flow_loading.LoadingFlowRepository
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -42,6 +46,17 @@ val vkNewsKoinModule = module {
             .build()
     }
 
+    single<LoadingApi>(named("loadingApi")) {
+        LoadingApiImpl()
+    }
+
+    single(named("loadingDataSource")) {
+        LoadingDataSource(get(named("loadingApi")))
+    }
+
+    single(named("loadingFlowRepository")) {
+        LoadingFlowRepository(get(named("loadingDataSource")))
+    }
 
     scope<VkNewsFragment> {
         scoped(named("vk_news_rv_adapter")) {
@@ -49,7 +64,11 @@ val vkNewsKoinModule = module {
         }
 
         viewModel(named("vk_news_view_model")) {
-            VkNewsViewModel(get(named("repo_usecase")), get(named("repo_group_usecase")))
+            VkNewsViewModel(
+                get(named("repo_usecase")),
+                get(named("repo_group_usecase")),
+                get(named("loadingFlowRepository"))
+            )
         }
     }
 
