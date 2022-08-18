@@ -18,6 +18,7 @@ import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.BulletSpan
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -102,6 +103,7 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        viewModel.getTooltip()
         setTooltip()
         backStackCustom()
     }
@@ -190,6 +192,7 @@ class MainFragment : Fragment() {
 
     private fun setTooltip() {
         val tooltipSize = TooltipList.getTooltipSize()
+        var toolTipChars = ""
         var currentTooltipNumber = 0
         if (sharedTooltips.contains(TOOLTIP_NUMBER)) {
             currentTooltipNumber = sharedTooltips.getInt(TOOLTIP_NUMBER, 0)
@@ -207,20 +210,25 @@ class MainFragment : Fragment() {
             editor.putInt(TOOLTIP_NUMBER, 0)
             editor.apply()
         }
-        binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
+//        binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
+        viewModel.setTooltipIndex(currentTooltipNumber)
 
-        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-        if (version) {
-            val textAutoBlocks = binding.textTooltip.text
-            val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
-            spannableStringBuilder.setSpan(
-                BulletSpan(
-                    10,
-                    ContextCompat.getColor(requireContext(), R.color.light_green_600),
-                    10
-                ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            binding.textTooltip.text = spannableStringBuilder
+//        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+//        if (version) {
+//            val textAutoBlocks = binding.textTooltip.text
+//            val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
+//            spannableStringBuilder.setSpan(
+//                BulletSpan(
+//                    10,
+//                    ContextCompat.getColor(requireContext(), R.color.light_green_600),
+//                    10
+//                ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+//            )
+//            binding.textTooltip.text = spannableStringBuilder
+//        }
+        viewModel.flowData.observe(viewLifecycleOwner) { tooltipChar ->
+            toolTipChars += tooltipChar
+            binding.textTooltip.text = toolTipChars
         }
     }
 
