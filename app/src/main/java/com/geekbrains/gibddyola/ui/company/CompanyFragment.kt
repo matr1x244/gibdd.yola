@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAboutCompanyBinding
+import com.geekbrains.gibddyola.utils.CallIntent
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -106,6 +107,10 @@ class CompanyFragment : Fragment() {
 
         spannableStringBuilder.setSpan(red, 0, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.itemTittle.text = spannableStringBuilder
+
+        binding.itemTextContactCallAbout.setOnClickListener{
+            CallIntent.start(requireActivity())
+        }
     }
 
     override fun onStop() {
