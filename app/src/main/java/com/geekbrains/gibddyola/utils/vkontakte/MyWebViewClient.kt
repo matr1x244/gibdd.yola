@@ -11,6 +11,7 @@ class MyWebViewClient : WebViewClient() {
         return true
     }
 
+
     override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
         val currentPosition = view?.scrollY!!

@@ -222,6 +222,37 @@
                 app:srcCompat="@drawable/ic_company" />
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/option_five_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:alpha="0"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/dp32"
+            android:paddingBottom="@dimen/dp32"
+            android:visibility="invisible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_auto_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/dp26"
+                android:background="@drawable/rounded_corner_text_view"
+                android:padding="@dimen/dp5"
+                android:text="@string/check_auto"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/ic_car_crash" />
+        </RelativeLayout>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/container_bottom_nav"
             android:layout_width="match_parent"

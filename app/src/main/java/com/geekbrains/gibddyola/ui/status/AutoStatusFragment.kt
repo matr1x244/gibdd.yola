@@ -1,19 +1,25 @@
 package com.geekbrains.gibddyola.ui.status
 
-import android.content.Context
-import android.graphics.Picture
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import android.webkit.*
+import androidx.viewpager2.widget.ViewPager2
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAutoStatusBinding
-import com.geekbrains.gibddyola.utils.vkontakte.MyWebViewClient
-import kotlin.math.round
+import com.geekbrains.gibddyola.ui.status.viewpager.GIBBD
+import com.geekbrains.gibddyola.ui.status.viewpager.ViewPagerAdapter
+import com.geekbrains.gibddyola.ui.stock.viewpager.ZoomOutPageTransformer
+import com.geekbrains.gibddyola.utils.showSnackBarNoAction
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayoutMediator
 
 class AutoStatusFragment : Fragment() {
+
+    companion object {
+        fun newInstance() = AutoStatusFragment()
+    }
 
     private var _binding: FragmentAutoStatusBinding? = null
     private val binding get() = _binding!!
@@ -21,42 +27,43 @@ class AutoStatusFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentAutoStatusBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setWebView()
+        tabs()
     }
 
-    private fun setWebView() {
-        val url = "https://гибдд.рф/check/auto%20йошкар-ола"
-        val settings = binding.autoStatusWebView.settings
-        settings.javaScriptEnabled = true
-        settings.textZoom = 130
+    private fun tabs() {
+        binding.autoStatusContainer.showSnackBarNoAction(
+            R.string.internet_vk_news,
+            Snackbar.LENGTH_SHORT
+        )
+        binding.viewPager.adapter = ViewPagerAdapter(this)
+        binding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.viewPager.setPageTransformer(ZoomOutPageTransformer())
 
-        binding.autoStatusWebView.webViewClient = MyWebViewClient()
-        binding.autoStatusWebView.setPadding(0, 0, 0, 0)
-        binding.autoStatusWebView.loadUrl(url)
-        when(requireActivity().resources.displayMetrics.densityDpi) {
-            in (0..400) -> {
-                binding.autoStatusWebView.scrollY = 820
+        TabLayoutMediator(
+            binding.tabLayoutAutoStatus, binding.viewPager
+        ) { tab, position ->
+            tab.text = when (position) {
+                GIBBD -> "Официальная проверка автомобиля по VIN"
+//                PCA -> "РСА"
+                else -> "Официальная проверка автомобиля по VIN"
             }
-            in(400..500) -> {
-                binding.autoStatusWebView.scrollY = 920
-            }
-            in(500..600) -> {
-                binding.autoStatusWebView.scrollY = 1020
-            }
-        }
+        }.attach()
+
+        binding.tabLayoutAutoStatus.getTabAt(GIBBD)?.setIcon(R.drawable.ic_checklist_auto)
     }
 
-    companion object {
-        fun newInstance() = AutoStatusFragment()
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
-
-

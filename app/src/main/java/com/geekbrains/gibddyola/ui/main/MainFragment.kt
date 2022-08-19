@@ -6,25 +6,18 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
-import android.text.style.BulletSpan
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -152,7 +145,7 @@ class MainFragment : Fragment() {
             openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, AutoStatusFragment.newInstance())
+            ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
                 .addToBackStack("")
                 .commit()
         }
@@ -175,6 +168,14 @@ class MainFragment : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
+                .addToBackStack("")
+                .commit()
+        }
+        binding.tvAutoStatus.setOnClickListener {
+            openMenu = false
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
+            ).replace(R.id.main_activity_container, AutoStatusFragment.newInstance())
                 .addToBackStack("")
                 .commit()
         }
@@ -257,11 +258,19 @@ class MainFragment : Fragment() {
                     -520f
                 )
                     .setDuration(durationAnimOpenMenu).start()
+                ObjectAnimator.ofFloat(
+                    binding.optionFiveContainer,
+                    View.TRANSLATION_Y,
+                    -140f,
+                    -650f
+                )
+                    .setDuration(durationAnimOpenMenu).start()
                 /*макет доступность*/
                 binding.optionOneContainer.visibility = View.VISIBLE
                 binding.optionTwoContainer.visibility = View.VISIBLE
                 binding.optionThreeContainer.visibility = View.VISIBLE
                 binding.optionFourContainer.visibility = View.VISIBLE
+                binding.optionFiveContainer.visibility = View.VISIBLE
                 binding.transparentBackground.isClickable = true
 
                 binding.optionOneContainer.animate()
@@ -296,6 +305,14 @@ class MainFragment : Fragment() {
                             super.onAnimationEnd(animation)
                         }
                     })
+                binding.optionFiveContainer.animate()
+                    .alpha(0.8f)
+                    .setDuration(durationAnimOpenMenu * 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
                 binding.transparentBackground.animate()
                     .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
@@ -319,10 +336,18 @@ class MainFragment : Fragment() {
                     -110f
                 )
                     .setDuration(durationAnimOpenMenu).start()
+                ObjectAnimator.ofFloat(
+                    binding.optionFiveContainer,
+                    View.TRANSLATION_Y,
+                    -650f,
+                    -140f
+                )
+                    .setDuration(durationAnimOpenMenu).start()
                 binding.optionOneContainer.visibility = View.INVISIBLE
                 binding.optionTwoContainer.visibility = View.INVISIBLE
                 binding.optionThreeContainer.visibility = View.INVISIBLE
                 binding.optionFourContainer.visibility = View.INVISIBLE
+                binding.optionFiveContainer.visibility = View.INVISIBLE
                 binding.transparentBackground.isClickable = false
 
                 binding.optionOneContainer.animate()
@@ -350,6 +375,14 @@ class MainFragment : Fragment() {
                         }
                     })
                 binding.optionFourContainer.animate()
+                    .alpha(0f)
+                    .setDuration(durationAnimOpenMenu / 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
+                binding.optionFiveContainer.animate()
                     .alpha(0f)
                     .setDuration(durationAnimOpenMenu / 2)
                     .setListener(object : AnimatorListenerAdapter() {
