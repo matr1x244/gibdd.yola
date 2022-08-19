@@ -36,18 +36,22 @@ class AutoStatusFragment : Fragment() {
         val url = "https://гибдд.рф/check/auto%20йошкар-ола"
         val settings = binding.autoStatusWebView.settings
         settings.javaScriptEnabled = true
-        settings.loadWithOverviewMode = true
-        settings.useWideViewPort = true
-        settings.cacheMode = WebSettings.LOAD_DEFAULT
-        binding.autoStatusWebView.setInitialScale(1)
+        settings.textZoom = 130
 
-        val dpi = requireActivity().resources.displayMetrics.densityDpi
-        val dp = (dpi / 160F) * 320
-
-        binding.autoStatusWebView.webViewClient = MyWebViewClient(dp.toInt())
+        binding.autoStatusWebView.webViewClient = MyWebViewClient()
         binding.autoStatusWebView.setPadding(0, 0, 0, 0)
         binding.autoStatusWebView.loadUrl(url)
-
+        when(requireActivity().resources.displayMetrics.densityDpi) {
+            in (0..400) -> {
+                binding.autoStatusWebView.scrollY = 820
+            }
+            in(400..500) -> {
+                binding.autoStatusWebView.scrollY = 920
+            }
+            in(500..600) -> {
+                binding.autoStatusWebView.scrollY = 1020
+            }
+        }
     }
 
     companion object {

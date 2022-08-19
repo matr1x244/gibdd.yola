@@ -4,7 +4,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
-class MyWebViewClient(private val scrollPosition: Int) : WebViewClient() {
+class MyWebViewClient : WebViewClient() {
 
     override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
         view?.loadUrl(request?.url.toString())
@@ -13,11 +13,11 @@ class MyWebViewClient(private val scrollPosition: Int) : WebViewClient() {
 
     override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
-        view?.setOnScrollChangeListener { _, _, scrollY, _, _ ->
-            if (scrollY < scrollPosition) {
-                view.scrollY = scrollPosition
+        val currentPosition = view?.scrollY!!
+        view.setOnScrollChangeListener { _, _, scrollY, _, _ ->
+            if (scrollY < currentPosition) {
+                view.scrollY = currentPosition
             }
         }
-        view?.scrollY = scrollPosition
     }
 }
