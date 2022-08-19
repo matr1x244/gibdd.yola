@@ -37,6 +37,7 @@ import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.AdaptersAvarkom
 import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
+import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
 import kotlinx.coroutines.CoroutineScope
@@ -151,7 +152,7 @@ class MainFragment : Fragment() {
             openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
+            ).replace(R.id.main_activity_container, AutoStatusFragment.newInstance())
                 .addToBackStack("")
                 .commit()
         }
