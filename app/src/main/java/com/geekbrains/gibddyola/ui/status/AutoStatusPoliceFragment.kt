@@ -51,7 +51,7 @@ class AutoStatusPoliceFragment : Fragment() {
 
         when (requireActivity().resources.displayMetrics.densityDpi) {
             in (0..400) -> {
-                binding.autoStatusWebView.scrollY = 890
+                binding.autoStatusWebView.scrollY = 870
             }
             in (400..500) -> {
                 binding.autoStatusWebView.scrollY = 970
