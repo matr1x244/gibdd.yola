@@ -52,9 +52,9 @@ class AutoStatusFragment : Fragment() {
             binding.tabLayoutAutoStatus, binding.viewPager
         ) { tab, position ->
             tab.text = when (position) {
-                GIBBD -> "Официальная проверка автомобиля по VIN"
+                GIBBD -> "Официальная проверка штрафов ГИБДД"
 //                PCA -> "РСА"
-                else -> "Официальная проверка автомобиля по VIN"
+                else -> "Официальная проверка штрафов ГИБДД"
             }
         }.attach()
 

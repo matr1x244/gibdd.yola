@@ -31,10 +31,10 @@ class AutoStatusPoliceFragment : Fragment() {
     }
 
     private fun setWebView() {
-        val url = "https://гибдд.рф/check/auto"
+        val url = "https://гибдд.рф/check/fines"
         val settings = binding.autoStatusWebView.settings
         settings.javaScriptEnabled = true
-        settings.textZoom = 130
+        settings.textZoom = 90
 
         settings.javaScriptCanOpenWindowsAutomatically = true
         settings.cacheMode = WebSettings.LOAD_DEFAULT
