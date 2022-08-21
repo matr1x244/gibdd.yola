@@ -233,7 +233,7 @@ class MainFragment : Fragment() {
         viewModel.flowData.observe(viewLifecycleOwner) { tooltipChar ->
             toolTipChars += tooltipChar
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 val spannableStringBuilder = SpannableStringBuilder(toolTipChars)
                 spannableStringBuilder.setSpan(
                     BulletSpan(
