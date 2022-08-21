@@ -106,15 +106,11 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        viewModel.stopGettingTooltip()
+        binding.textTooltip.text = ""
         getSharedTooltipIndex()
         setTooltip()
         backStackCustom()
-    }
-
-    override fun onStop() {
-        viewModel.stopGettingTooltip()
-        binding.textTooltip.text = ""
-        super.onStop()
     }
 
     private fun initViews() {
