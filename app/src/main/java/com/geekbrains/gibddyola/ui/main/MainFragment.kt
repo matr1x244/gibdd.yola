@@ -8,6 +8,7 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
@@ -231,17 +232,21 @@ class MainFragment : Fragment() {
         viewModel.flowData.observe(viewLifecycleOwner) { tooltipChar ->
             toolTipChars += tooltipChar
 
-            val spannableStringBuilder = SpannableStringBuilder(toolTipChars)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val spannableStringBuilder = SpannableStringBuilder(toolTipChars)
+                spannableStringBuilder.setSpan(
+                    BulletSpan(
+                        10,
+                        ContextCompat.getColor(requireContext(), R.color.light_green_600),
+                        10
+                    ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.textTooltip.text = spannableStringBuilder
+            } else {
+                binding.textTooltip.text = toolTipChars
+            }
 
-            spannableStringBuilder.setSpan(
-                BulletSpan(
-                    10,
-                    ContextCompat.getColor(requireContext(), R.color.light_green_600),
-                    10
-                ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
 
-            binding.textTooltip.text = spannableStringBuilder
         }
     }
 
