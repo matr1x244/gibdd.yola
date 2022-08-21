@@ -25,10 +25,12 @@ class MainViewModel(
 
     private var tooltipIndex: Int = 0
 
+    private var tooltipJob: Job? = null
+
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     fun getTooltip() {
-        viewModelScope.launch {
+        tooltipJob = viewModelScope.launch {
             flowRepository.get(tooltipIndex).collectLatest { tooltipChars ->
                 _flowData.postValue(tooltipChars)
             }
@@ -43,6 +45,12 @@ class MainViewModel(
                 _repos.postValue(result)
             }
         }
+    }
+
+    fun stopGettingTooltip() {
+        tooltipJob?.cancelChildren()
+        tooltipJob = null
+        _flowData.value = '\u0000'
     }
 
     fun setTooltipIndex(index: Int) {

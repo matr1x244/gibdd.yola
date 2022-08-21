@@ -75,8 +75,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedTooltips = activity!!
-            .getSharedPreferences(SHARED_TOOLTIP_NAME, Context.MODE_PRIVATE)
+        getSharedTooltipIndex()
 
         initViews()
         initIncomingEvents()
@@ -95,11 +94,22 @@ class MainFragment : Fragment() {
         }
     }
 
+    private fun getSharedTooltipIndex() {
+        sharedTooltips = requireActivity()
+            .getSharedPreferences(SHARED_TOOLTIP_NAME, Context.MODE_PRIVATE)
+    }
+
     override fun onResume() {
         super.onResume()
+        getSharedTooltipIndex()
         setTooltip()
-        viewModel.getTooltip()
         backStackCustom()
+    }
+
+    override fun onStop() {
+        viewModel.stopGettingTooltip()
+        binding.textTooltip.text = ""
+        super.onStop()
     }
 
     private fun initViews() {
@@ -212,22 +222,9 @@ class MainFragment : Fragment() {
             editor.putInt(TOOLTIP_NUMBER, 0)
             editor.apply()
         }
-//        binding.textTooltip.text = TooltipList.getTooltip(currentTooltipNumber)
         viewModel.setTooltipIndex(currentTooltipNumber)
+        viewModel.getTooltip()
 
-//        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-//        if (version) {
-//            val textAutoBlocks = binding.textTooltip.text
-//            val spannableStringBuilder = SpannableStringBuilder(textAutoBlocks)
-//            spannableStringBuilder.setSpan(
-//                BulletSpan(
-//                    10,
-//                    ContextCompat.getColor(requireContext(), R.color.light_green_600),
-//                    10
-//                ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
-//            )
-//            binding.textTooltip.text = spannableStringBuilder
-//        }
         viewModel.flowData.observe(viewLifecycleOwner) { tooltipChar ->
             toolTipChars += tooltipChar
             binding.textTooltip.text = toolTipChars
