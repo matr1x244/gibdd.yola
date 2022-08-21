@@ -9,15 +9,18 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
+import android.text.style.BulletSpan
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -227,7 +230,18 @@ class MainFragment : Fragment() {
 
         viewModel.flowData.observe(viewLifecycleOwner) { tooltipChar ->
             toolTipChars += tooltipChar
-            binding.textTooltip.text = toolTipChars
+
+            val spannableStringBuilder = SpannableStringBuilder(toolTipChars)
+
+            spannableStringBuilder.setSpan(
+                BulletSpan(
+                    10,
+                    ContextCompat.getColor(requireContext(), R.color.light_green_600),
+                    10
+                ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+
+            binding.textTooltip.text = spannableStringBuilder
         }
     }
 
