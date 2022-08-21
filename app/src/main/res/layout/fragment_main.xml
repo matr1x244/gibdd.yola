@@ -54,6 +54,7 @@
                 android:id="@+id/text_tooltip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/elsie"
                 android:padding="@dimen/dp5"
                 android:textColor="@color/transparent_grey_50"
                 tools:text="@string/text_view_blocks_auto_helper" />

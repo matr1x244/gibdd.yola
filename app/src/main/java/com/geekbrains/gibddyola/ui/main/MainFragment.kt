@@ -97,8 +97,8 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getTooltip()
         setTooltip()
+        viewModel.getTooltip()
         backStackCustom()
     }
 
@@ -203,7 +203,7 @@ class MainFragment : Fragment() {
             editor.putInt(TOOLTIP_NUMBER, 0)
             editor.apply()
         }
-        if (currentTooltipNumber < tooltipSize) {
+        if (currentTooltipNumber < tooltipSize - 1) {
             val editor: SharedPreferences.Editor = sharedTooltips.edit()
             editor.putInt(TOOLTIP_NUMBER, currentTooltipNumber + 1)
             editor.apply()
