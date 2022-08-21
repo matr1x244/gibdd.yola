@@ -43,6 +43,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
@@ -245,8 +246,6 @@ class MainFragment : Fragment() {
             } else {
                 binding.textTooltip.text = toolTipChars
             }
-
-
         }
     }
 
