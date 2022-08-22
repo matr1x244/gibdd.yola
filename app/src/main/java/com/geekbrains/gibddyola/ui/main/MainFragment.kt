@@ -282,7 +282,10 @@ class MainFragment : Fragment() {
                 binding.optionThreeContainer.visibility = View.VISIBLE
                 binding.optionFourContainer.visibility = View.VISIBLE
                 binding.optionFiveContainer.visibility = View.VISIBLE
-                binding.transparentBackground.isClickable = true
+                binding.transparentBackground.setOnClickListener {
+                    binding.mainMenuLayout.performClick()
+                    openMenu = false
+                }
 
                 binding.optionOneContainer.animate()
                     .alpha(0.8f)
