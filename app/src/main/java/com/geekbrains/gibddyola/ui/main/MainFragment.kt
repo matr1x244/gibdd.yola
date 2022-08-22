@@ -190,11 +190,11 @@ class MainFragment : Fragment() {
                 .addToBackStack("")
                 .commit()
         }
-        binding.fabMainImageCall.setOnClickListener {
+        binding.mainCallLayout.setOnClickListener {
             openMenu = false
             CallIntent.start(requireActivity())
         }
-        binding.fabMainImageStock.setOnClickListener {
+        binding.mainStockLayout.setOnClickListener {
             openMenu = false
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
@@ -246,7 +246,7 @@ class MainFragment : Fragment() {
     }
 
     private fun rotateFab() {
-        binding.fabMainImage.setOnClickListener {
+        binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)

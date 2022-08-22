@@ -269,73 +269,89 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/fab_main_image_call"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/nav_image_view_layout_height"
-                    android:layout_marginTop="@dimen/nav_image_view_padding_top"
-                    app:layout_constraintBottom_toTopOf="@+id/textView_call_nav"
-                    app:layout_constraintEnd_toStartOf="@+id/fab_main_image_stock"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_sos_call" />
-
-                <TextView
-                    android:id="@+id/textView_call_nav"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/main_call_layout"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_view_call"
-                    android:textSize="16sp"
-                    android:textColor="@color/vk_background_color_gray"
+                    android:gravity="center"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textView_stock_nav"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <ImageView
-                    android:id="@+id/fab_main_image_stock"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/nav_image_view_layout_height"
-                    android:layout_marginTop="@dimen/nav_image_view_padding_top"
-                    app:layout_constraintBottom_toTopOf="@+id/textView_stock_nav"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/main_stock_layout"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_hot_sale" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/textView_stock_nav"
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:id="@+id/fab_main_image_call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/nav_image_view_layout_height"
+                        android:layout_marginTop="@dimen/nav_image_view_padding_top"
+                        app:srcCompat="@drawable/ic_sos_call" />
+
+                    <TextView
+                        android:id="@+id/textView_call_nav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_call"
+                        android:textColor="@color/vk_background_color_gray"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_stock_layout"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/sell"
-                    android:textSize="16sp"
-                    android:textColor="@color/vk_background_color_gray"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/main_call_layout"
+                    app:layout_constraintEnd_toEndOf="@id/main_menu_layout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/fab_main_image_stock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/nav_image_view_layout_height"
+                        android:layout_marginTop="@dimen/nav_image_view_padding_top"
+                        app:srcCompat="@drawable/ic_hot_sale" />
+
+                    <TextView
+                        android:id="@+id/textView_stock_nav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sell"
+                        android:textColor="@color/vk_background_color_gray"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_menu_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView_call_nav" />
+                    app:layout_constraintStart_toEndOf="@id/main_stock_layout"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/fab_main_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/nav_image_view_layout_height"
-                    android:layout_marginTop="@dimen/nav_image_view_padding_top"
-                    app:layout_constraintBottom_toTopOf="@+id/textView_menu_nav"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/fab_main_image_stock"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_tyre" />
+                    <ImageView
+                        android:id="@+id/fab_main_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/nav_image_view_layout_height"
+                        android:layout_marginTop="@dimen/nav_image_view_padding_top"
+                        app:srcCompat="@drawable/ic_tyre" />
 
-                <TextView
-                    android:id="@+id/textView_menu_nav"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_view_menu"
-                    android:textSize="16sp"
-                    android:textColor="@color/vk_background_color_gray"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView_stock_nav"
-                    app:layout_constraintTop_toTopOf="@+id/textView_stock_nav" />
+                    <TextView
+                        android:id="@+id/textView_menu_nav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_view_menu"
+                        android:textColor="@color/vk_background_color_gray"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
