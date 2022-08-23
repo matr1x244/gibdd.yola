@@ -2,11 +2,13 @@ package com.geekbrains.gibddyola
 
 import android.Manifest
 import android.animation.ObjectAnimator
-import android.content.DialogInterface
+import android.app.DownloadManager
+import android.content.*
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd

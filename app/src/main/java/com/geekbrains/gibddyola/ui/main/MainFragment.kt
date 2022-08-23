@@ -5,9 +5,11 @@ package com.geekbrains.gibddyola.ui.main
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
-import android.content.Context
-import android.content.SharedPreferences
+import android.app.DownloadManager
+import android.content.*
+import android.content.Context.DOWNLOAD_SERVICE
 import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -22,11 +24,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.geekbrains.gibddyola.App
 import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.app
 import com.geekbrains.gibddyola.data.news.local.TooltipList
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
@@ -200,6 +205,35 @@ class MainFragment : Fragment() {
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
+        }
+        /**
+         *
+         *TEST APP DOWNLOAD
+         */
+        binding.imageViewMain.setOnClickListener {
+            var request: DownloadManager.Request = DownloadManager.Request(
+                Uri.parse("https://basik.ru/images/landscapes_walls/08_landscape.g")
+            )
+                .setTitle("ФАЙЛ НОВЫЙ")
+                .setDescription("КАЧАЕМ АВАРКОМ")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            val downloadManager = context?.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+            var long = 0L
+            long = downloadManager.enqueue(request)
+
+            var br = object : BroadcastReceiver(){
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    var id: Long? = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+                    if(id == long){
+                        Toast.makeText(context, "ЗАГРУЖЕН", Toast.LENGTH_SHORT).show()
+                    } else{
+                        Toast.makeText(context, "НЕ ЗАГРУЖЕН", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            context?.registerReceiver(br, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
         }
     }
 
