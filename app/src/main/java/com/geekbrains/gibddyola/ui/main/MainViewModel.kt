@@ -7,10 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.geekbrains.gibddyola.data.employee.LocalRepositoryImpl
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.flow.FlowRepository
+import com.geekbrains.gibddyola.utils.updates.ReceiveServerAppData
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flowOn
 
 class MainViewModel(
     private val repository: LocalRepositoryImpl,
@@ -22,6 +21,9 @@ class MainViewModel(
 
     private val _repos = MutableLiveData<List<EntityAvarkom>>()
     val repos: LiveData<List<EntityAvarkom>> = _repos
+
+    private val _appVersion = MutableLiveData<String>()
+    val appVersion: LiveData<String> = _appVersion
 
     private var tooltipIndex: Int = 0
 
@@ -55,6 +57,16 @@ class MainViewModel(
 
     fun setTooltipIndex(index: Int) {
         this.tooltipIndex = index
+    }
+
+    fun getServerVersion() {
+        val versionReceiver = ReceiveServerAppData()
+        coroutineScope.launch {
+            val result = versionReceiver.getVersion()
+            withContext(Dispatchers.Main) {
+                _appVersion.postValue(result)
+            }
+        }
     }
 
     override fun onCleared() {

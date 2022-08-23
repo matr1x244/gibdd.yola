@@ -18,6 +18,7 @@ import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.BulletSpan
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
+import java.net.MalformedURLException
+import java.net.URL
 
 
 class MainFragment : Fragment() {
@@ -86,6 +92,8 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getSharedTooltipIndex()
+
+        viewModel.getServerVersion()
 
         initViews()
         initIncomingEvents()
@@ -210,34 +218,10 @@ class MainFragment : Fragment() {
          *
          *TEST APP DOWNLOAD
          */
-        binding.imageViewMain.setOnClickListener {
-            var request: DownloadManager.Request = DownloadManager.Request(
-                Uri.parse("https://basik.ru/images/landscapes_walls/08_landscape.g")
-            )
-                .setTitle("ФАЙЛ НОВЫЙ")
-                .setDescription("КАЧАЕМ АВАРКОМ")
-                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
-                .setAllowedOverMetered(true)
-
-            val downloadManager = context?.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
-            var long = 0L
-            long = downloadManager.enqueue(request)
-
-            var br = object : BroadcastReceiver(){
-                override fun onReceive(context: Context?, intent: Intent?) {
-                    var id: Long? = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
-                    if(id == long){
-                        Toast.makeText(context, "ЗАГРУЖЕН", Toast.LENGTH_SHORT).show()
-                    } else{
-                        Toast.makeText(context, "НЕ ЗАГРУЖЕН", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-            context?.registerReceiver(br, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        }
     }
 
     private fun setTooltip() {
+
         val tooltipSize = TooltipList.getTooltipSize()
         var toolTipChars = ""
         var currentTooltipNumber = 0
@@ -453,7 +437,7 @@ class MainFragment : Fragment() {
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     if (openMenu) {
-                        binding.fabMainImage.performClick()
+                        binding.mainMenuLayout.performClick()
                     } else if (
                         !requireActivity().supportFragmentManager.fragments.contains(this@MainFragment)
                     ) {

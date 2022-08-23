@@ -12,27 +12,25 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        android:isScrollContainer="true"
         app:cardCornerRadius="@dimen/dp5"
         app:cardElevation="@dimen/dp5"
-        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/vk_background_color_gray">
+            android:background="@color/vk_background_color_gray"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/vk_news_details_media_container"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/vk_news_full_image_height"
-                android:layout_marginHorizontal="@dimen/dp1"
-                android:layout_marginTop="@dimen/dp5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginHorizontal="@dimen/dp1">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_view_view_blocks"
@@ -67,9 +65,9 @@
                         android:id="@+id/vk_news_details_stock_photo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:visibility="gone"
                         android:padding="@dimen/dp1"
-                        android:src="@mipmap/logo" />
+                        android:src="@mipmap/logo"
+                        android:visibility="gone" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -83,9 +81,7 @@
                 android:focusable="true"
                 android:foregroundGravity="bottom"
                 android:paddingStart="@dimen/dp5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vk_news_details_media_container"
+                android:paddingEnd="@dimen/dp5"
                 app:rippleColor="@color/color_transparent">
 
                 <com.google.android.material.chip.Chip
@@ -119,12 +115,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp5"
                 android:background="@color/vk_background_color_gray"
-                android:paddingBottom="@dimen/dp10"
                 android:scrollbars="vertical"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chip_group" />
+                android:textAlignment="inherit"
+                android:textColor="@color/black" />
 
             <FrameLayout
                 android:id="@+id/vk_news_hiding_screen"
@@ -138,7 +131,7 @@
                 app:layout_constraintCircleRadius="@dimen/dp26"
                 tools:layout_editor_absoluteY="1dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
