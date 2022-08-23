@@ -1,34 +1,35 @@
 package com.geekbrains.gibddyola.utils.updates
 
-import android.app.DownloadManager
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.widget.Toast
+import java.io.BufferedInputStream
+import java.io.FileOutputStream
+import java.io.IOException
+import java.net.MalformedURLException
+import java.net.URL
 
 class ReceiveServerAppApk {
-//    var request: DownloadManager.Request = DownloadManager.Request(
-//        Uri.parse("https://basik.ru/images/landscapes_walls/08_landscape.g")
-//    )
-//        .setTitle("ФАЙЛ НОВЫЙ")
-//        .setDescription("КАЧАЕМ АВАРКОМ")
-//        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
-//        .setAllowedOverMetered(true)
-//
-//    val downloadManager = context?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-//    var long = 0L
-//    long = downloadManager.enqueue(request)
-//
-//    var br = object : BroadcastReceiver() {
-//        override fun onReceive(context: Context?, intent: Intent?) {
-//            var id: Long? = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
-//            if (id == long) {
-//                Toast.makeText(context, "ЗАГРУЖЕН", Toast.LENGTH_SHORT).show()
-//            } else {
-//                Toast.makeText(context, "НЕ ЗАГРУЖЕН", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
-//    context?.registerReceiver(br, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+
+    fun downloadFile() {
+        try {
+            val url = URL(UpdateData.apkUrl())
+            val fileName = UpdateData.fileName()
+
+            url.openStream().use { inpStr ->
+                BufferedInputStream(inpStr).use { buffInpStr ->
+                    FileOutputStream(fileName).use { fileOutStr ->
+                        val data = ByteArray(1024)
+                        var count: Int
+                        while (buffInpStr.read(data, 0, 1024).also {
+                                count = it
+                            } != -1) {
+                            fileOutStr.write(data, 0, count)
+                        }
+                    }
+                }
+            }
+        } catch (e: MalformedURLException) {
+            e.printStackTrace()
+        } catch (d: IOException) {
+            d.printStackTrace()
+        }
+    }
 }

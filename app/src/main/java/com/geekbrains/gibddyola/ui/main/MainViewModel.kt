@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.geekbrains.gibddyola.data.employee.LocalRepositoryImpl
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.flow.FlowRepository
+import com.geekbrains.gibddyola.utils.updates.ReceiveServerAppApk
 import com.geekbrains.gibddyola.utils.updates.ReceiveServerAppData
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
@@ -66,6 +67,13 @@ class MainViewModel(
             withContext(Dispatchers.Main) {
                 _appVersion.postValue(result)
             }
+        }
+    }
+
+    fun downloadNewAppApk() {
+        val apkReceiver = ReceiveServerAppApk()
+        coroutineScope.launch {
+            apkReceiver.downloadFile()
         }
     }
 
