@@ -26,6 +26,9 @@ class MainViewModel(
     private val _appVersion = MutableLiveData<String>()
     val appVersion: LiveData<String> = _appVersion
 
+    private val _downloadApkMessage = MutableLiveData<String>()
+    val downloadApkMessage: LiveData<String> = _downloadApkMessage
+
     private var tooltipIndex: Int = 0
 
     private var tooltipJob: Job? = null
@@ -73,7 +76,7 @@ class MainViewModel(
     fun downloadNewAppApk() {
         val apkReceiver = ReceiveServerAppApk()
         coroutineScope.launch {
-            apkReceiver.downloadFile()
+            _downloadApkMessage.postValue(apkReceiver.downloadFile())
         }
     }
 

@@ -255,6 +255,9 @@ class MainFragment : Fragment() {
     private fun rotateFab() {
         binding.mainMenuLayout.setOnClickListener {
             viewModel.downloadNewAppApk()
+            viewModel.downloadApkMessage.observe(viewLifecycleOwner) {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            }
             openMenu = !openMenu
             if (openMenu) {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
