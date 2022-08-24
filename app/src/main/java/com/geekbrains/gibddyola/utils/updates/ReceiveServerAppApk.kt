@@ -8,10 +8,6 @@ import java.net.MalformedURLException
 import java.net.URL
 
 class ReceiveServerAppApk {
-    private val downloadSuccess = "Файл загружен"
-    private val fileNotFound = "Файл не найден"
-    private val downloadError = "Ошибка загрузки"
-    private val ioError = "Ошибка получения данных"
 
     fun downloadFile(): String {
         try {
@@ -31,16 +27,16 @@ class ReceiveServerAppApk {
                     }
                 }
             }
-            return downloadSuccess
+            return UpdateData.downloadSuccess()
         } catch (c: FileNotFoundException) {
             c.printStackTrace()
-            return fileNotFound
+            return UpdateData.fileNotFound()
         } catch (e: MalformedURLException) {
             e.printStackTrace()
-            return downloadError
+            return UpdateData.downloadError()
         } catch (d: IOException) {
             d.printStackTrace()
-            return ioError
+            return UpdateData.ioError()
         }
     }
 }
