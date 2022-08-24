@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         val listPermissions = ArrayList<String>()
         if (call != PackageManager.PERMISSION_GRANTED) {
             listPermissions.add(Manifest.permission.CALL_PHONE)
+            listPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
         if (listPermissions.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, listPermissions.toTypedArray(), 1)
@@ -58,9 +59,11 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             1 -> {
                 val perms = HashMap<String, Int>()
                 perms[Manifest.permission.CALL_PHONE] = PackageManager.PERMISSION_GRANTED
+                perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] = PackageManager.PERMISSION_GRANTED
                 if (grantResults.isNotEmpty()) {
                     for (ok in permissions.indices) perms[permissions[ok]] = grantResults[ok]
-                    if (perms[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED) {
+                    if (perms[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED)
+                    if( perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] == PackageManager.PERMISSION_GRANTED){
                     } else {
                         showDialogPhoneCopy(
                             R.string.dialog_call,

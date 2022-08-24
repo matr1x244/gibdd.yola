@@ -40,6 +40,7 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.updates.UpdateData
 import kotlinx.coroutines.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
@@ -456,6 +457,7 @@ class MainFragment : Fragment() {
             binding.optionUpdateContainer.setOnClickListener {
                 viewModel.getServerVersion()
                 viewModel.downloadNewAppApk()
+                Toast.makeText(requireActivity(), UpdateData.fileName(), Toast.LENGTH_SHORT).show()
                 }
             }
         }
