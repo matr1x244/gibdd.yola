@@ -1,6 +1,7 @@
 package com.geekbrains.gibddyola.utils.updates
 
 import java.io.BufferedInputStream
+import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.net.MalformedURLException
@@ -8,7 +9,7 @@ import java.net.URL
 
 class ReceiveServerAppApk {
 
-    fun downloadFile() {
+    fun downloadFile(): String {
         try {
             val url = URL(UpdateData.apkUrl())
             val fileName = UpdateData.fileName()
@@ -26,10 +27,16 @@ class ReceiveServerAppApk {
                     }
                 }
             }
+            return UpdateData.downloadSuccess()
+        } catch (c: FileNotFoundException) {
+            c.printStackTrace()
+            return UpdateData.fileNotFound()
         } catch (e: MalformedURLException) {
             e.printStackTrace()
+            return UpdateData.downloadError()
         } catch (d: IOException) {
             d.printStackTrace()
+            return UpdateData.ioError()
         }
     }
 }
