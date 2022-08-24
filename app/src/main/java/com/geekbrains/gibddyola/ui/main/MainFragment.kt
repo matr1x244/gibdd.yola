@@ -8,6 +8,7 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -19,6 +20,8 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
@@ -37,11 +40,10 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
+import kotlin.coroutines.coroutineContext
 
 
 class MainFragment : Fragment() {
@@ -81,24 +83,17 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getSharedTooltipIndex()
-
-        viewModel.getServerVersion()
-
         initViews()
         initIncomingEvents()
-        banner()
+//        banner()
     }
 
     private fun banner() {
-        CoroutineScope(Dispatchers.IO).launch {
-            withContext(Dispatchers.Main) {
-                Glide.with(binding.imageViewMain)
-                    .load(R.mipmap.logo)
-                    .centerInside()
-                    .transform(RoundedCorners(15))
-                    .into(binding.imageViewMain)
-            }
-        }
+        Glide.with(binding.imageViewMain)
+            .load(R.mipmap.logo)
+            .centerInside()
+            .transform(RoundedCorners(15))
+            .into(binding.imageViewMain)
     }
 
     private fun getSharedTooltipIndex() {
@@ -203,10 +198,6 @@ class MainFragment : Fragment() {
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
         }
-        /**
-         *
-         *TEST APP DOWNLOAD
-         */
     }
 
     private fun setTooltip() {
@@ -254,7 +245,6 @@ class MainFragment : Fragment() {
 
     private fun rotateFab() {
         binding.mainMenuLayout.setOnClickListener {
-            viewModel.downloadNewAppApk()
             openMenu = !openMenu
             if (openMenu) {
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
@@ -282,6 +272,13 @@ class MainFragment : Fragment() {
                     View.TRANSLATION_Y,
                     -140f,
                     -650f
+                )
+                    .setDuration(durationAnimOpenMenu).start()
+                ObjectAnimator.ofFloat(
+                    binding.optionUpdateContainer,
+                    View.TRANSLATION_Y,
+                    -190f,
+                    -850f
                 )
                     .setDuration(durationAnimOpenMenu).start()
                 /*макет доступность*/
@@ -335,6 +332,14 @@ class MainFragment : Fragment() {
                             super.onAnimationEnd(animation)
                         }
                     })
+                binding.optionUpdateContainer.animate()
+                    .alpha(0.8f)
+                    .setDuration(durationAnimOpenMenu * 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
                 binding.transparentBackground.animate()
                     .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
@@ -365,11 +370,19 @@ class MainFragment : Fragment() {
                     -140f
                 )
                     .setDuration(durationAnimOpenMenu).start()
+                ObjectAnimator.ofFloat(
+                    binding.optionUpdateContainer,
+                    View.TRANSLATION_Y,
+                    -750f,
+                    -190f
+                )
+                    .setDuration(durationAnimOpenMenu).start()
                 binding.optionOneContainer.visibility = View.INVISIBLE
                 binding.optionTwoContainer.visibility = View.INVISIBLE
                 binding.optionThreeContainer.visibility = View.INVISIBLE
                 binding.optionFourContainer.visibility = View.INVISIBLE
                 binding.optionFiveContainer.visibility = View.INVISIBLE
+                binding.optionUpdateContainer.visibility = View.GONE
                 binding.transparentBackground.isClickable = false
 
                 binding.optionOneContainer.animate()
@@ -412,11 +425,40 @@ class MainFragment : Fragment() {
                             super.onAnimationEnd(animation)
                         }
                     })
+                binding.optionUpdateContainer.animate()
+                    .alpha(0f)
+                    .setDuration(durationAnimOpenMenu * 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
                 binding.transparentBackground.animate()
                     .alpha(0f).duration = durationAnimOpenMenu
             }
         }
+        upDateIcon()
     }
+
+    private fun upDateIcon(){
+        val calendar = Calendar.getInstance()
+        val dayStartUpdate = calendar.get(Calendar.DAY_OF_MONTH)
+        val dayStopUpdate = 23
+        val anim: Animation = AlphaAnimation(0.0f, 1.0f)
+        if (dayStartUpdate > dayStopUpdate){
+            binding.optionUpdateContainer.visibility = View.VISIBLE
+            anim.duration = 500
+            anim.startOffset = 20
+            anim.repeatMode = Animation.REVERSE
+            anim.repeatCount = Animation.INFINITE
+            binding.optionUpdateContainer.startAnimation(anim)
+
+            binding.optionUpdateContainer.setOnClickListener {
+                viewModel.getServerVersion()
+                viewModel.downloadNewAppApk()
+                }
+            }
+        }
 
     private fun backStackCustom() {
         /**

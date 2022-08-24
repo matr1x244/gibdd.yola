@@ -18,7 +18,7 @@
         <com.geekbrains.gibddyola.utils.EquilateralImageView
             android:id="@+id/image_view_main"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center|top"
             android:padding="@dimen/dp5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,6 +98,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/option_update_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:alpha="0"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp32"
+                app:srcCompat="@mipmap/icon_app_update" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/option_one_container"
