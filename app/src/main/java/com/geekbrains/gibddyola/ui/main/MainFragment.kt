@@ -95,7 +95,6 @@ class MainFragment : Fragment() {
         setDefaultUpdateParams()
         initViews()
         initIncomingEvents()
-        upDateIcon()
 //        banner()
     }
 
@@ -118,6 +117,7 @@ class MainFragment : Fragment() {
         binding.textTooltip.text = ""
         getSharedTooltipIndex()
         setTooltip()
+        upDateIcon()
         backStackCustom()
     }
 
@@ -473,6 +473,9 @@ class MainFragment : Fragment() {
 
     private fun upDateIcon() {
         val updateParamsEditor: SharedPreferences.Editor = sharedUpdateParameters.edit()
+        var downloadStarted = false
+        var downloadFinished = false
+        var installStarted = false
 
         viewModel.checkUpdateDate()
         viewModel.isUpdateDate.observe(viewLifecycleOwner) { isUpdateDate ->
@@ -494,35 +497,58 @@ class MainFragment : Fragment() {
                         remoteVersion != null &&
                         remoteVersion > localVersion
                     ) {
-                        val anim: Animation = AlphaAnimation(0.0f, 1.0f)
-                        binding.optionUpdateContainer.visibility = View.VISIBLE
-                        anim.duration = 500
-                        anim.startOffset = 20
-                        anim.repeatMode = Animation.REVERSE
-                        anim.repeatCount = Animation.INFINITE
-                        binding.optionUpdateContainer.startAnimation(anim)
+                        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_STARTED)) {
+                            downloadStarted = sharedUpdateParameters
+                                .getBoolean(UPDATE_DOWNLOAD_STARTED, false)
+                        }
+                        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_FINISHED)) {
+                            downloadFinished = sharedUpdateParameters
+                                .getBoolean(UPDATE_DOWNLOAD_FINISHED, false)
+                        }
+                        if (sharedUpdateParameters.contains(UPDATE_INSTALL_STARTED)) {
+                            installStarted = sharedUpdateParameters
+                                .getBoolean(UPDATE_INSTALL_STARTED, false)
+                        }
+                        if ((!downloadStarted && !downloadFinished)
+                            || (downloadStarted && !downloadFinished)
+                        ) {
+                            val anim: Animation = AlphaAnimation(0.0f, 1.0f)
+                            binding.optionUpdateContainer.visibility = View.VISIBLE
+                            anim.duration = 500
+                            anim.startOffset = 20
+                            anim.repeatMode = Animation.REVERSE
+                            anim.repeatCount = Animation.INFINITE
+                            binding.optionUpdateContainer.startAnimation(anim)
 
-                        binding.optionUpdateContainer.setOnClickListener {
-                            viewModel.downloadNewAppApk()
-                            updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_STARTED, true)
-                            updateParamsEditor.apply()
-                            Toast.makeText(
-                                requireActivity(),
-                                UpdateData.fileName(),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
-                                if (message == UpdateData.downloadSuccess()) {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Загрузка завершена",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_FINISHED, true)
-                                    updateParamsEditor.apply()
-                                    showUpdateDialog()
+                            binding.optionUpdateContainer.setOnClickListener {
+                                binding.optionUpdateContainer.visibility = View.GONE
+                                viewModel.downloadNewAppApk()
+                                updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_STARTED, true)
+                                updateParamsEditor.apply()
+                                Toast.makeText(
+                                    requireActivity(),
+                                    UpdateData.fileName(),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
+                                    if (message == UpdateData.downloadSuccess()) {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Загрузка завершена",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        updateParamsEditor.putBoolean(
+                                            UPDATE_DOWNLOAD_FINISHED,
+                                            true
+                                        )
+                                        updateParamsEditor.apply()
+                                        showUpdateDialog()
+                                    }
                                 }
                             }
+                        }
+                        if (downloadStarted && downloadFinished && !installStarted) {
+                            showUpdateDialog()
                         }
                     }
                 }
