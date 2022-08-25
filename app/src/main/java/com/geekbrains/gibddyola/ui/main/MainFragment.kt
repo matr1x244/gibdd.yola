@@ -6,9 +6,9 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -24,11 +24,14 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.local.TooltipList
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
@@ -40,11 +43,11 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.updates.ApkDelete
 import com.geekbrains.gibddyola.utils.updates.UpdateData
-import kotlinx.coroutines.*
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
-import kotlin.coroutines.coroutineContext
+import java.io.File
 
 
 class MainFragment : Fragment() {
@@ -53,6 +56,7 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var sharedTooltips: SharedPreferences
+    private lateinit var sharedUpdateParameters: SharedPreferences
 
     private val controller by lazy { activity as ControllerOpenFragment }
     private val viewModel: MainViewModel by viewModel()
@@ -67,7 +71,11 @@ class MainFragment : Fragment() {
 
     companion object {
         private const val SHARED_TOOLTIP_NAME = "shared_tooltip"
+        private const val SHARED_UPDATE_NAME = "shared_update_parameters"
         private const val TOOLTIP_NUMBER = "tooltip_number"
+        private const val UPDATE_DOWNLOAD_STARTED = "download_started"
+        private const val UPDATE_DOWNLOAD_FINISHED = "download_finished"
+        private const val UPDATE_INSTALL_STARTED = "download_finished"
         fun newInstance() = MainFragment()
     }
 
@@ -84,8 +92,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getSharedTooltipIndex()
+        setDefaultUpdateParams()
         initViews()
         initIncomingEvents()
+        upDateIcon()
 //        banner()
     }
 
@@ -198,6 +208,27 @@ class MainFragment : Fragment() {
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
                 .commit()
+        }
+    }
+
+    private fun setDefaultUpdateParams() {
+        sharedUpdateParameters = requireActivity()
+            .getSharedPreferences(SHARED_UPDATE_NAME, Context.MODE_PRIVATE)
+
+        if (!sharedUpdateParameters.contains(UPDATE_DOWNLOAD_STARTED)) {
+            sharedUpdateParameters.edit()
+                .putBoolean(UPDATE_DOWNLOAD_STARTED, false)
+                .apply()
+        }
+        if (!sharedUpdateParameters.contains(UPDATE_DOWNLOAD_FINISHED)) {
+            sharedUpdateParameters.edit()
+                .putBoolean(UPDATE_DOWNLOAD_FINISHED, false)
+                .apply()
+        }
+        if (!sharedUpdateParameters.contains(UPDATE_INSTALL_STARTED)) {
+            sharedUpdateParameters.edit()
+                .putBoolean(UPDATE_INSTALL_STARTED, false)
+                .apply()
         }
     }
 
@@ -438,29 +469,104 @@ class MainFragment : Fragment() {
                     .alpha(0f).duration = durationAnimOpenMenu
             }
         }
-        upDateIcon()
     }
 
-    private fun upDateIcon(){
-        val calendar = Calendar.getInstance()
-        val dayStartUpdate = calendar.get(Calendar.DAY_OF_MONTH)
-        val dayStopUpdate = 23
-        val anim: Animation = AlphaAnimation(0.0f, 1.0f)
-        if (dayStartUpdate > dayStopUpdate){
-            binding.optionUpdateContainer.visibility = View.VISIBLE
-            anim.duration = 500
-            anim.startOffset = 20
-            anim.repeatMode = Animation.REVERSE
-            anim.repeatCount = Animation.INFINITE
-            binding.optionUpdateContainer.startAnimation(anim)
+    private fun upDateIcon() {
+        val updateParamsEditor: SharedPreferences.Editor = sharedUpdateParameters.edit()
 
-            binding.optionUpdateContainer.setOnClickListener {
+        viewModel.checkUpdateDate()
+        viewModel.isUpdateDate.observe(viewLifecycleOwner) { isUpdateDate ->
+            if (isUpdateDate) {
                 viewModel.getServerVersion()
-                viewModel.downloadNewAppApk()
-                Toast.makeText(requireActivity(), UpdateData.fileName(), Toast.LENGTH_SHORT).show()
+                viewModel.appVersion.observe(viewLifecycleOwner) {
+                    val localVersion = receiveLocalVersion().toLongOrNull()
+                    val remoteVersion = it.toLongOrNull()
+
+                    if (localVersion != null &&
+                        remoteVersion != null &&
+                        remoteVersion == localVersion
+                    ) {
+                        val deleter = ApkDelete()
+                        deleter.run()
+                    }
+
+                    if (localVersion != null &&
+                        remoteVersion != null &&
+                        remoteVersion > localVersion
+                    ) {
+                        val anim: Animation = AlphaAnimation(0.0f, 1.0f)
+                        binding.optionUpdateContainer.visibility = View.VISIBLE
+                        anim.duration = 500
+                        anim.startOffset = 20
+                        anim.repeatMode = Animation.REVERSE
+                        anim.repeatCount = Animation.INFINITE
+                        binding.optionUpdateContainer.startAnimation(anim)
+
+                        binding.optionUpdateContainer.setOnClickListener {
+                            viewModel.downloadNewAppApk()
+                            updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_STARTED, true)
+                            updateParamsEditor.apply()
+                            Toast.makeText(
+                                requireActivity(),
+                                UpdateData.fileName(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
+                                if (message == UpdateData.downloadSuccess()) {
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Загрузка завершена",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_FINISHED, true)
+                                    updateParamsEditor.apply()
+                                    showUpdateDialog()
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
+    }
+
+    private fun showUpdateDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Обновление готово к установке")
+            .setMessage("Обновить приложение?")
+            .setCancelable(true)
+            .setPositiveButton("Установить") { _, _ ->
+                startActivity(installApk())
+                if (!sharedUpdateParameters.contains(UPDATE_INSTALL_STARTED)) {
+                    sharedUpdateParameters.edit()
+                        .putBoolean(UPDATE_INSTALL_STARTED, true)
+                        .apply()
+                }
+            }
+            .setNegativeButton("Отложить") { _, _ ->
+                if (!sharedUpdateParameters.contains(UPDATE_INSTALL_STARTED)) {
+                    sharedUpdateParameters.edit()
+                        .putBoolean(UPDATE_INSTALL_STARTED, false)
+                        .apply()
+                }
+            }
+        builder.create()
+        builder.show()
+    }
+
+    private fun installApk(): Intent {
+        val intent = Intent("android.intent.action.VIEW")
+        val apkFile = File(UpdateData.fileName())
+        val uri = FileProvider.getUriForFile(
+            requireContext(),
+            requireContext().applicationContext.packageName + ".provider",
+            apkFile
+        )
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        intent.addCategory("android.intent.category.DEFAULT")
+        intent.setDataAndType(uri, "application/vnd.android.package-archive")
+        return intent
+    }
 
     private fun backStackCustom() {
         /**
@@ -481,6 +587,10 @@ class MainFragment : Fragment() {
                     }
                 }
             })
+    }
+
+    private fun receiveLocalVersion(): String {
+        return BuildConfig.VERSION_CODE.toString()
     }
 
     override fun onDestroyView() {

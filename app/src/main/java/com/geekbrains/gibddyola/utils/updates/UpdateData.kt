@@ -10,6 +10,8 @@ object UpdateData {
     private const val downloadError = "Ошибка загрузки"
     private const val ioError = "Ошибка получения данных"
 
+    private const val updateDay = 23
+
     fun apkUrl() = downloadApkUrl
     fun versionUrl() = versionTextUrl
     fun fileName() = fileName
@@ -17,4 +19,5 @@ object UpdateData {
     fun fileNotFound() = fileNotFound
     fun downloadError() = downloadError
     fun ioError() = ioError
+    fun updateDay() = updateDay
 }

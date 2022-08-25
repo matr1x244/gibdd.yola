@@ -9,6 +9,7 @@ import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.flow.FlowRepository
 import com.geekbrains.gibddyola.utils.updates.ReceiveServerAppApk
 import com.geekbrains.gibddyola.utils.updates.ReceiveServerAppData
+import com.geekbrains.gibddyola.utils.updates.ReceiveUpdateDate
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
 
@@ -28,6 +29,9 @@ class MainViewModel(
 
     private val _downloadApkMessage = MutableLiveData<String>()
     val downloadApkMessage: LiveData<String> = _downloadApkMessage
+
+    private val _isUpdateDate = MutableLiveData<Boolean>()
+    val isUpdateDate: LiveData<Boolean> = _isUpdateDate
 
     private var tooltipIndex: Int = 0
 
@@ -77,6 +81,13 @@ class MainViewModel(
         val apkReceiver = ReceiveServerAppApk()
         coroutineScope.launch {
             _downloadApkMessage.postValue(apkReceiver.downloadFile())
+        }
+    }
+
+    fun checkUpdateDate() {
+        val receiveUpdateDate = ReceiveUpdateDate()
+        coroutineScope.launch {
+            _isUpdateDate.postValue(receiveUpdateDate.get())
         }
     }
 

@@ -10,11 +10,14 @@ import java.net.URL
 class ReceiveServerAppApk {
 
     fun downloadFile(): String {
+
         try {
             val url = URL(UpdateData.apkUrl())
             val fileName = UpdateData.fileName()
 
-            url.openStream().use { inpStr ->
+            val stream = url.openStream()
+
+            stream.use { inpStr ->
                 BufferedInputStream(inpStr).use { buffInpStr ->
                     FileOutputStream(fileName).use { fileOutStr ->
                         val data = ByteArray(1024)
@@ -27,6 +30,7 @@ class ReceiveServerAppApk {
                     }
                 }
             }
+            stream.close()
             return UpdateData.downloadSuccess()
         } catch (c: FileNotFoundException) {
             c.printStackTrace()
