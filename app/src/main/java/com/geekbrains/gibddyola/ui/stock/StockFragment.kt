@@ -1,9 +1,11 @@
 package com.geekbrains.gibddyola.ui.stock
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.geekbrains.gibddyola.R
@@ -26,10 +28,10 @@ class StockFragment : Fragment() {
     ): View? {
         _binding = FragmentStockBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        activity?.window?.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         super.onViewCreated(view, savedInstanceState)
 
         ViewPagerCustom()
@@ -59,6 +61,7 @@ class StockFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
         _binding = null
     }
 }

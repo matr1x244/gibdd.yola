@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -45,7 +46,6 @@ import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
 import com.geekbrains.gibddyola.utils.updates.ApkDelete
 import com.geekbrains.gibddyola.utils.updates.UpdateData
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
 
@@ -233,7 +233,6 @@ class MainFragment : Fragment() {
     }
 
     private fun setTooltip() {
-
         val tooltipSize = TooltipList.getTooltipSize()
         var toolTipChars = ""
         var currentTooltipNumber = 0
@@ -276,9 +275,16 @@ class MainFragment : Fragment() {
     }
 
     private fun rotateFab() {
+        /**
+         * media player test
+         */
+        val mediaPlayer = MediaPlayer.create(requireActivity(),R.raw.sound_update_app)
+        mediaPlayer.isLooping = true
+
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
+                mediaPlayer.start()
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
@@ -323,7 +329,6 @@ class MainFragment : Fragment() {
                     binding.mainMenuLayout.performClick()
                     openMenu = false
                 }
-
                 binding.optionOneContainer.animate()
                     .alpha(0.8f)
                     .setDuration(durationAnimOpenMenu * 2)
@@ -375,6 +380,7 @@ class MainFragment : Fragment() {
                 binding.transparentBackground.animate()
                     .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
+                mediaPlayer.pause()
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
@@ -598,6 +604,7 @@ class MainFragment : Fragment() {
         /**
          * custom menu back and exit app
          */
+        val mediaPlayer = MediaPlayer.create(requireActivity(),R.raw.sound_exit_app)
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
@@ -609,6 +616,7 @@ class MainFragment : Fragment() {
                     ) {
                         requireActivity().supportFragmentManager.popBackStack()
                     } else {
+                        mediaPlayer.start()
                         requireActivity().finish()
                     }
                 }
