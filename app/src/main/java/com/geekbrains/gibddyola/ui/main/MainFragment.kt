@@ -18,6 +18,7 @@ import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.BulletSpan
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,7 @@ import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
 import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.updates.ApkDelete
+import com.geekbrains.gibddyola.utils.updates.IsApkExist
 import com.geekbrains.gibddyola.utils.updates.UpdateData
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
@@ -121,6 +123,18 @@ class MainFragment : Fragment() {
         setTooltip()
         upDateIcon()
         backStackCustom()
+        updateReminder()
+    }
+
+    private fun updateReminder() {
+        val fileExist = IsApkExist()
+        if (getUpdateParameters() == 2 && fileExist.start()) {
+            showUpdateDialog()
+        }
+        if (getUpdateParameters() == 0 && fileExist.start()) {
+            val deleter = ApkDelete()
+            deleter.run()
+        }
     }
 
     private fun initViews() {
@@ -550,9 +564,6 @@ class MainFragment : Fragment() {
                                     }
                                 }
                             }
-                        }
-                        if (getUpdateParameters() == 2) {
-                            showUpdateDialog()
                         }
                     }
                 }
