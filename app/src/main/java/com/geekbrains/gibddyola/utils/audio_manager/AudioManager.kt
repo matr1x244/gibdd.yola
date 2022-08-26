@@ -19,6 +19,7 @@ class AudioManager(private val context: Context) : AudioManagerInput {
 
     override fun exitSoundApp() {
         mediaPlayer = MediaPlayer.create(context, R.raw.sound_exit_app)
+        mediaPlayer?.setVolume(0.2f,0.2f)
         mediaPlayer?.start()
     }
 

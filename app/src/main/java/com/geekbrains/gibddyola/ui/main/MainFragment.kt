@@ -44,6 +44,7 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.updates.ApkDelete
 import com.geekbrains.gibddyola.utils.updates.UpdateData
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -605,6 +606,7 @@ class MainFragment : Fragment() {
          * custom menu back and exit app
          */
         val mediaPlayer = MediaPlayer.create(requireActivity(),R.raw.sound_exit_app)
+        mediaPlayer.setVolume(0.2f,0.2f)
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
