@@ -1,5 +1,6 @@
 package com.geekbrains.gibddyola.ui.news.list.recyclerView
 
+import android.annotation.SuppressLint
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -31,6 +32,7 @@ class VkNewsViewHolder(
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     fun bind(
         item: VkNewsEntity.Response.Item,
         groupInfo: VkGroupEntity.Response
@@ -90,7 +92,7 @@ class VkNewsViewHolder(
             if (item.text.lastIndex > 150) {
                 val tempText = item.text.substring(0..150) + "...показать полностью"
                 val spannableStringBuilder = SpannableStringBuilder(tempText)
-                val blue = ForegroundColorSpan(R.color.light_blue_500)
+                val blue = ForegroundColorSpan(R.color.light_blue_300)
                 spannableStringBuilder.setSpan(blue, 151, 172, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 text.text = spannableStringBuilder
             } else if (item.text != "") {

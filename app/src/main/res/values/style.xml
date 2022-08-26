@@ -25,11 +25,12 @@
     </style>
 
     <!--mySnackBarStyle-->
-    <style name="mySnackBarStyle" parent="Widget.Material3.Button.TextButton.Snackbar">
-        <item name="animationMode">fade</item>
+    <style name="mySnackBarStyle" parent="Widget.MaterialComponents.Snackbar">
+        <item name="animationMode">slide</item>
         <item name="elevation">@dimen/dp5</item>
-        <item name="backgroundTint">@color/amber_orange_500</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_margin">@dimen/dp5</item>
+        <item name="backgroundTint">@color/amber_orange_700</item>
+
     </style>
 
 </resources>

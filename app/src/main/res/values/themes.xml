@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="android:navigationBarColor">@color/black</item>
-        <item name="fontFamily">@font/pt_astra_serif_regular</item>
+        <item name="fontFamily">@font/samsungsans_regular</item>
 
 
         <!-- Customize your theme here. -->

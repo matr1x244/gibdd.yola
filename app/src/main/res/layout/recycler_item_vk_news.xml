@@ -42,7 +42,7 @@
                     android:layout_height="match_parent"
                     android:paddingStart="@dimen/dp3"
                     android:text="@string/vk_news_item_tittle_group_name"
-                    android:textColor="@color/light_blue_900"
+                    android:textColor="@color/amber_orange_500"
                     android:textSize="@dimen/vk_news_title_text_size"
                     app:layout_constraintBottom_toTopOf="@+id/vk_news_item_time"
                     app:layout_constraintStart_toEndOf="@+id/vk_news_item_logo_image"
@@ -98,7 +98,8 @@
                         android:text="@string/like_vk_chips"
                         android:textSize="@dimen/like_vk_text_size"
                         app:chipIcon="@mipmap/ic_heart"
-                        app:rippleColor="@color/light_blue_200" />
+                        app:rippleColor="@color/color_transparent"
+                        app:chipBackgroundColor="@color/color_transparent"/>
 
                 </com.google.android.material.chip.ChipGroup>
 

@@ -92,20 +92,21 @@
                     android:text="@string/like_vk_chips"
                     android:textSize="@dimen/like_vk_text_size"
                     app:chipIcon="@mipmap/ic_heart"
-                    app:rippleColor="@color/color_transparent" />
+                    app:rippleColor="@color/color_transparent"
+                    app:chipBackgroundColor="@color/amber_orange_50"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/see_post_vk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:alpha="0.5"
+                    android:alpha="1"
                     android:checkable="false"
                     android:text="@string/vk_view_post"
                     android:textSize="@dimen/view_vk_text_size"
-                    app:chipBackgroundColor="@color/color_transparent"
+                    app:chipBackgroundColor="@color/vk_background_color_gray"
                     app:chipIcon="@drawable/ic_view_vk_post"
                     app:chipIconSize="@dimen/view_vk_text_size"
-                    app:rippleColor="@color/color_transparent" />
+                    app:rippleColor="@color/vk_background_color_gray" />
 
             </com.google.android.material.chip.ChipGroup>
 
