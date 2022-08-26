@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -76,7 +77,7 @@ class MainFragment : Fragment() {
         private const val TOOLTIP_NUMBER = "tooltip_number"
         private const val UPDATE_DOWNLOAD_STARTED = "download_started"
         private const val UPDATE_DOWNLOAD_FINISHED = "download_finished"
-        private const val UPDATE_INSTALL_STARTED = "download_finished"
+        private const val UPDATE_INSTALL_STARTED = "install_started"
         fun newInstance() = MainFragment()
     }
 
@@ -286,10 +287,15 @@ class MainFragment : Fragment() {
         /**
          * media player test
          */
+
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
-                playSoundMain.startSoundUpDate()
+
+                if (getUpdateParameters() == 0) {
+                    playSoundMain.startSoundUpDate()
+                }
+
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
@@ -483,11 +489,6 @@ class MainFragment : Fragment() {
     }
 
     private fun upDateIcon() {
-        val updateParamsEditor: SharedPreferences.Editor = sharedUpdateParameters.edit()
-        var downloadStarted = false
-        var downloadFinished = false
-        var installStarted = false
-
         viewModel.checkUpdateDate()
         viewModel.isUpdateDate.observe(viewLifecycleOwner) { isUpdateDate ->
             if (isUpdateDate) {
@@ -508,23 +509,16 @@ class MainFragment : Fragment() {
                         remoteVersion != null &&
                         remoteVersion > localVersion
                     ) {
-                        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_STARTED)) {
-                            downloadStarted = sharedUpdateParameters
-                                .getBoolean(UPDATE_DOWNLOAD_STARTED, false)
-                        }
-                        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_FINISHED)) {
-                            downloadFinished = sharedUpdateParameters
-                                .getBoolean(UPDATE_DOWNLOAD_FINISHED, false)
-                        }
-                        if (sharedUpdateParameters.contains(UPDATE_INSTALL_STARTED)) {
-                            installStarted = sharedUpdateParameters
-                                .getBoolean(UPDATE_INSTALL_STARTED, false)
-                        }
-                        if ((!downloadStarted && !downloadFinished)
-                            || (downloadStarted && !downloadFinished)
+                        if (
+                            getUpdateParameters() == 0
                         ) {
+                            if (getUpdateParameters() == 0) {
+                                binding.optionUpdateContainer.visibility = View.VISIBLE
+                            } else {
+                                binding.optionUpdateContainer.visibility = View.GONE
+                                playSoundMain.pauseSoundAll()
+                            }
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
-                            binding.optionUpdateContainer.visibility = View.VISIBLE
                             anim.duration = 500
                             anim.startOffset = 20
                             anim.repeatMode = Animation.REVERSE
@@ -532,37 +526,73 @@ class MainFragment : Fragment() {
                             binding.optionUpdateContainer.startAnimation(anim)
 
                             binding.optionUpdateContainer.setOnClickListener {
+                                setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
+                                binding.optionUpdateContainer.clearAnimation()
                                 binding.optionUpdateContainer.visibility = View.GONE
+                                playSoundMain.pauseSoundAll()
                                 viewModel.downloadNewAppApk()
-                                updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_STARTED, true)
-                                updateParamsEditor.apply()
                                 Toast.makeText(
                                     requireActivity(),
                                     UpdateData.fileName(),
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
-                                    if (message == UpdateData.downloadSuccess()) {
-                                        Toast.makeText(
-                                            requireContext(),
-                                            "Загрузка завершена",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        updateParamsEditor.putBoolean(
-                                            UPDATE_DOWNLOAD_FINISHED,
-                                            true
-                                        )
-                                        updateParamsEditor.apply()
-                                        showUpdateDialog()
+                                    when (message) {
+                                        UpdateData.downloadSuccess() -> {
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "Загрузка завершена",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                            setUpdateParameters(UPDATE_DOWNLOAD_FINISHED, true)
+                                            showUpdateDialog()
+                                        }
                                     }
                                 }
                             }
                         }
-                        if (downloadStarted && downloadFinished && !installStarted) {
+                        if (getUpdateParameters() == 2) {
                             showUpdateDialog()
                         }
                     }
                 }
+            }
+        }
+    }
+
+    private fun getUpdateParameters(): Int {
+        var downloadStarted = false
+        var downloadFinished = false
+
+        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_STARTED)) {
+            downloadStarted = sharedUpdateParameters
+                .getBoolean(UPDATE_DOWNLOAD_STARTED, false)
+        }
+        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_FINISHED)) {
+            downloadFinished = sharedUpdateParameters
+                .getBoolean(UPDATE_DOWNLOAD_FINISHED, false)
+        }
+
+        if (downloadStarted && !downloadFinished) return 1
+        if (!downloadStarted) return 0
+        if (downloadStarted && downloadFinished) return 2
+        return 3
+    }
+
+    private fun setUpdateParameters(parameter: String, value: Boolean) {
+        val updateParamsEditor: SharedPreferences.Editor = sharedUpdateParameters.edit()
+        when (parameter) {
+            UPDATE_DOWNLOAD_STARTED -> {
+                updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_STARTED, value)
+                updateParamsEditor.apply()
+            }
+            UPDATE_DOWNLOAD_FINISHED -> {
+                updateParamsEditor.putBoolean(UPDATE_DOWNLOAD_FINISHED, value)
+                updateParamsEditor.apply()
+            }
+            UPDATE_INSTALL_STARTED -> {
+                updateParamsEditor.putBoolean(UPDATE_INSTALL_STARTED, value)
+                updateParamsEditor.apply()
             }
         }
     }
@@ -574,18 +604,10 @@ class MainFragment : Fragment() {
             .setCancelable(true)
             .setPositiveButton("Установить") { _, _ ->
                 startActivity(installApk())
-                if (!sharedUpdateParameters.contains(UPDATE_INSTALL_STARTED)) {
-                    sharedUpdateParameters.edit()
-                        .putBoolean(UPDATE_INSTALL_STARTED, true)
-                        .apply()
-                }
+                setUpdateParameters(UPDATE_INSTALL_STARTED, true)
             }
             .setNegativeButton("Отложить") { _, _ ->
-                if (!sharedUpdateParameters.contains(UPDATE_INSTALL_STARTED)) {
-                    sharedUpdateParameters.edit()
-                        .putBoolean(UPDATE_INSTALL_STARTED, false)
-                        .apply()
-                }
+                setUpdateParameters(UPDATE_INSTALL_STARTED, false)
             }
         builder.create()
         builder.show()
@@ -602,6 +624,9 @@ class MainFragment : Fragment() {
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         intent.addCategory("android.intent.category.DEFAULT")
         intent.setDataAndType(uri, "application/vnd.android.package-archive")
+        setUpdateParameters(UPDATE_DOWNLOAD_STARTED, false)
+        setUpdateParameters(UPDATE_DOWNLOAD_FINISHED, false)
+        setUpdateParameters(UPDATE_INSTALL_STARTED, false)
         return intent
     }
 
@@ -609,6 +634,8 @@ class MainFragment : Fragment() {
         /**
          * custom menu back and exit app
          */
+        val mediaPlayer = MediaPlayer.create(requireActivity(), R.raw.sound_exit_app)
+        mediaPlayer.setVolume(0.2f, 0.2f)
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
@@ -632,7 +659,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onStop() {
-        super.onPause()
+        super.onStop()
         playSoundMain.pauseSoundAll()
     }
 
