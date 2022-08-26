@@ -17,6 +17,7 @@
 
         <!-- Customize your theme here. -->
         <item name="chipStyle">@style/myChipsStyleActionBaseStyle</item>
+        <item name="snackbarStyle">@style/mySnackBarStyle</item>
     </style>
 
     <!-- ДЛЯ API меньше 30 SPLASH SCREEN -->

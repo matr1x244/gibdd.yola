@@ -24,4 +24,12 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <!--mySnackBarStyle-->
+    <style name="mySnackBarStyle" parent="Widget.Material3.Button.TextButton.Snackbar">
+        <item name="animationMode">fade</item>
+        <item name="elevation">@dimen/dp5</item>
+        <item name="backgroundTint">@color/amber_orange_500</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
