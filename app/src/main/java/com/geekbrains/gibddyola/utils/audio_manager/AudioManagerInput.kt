@@ -4,5 +4,6 @@ interface AudioManagerInput {
     fun startSoundUpDate()
     fun pauseSoundUpDate()
     fun stopSoundUpDate()
-    fun exitSoundApp()
+    fun exitStartSoundApp()
+    fun exitStopSoundApp()
 }

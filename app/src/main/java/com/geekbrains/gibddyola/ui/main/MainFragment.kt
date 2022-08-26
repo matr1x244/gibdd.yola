@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -34,7 +33,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
-import com.geekbrains.gibddyola.app
 import com.geekbrains.gibddyola.data.news.local.TooltipList
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
@@ -70,7 +68,7 @@ class MainFragment : Fragment() {
 
     private var openMenu = false
     private val durationAnimOpenMenu = 300L
-    private val play by lazy { AudioManager(requireContext()) }
+    private val playSoundMain by lazy { AudioManager(requireContext()) }
 
     companion object {
         private const val SHARED_TOOLTIP_NAME = "shared_tooltip"
@@ -165,7 +163,7 @@ class MainFragment : Fragment() {
     private fun nextFragmentOpen() {
         binding.tvPlayGameMenu.setOnClickListener {
             openMenu = false
-            play.stopSoundUpDate()
+            playSoundMain.stopSoundUpDate()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
@@ -174,6 +172,7 @@ class MainFragment : Fragment() {
         }
         binding.tvStockMenu.setOnClickListener {
             openMenu = false
+            playSoundMain.stopSoundUpDate()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
@@ -181,6 +180,7 @@ class MainFragment : Fragment() {
         }
         binding.tvNewsMenu.setOnClickListener {
             openMenu = false
+            playSoundMain.stopSoundUpDate()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
@@ -188,6 +188,7 @@ class MainFragment : Fragment() {
         }
         binding.tvAboutCompanyMenu.setOnClickListener {
             openMenu = false
+            playSoundMain.stopSoundUpDate()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
@@ -196,6 +197,7 @@ class MainFragment : Fragment() {
         }
         binding.tvAutoStatus.setOnClickListener {
             openMenu = false
+            playSoundMain.stopSoundUpDate()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, AutoStatusFragment.newInstance())
@@ -204,10 +206,12 @@ class MainFragment : Fragment() {
         }
         binding.mainCallLayout.setOnClickListener {
             openMenu = false
+            playSoundMain.stopSoundUpDate()
             CallIntent.start(requireActivity())
         }
         binding.mainStockLayout.setOnClickListener {
             openMenu = false
+            playSoundMain.stopSoundUpDate()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
@@ -282,14 +286,10 @@ class MainFragment : Fragment() {
         /**
          * media player test
          */
-//            val mediaPlayer = MediaPlayer.create(requireActivity(),R.raw.sound_update_app)
-//            mediaPlayer.isLooping = true
-
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
-//            mediaPlayer.start()
-            play.startSoundUpDate()
             if (openMenu) {
+                playSoundMain.startSoundUpDate()
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
@@ -385,8 +385,7 @@ class MainFragment : Fragment() {
                 binding.transparentBackground.animate()
                     .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
-//                mediaPlayer.pause()
-                play.pauseSoundUpDate()
+                playSoundMain.pauseSoundUpDate()
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
@@ -610,8 +609,6 @@ class MainFragment : Fragment() {
         /**
          * custom menu back and exit app
          */
-        val mediaPlayer = MediaPlayer.create(requireActivity(),R.raw.sound_exit_app)
-        mediaPlayer.setVolume(0.2f,0.2f)
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
@@ -623,7 +620,7 @@ class MainFragment : Fragment() {
                     ) {
                         requireActivity().supportFragmentManager.popBackStack()
                     } else {
-                        mediaPlayer.start()
+                        playSoundMain.exitStartSoundApp()
                         requireActivity().finish()
                     }
                 }
@@ -636,7 +633,8 @@ class MainFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        play.stopSoundUpDate()
+        playSoundMain.stopSoundUpDate()
+        playSoundMain.exitStopSoundApp()
         _binding = null
     }
 
