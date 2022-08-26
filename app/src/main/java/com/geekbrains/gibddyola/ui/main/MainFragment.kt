@@ -34,6 +34,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.app
 import com.geekbrains.gibddyola.data.news.local.TooltipList
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
@@ -69,6 +70,7 @@ class MainFragment : Fragment() {
 
     private var openMenu = false
     private val durationAnimOpenMenu = 300L
+    private val play by lazy { AudioManager(requireContext()) }
 
     companion object {
         private const val SHARED_TOOLTIP_NAME = "shared_tooltip"
@@ -163,6 +165,7 @@ class MainFragment : Fragment() {
     private fun nextFragmentOpen() {
         binding.tvPlayGameMenu.setOnClickListener {
             openMenu = false
+            play.stopSoundUpDate()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
@@ -279,13 +282,14 @@ class MainFragment : Fragment() {
         /**
          * media player test
          */
-        val mediaPlayer = MediaPlayer.create(requireActivity(),R.raw.sound_update_app)
-        mediaPlayer.isLooping = true
+//            val mediaPlayer = MediaPlayer.create(requireActivity(),R.raw.sound_update_app)
+//            mediaPlayer.isLooping = true
 
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
+//            mediaPlayer.start()
+            play.startSoundUpDate()
             if (openMenu) {
-                mediaPlayer.start()
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
@@ -381,7 +385,8 @@ class MainFragment : Fragment() {
                 binding.transparentBackground.animate()
                     .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
-                mediaPlayer.pause()
+//                mediaPlayer.pause()
+                play.pauseSoundUpDate()
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
@@ -631,6 +636,7 @@ class MainFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        play.stopSoundUpDate()
         _binding = null
     }
 
