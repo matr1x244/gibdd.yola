@@ -13,21 +13,18 @@ class AudioManager(private val context: Context) : AudioManagerInput {
         mediaPlayer?.start()
     }
 
-    override fun pauseSoundUpDate() {
-        mediaPlayer?.pause()
-    }
-
-    override fun stopSoundUpDate() {
-        mediaPlayer?.stop()
-    }
-
     override fun exitStartSoundApp() {
         mediaPlayer = MediaPlayer.create(context, R.raw.sound_exit_app)
         mediaPlayer?.setVolume(0.2f, 0.2f)
         mediaPlayer?.start()
     }
 
-    override fun exitStopSoundApp() {
+    override fun pauseSoundAll() {
+        mediaPlayer?.pause()
+    }
+
+    override fun stopSoundAll() {
         mediaPlayer?.stop()
     }
+
 }

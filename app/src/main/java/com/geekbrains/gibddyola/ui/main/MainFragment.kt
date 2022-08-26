@@ -163,7 +163,7 @@ class MainFragment : Fragment() {
     private fun nextFragmentOpen() {
         binding.tvPlayGameMenu.setOnClickListener {
             openMenu = false
-            playSoundMain.stopSoundUpDate()
+            playSoundMain.stopSoundAll()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
@@ -172,7 +172,7 @@ class MainFragment : Fragment() {
         }
         binding.tvStockMenu.setOnClickListener {
             openMenu = false
-            playSoundMain.stopSoundUpDate()
+            playSoundMain.stopSoundAll()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
@@ -180,7 +180,7 @@ class MainFragment : Fragment() {
         }
         binding.tvNewsMenu.setOnClickListener {
             openMenu = false
-            playSoundMain.stopSoundUpDate()
+            playSoundMain.stopSoundAll()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
@@ -188,7 +188,7 @@ class MainFragment : Fragment() {
         }
         binding.tvAboutCompanyMenu.setOnClickListener {
             openMenu = false
-            playSoundMain.stopSoundUpDate()
+            playSoundMain.stopSoundAll()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
@@ -197,7 +197,7 @@ class MainFragment : Fragment() {
         }
         binding.tvAutoStatus.setOnClickListener {
             openMenu = false
-            playSoundMain.stopSoundUpDate()
+            playSoundMain.stopSoundAll()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, AutoStatusFragment.newInstance())
@@ -206,12 +206,12 @@ class MainFragment : Fragment() {
         }
         binding.mainCallLayout.setOnClickListener {
             openMenu = false
-            playSoundMain.stopSoundUpDate()
+            playSoundMain.stopSoundAll()
             CallIntent.start(requireActivity())
         }
         binding.mainStockLayout.setOnClickListener {
             openMenu = false
-            playSoundMain.stopSoundUpDate()
+            playSoundMain.stopSoundAll()
             requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                 R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
             ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
@@ -385,7 +385,7 @@ class MainFragment : Fragment() {
                 binding.transparentBackground.animate()
                     .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
-                playSoundMain.pauseSoundUpDate()
+                playSoundMain.pauseSoundAll()
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
@@ -631,10 +631,14 @@ class MainFragment : Fragment() {
         return BuildConfig.VERSION_CODE.toString()
     }
 
+    override fun onStop() {
+        super.onPause()
+        playSoundMain.pauseSoundAll()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
-        playSoundMain.stopSoundUpDate()
-        playSoundMain.exitStopSoundApp()
+        playSoundMain.stopSoundAll()
         _binding = null
     }
 
