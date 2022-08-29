@@ -99,21 +99,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/option_update_container"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_gravity="bottom|center"
             android:alpha="0"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:visibility="invisible">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                app:srcCompat="@mipmap/icon_app_update" />
-        </RelativeLayout>
+                android:layout_gravity="bottom|center_horizontal"
+                app:srcCompat="@mipmap/logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:background="@drawable/rounded_corner_text_view"
+                android:backgroundTint="@color/light_green_600"
+                android:padding="@dimen/dp5"
+                android:text="Нажмите для обновления приложения"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/option_one_container"
