@@ -301,15 +301,12 @@ class MainFragment : Fragment() {
         /**
          * media player test
          */
-
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
-
                 if (getUpdateParameters() == 0) {
                     playSoundMain.startSoundUpDate()
                 }
-
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
@@ -436,7 +433,7 @@ class MainFragment : Fragment() {
                 ObjectAnimator.ofFloat(
                     binding.optionUpdateContainer,
                     View.TRANSLATION_Y,
-                    -750f,
+                    -850f,
                     -190f
                 )
                     .setDuration(durationAnimOpenMenu).start()
@@ -445,7 +442,7 @@ class MainFragment : Fragment() {
                 binding.optionThreeContainer.visibility = View.INVISIBLE
                 binding.optionFourContainer.visibility = View.INVISIBLE
                 binding.optionFiveContainer.visibility = View.INVISIBLE
-                binding.optionUpdateContainer.visibility = View.GONE
+                binding.optionUpdateContainer.visibility = View.INVISIBLE
                 binding.transparentBackground.isClickable = false
 
                 binding.optionOneContainer.animate()
@@ -645,8 +642,6 @@ class MainFragment : Fragment() {
         /**
          * custom menu back and exit app
          */
-        val mediaPlayer = MediaPlayer.create(requireActivity(), R.raw.sound_exit_app)
-        mediaPlayer.setVolume(0.2f, 0.2f)
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {

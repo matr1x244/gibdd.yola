@@ -10,6 +10,7 @@ class AudioManager(private val context: Context) : AudioManagerInput {
 
     override fun startSoundUpDate() {
         mediaPlayer = MediaPlayer.create(context, R.raw.sound_update_app)
+        mediaPlayer?.isLooping = true
         mediaPlayer?.start()
     }
 

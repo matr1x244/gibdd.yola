@@ -2,13 +2,11 @@ package com.geekbrains.gibddyola
 
 import android.Manifest
 import android.animation.ObjectAnimator
-import android.app.DownloadManager
-import android.content.*
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
@@ -20,8 +18,8 @@ import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
 
-class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
+class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +30,15 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                 .add(R.id.main_activity_container, MainFragment.newInstance())
                 .commitNow()
         }
-        checkPermissionsCallPhone()
+        checkPermissions()
     }
 
-    fun checkPermissionsCallPhone(): Boolean {
+    fun checkPermissions(): Boolean {
         val call = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
+        val memory =
+            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         val listPermissions = ArrayList<String>()
-        if (call != PackageManager.PERMISSION_GRANTED) {
+        if (call != PackageManager.PERMISSION_GRANTED || memory != PackageManager.PERMISSION_GRANTED) {
             listPermissions.add(Manifest.permission.CALL_PHONE)
             listPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
@@ -59,18 +59,18 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             1 -> {
                 val perms = HashMap<String, Int>()
                 perms[Manifest.permission.CALL_PHONE] = PackageManager.PERMISSION_GRANTED
-                perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] = PackageManager.PERMISSION_GRANTED
+                perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] =
+                    PackageManager.PERMISSION_GRANTED
                 if (grantResults.isNotEmpty()) {
                     for (ok in permissions.indices) perms[permissions[ok]] = grantResults[ok]
-                    if (perms[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED)
-                    if( perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] == PackageManager.PERMISSION_GRANTED){
+                    if (!(perms[Manifest.permission.CALL_PHONE] != PackageManager.PERMISSION_GRANTED || perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] != PackageManager.PERMISSION_GRANTED)) {
                     } else {
-                        showDialogPhoneCopy(
-                            R.string.dialog_call,
+                        showDialogCopyPermisson(
+                            R.string.dialog_permisson,
                             DialogInterface.OnClickListener { dialog, which ->
                                 when (which) {
-                                    DialogInterface.BUTTON_POSITIVE -> checkPermissionsCallPhone()
-                                    DialogInterface.BUTTON_NEGATIVE -> checkPermissionsCallPhone()
+                                    DialogInterface.BUTTON_POSITIVE -> checkPermissions()
+                                    DialogInterface.BUTTON_NEGATIVE -> checkPermissions()
                                 }
                             })
                     }
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         }
     }
 
-    fun showDialogPhoneCopy(message: Int, okListener: DialogInterface.OnClickListener) {
+    fun showDialogCopyPermisson(message: Int, okListener: DialogInterface.OnClickListener) {
         AlertDialog.Builder(this@MainActivity)
             .setMessage(message)
             .setPositiveButton("OK", okListener)
