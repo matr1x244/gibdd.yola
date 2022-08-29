@@ -69,4 +69,6 @@ dependencies {
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
     //YandexMaps
     implementation 'com.yandex.android:maps.mobile:4.1.0-lite'
+    //ktor
+    implementation "io.ktor:ktor-client-android:2.0.0"
 }

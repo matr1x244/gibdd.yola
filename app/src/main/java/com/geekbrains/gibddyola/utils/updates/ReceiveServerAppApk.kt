@@ -13,13 +13,13 @@ class ReceiveServerAppApk {
 
         try {
             val url = URL(UpdateData.apkUrl())
-            val fileName = UpdateData.fileName()
+            val file = "${UpdateData.downloadPath()}/${UpdateData.fileName()}"
 
             val stream = url.openStream()
 
             stream.use { inpStr ->
                 BufferedInputStream(inpStr).use { buffInpStr ->
-                    FileOutputStream(fileName).use { fileOutStr ->
+                    FileOutputStream(file).use { fileOutStr ->
                         val data = ByteArray(1024)
                         var count: Int
                         while (buffInpStr.read(data, 0, 1024).also {

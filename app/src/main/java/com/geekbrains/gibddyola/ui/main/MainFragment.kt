@@ -550,12 +550,15 @@ class MainFragment : Fragment() {
                                     UpdateData.fileName(),
                                     Toast.LENGTH_SHORT
                                 ).show()
+                                viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
+                                    Log.i("MY_TAG", percent.toString())
+                                }
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
                                     when (message) {
                                         UpdateData.downloadSuccess() -> {
                                             Toast.makeText(
                                                 requireContext(),
-                                                "Загрузка завершена",
+                                                message,
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             setUpdateParameters(UPDATE_DOWNLOAD_FINISHED, true)

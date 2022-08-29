@@ -7,11 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.geekbrains.gibddyola.data.employee.LocalRepositoryImpl
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.flow.FlowRepository
-import com.geekbrains.gibddyola.utils.updates.ReceiveServerAppApk
-import com.geekbrains.gibddyola.utils.updates.ReceiveServerAppData
-import com.geekbrains.gibddyola.utils.updates.ReceiveUpdateDate
+import com.geekbrains.gibddyola.utils.updates.*
+import io.ktor.client.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import java.io.File
 
 class MainViewModel(
     private val repository: LocalRepositoryImpl,
@@ -32,6 +33,9 @@ class MainViewModel(
 
     private val _isUpdateDate = MutableLiveData<Boolean>()
     val isUpdateDate: LiveData<Boolean> = _isUpdateDate
+
+    private val _downloadingProcess = MutableLiveData<Int>()
+    val downloadingProcess: LiveData<Int> = _downloadingProcess
 
     private var tooltipIndex: Int = 0
 
@@ -78,9 +82,25 @@ class MainViewModel(
     }
 
     fun downloadNewAppApk() {
-        val apkReceiver = ReceiveServerAppApk()
+//        val apkReceiver = ReceiveServerAppApk()
+        val ktor = HttpClient()
+        val file = File("${UpdateData.downloadPath()}/${UpdateData.fileName()}")
+        val url = UpdateData.apkUrl()
         coroutineScope.launch {
-            _downloadApkMessage.postValue(apkReceiver.downloadFile())
+//            _downloadApkMessage.postValue(apkReceiver.downloadFile())
+            ktor.downloadFile(file, url).collect {
+                when (it) {
+                    is DownloadStatus.Success -> {
+                        _downloadApkMessage.postValue(UpdateData.downloadSuccess())
+                    }
+                    is DownloadStatus.Error -> {
+                        _downloadApkMessage.postValue(it.message)
+                    }
+                    is DownloadStatus.Progress -> {
+                        _downloadingProcess.postValue(it.progress)
+                    }
+                }
+            }
         }
     }
 
