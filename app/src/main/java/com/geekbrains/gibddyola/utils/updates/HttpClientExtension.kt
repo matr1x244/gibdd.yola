@@ -1,39 +1,41 @@
 package com.geekbrains.gibddyola.utils.updates
 
 import io.ktor.client.*
+import io.ktor.client.call.*
 import io.ktor.client.engine.android.*
-import io.ktor.client.plugins.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
-import kotlinx.coroutines.Dispatchers
+import io.ktor.utils.io.*
+import io.ktor.utils.io.core.*
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.withContext
 import java.io.File
 import kotlin.math.roundToInt
 
 suspend fun HttpClient.downloadFile(file: File, url: String): Flow<DownloadStatus> = callbackFlow {
     try {
         val client = HttpClient(Android)
-        val response: HttpResponse = client.get(url) {
-            onDownload { bytesSentTotal, contentLength ->
-                val progress = (bytesSentTotal * 100f / contentLength).roundToInt()
-                trySend(DownloadStatus.Progress(progress))
+        client.prepareGet(url).execute { httpResponse ->
+            if (httpResponse.status.isSuccess()) {
+                val channel: ByteReadChannel = httpResponse.body()
+                while (!channel.isClosedForRead) {
+                    val packet = channel.readRemaining(DEFAULT_BUFFER_SIZE.toLong())
+                    while (!packet.isEmpty) {
+                        val bytes = packet.readBytes()
+                        file.appendBytes(bytes)
+                        val progress =
+                            ((file.length().toDouble()
+                                    / httpResponse.contentLength()!!.toDouble())
+                                    * 100)
+                        trySend(DownloadStatus.Progress(progress.roundToInt()))
+                    }
+                }
+                trySend(DownloadStatus.Success)
+            } else {
+                trySend(DownloadStatus.Error(UpdateData.downloadError()))
             }
-        }
-        if (response.status.isSuccess()) {
-            val responseBody: ByteArray = response.readBytes()
-            withContext(Dispatchers.IO) {
-                file.writeBytes(responseBody)
-            }
-            trySend(DownloadStatus.Success)
-        } else {
-            trySend(DownloadStatus.Error(UpdateData.downloadError()))
         }
     } catch (e: TimeoutCancellationException) {
         trySend(DownloadStatus.Error(UpdateData.timeOutConnection()))

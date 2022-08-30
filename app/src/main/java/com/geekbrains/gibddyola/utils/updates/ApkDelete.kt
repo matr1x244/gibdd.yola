@@ -4,7 +4,7 @@ import android.util.Log
 import java.io.File
 
 class ApkDelete {
-    private val apkFile = File(UpdateData.fileName())
+    private val apkFile = File("${UpdateData.downloadPath()}/${UpdateData.fileName()}")
 
     fun run() {
         if (apkFile.exists()) {

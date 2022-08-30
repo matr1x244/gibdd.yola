@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -626,7 +625,7 @@ class MainFragment : Fragment() {
 
     private fun installApk(): Intent {
         val intent = Intent("android.intent.action.VIEW")
-        val apkFile = File(UpdateData.fileName())
+        val apkFile = File("${UpdateData.downloadPath()}/${UpdateData.fileName()}")
         val uri = FileProvider.getUriForFile(
             requireContext(),
             requireContext().applicationContext.packageName + ".provider",
