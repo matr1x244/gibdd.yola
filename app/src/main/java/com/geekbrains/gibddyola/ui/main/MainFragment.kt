@@ -67,6 +67,8 @@ class MainFragment : Fragment() {
     private var localVersion: Long? = null
     private var remoteVersion: Long? = null
 
+    private lateinit var imageRotation: ImageRotation
+
     private var adaptersAvarkom = AdaptersAvarkom {
         controller.aboutFragment(it)
         Toast.makeText(context, it.textName, Toast.LENGTH_SHORT).show()
@@ -140,6 +142,12 @@ class MainFragment : Fragment() {
     }
 
     private fun initViews() {
+        imageRotation = ImageRotation(binding.ivDownloadProgress)
+
+        if (getUpdateParameters() == 1) {
+            setUpdateParameters(UPDATE_DOWNLOAD_STARTED, false)
+        }
+
         recyclerViewMain()
         textEditTitle()
         rotateFab()
@@ -343,12 +351,22 @@ class MainFragment : Fragment() {
                     -850f
                 )
                     .setDuration(durationAnimOpenMenu).start()
+                ObjectAnimator.ofFloat(
+                    binding.downloadProcessLayout,
+                    View.TRANSLATION_Y,
+                    -490f,
+                    -1150f
+                )
+                    .setDuration(durationAnimOpenMenu).start()
                 /*макет доступность*/
                 binding.optionOneContainer.visibility = View.VISIBLE
                 binding.optionTwoContainer.visibility = View.VISIBLE
                 binding.optionThreeContainer.visibility = View.VISIBLE
                 binding.optionFourContainer.visibility = View.VISIBLE
                 binding.optionFiveContainer.visibility = View.VISIBLE
+                if (getUpdateParameters() == 1) {
+                    binding.downloadProcessLayout.visibility = View.VISIBLE
+                }
                 binding.transparentBackground.setOnClickListener {
                     binding.mainMenuLayout.performClick()
                     openMenu = false
@@ -503,7 +521,6 @@ class MainFragment : Fragment() {
     }
 
     private fun upDateIcon() {
-        val imageRotation = ImageRotation(binding.ivDownloadProgress)
         viewModel.checkUpdateDate()
         viewModel.isUpdateDate.observe(viewLifecycleOwner) { isUpdateDate ->
             if (isUpdateDate) {
@@ -527,6 +544,8 @@ class MainFragment : Fragment() {
                             binding.optionUpdateContainer.visibility = View.VISIBLE
                             binding.downloadProcessLayout.visibility = View.GONE
 
+                            deleteFile()
+
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
                             anim.duration = 500
                             anim.startOffset = 20
@@ -535,7 +554,6 @@ class MainFragment : Fragment() {
                             binding.optionUpdateContainer.startAnimation(anim)
 
                             binding.optionUpdateContainer.setOnClickListener {
-                                deleteFile()
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
                                 binding.optionUpdateContainer.clearAnimation()
                                 binding.optionUpdateContainer.visibility = View.GONE

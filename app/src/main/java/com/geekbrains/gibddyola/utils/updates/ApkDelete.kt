@@ -7,6 +7,11 @@ class ApkDelete {
     private val apkFile = File("${UpdateData.downloadPath()}/${UpdateData.fileName()}")
 
     fun run() {
+        if (apkFile.canWrite()) {
+            Log.e("", "can write")
+        } else {
+            Log.e("", "can't write")
+        }
         if (apkFile.exists()) {
             apkFile.delete()
             if (apkFile.exists()) {
