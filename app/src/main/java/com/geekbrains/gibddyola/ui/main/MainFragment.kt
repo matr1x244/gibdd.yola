@@ -63,6 +63,9 @@ class MainFragment : Fragment() {
     private val controller by lazy { activity as ControllerOpenFragment }
     private val viewModel: MainViewModel by viewModel()
 
+    private var localVersion: Long? = null
+    private var remoteVersion: Long? = null
+
     private var adaptersAvarkom = AdaptersAvarkom {
         controller.aboutFragment(it)
         Toast.makeText(context, it.textName, Toast.LENGTH_SHORT).show()
@@ -303,7 +306,7 @@ class MainFragment : Fragment() {
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
-                if (getUpdateParameters() == 0) {
+                if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
                     playSoundMain.startSoundUpDate()
                 }
                 ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
@@ -504,8 +507,8 @@ class MainFragment : Fragment() {
             if (isUpdateDate) {
                 viewModel.getServerVersion()
                 viewModel.appVersion.observe(viewLifecycleOwner) {
-                    val localVersion = receiveLocalVersion().toLongOrNull()
-                    val remoteVersion = it.toLongOrNull()
+                    localVersion = receiveLocalVersion().toLongOrNull()
+                    remoteVersion = it.toLongOrNull()
 
                     if (localVersion != null &&
                         remoteVersion != null &&
@@ -517,7 +520,7 @@ class MainFragment : Fragment() {
 
                     if (localVersion != null &&
                         remoteVersion != null &&
-                        remoteVersion > localVersion
+                        remoteVersion!! > localVersion!!
                     ) {
                         if (
                             getUpdateParameters() == 0
