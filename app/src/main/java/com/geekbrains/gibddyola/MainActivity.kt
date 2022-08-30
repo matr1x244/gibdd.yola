@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
@@ -17,7 +18,6 @@ import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
-
 
 class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
@@ -33,10 +33,10 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         checkPermissions()
     }
 
-    fun checkPermissions(): Boolean {
+    private fun checkPermissions(): Boolean {
         val call = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
-        val memory =
-            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val memory = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
         val listPermissions = ArrayList<String>()
         if (call != PackageManager.PERMISSION_GRANTED || memory != PackageManager.PERMISSION_GRANTED) {
             listPermissions.add(Manifest.permission.CALL_PHONE)
@@ -49,38 +49,52 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         return true
     }
 
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
         when (requestCode) {
             1 -> {
-                val perms = HashMap<String, Int>()
-                perms[Manifest.permission.CALL_PHONE] = PackageManager.PERMISSION_GRANTED
-                perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] =
-                    PackageManager.PERMISSION_GRANTED
+                val permisson = HashMap<String, Int>()
+                permisson[Manifest.permission.CALL_PHONE] = PackageManager.PERMISSION_GRANTED
+                permisson[Manifest.permission.WRITE_EXTERNAL_STORAGE] = PackageManager.PERMISSION_GRANTED
                 if (grantResults.isNotEmpty()) {
-                    for (ok in permissions.indices) perms[permissions[ok]] = grantResults[ok]
-                    if (!(perms[Manifest.permission.CALL_PHONE] != PackageManager.PERMISSION_GRANTED || perms[Manifest.permission.WRITE_EXTERNAL_STORAGE] != PackageManager.PERMISSION_GRANTED)) {
+                    for (i in permissions.indices) permisson[permissions[i]] = grantResults[i]
+
+                    /**
+                     * тут надо вставлять проверку на версию ?
+                     * потому что на API выше 29 сразу уходит в ветку else
+                     */
+
+                    /*-----*/
+                    if (permisson[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED && permisson[Manifest.permission.WRITE_EXTERNAL_STORAGE] == PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(this, "ВЕТКА IF ITS OKKKK", Toast.LENGTH_LONG).show()
+                    /*-----*/
+
                     } else {
-                        showDialogCopyPermisson(
-                            R.string.dialog_permisson,
-                            DialogInterface.OnClickListener { dialog, which ->
+
+                        Toast.makeText(this, "ВЕТКА ELSE NEXT ALERT DIALOG", Toast.LENGTH_SHORT).show()
+                        showDialogCopyPermisson(R.string.dialog_permisson,
+                            DialogInterface.OnClickListener { _, which ->
                                 when (which) {
                                     DialogInterface.BUTTON_POSITIVE -> checkPermissions()
-                                    DialogInterface.BUTTON_NEGATIVE -> checkPermissions()
                                 }
                             })
+                        }
                     }
                 }
             }
-        }
-    }
+         }
 
-    fun showDialogCopyPermisson(message: Int, okListener: DialogInterface.OnClickListener) {
-        AlertDialog.Builder(this@MainActivity)
+
+
+
+    private fun showDialogCopyPermisson(message: Int, okListener: DialogInterface.OnClickListener) {
+        AlertDialog.Builder(this)
             .setMessage(message)
             .setPositiveButton("OK", okListener)
             .create()
@@ -115,9 +129,4 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             .addToBackStack("")
             .commit()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
 }
