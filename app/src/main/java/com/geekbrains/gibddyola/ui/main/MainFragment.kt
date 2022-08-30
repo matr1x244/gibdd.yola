@@ -44,6 +44,7 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.animation.ImageRotation
 import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.updates.ApkDelete
 import com.geekbrains.gibddyola.utils.updates.IsApkExist
@@ -134,8 +135,7 @@ class MainFragment : Fragment() {
             showUpdateDialog()
         }
         if (getUpdateParameters() == 0 && fileExist.start()) {
-            val deleter = ApkDelete()
-            deleter.run()
+            deleteFile()
         }
     }
 
@@ -304,6 +304,7 @@ class MainFragment : Fragment() {
          * media player test
          */
         binding.mainMenuLayout.setOnClickListener {
+            deleteFile()
             openMenu = !openMenu
             if (openMenu) {
                 if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
@@ -445,6 +446,7 @@ class MainFragment : Fragment() {
                 binding.optionFourContainer.visibility = View.INVISIBLE
                 binding.optionFiveContainer.visibility = View.INVISIBLE
                 binding.optionUpdateContainer.visibility = View.INVISIBLE
+                binding.downloadProcessLayout.visibility = View.INVISIBLE
                 binding.transparentBackground.isClickable = false
 
                 binding.optionOneContainer.animate()
@@ -502,6 +504,7 @@ class MainFragment : Fragment() {
     }
 
     private fun upDateIcon() {
+        val imageRotation = ImageRotation(binding.ivDownloadProgress)
         viewModel.checkUpdateDate()
         viewModel.isUpdateDate.observe(viewLifecycleOwner) { isUpdateDate ->
             if (isUpdateDate) {
@@ -514,23 +517,17 @@ class MainFragment : Fragment() {
                         remoteVersion != null &&
                         remoteVersion == localVersion
                     ) {
-                        val deleter = ApkDelete()
-                        deleter.run()
+                        deleteFile()
                     }
 
                     if (localVersion != null &&
                         remoteVersion != null &&
                         remoteVersion!! > localVersion!!
                     ) {
-                        if (
-                            getUpdateParameters() == 0
-                        ) {
-                            if (getUpdateParameters() == 0) {
-                                binding.optionUpdateContainer.visibility = View.VISIBLE
-                            } else {
-                                binding.optionUpdateContainer.visibility = View.GONE
-                                playSoundMain.pauseSoundAll()
-                            }
+                        if (getUpdateParameters() == 0) {
+                            binding.optionUpdateContainer.visibility = View.VISIBLE
+                            binding.downloadProcessLayout.visibility = View.GONE
+
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
                             anim.duration = 500
                             anim.startOffset = 20
@@ -539,9 +536,12 @@ class MainFragment : Fragment() {
                             binding.optionUpdateContainer.startAnimation(anim)
 
                             binding.optionUpdateContainer.setOnClickListener {
+                                deleteFile()
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
                                 binding.optionUpdateContainer.clearAnimation()
                                 binding.optionUpdateContainer.visibility = View.GONE
+                                binding.downloadProcessLayout.visibility = View.VISIBLE
+                                imageRotation.startAnimation()
                                 playSoundMain.pauseSoundAll()
                                 viewModel.downloadNewAppApk()
                                 Toast.makeText(
@@ -550,7 +550,8 @@ class MainFragment : Fragment() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
-                                    Log.i("MY_TAG", percent.toString())
+                                    val percentString = getString(R.string.downloading_percent_count, percent)
+                                    binding.tvDownloadCount.text = percentString
                                 }
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
                                     when (message) {
@@ -561,12 +562,17 @@ class MainFragment : Fragment() {
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             setUpdateParameters(UPDATE_DOWNLOAD_FINISHED, true)
+                                            imageRotation.stopAnimation()
                                             showUpdateDialog()
                                         }
                                     }
                                 }
                             }
+                        } else {
+                            binding.optionUpdateContainer.visibility = View.GONE
+                            playSoundMain.pauseSoundAll()
                         }
+
                     }
                 }
             }
@@ -663,6 +669,11 @@ class MainFragment : Fragment() {
                     }
                 }
             })
+    }
+
+    private fun deleteFile() {
+        val deleter = ApkDelete()
+        deleter.run()
     }
 
     private fun receiveLocalVersion(): String {

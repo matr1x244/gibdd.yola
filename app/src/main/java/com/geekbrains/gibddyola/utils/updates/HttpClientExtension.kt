@@ -20,6 +20,7 @@ suspend fun HttpClient.downloadFile(file: File, url: String): Flow<DownloadStatu
         client.prepareGet(url).execute { httpResponse ->
             if (httpResponse.status.isSuccess()) {
                 val channel: ByteReadChannel = httpResponse.body()
+                var progressFiltered = 0
                 while (!channel.isClosedForRead) {
                     val packet = channel.readRemaining(DEFAULT_BUFFER_SIZE.toLong())
                     while (!packet.isEmpty) {
@@ -28,9 +29,13 @@ suspend fun HttpClient.downloadFile(file: File, url: String): Flow<DownloadStatu
                         val progress =
                             ((file.length().toDouble()
                                     / httpResponse.contentLength()!!.toDouble())
-                                    * 100)
-                        trySend(DownloadStatus.Progress(progress.roundToInt()))
+                                    * 100).roundToInt()
+
+                        if (progressFiltered != progress) {
+                            progressFiltered = progress
+                        }
                     }
+                    trySend(DownloadStatus.Progress(progressFiltered))
                 }
                 trySend(DownloadStatus.Success)
             } else {

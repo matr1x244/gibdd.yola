@@ -34,4 +34,5 @@
     <string name="my_team_avarkom">Наша команда аварийных комиссаров</string>
     <string name="text_view_menu">Меню</string>
     <string name="text_view_call">Позвонить</string>
+    <string name="downloading_percent_count">%1$d%%</string>
 </resources>
