@@ -304,7 +304,6 @@ class MainFragment : Fragment() {
          * media player test
          */
         binding.mainMenuLayout.setOnClickListener {
-            deleteFile()
             openMenu = !openMenu
             if (openMenu) {
                 if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
