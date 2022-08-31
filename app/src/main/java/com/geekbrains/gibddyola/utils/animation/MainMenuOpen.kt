@@ -49,12 +49,12 @@ class MainMenuOpen {
                 }
                 R.id.option_update_container -> {
                     startValue = -190F
-                    stopValue = -850F
+                    stopValue = -900F
                     anim = View.TRANSLATION_Y
                 }
                 R.id.download_process_layout -> {
-                    startValue = -490F
-                    stopValue = -1150F
+                    startValue = -190F
+                    stopValue = -900F
                     anim = View.TRANSLATION_Y
                 }
             }
@@ -110,12 +110,12 @@ class MainMenuOpen {
                     anim = View.TRANSLATION_Y
                 }
                 R.id.option_update_container -> {
-                    startValue = -8500F
-                    stopValue = -190F
+                    startValue = -1200F
+                    stopValue = -490F
                     anim = View.TRANSLATION_Y
                 }
                 R.id.download_process_layout -> {
-                    startValue = -1150F
+                    startValue = -1200F
                     stopValue = -490F
                     anim = View.TRANSLATION_Y
                 }
