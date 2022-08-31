@@ -2,9 +2,6 @@ package com.geekbrains.gibddyola.ui.main
 
 //Testing Branch
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -38,6 +35,7 @@ import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
 import com.geekbrains.gibddyola.utils.animation.FragmentOpenBackStack
 import com.geekbrains.gibddyola.utils.animation.ImageRotation
+import com.geekbrains.gibddyola.utils.animation.MainMenuOpen
 import com.geekbrains.gibddyola.utils.animation.VisibilityChanger
 import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.flow.Tooltips
@@ -84,7 +82,6 @@ class MainFragment : Fragment() {
     }
 
     private var openMenu = false
-    private val durationAnimOpenMenu = 300L
     private val playSoundMain by lazy { AudioManager(requireContext()) }
 
     companion object {
@@ -138,7 +135,8 @@ class MainFragment : Fragment() {
             showUpdateDialog()
         }
         if ((getUpdateParameters() == 0 && fileExist.start()) ||
-            (getUpdateParameters() == 1 && fileExist.start())) {
+            (getUpdateParameters() == 1 && fileExist.start())
+        ) {
             viewModel.deleteFile()
         }
     }
@@ -266,54 +264,25 @@ class MainFragment : Fragment() {
     }
 
     private fun rotateFab() {
+        val mainMenuOpen = MainMenuOpen()
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
+
+            mainMenuOpen.setAnimation(binding.fabMainImage, openMenu)
+            mainMenuOpen.setAnimation(binding.optionOneContainer, openMenu)
+            mainMenuOpen.setAnimation(binding.optionTwoContainer, openMenu)
+            mainMenuOpen.setAnimation(binding.optionThreeContainer, openMenu)
+            mainMenuOpen.setAnimation(binding.optionFourContainer, openMenu)
+            mainMenuOpen.setAnimation(binding.optionFiveContainer, openMenu)
+            mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
+            mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
+            mainMenuOpen.setAnimation(binding.transparentBackground, openMenu)
+
             if (openMenu) {
                 if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
                     playSoundMain.startSoundUpDate()
                 }
-                ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 0f, 450f)
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -50f, -260f)
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -20f, -130f)
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionThreeContainer,
-                    View.TRANSLATION_Y,
-                    -80f,
-                    -390f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionFourContainer,
-                    View.TRANSLATION_Y,
-                    -110f,
-                    -520f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionFiveContainer,
-                    View.TRANSLATION_Y,
-                    -140f,
-                    -650f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionUpdateContainer,
-                    View.TRANSLATION_Y,
-                    -190f,
-                    -850f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.downloadProcessLayout,
-                    View.TRANSLATION_Y,
-                    -490f,
-                    -1150f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                /*макет доступность*/
+
                 visibility.change(binding.optionOneContainer, true)
                 visibility.change(binding.optionTwoContainer, true)
                 visibility.change(binding.optionThreeContainer, true)
@@ -323,96 +292,14 @@ class MainFragment : Fragment() {
                 if (getUpdateParameters() == 1) {
                     visibility.change(binding.downloadProcessLayout, true)
                 }
+
                 binding.transparentBackground.setOnClickListener {
                     binding.mainMenuLayout.performClick()
                     openMenu = false
                 }
-                binding.optionOneContainer.animate()
-                    .alpha(0.8f)
-                    .setDuration(durationAnimOpenMenu * 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionTwoContainer.animate()
-                    .alpha(0.8f)
-                    .setDuration(durationAnimOpenMenu * 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionThreeContainer.animate()
-                    .alpha(0.8f)
-                    .setDuration(durationAnimOpenMenu * 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionFourContainer.animate()
-                    .alpha(0.8f)
-                    .setDuration(durationAnimOpenMenu * 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionFiveContainer.animate()
-                    .alpha(0.8f)
-                    .setDuration(durationAnimOpenMenu * 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionUpdateContainer.animate()
-                    .alpha(0.8f)
-                    .setDuration(durationAnimOpenMenu * 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.transparentBackground.animate()
-                    .alpha(0.8f).duration = durationAnimOpenMenu
             } else {
                 playSoundMain.pauseSoundAll()
-                ObjectAnimator.ofFloat(binding.fabMainImage, View.ROTATION, 405f, 0f)
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -260f, -50f)
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(binding.optionTwoContainer, View.TRANSLATION_Y, -130f, -20f)
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionThreeContainer,
-                    View.TRANSLATION_Y,
-                    -390f,
-                    -80f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionFourContainer,
-                    View.TRANSLATION_Y,
-                    -520f,
-                    -110f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionFiveContainer,
-                    View.TRANSLATION_Y,
-                    -650f,
-                    -140f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
-                ObjectAnimator.ofFloat(
-                    binding.optionUpdateContainer,
-                    View.TRANSLATION_Y,
-                    -850f,
-                    -190f
-                )
-                    .setDuration(durationAnimOpenMenu).start()
+
                 visibility.change(binding.optionOneContainer, false)
                 visibility.change(binding.optionTwoContainer, false)
                 visibility.change(binding.optionThreeContainer, false)
@@ -422,57 +309,6 @@ class MainFragment : Fragment() {
                 visibility.change(binding.downloadProcessLayout, false)
 
                 binding.transparentBackground.isClickable = false
-
-                binding.optionOneContainer.animate()
-                    .alpha(0f)
-                    .setDuration(durationAnimOpenMenu / 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionTwoContainer.animate()
-                    .alpha(0f)
-                    .setDuration(durationAnimOpenMenu / 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionThreeContainer.animate()
-                    .alpha(0f)
-                    .setDuration(durationAnimOpenMenu / 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionFourContainer.animate()
-                    .alpha(0f)
-                    .setDuration(durationAnimOpenMenu / 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionFiveContainer.animate()
-                    .alpha(0f)
-                    .setDuration(durationAnimOpenMenu / 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.optionUpdateContainer.animate()
-                    .alpha(0f)
-                    .setDuration(durationAnimOpenMenu * 2)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator?) {
-                            super.onAnimationEnd(animation)
-                        }
-                    })
-                binding.transparentBackground.animate()
-                    .alpha(0f).duration = durationAnimOpenMenu
             }
         }
     }
@@ -522,7 +358,8 @@ class MainFragment : Fragment() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
-                                    val percentString = getString(R.string.downloading_percent_count, percent)
+                                    val percentString =
+                                        getString(R.string.downloading_percent_count, percent)
                                     binding.tvDownloadCount.text = percentString
                                 }
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
