@@ -63,14 +63,16 @@ class MainMenuOpen {
                 .setDuration(durationAnimOpenMenu)
                 .start()
 
-            view.animate()
-                .alpha(0.8F)
-                .setDuration(durationAnimOpenMenu * 2)
-                .setListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator?) {
-                        super.onAnimationEnd(animation)
-                    }
-                })
+            if (view.id != R.id.fab_main_image && view.id != R.id.transparent_background) {
+                view.animate()
+                    .alpha(0.8F)
+                    .setDuration(durationAnimOpenMenu * 2)
+                    .setListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                        }
+                    })
+            }
             if (view.id == R.id.transparent_background) {
                 view.animate()
                     .alpha(0.8F).duration = durationAnimOpenMenu
