@@ -123,7 +123,8 @@
                 android:layout_height="wrap_content"
                 tools:text="100%"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                android:padding="2dp"
                 android:background="@drawable/rounded_corner_text_view"
                 android:backgroundTint="@color/light_green_400"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -139,22 +140,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:alpha="0"
+            android:alpha="1"
             android:orientation="vertical"
+            android:translationY="150dp"
             android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/iv_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                app:srcCompat="@mipmap/logo" />
+                android:layout_gravity="center|top"
+                app:srcCompat="@mipmap/icon_app_update" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center|bottom"
+                android:layout_gravity="bottom|center"
                 android:background="@drawable/rounded_corner_text_view"
                 android:backgroundTint="@color/light_green_600"
                 android:padding="@dimen/dp5"
