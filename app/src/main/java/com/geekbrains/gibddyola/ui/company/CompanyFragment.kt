@@ -44,7 +44,7 @@ class CompanyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAboutCompanyBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -109,7 +109,7 @@ class CompanyFragment : Fragment() {
         binding.itemTittle.text = spannableStringBuilder
 
         binding.itemTextContactCallAbout.setOnClickListener{
-            CallIntent.start(requireActivity())
+            CallIntent.check(requireActivity())
         }
     }
 

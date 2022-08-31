@@ -30,7 +30,7 @@ class AboutFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAboutAvarkomDetailBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -63,7 +63,7 @@ class AboutFragment : Fragment() {
 
     private fun buttonPhone() {
         binding.buttonPhone.setOnClickListener {
-            CallIntent.start(requireActivity())
+            CallIntent.check(requireActivity())
         }
     }
 
