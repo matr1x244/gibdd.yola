@@ -9,13 +9,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
-import android.text.style.BulletSpan
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
@@ -25,13 +22,11 @@ import android.view.animation.Animation
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
-import com.geekbrains.gibddyola.data.news.local.TooltipList
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
@@ -41,11 +36,11 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
-import com.geekbrains.gibddyola.utils.CheckCallPermission
 import com.geekbrains.gibddyola.utils.animation.FragmentOpenBackStack
 import com.geekbrains.gibddyola.utils.animation.ImageRotation
 import com.geekbrains.gibddyola.utils.animation.VisibilityChanger
 import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
+import com.geekbrains.gibddyola.utils.flow.Tooltips
 import com.geekbrains.gibddyola.utils.updates.IsApkExist
 import com.geekbrains.gibddyola.utils.updates.UpdateData
 import org.koin.android.ext.android.getKoin
@@ -259,45 +254,15 @@ class MainFragment : Fragment() {
     }
 
     private fun setTooltip() {
-        val tooltipSize = TooltipList.getTooltipSize()
-        var toolTipChars = ""
-        var currentTooltipNumber = 0
-        if (sharedTooltips.contains(TOOLTIP_NUMBER)) {
-            currentTooltipNumber = sharedTooltips.getInt(TOOLTIP_NUMBER, 0)
-        } else {
-            val editor: SharedPreferences.Editor = sharedTooltips.edit()
-            editor.putInt(TOOLTIP_NUMBER, 0)
-            editor.apply()
-        }
-        if (currentTooltipNumber < tooltipSize - 1) {
-            val editor: SharedPreferences.Editor = sharedTooltips.edit()
-            editor.putInt(TOOLTIP_NUMBER, currentTooltipNumber + 1)
-            editor.apply()
-        } else {
-            val editor: SharedPreferences.Editor = sharedTooltips.edit()
-            editor.putInt(TOOLTIP_NUMBER, 0)
-            editor.apply()
-        }
-        viewModel.setTooltipIndex(currentTooltipNumber)
-        viewModel.getTooltip()
-
-        viewModel.flowData.observe(viewLifecycleOwner) { tooltipChar ->
-            toolTipChars += tooltipChar
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                val spannableStringBuilder = SpannableStringBuilder(toolTipChars)
-                spannableStringBuilder.setSpan(
-                    BulletSpan(
-                        10,
-                        ContextCompat.getColor(requireContext(), R.color.light_green_600),
-                        10
-                    ), 0, 1, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
-                binding.textTooltip.text = spannableStringBuilder
-            } else {
-                binding.textTooltip.text = toolTipChars
-            }
-        }
+        val tooltips = Tooltips()
+        tooltips.set(
+            sharedTooltips,
+            binding.textTooltip,
+            TOOLTIP_NUMBER,
+            viewModel,
+            viewLifecycleOwner,
+            requireContext()
+        )
     }
 
     private fun rotateFab() {
