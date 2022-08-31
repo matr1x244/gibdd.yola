@@ -6,8 +6,6 @@ object UpdateData {
     private const val downloadApkUrl = "https://гибдд12.рф/img/photos/posters/app/avarkom_new.apk"
     private const val versionTextUrl = "https://гибдд12.рф/img/photos/posters/app/app_version.txt"
     private const val fileName = "avarkom_new.apk"
-    private val downloadPath = 
-        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString()
 
     private const val downloadSuccess = "Файл загружен"
     private const val fileNotFound = "Файл не найден"
@@ -26,7 +24,6 @@ object UpdateData {
     fun downloadError() = downloadError
     fun ioError() = ioError
     fun updateDay() = updateDay
-    fun downloadPath() = downloadPath
     fun timeOutConnection() = timeOutConnection
     fun connectionError() = connectionError
 }

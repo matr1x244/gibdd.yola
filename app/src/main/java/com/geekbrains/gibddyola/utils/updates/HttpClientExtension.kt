@@ -14,13 +14,12 @@ import kotlinx.coroutines.flow.callbackFlow
 import java.io.File
 import kotlin.math.roundToInt
 
-suspend fun HttpClient.downloadFile(file: File, url: String): Flow<DownloadStatus> = callbackFlow {
+suspend fun downloadFile(file: File, url: String): Flow<DownloadStatus> = callbackFlow {
     try {
         val client = HttpClient(Android)
         client.prepareGet(url).execute { httpResponse ->
             if (httpResponse.status.isSuccess()) {
                 val channel: ByteReadChannel = httpResponse.body()
-                var progressFiltered = 0
                 while (!channel.isClosedForRead) {
                     val packet = channel.readRemaining(DEFAULT_BUFFER_SIZE.toLong())
                     while (!packet.isEmpty) {
@@ -30,12 +29,8 @@ suspend fun HttpClient.downloadFile(file: File, url: String): Flow<DownloadStatu
                             ((file.length().toDouble()
                                     / httpResponse.contentLength()!!.toDouble())
                                     * 100).roundToInt()
-
-                        if (progressFiltered != progress) {
-                            progressFiltered = progress
-                        }
+                        trySend(DownloadStatus.Progress(progress))
                     }
-                    trySend(DownloadStatus.Progress(progressFiltered))
                 }
                 trySend(DownloadStatus.Success)
             } else {

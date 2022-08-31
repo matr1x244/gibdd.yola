@@ -2,8 +2,8 @@ package com.geekbrains.gibddyola.utils.updates
 
 import java.io.File
 
-class IsApkExist {
-    private val apkFile = File("${UpdateData.downloadPath()}/${UpdateData.fileName()}")
+class IsApkExist(downloadPath: String) {
+    private val apkFile = File("$downloadPath/${UpdateData.fileName()}")
 
     fun start() = apkFile.exists()
 }

@@ -45,10 +45,12 @@ import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
 import com.geekbrains.gibddyola.utils.animation.ImageRotation
 import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
-import com.geekbrains.gibddyola.utils.updates.ApkDelete
 import com.geekbrains.gibddyola.utils.updates.IsApkExist
 import com.geekbrains.gibddyola.utils.updates.UpdateData
+import org.koin.android.ext.android.getKoin
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
 import java.io.File
 
 
@@ -61,12 +63,22 @@ class MainFragment : Fragment() {
     private lateinit var sharedUpdateParameters: SharedPreferences
 
     private val controller by lazy { activity as ControllerOpenFragment }
-    private val viewModel: MainViewModel by viewModel()
+
+    private val scope by lazy {
+        getKoin().getOrCreateScope<MainFragment>(SCOPE_ID)
+    }
+    private val viewModel: MainViewModel by lazy {
+        scope.get(named("mainFragmentViewModel"))
+    }
 
     private var localVersion: Long? = null
     private var remoteVersion: Long? = null
 
     private lateinit var imageRotation: ImageRotation
+
+    private val downloadPath: String by lazy {
+        scope.get(named("downloadPath"))
+    }
 
     private var adaptersAvarkom = AdaptersAvarkom {
         controller.aboutFragment(it)
@@ -84,6 +96,7 @@ class MainFragment : Fragment() {
         private const val UPDATE_DOWNLOAD_STARTED = "download_started"
         private const val UPDATE_DOWNLOAD_FINISHED = "download_finished"
         private const val UPDATE_INSTALL_STARTED = "install_started"
+        private const val SCOPE_ID = "mainFragmentScope"
         fun newInstance() = MainFragment()
     }
 
@@ -131,12 +144,13 @@ class MainFragment : Fragment() {
     }
 
     private fun updateReminder() {
-        val fileExist = IsApkExist()
+        val fileExist = IsApkExist(downloadPath)
         if (getUpdateParameters() == 2 && fileExist.start()) {
             showUpdateDialog()
         }
-        if (getUpdateParameters() == 0 && fileExist.start()) {
-            deleteFile()
+        if ((getUpdateParameters() == 0 && fileExist.start()) ||
+            (getUpdateParameters() == 1 && fileExist.start())) {
+            viewModel.deleteFile()
         }
     }
 
@@ -307,9 +321,6 @@ class MainFragment : Fragment() {
     }
 
     private fun rotateFab() {
-        /**
-         * media player test
-         */
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
             if (openMenu) {
@@ -532,7 +543,7 @@ class MainFragment : Fragment() {
                         remoteVersion != null &&
                         remoteVersion == localVersion
                     ) {
-                        deleteFile()
+                        viewModel.deleteFile()
                     }
 
                     if (localVersion != null &&
@@ -542,8 +553,6 @@ class MainFragment : Fragment() {
                         if (getUpdateParameters() == 0) {
                             binding.optionUpdateContainer.visibility = View.VISIBLE
                             binding.downloadProcessLayout.visibility = View.GONE
-
-                            deleteFile()
 
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
                             anim.duration = 500
@@ -650,7 +659,7 @@ class MainFragment : Fragment() {
 
     private fun installApk(): Intent {
         val intent = Intent("android.intent.action.VIEW")
-        val apkFile = File("${UpdateData.downloadPath()}/${UpdateData.fileName()}")
+        val apkFile = File("$downloadPath/${UpdateData.fileName()}")
         val uri = FileProvider.getUriForFile(
             requireContext(),
             requireContext().applicationContext.packageName + ".provider",
@@ -685,11 +694,6 @@ class MainFragment : Fragment() {
                     }
                 }
             })
-    }
-
-    private fun deleteFile() {
-        val deleter = ApkDelete()
-        deleter.run()
     }
 
     private fun receiveLocalVersion(): String {

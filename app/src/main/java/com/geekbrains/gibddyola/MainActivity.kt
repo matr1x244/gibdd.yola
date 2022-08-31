@@ -2,6 +2,7 @@ package com.geekbrains.gibddyola
 
 import android.Manifest
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
@@ -35,12 +36,10 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
     private fun checkPermissions(): Boolean {
         val call = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
-        val memory = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
         val listPermissions = ArrayList<String>()
-        if (call != PackageManager.PERMISSION_GRANTED || memory != PackageManager.PERMISSION_GRANTED) {
+        if (call != PackageManager.PERMISSION_GRANTED) {
             listPermissions.add(Manifest.permission.CALL_PHONE)
-            listPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
         if (listPermissions.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, listPermissions.toTypedArray(), 1)
@@ -61,7 +60,6 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             1 -> {
                 val permisson = HashMap<String, Int>()
                 permisson[Manifest.permission.CALL_PHONE] = PackageManager.PERMISSION_GRANTED
-                permisson[Manifest.permission.WRITE_EXTERNAL_STORAGE] = PackageManager.PERMISSION_GRANTED
                 if (grantResults.isNotEmpty()) {
                     for (i in permissions.indices) permisson[permissions[i]] = grantResults[i]
 
@@ -71,20 +69,20 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                      */
 
                     /*-----*/
-                    if (permisson[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED && permisson[Manifest.permission.WRITE_EXTERNAL_STORAGE] == PackageManager.PERMISSION_GRANTED) {
+                    if (permisson[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED) {
                             Toast.makeText(this, "ВЕТКА IF ITS OKKKK", Toast.LENGTH_LONG).show()
                     /*-----*/
 
                     } else {
 
                         Toast.makeText(this, "ВЕТКА ELSE NEXT ALERT DIALOG", Toast.LENGTH_SHORT).show()
-                        showDialogCopyPermisson(R.string.dialog_permisson,
-                            DialogInterface.OnClickListener { _, which ->
-                                when (which) {
-                                    DialogInterface.BUTTON_POSITIVE -> checkPermissions()
-                                }
-                            })
+                        showDialogCopyPermisson(R.string.dialog_permisson
+                        ) { _, which ->
+                            when (which) {
+                                DialogInterface.BUTTON_POSITIVE -> checkPermissions()
+                            }
                         }
+                    }
                     }
                 }
             }

@@ -1,5 +1,6 @@
 package com.geekbrains.gibddyola.ui.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,14 +11,14 @@ import com.geekbrains.gibddyola.utils.flow.FlowRepository
 import com.geekbrains.gibddyola.utils.updates.*
 import io.ktor.client.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import java.io.File
 
 class MainViewModel(
     private val repository: LocalRepositoryImpl,
-    private val flowRepository: FlowRepository
-    ) : ViewModel() {
+    private val flowRepository: FlowRepository,
+    private val downloadPath: String
+) : ViewModel() {
 
     private val _flowData = MutableLiveData<Char>()
     val flowData: LiveData<Char> = _flowData
@@ -82,13 +83,11 @@ class MainViewModel(
     }
 
     fun downloadNewAppApk() {
-//        val apkReceiver = ReceiveServerAppApk()
-        val ktor = HttpClient()
-        val file = File("${UpdateData.downloadPath()}/${UpdateData.fileName()}")
+        val file = File("$downloadPath/${UpdateData.fileName()}")
         val url = UpdateData.apkUrl()
         coroutineScope.launch {
-//            _downloadApkMessage.postValue(apkReceiver.downloadFile())
-            ktor.downloadFile(file, url).collect {
+            downloadFile(file, url).collect {
+                Log.e("", it.toString())
                 when (it) {
                     is DownloadStatus.Success -> {
                         _downloadApkMessage.postValue(UpdateData.downloadSuccess())
@@ -108,6 +107,13 @@ class MainViewModel(
         val receiveUpdateDate = ReceiveUpdateDate()
         coroutineScope.launch {
             _isUpdateDate.postValue(receiveUpdateDate.get())
+        }
+    }
+
+    fun deleteFile() {
+        val deleter = ApkDelete(downloadPath)
+        coroutineScope.launch {
+            deleter.run()
         }
     }
 
