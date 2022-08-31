@@ -2,13 +2,11 @@ package com.geekbrains.gibddyola
 
 import android.Manifest
 import android.animation.ObjectAnimator
-import android.content.Context
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
@@ -36,7 +34,6 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
     private fun checkPermissions(): Boolean {
         val call = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
-
         val listPermissions = ArrayList<String>()
         if (call != PackageManager.PERMISSION_GRANTED) {
             listPermissions.add(Manifest.permission.CALL_PHONE)
@@ -47,7 +44,6 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         }
         return true
     }
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -62,34 +58,20 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                 permisson[Manifest.permission.CALL_PHONE] = PackageManager.PERMISSION_GRANTED
                 if (grantResults.isNotEmpty()) {
                     for (i in permissions.indices) permisson[permissions[i]] = grantResults[i]
-
-                    /**
-                     * тут надо вставлять проверку на версию ?
-                     * потому что на API выше 29 сразу уходит в ветку else
-                     */
-
-                    /*-----*/
                     if (permisson[Manifest.permission.CALL_PHONE] == PackageManager.PERMISSION_GRANTED) {
-                            Toast.makeText(this, "ВЕТКА IF ITS OKKKK", Toast.LENGTH_LONG).show()
-                    /*-----*/
-
                     } else {
-
-                        Toast.makeText(this, "ВЕТКА ELSE NEXT ALERT DIALOG", Toast.LENGTH_SHORT).show()
-                        showDialogCopyPermisson(R.string.dialog_permisson
+                        showDialogCopyPermisson(
+                            R.string.dialog_permisson
                         ) { _, which ->
                             when (which) {
                                 DialogInterface.BUTTON_POSITIVE -> checkPermissions()
                             }
                         }
                     }
-                    }
                 }
             }
-         }
-
-
-
+        }
+    }
 
     private fun showDialogCopyPermisson(message: Int, okListener: DialogInterface.OnClickListener) {
         AlertDialog.Builder(this)
