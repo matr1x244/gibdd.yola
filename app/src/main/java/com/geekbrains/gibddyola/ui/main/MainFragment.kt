@@ -302,15 +302,15 @@ class MainFragment : Fragment() {
                 ObjectAnimator.ofFloat(
                     binding.optionUpdateContainer,
                     View.TRANSLATION_Y,
-                    -170f,
-                    -900f
+                    -190f,
+                    -850f
                 )
                     .setDuration(durationAnimOpenMenu).start()
                 ObjectAnimator.ofFloat(
                     binding.downloadProcessLayout,
                     View.TRANSLATION_Y,
-                    -170f,
-                    -900f
+                    -490f,
+                    -1150f
                 )
                     .setDuration(durationAnimOpenMenu).start()
                 /*макет доступность*/
@@ -410,7 +410,7 @@ class MainFragment : Fragment() {
                     binding.optionUpdateContainer,
                     View.TRANSLATION_Y,
                     -850f,
-                    100f
+                    -190f
                 )
                     .setDuration(durationAnimOpenMenu).start()
                 visibility.change(binding.optionOneContainer, false)
