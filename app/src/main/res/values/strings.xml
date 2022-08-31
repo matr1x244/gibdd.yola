@@ -1,17 +1,17 @@
 <resources>
+    <!--MAIN FRAGMENT-->
     <string name="app_name">АВАРКОМ</string>
+    <string name="text_hello">Аварийный комиссар в Йошкар-Оле помощь при ДТП: ГИБДД12.рф</string>
+    <string name="text_view_menu">Меню</string>
+    <string name="text_view_call">Позвонить</string>
+    <string name="dialog_permisson">Для правильной работы приложения разрешите доступ, спасибо</string>
+    <string name="text_view_blocks_auto_helper">Блок подсказок водителю</string>
+    <string name="my_team_avarkom">Наша команда аварийных комиссаров</string>
+    <!--ABOUT COMPANY | ABOUT AVARKOM-->
     <string name="item_text_about">Об аваркоме</string>
     <string name="item_text_name">ФИО</string>
-    <string name="text_hello">Аварийный комиссар в Йошкар-Оле помощь при ДТП: ГИБДД12.рф</string>
-    <string name="item_text_raiting">Рейтинг аваркома</string>
-    <string name="call_phone_avarkom">Вызвать аварийного комиссара</string>
-    <string name="dialog_permisson">Для правильной работы приложения разрешите доступ, спасибо</string>
     <string name="item_text_bio">Биография</string>
-    <string name="sell">Скидки</string>
-    <string name="game">Мини-игра ПДД</string>
-    <string name="news">Новости</string>
-    <string name="company">О компании</string>
-    <string name="check_auto">Проверка штрафов</string>
+    <string name="item_text_raiting">Рейтинг аваркома</string>
     <string name="item_tittle_company">Свяжитесь с нами</string>
     <string name="item_contact_call">Контакты для связи</string>
     <string name="item_contact_call_about">+7 (8362) 709–709</string>
@@ -20,19 +20,23 @@
     <string name="item_contact_work_time">Часы работы канцелярии</string>
     <string name="item_contact_time">Режим работы</string>
     <string name="company_organization">ООО Организация</string>
+    <!--MENU-->
+    <string name="sell">Скидки</string>
+    <string name="game">Мини-игра ПДД</string>
+    <string name="news">Новости</string>
+    <string name="company">О компании</string>
+    <string name="check_auto">Проверка штрафов</string>
+    <!--UPDATE APP-->
+    <string name="downloading_percent_count">%1$d %%</string>
+    <!--VK NEWS AND STOCKS FRAGMENT-->
     <string name="vk_news_block_textview">Новостной блок</string>
     <string name="vk_news_item_time">Время публикации</string>
     <string name="like_vk_chips">Кол-во лайков</string>
     <string name="vk_view_post">просмотры</string>
-    <string name="text_view_license_yandex_maps">Условия использования Яндекс.Карт</string>
+    <string name="internet_vk_news">Загружаем...</string>
     <string name="vk_news_item_tittle_group_name">Название группы</string>
     <string name="no_internet_stock">Для загрузки скидки, подключите интернет</string>
     <string name="no_internet_vk_news">Нужна связь с космосом для обновления новостей</string>
-    <string name="internet_vk_news">Загружаем...</string>
-    <string name="blocks_auto_help">Блок заметок</string>
-    <string name="text_view_blocks_auto_helper">Блок подсказок водителю</string>
-    <string name="my_team_avarkom">Наша команда аварийных комиссаров</string>
-    <string name="text_view_menu">Меню</string>
-    <string name="text_view_call">Позвонить</string>
-    <string name="downloading_percent_count">%1$d %%</string>
+    <!--YANDEX MAPS-->
+    <string name="text_view_license_yandex_maps">Условия использования Яндекс.Карт</string>
 </resources>

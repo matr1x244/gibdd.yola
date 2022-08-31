@@ -2,9 +2,6 @@ package com.geekbrains.gibddyola.ui.main
 
 //Testing Branch
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -72,7 +69,6 @@ class MainFragment : Fragment() {
     private val visibility = VisibilityChanger()
     private val fragmentOpenBackStack = FragmentOpenBackStack()
 
-
     private lateinit var imageRotation: ImageRotation
 
     private val downloadPath: String by lazy {
@@ -85,7 +81,6 @@ class MainFragment : Fragment() {
     }
 
     private var openMenu = false
-    private val durationAnimOpenMenu = 300L
     private val playSoundMain by lazy { AudioManager(requireContext()) }
 
     companion object {
@@ -139,7 +134,8 @@ class MainFragment : Fragment() {
             showUpdateDialog()
         }
         if ((getUpdateParameters() == 0 && fileExist.start()) ||
-            (getUpdateParameters() == 1 && fileExist.start())) {
+            (getUpdateParameters() == 1 && fileExist.start())
+        ) {
             viewModel.deleteFile()
         }
     }
@@ -361,7 +357,8 @@ class MainFragment : Fragment() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
-                                    val percentString = getString(R.string.downloading_percent_count, percent)
+                                    val percentString =
+                                        getString(R.string.downloading_percent_count, percent)
                                     binding.tvDownloadCount.text = percentString
                                 }
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->

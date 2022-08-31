@@ -2,28 +2,28 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="dp5">5dp</dimen>
-    <dimen name="dp36">36dp</dimen>
-    <dimen name="dp16">16dp</dimen>
-    <dimen name="dp10">10dp</dimen>
     <dimen name="title_text_20sp">20sp</dimen>
     <dimen name="layout_margin_10dp">10dp</dimen>
-    <dimen name="dp1">1dp</dimen>
-    <dimen name="dp90">90dp</dimen>
-    <dimen name="dp32">32dp</dimen>
-    <dimen name="dp26">26dp</dimen>
     <dimen name="dp0">0dp</dimen>
-    <dimen name="dp7">7dp</dimen>
-    <dimen name="sp12_text">12sp</dimen>
-    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp1">1dp</dimen>
     <dimen name="dp3">3dp</dimen>
-    <dimen name="dp100">100dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp7">7dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp16">16dp</dimen>
     <dimen name="dp20">20dp</dimen>
+    <dimen name="dp21">21dp</dimen>
     <dimen name="dp22">22dp</dimen>
     <dimen name="dp23">23dp</dimen>
+    <dimen name="dp26">26dp</dimen>
+    <dimen name="dp32">32dp</dimen>
+    <dimen name="dp36">36dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp90">90dp</dimen>
     <dimen name="dp95">95dp</dimen>
-    <dimen name="dp21">21dp</dimen>
     <dimen name="dp96">96dp</dimen>
+    <dimen name="dp100">100dp</dimen>
     <!--VK BLOCKS-->
     <dimen name="vk_news_item_height">100dp</dimen>
     <dimen name="vk_news_item_only_photo_height">150dp</dimen>
@@ -45,6 +45,6 @@
     <dimen name="nav_image_view_layout_height">35dp</dimen>
     <dimen name="conteiner_botom_nav_margin">2dp</dimen>
     <dimen name="card_view_stock_main_margin">5dp</dimen>
-    <dimen name="dp50">50dp</dimen>
+    <dimen name="sp12_text">12sp</dimen>
 
 </resources>
