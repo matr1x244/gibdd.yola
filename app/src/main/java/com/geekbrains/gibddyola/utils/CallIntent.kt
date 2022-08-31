@@ -8,7 +8,13 @@ object CallIntent {
     private const val number = "+7(8362)709-709"
     private val intent = Intent(Intent.ACTION_CALL)
 
+    fun check(activity: FragmentActivity) {
+        val checkCallPermission = CheckCallPermission(activity)
+        checkCallPermission.showPermissionDialog()
+    }
+
     fun start(activity: FragmentActivity) {
+
         intent.data = Uri.parse("tel:$number")
         activity.startActivity(intent)
     }

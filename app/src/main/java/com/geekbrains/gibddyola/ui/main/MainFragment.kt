@@ -29,8 +29,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.local.TooltipList
@@ -43,13 +41,14 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.CheckCallPermission
+import com.geekbrains.gibddyola.utils.animation.FragmentOpenBackStack
 import com.geekbrains.gibddyola.utils.animation.ImageRotation
+import com.geekbrains.gibddyola.utils.animation.VisibilityChanger
 import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.updates.IsApkExist
 import com.geekbrains.gibddyola.utils.updates.UpdateData
 import org.koin.android.ext.android.getKoin
-import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 import java.io.File
 
@@ -73,6 +72,10 @@ class MainFragment : Fragment() {
 
     private var localVersion: Long? = null
     private var remoteVersion: Long? = null
+
+    private val visibility = VisibilityChanger()
+    private val fragmentOpenBackStack = FragmentOpenBackStack()
+
 
     private lateinit var imageRotation: ImageRotation
 
@@ -116,15 +119,6 @@ class MainFragment : Fragment() {
         setDefaultUpdateParams()
         initViews()
         initIncomingEvents()
-//        banner()
-    }
-
-    private fun banner() {
-        Glide.with(binding.imageViewMain)
-            .load(R.mipmap.logo)
-            .centerInside()
-            .transform(RoundedCorners(15))
-            .into(binding.imageViewMain)
     }
 
     private fun getSharedTooltipIndex() {
@@ -199,62 +193,48 @@ class MainFragment : Fragment() {
     }
 
     private fun nextFragmentOpen() {
-        binding.tvPlayGameMenu.setOnClickListener {
-            openMenu = false
-            playSoundMain.stopSoundAll()
-            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, QuestionsFragment.newInstance())
-                .addToBackStack("")
-                .commit()
-        }
-        binding.tvStockMenu.setOnClickListener {
-            openMenu = false
-            playSoundMain.stopSoundAll()
-            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
-                .commit()
-        }
-        binding.tvNewsMenu.setOnClickListener {
-            openMenu = false
-            playSoundMain.stopSoundAll()
-            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, VkNewsFragment.newInstance()).addToBackStack("")
-                .commit()
-        }
-        binding.tvAboutCompanyMenu.setOnClickListener {
-            openMenu = false
-            playSoundMain.stopSoundAll()
-            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, CompanyFragment.newInstance())
-                .addToBackStack("")
-                .commit()
-        }
-        binding.tvAutoStatus.setOnClickListener {
-            openMenu = false
-            playSoundMain.stopSoundAll()
-            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, AutoStatusFragment.newInstance())
-                .addToBackStack("")
-                .commit()
-        }
+
+        openMenu = fragmentOpenBackStack.setClick(
+            binding.tvPlayGameMenu,
+            requireActivity(),
+            QuestionsFragment.newInstance(),
+            playSoundMain
+        )
+        openMenu = fragmentOpenBackStack.setClick(
+            binding.tvStockMenu,
+            requireActivity(),
+            StockFragment.newInstance(),
+            playSoundMain
+        )
+        openMenu = fragmentOpenBackStack.setClick(
+            binding.tvNewsMenu,
+            requireActivity(),
+            VkNewsFragment.newInstance(),
+            playSoundMain
+        )
+        openMenu = fragmentOpenBackStack.setClick(
+            binding.tvAboutCompanyMenu,
+            requireActivity(),
+            CompanyFragment.newInstance(),
+            playSoundMain
+        )
+        openMenu = fragmentOpenBackStack.setClick(
+            binding.tvAutoStatus,
+            requireActivity(),
+            AutoStatusFragment.newInstance(),
+            playSoundMain
+        )
         binding.mainCallLayout.setOnClickListener {
             openMenu = false
             playSoundMain.stopSoundAll()
-            CallIntent.start(requireActivity())
+            CallIntent.check(requireActivity())
         }
-        binding.mainStockLayout.setOnClickListener {
-            openMenu = false
-            playSoundMain.stopSoundAll()
-            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-            ).replace(R.id.main_activity_container, StockFragment.newInstance()).addToBackStack("")
-                .commit()
-        }
+        openMenu = fragmentOpenBackStack.setClick(
+            binding.mainStockLayout,
+            requireActivity(),
+            StockFragment.newInstance(),
+            playSoundMain
+        )
     }
 
     private fun setDefaultUpdateParams() {
@@ -369,13 +349,14 @@ class MainFragment : Fragment() {
                 )
                     .setDuration(durationAnimOpenMenu).start()
                 /*макет доступность*/
-                binding.optionOneContainer.visibility = View.VISIBLE
-                binding.optionTwoContainer.visibility = View.VISIBLE
-                binding.optionThreeContainer.visibility = View.VISIBLE
-                binding.optionFourContainer.visibility = View.VISIBLE
-                binding.optionFiveContainer.visibility = View.VISIBLE
+                visibility.change(binding.optionOneContainer, true)
+                visibility.change(binding.optionTwoContainer, true)
+                visibility.change(binding.optionThreeContainer, true)
+                visibility.change(binding.optionFourContainer, true)
+                visibility.change(binding.optionFiveContainer, true)
+
                 if (getUpdateParameters() == 1) {
-                    binding.downloadProcessLayout.visibility = View.VISIBLE
+                    visibility.change(binding.downloadProcessLayout, true)
                 }
                 binding.transparentBackground.setOnClickListener {
                     binding.mainMenuLayout.performClick()
@@ -467,13 +448,14 @@ class MainFragment : Fragment() {
                     -190f
                 )
                     .setDuration(durationAnimOpenMenu).start()
-                binding.optionOneContainer.visibility = View.INVISIBLE
-                binding.optionTwoContainer.visibility = View.INVISIBLE
-                binding.optionThreeContainer.visibility = View.INVISIBLE
-                binding.optionFourContainer.visibility = View.INVISIBLE
-                binding.optionFiveContainer.visibility = View.INVISIBLE
-                binding.optionUpdateContainer.visibility = View.INVISIBLE
-                binding.downloadProcessLayout.visibility = View.INVISIBLE
+                visibility.change(binding.optionOneContainer, false)
+                visibility.change(binding.optionTwoContainer, false)
+                visibility.change(binding.optionThreeContainer, false)
+                visibility.change(binding.optionFourContainer, false)
+                visibility.change(binding.optionFiveContainer, false)
+                visibility.change(binding.optionUpdateContainer, false)
+                visibility.change(binding.downloadProcessLayout, false)
+
                 binding.transparentBackground.isClickable = false
 
                 binding.optionOneContainer.animate()
@@ -551,8 +533,8 @@ class MainFragment : Fragment() {
                         remoteVersion!! > localVersion!!
                     ) {
                         if (getUpdateParameters() == 0) {
-                            binding.optionUpdateContainer.visibility = View.VISIBLE
-                            binding.downloadProcessLayout.visibility = View.GONE
+                            visibility.change(binding.optionUpdateContainer, true)
+                            visibility.change(binding.downloadProcessLayout, false)
 
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
                             anim.duration = 500
@@ -564,8 +546,8 @@ class MainFragment : Fragment() {
                             binding.optionUpdateContainer.setOnClickListener {
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
                                 binding.optionUpdateContainer.clearAnimation()
-                                binding.optionUpdateContainer.visibility = View.GONE
-                                binding.downloadProcessLayout.visibility = View.VISIBLE
+                                visibility.change(binding.optionUpdateContainer, false)
+                                visibility.change(binding.downloadProcessLayout, true)
                                 imageRotation.startAnimation()
                                 playSoundMain.pauseSoundAll()
                                 viewModel.downloadNewAppApk()
@@ -594,7 +576,7 @@ class MainFragment : Fragment() {
                                 }
                             }
                         } else {
-                            binding.optionUpdateContainer.visibility = View.GONE
+                            visibility.change(binding.optionUpdateContainer, false)
                             playSoundMain.pauseSoundAll()
                         }
 
