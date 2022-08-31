@@ -7,9 +7,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
+import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
+import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,5 +41,16 @@ class MainActivity : AppCompatActivity() {
                 }.start()
             }
         }
+    }
+
+    override fun aboutFragment(localClick: EntityAvarkom) {
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(
+                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
+            )
+            .replace(R.id.main_activity_container, AboutFragment.newInstance(localClick))
+            .addToBackStack("")
+            .commit()
     }
 }
