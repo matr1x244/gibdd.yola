@@ -49,7 +49,7 @@
             android:layout_margin="@dimen/dp3"
             app:cardBackgroundColor="@color/amber_orange_400"
             app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp5">
+            app:cardElevation="@dimen/dp2">
 
             <TextView
                 android:id="@+id/text_tooltip"
