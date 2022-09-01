@@ -17,7 +17,7 @@
             android:layout_margin="@dimen/dp5"
             android:hapticFeedbackEnabled="false"
             app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp5">
+            app:cardElevation="2dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -49,6 +49,19 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_text_slogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp10"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/dp5"
+                    android:text="Если у тебя ВАЗ, тебе не ко мне"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/avatar"
+                    app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/item_text_small_about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -58,9 +71,10 @@
                     android:paddingStart="@dimen/dp5"
                     android:singleLine="true"
                     android:text="@string/item_text_about"
+                    android:textColor="@color/red_600"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
-                    app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_text_slogan" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
