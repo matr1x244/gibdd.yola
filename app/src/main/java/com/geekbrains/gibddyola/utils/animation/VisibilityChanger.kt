@@ -7,7 +7,7 @@ class VisibilityChanger() {
         view.visibility = if (isVisible) {
             View.VISIBLE
         } else {
-            View.GONE
+            View.INVISIBLE
         }
     }
 }

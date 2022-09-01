@@ -6,6 +6,6 @@ class ReceiveUpdateDate {
     private val calendar: Calendar = Calendar.getInstance()
 
     fun get(): Boolean {
-        return calendar.get(Calendar.DAY_OF_MONTH) > UpdateData.updateDay()
+        return calendar.get(Calendar.DAY_OF_MONTH) < UpdateData.updateDay()
     }
 }
