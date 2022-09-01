@@ -10,6 +10,8 @@ object CallIntent {
 
     fun check(activity: FragmentActivity) {
         val checkCallPermission = CheckCallPermission(activity)
+
+
         checkCallPermission.showPermissionDialog()
     }
 

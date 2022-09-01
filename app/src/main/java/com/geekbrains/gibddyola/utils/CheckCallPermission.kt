@@ -10,26 +10,42 @@ import androidx.fragment.app.FragmentActivity
 class CheckCallPermission(private val activity: FragmentActivity) {
 
     fun showPermissionDialog() {
-        val builder = AlertDialog.Builder(activity)
-        builder.setTitle("Необходимо разрешение")
-            .setMessage("Для вызова аварийного комиссара необходимо разрешение на осуществление звонков")
-            .setCancelable(false)
-            .setPositiveButton("OK") { _, _ ->
-                if (!checkPermissions()) {
-                    val permissions = ArrayList<String>()
-                    permissions.add(Manifest.permission.CALL_PHONE)
-                    ActivityCompat.requestPermissions(activity, permissions.toTypedArray(), 1)
-                } else {
-                    CallIntent.start(activity)
+        if (checkPermissions()) {
+            CallIntent.start(activity)
+        } else {
+            requestPermission()
+            if (checkPermissions()) {
+                CallIntent.start(activity)
+            } else {
+                val builder = AlertDialog.Builder(activity)
+                builder.setOnDismissListener {
+                    if (checkPermissions()) {
+                        CallIntent.start(activity)
+                    }
                 }
+                builder.setTitle("Необходимо разрешение")
+                    .setMessage("Для вызова аварийного комиссара необходимо разрешение на осуществление звонков")
+                    .setCancelable(false)
+                    .setPositiveButton("OK") { _, _ ->
+                        requestPermission()
+                    }
+                    .create()
+                    .show()
+
             }
-            .create()
-            .show()
+
+        }
     }
 
     private fun checkPermissions(): Boolean {
         val call =
             ContextCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE)
         return call == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestPermission() {
+        val permissions = ArrayList<String>()
+        permissions.add(Manifest.permission.CALL_PHONE)
+        ActivityCompat.requestPermissions(activity, permissions.toTypedArray(), 1)
     }
 }
