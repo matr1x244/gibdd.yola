@@ -90,6 +90,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         private const val UPDATE_DOWNLOAD_FINISHED = "download_finished"
         private const val UPDATE_INSTALL_STARTED = "install_started"
         private const val SCOPE_ID = "mainFragmentScope"
+        private const val UPDATE_ICON = "updateIcon"
+        private const val DOWNLOAD_ICON = "downloadIcon"
         fun newInstance() = MainFragment()
     }
 
@@ -113,7 +115,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         binding.textTooltip.text = ""
         getSharedTooltipIndex()
         setTooltip()
-        upDateIcon()
         backStackCustom()
         updateReminder()
     }
@@ -257,15 +258,23 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
 
+            upDateIcon()
+
             mainMenuOpen.setAnimation(binding.fabMainImage, openMenu)
             mainMenuOpen.setAnimation(binding.optionOneContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionTwoContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionThreeContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionFourContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionFiveContainer, openMenu)
-            mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
-            mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
             mainMenuOpen.setAnimation(binding.transparentBackground, openMenu)
+
+            if (viewModel.checkUpdateState()) {
+                binding.optionUpdateContainer.clearAnimation()
+                mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
+            } else {
+                binding.downloadProcessLayout.clearAnimation()
+                mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
+            }
 
             if (openMenu) {
                 if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
@@ -323,8 +332,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                         remoteVersion!! > localVersion!!
                     ) {
                         if (getUpdateParameters() == 0) {
-                            visibility.change(binding.optionUpdateContainer, true)
-                            visibility.change(binding.downloadProcessLayout, false)
+                            updateIconSwitcher(UPDATE_ICON)
 
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
                             anim.duration = 500
@@ -336,8 +344,9 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                             binding.optionUpdateContainer.setOnClickListener {
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
                                 binding.optionUpdateContainer.clearAnimation()
-                                visibility.change(binding.optionUpdateContainer, false)
-                                visibility.change(binding.downloadProcessLayout, true)
+
+                                updateIconSwitcher(DOWNLOAD_ICON)
+
                                 imageRotation.startAnimation()
                                 playSoundMain.pauseSoundAll()
                                 viewModel.downloadNewAppApk()
@@ -410,6 +419,19 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             UPDATE_INSTALL_STARTED -> {
                 updateParamsEditor.putBoolean(UPDATE_INSTALL_STARTED, value)
                 updateParamsEditor.apply()
+            }
+        }
+    }
+
+    private fun updateIconSwitcher(iconName: String) {
+        when (iconName) {
+            UPDATE_ICON -> {
+                visibility.change(binding.optionUpdateContainer, true)
+                visibility.change(binding.downloadProcessLayout, false)
+            }
+            DOWNLOAD_ICON -> {
+                visibility.change(binding.optionUpdateContainer, false)
+                visibility.change(binding.downloadProcessLayout, true)
             }
         }
     }
