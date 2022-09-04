@@ -118,11 +118,16 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     private fun updateReminder() {
         val fileExist = IsApkExist(downloadPath)
-        if (getUpdateParameters() == 2 && fileExist.start()) {
+        if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+            getUpdateParameters(UPDATE_DOWNLOAD_FINISHED) &&
+            fileExist.start()
+        ) {
             showUpdateDialog()
         }
-        if ((getUpdateParameters() == 0 && fileExist.start()) ||
-            (getUpdateParameters() == 1 && fileExist.start())
+        if ((!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && fileExist.start()) ||
+            (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+                    !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED) &&
+                    fileExist.start())
         ) {
             viewModel.deleteFile()
         }
@@ -131,7 +136,9 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     private fun initViews() {
         imageRotation = ImageRotation(binding.ivDownloadProgress)
 
-        if (getUpdateParameters() == 1) {
+        if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+            !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED)
+        ) {
             setUpdateParameters(UPDATE_DOWNLOAD_STARTED, false)
         }
 
@@ -268,7 +275,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
 
             if (openMenu) {
-                if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
+                if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && localVersion != remoteVersion) {
                     playSoundMain.startSoundUpDate()
                 }
 
@@ -278,7 +285,9 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionFourContainer, true)
                 visibility.change(binding.optionFiveContainer, true)
 
-                if (getUpdateParameters() == 1) {
+                if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+                    !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED)
+                ) {
                     visibility.change(binding.downloadProcessLayout, true)
                 }
 
@@ -322,7 +331,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                         remoteVersion != null &&
                         remoteVersion!! > localVersion!!
                     ) {
-                        if (getUpdateParameters() == 0) {
+                        if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED)) {
                             updateIconSwitcher(UPDATE_ICON)
 
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
@@ -377,23 +386,12 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         }
     }
 
-    private fun getUpdateParameters(): Int {
-        var downloadStarted = false
-        var downloadFinished = false
-
-        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_STARTED)) {
-            downloadStarted = sharedUpdateParameters
-                .getBoolean(UPDATE_DOWNLOAD_STARTED, false)
+    private fun getUpdateParameters(param: String): Boolean {
+        var value = false
+        if (sharedUpdateParameters.contains(param)) {
+            value = sharedUpdateParameters.getBoolean(param, false)
         }
-        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_FINISHED)) {
-            downloadFinished = sharedUpdateParameters
-                .getBoolean(UPDATE_DOWNLOAD_FINISHED, false)
-        }
-
-        if (downloadStarted && !downloadFinished) return 1
-        if (!downloadStarted) return 0
-        if (downloadStarted && downloadFinished) return 2
-        return 3
+        return value
     }
 
     private fun setUpdateParameters(parameter: String, value: Boolean) {
