@@ -128,7 +128,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         if ((!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && fileExist.start()) ||
             (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
                     !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED) &&
-                    fileExist.start())
+                    fileExist.start()) ||
+            (!getUpdateParameters(UPDATE_INSTALL_POSTPONED) && fileExist.start())
         ) {
             viewModel.deleteFile()
         }
