@@ -84,10 +84,11 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         private const val TOOLTIP_NUMBER = "tooltip_number"
         private const val UPDATE_DOWNLOAD_STARTED = "download_started"
         private const val UPDATE_DOWNLOAD_FINISHED = "download_finished"
+        private const val UPDATE_INSTALL_POSTPONED = "download_postponed"
         private const val UPDATE_INSTALL_STARTED = "install_started"
-        private const val SCOPE_ID = "mainFragmentScope"
-        private const val UPDATE_ICON = "updateIcon"
-        private const val DOWNLOAD_ICON = "downloadIcon"
+        private const val SCOPE_ID = "main_fragment_scope"
+        private const val UPDATE_ICON = "update_icon"
+        private const val DOWNLOAD_ICON = "download _icon"
         fun newInstance() = MainFragment()
     }
 
@@ -410,6 +411,10 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 updateParamsEditor.putBoolean(UPDATE_INSTALL_STARTED, value)
                 updateParamsEditor.apply()
             }
+            UPDATE_INSTALL_POSTPONED -> {
+                updateParamsEditor.putBoolean(UPDATE_INSTALL_POSTPONED, value)
+                updateParamsEditor.apply()
+            }
         }
     }
 
@@ -437,6 +442,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             }
             .setNegativeButton("Отложить") { _, _ ->
                 setUpdateParameters(UPDATE_INSTALL_STARTED, false)
+                setUpdateParameters(UPDATE_INSTALL_POSTPONED, true)
             }
         builder.create()
         builder.show()
