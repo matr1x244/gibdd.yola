@@ -116,10 +116,6 @@ class MainViewModel(
         }
     }
 
-    fun checkUpdateState(): Boolean {
-        return downloadingProcess.value != null
-    }
-
     override fun onCleared() {
         coroutineScope.cancel()
         super.onCleared()

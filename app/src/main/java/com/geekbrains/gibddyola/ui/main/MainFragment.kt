@@ -11,21 +11,17 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
-import com.geekbrains.gibddyola.databinding.FragmentStockBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
@@ -267,14 +263,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             mainMenuOpen.setAnimation(binding.optionFourContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionFiveContainer, openMenu)
             mainMenuOpen.setAnimation(binding.transparentBackground, openMenu)
-
-            if (viewModel.checkUpdateState()) {
-                binding.optionUpdateContainer.clearAnimation()
-                mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
-            } else {
-                binding.downloadProcessLayout.clearAnimation()
-                mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
-            }
+            mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
+            mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
 
             if (openMenu) {
                 if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
