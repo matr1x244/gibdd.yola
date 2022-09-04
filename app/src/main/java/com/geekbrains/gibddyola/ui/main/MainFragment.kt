@@ -99,6 +99,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         setDefaultUpdateParams()
         initViews()
         initIncomingEvents()
+        upDateIcon()
     }
 
     private fun getSharedTooltipIndex() {
@@ -262,8 +263,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
 
-            upDateIcon()
-
             mainMenuOpen.setAnimation(binding.fabMainImage, openMenu)
             mainMenuOpen.setAnimation(binding.optionOneContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionTwoContainer, openMenu)
@@ -345,6 +344,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
                                 binding.optionUpdateContainer.clearAnimation()
 
+                                visibility.change(binding.downloadBlockingLayout, true)
+                                downloadBlockingClick(true)
                                 updateIconSwitcher(DOWNLOAD_ICON)
 
                                 imageRotation.startAnimation()
@@ -355,11 +356,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                     UpdateData.fileName(),
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
-                                    val percentString =
-                                        getString(R.string.downloading_percent_count, percent)
-                                    binding.tvDownloadCount.text = percentString
-                                }
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
                                     when (message) {
                                         UpdateData.downloadSuccess() -> {
@@ -369,10 +365,17 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             setUpdateParameters(UPDATE_DOWNLOAD_FINISHED, true)
+                                            visibility.change(binding.downloadBlockingLayout, false)
+                                            downloadBlockingClick(false)
                                             imageRotation.stopAnimation()
                                             showUpdateDialog()
                                         }
                                     }
+                                }
+                                viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
+                                    val percentString =
+                                        getString(R.string.downloading_percent_count, percent)
+                                    binding.tvDownloadCount.text = percentString
                                 }
                             }
                         } else {
@@ -483,6 +486,21 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                     }
                 }
             })
+    }
+
+    private fun downloadBlockingClick(clickable: Boolean) {
+        if (clickable) {
+            binding.downloadBlockingLayout.isClickable = true
+            binding.downloadBlockingLayout.setOnClickListener {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.please_wait_downloading_end),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        } else {
+            binding.downloadBlockingLayout.isClickable = false
+        }
     }
 
     private fun receiveLocalVersion(): String {
