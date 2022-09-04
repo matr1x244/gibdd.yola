@@ -103,7 +103,7 @@
             android:alpha="0"
             android:orientation="vertical"
             android:translationY="200dp"
-            android:visibility="invisible">
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/iv_update"

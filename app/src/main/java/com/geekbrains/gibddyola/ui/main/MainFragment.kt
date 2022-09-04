@@ -273,6 +273,13 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     private fun rotateFab() {
         val mainMenuOpen = MainMenuOpen()
+
+        val anim: Animation = AlphaAnimation(0.0f, 1.0f)
+        anim.duration = 500
+        anim.startOffset = 20
+        anim.repeatMode = Animation.REVERSE
+        anim.repeatCount = Animation.INFINITE
+
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
 
@@ -287,6 +294,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
 
             if (openMenu) {
+                binding.optionUpdateContainer.startAnimation(anim)
                 if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && localVersion != remoteVersion) {
                     playSoundMain.startSoundUpDate()
                 }
@@ -305,9 +313,11 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
                 binding.transparentBackground.setOnClickListener {
                     binding.mainMenuLayout.performClick()
-                    openMenu = false
                 }
-            } else {
+            }
+
+            if (!openMenu){
+                anim.cancel()
                 playSoundMain.pauseSoundAll()
 
                 visibility.change(binding.optionOneContainer, false)
@@ -345,13 +355,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                     ) {
                         if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED)) {
                             updateIconSwitcher(UPDATE_ICON)
-
-                            val anim: Animation = AlphaAnimation(0.0f, 1.0f)
-                            anim.duration = 500
-                            anim.startOffset = 20
-                            anim.repeatMode = Animation.REVERSE
-                            anim.repeatCount = Animation.INFINITE
-                            binding.optionUpdateContainer.startAnimation(anim)
 
                             binding.optionUpdateContainer.setOnClickListener {
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
