@@ -2,10 +2,13 @@ package com.geekbrains.gibddyola
 
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.doOnEnd
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class StartActivityTheme : AppCompatActivity() {
 
@@ -13,15 +16,31 @@ class StartActivityTheme : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load_theme)
 
-        /*Анимация загрузки*/
-        ObjectAnimator.ofFloat(findViewById(R.id.container_start_theme), View.ALPHA, 1.0f, 0.0f)
-            .setDuration(900)
-            .start()
+        val version = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
 
-        /*Отложенный старт MainActivity*/
-        Handler(mainLooper).postDelayed({
+        if (version) {
+            val screen = installSplashScreen()
+            screen.setOnExitAnimationListener { screenProvider ->
+                ObjectAnimator.ofFloat(
+                    screenProvider.view,
+                    View.ALPHA, 5f, 0f
+                ).apply {
+                    duration = 1000
+                    doOnEnd {
+                        screenProvider.remove()
+                    }
+                }.start()
+            }
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        }, 750L)
+        } else {
+            ObjectAnimator.ofFloat(findViewById(R.id.container_start_theme), View.ALPHA, 1.0f, 0.0f)
+                .setDuration(900)
+                .start()
+            Handler(mainLooper).postDelayed({
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }, 800L)
+        }
     }
 }

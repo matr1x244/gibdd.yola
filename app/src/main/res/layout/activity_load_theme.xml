@@ -5,7 +5,7 @@
     android:id="@+id/container_start_theme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/amber_orange_50"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
