@@ -58,4 +58,9 @@
     <string name="update_dialog_postponed_button">Отложить</string>
     <!--Police status checking-->
     <string name="police_status_check_url">https://гибдд.рф/check/fines</string>
+    <!--Promo-->
+    <string name="promo_code_id">промокод: %1$s</string>
+    <string name="discount_1">Скидка № 1</string>
+    <string name="discount_2">Скидка № 2</string>
+    <string name="discount_3">Скидка № 3</string>
 </resources>

@@ -23,10 +23,10 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
         )
         super.onViewCreated(view, savedInstanceState)
 
-        ViewPagerCustom()
+        viewPagerCustom()
     }
 
-    private fun ViewPagerCustom() {
+    private fun viewPagerCustom() {
         binding.viewPager.adapter = ViewPagerAdapter(this)
         binding.viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
         binding.viewPager.setPageTransformer(ZoomOutPageTransformer())
@@ -35,10 +35,10 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
             binding.tabLayout, binding.viewPager
         ) { tab, position ->
             tab.text = when (position) {
-                ONE_STOCK_KEY -> "Скидка № 1"
-                TWO_STOCK_KEY -> "Скидка № 2"
-                THREE_STOCK_KEY -> "Скидка № 3"
-                else -> "Скидка № 1"
+                ONE_STOCK_KEY -> getString(R.string.discount_1)
+                TWO_STOCK_KEY -> getString(R.string.discount_2)
+                THREE_STOCK_KEY -> getString(R.string.discount_3)
+                else -> getString(R.string.discount_1)
             }
         }.attach()
 
