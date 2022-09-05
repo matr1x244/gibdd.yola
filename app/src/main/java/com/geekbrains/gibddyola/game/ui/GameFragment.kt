@@ -36,10 +36,20 @@ class GameFragment(private var score: Int, var questionNumber: Int) : Fragment()
                         viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
 
                         if (question.answers[position].second) score++
+
                         btnNext.setOnClickListener {
+                            var nextFragment =
+                                if ((viewModel.getQuestionCount() - 1) > questionNumber) {
+                                    GameFragment(score, ++questionNumber)
+                                } else {
+                                    GameFragmentOutOfQuestions()
+                                }
                             activity!!.supportFragmentManager
                                 .beginTransaction()
-                                .replace(R.id.game_fragment, GameFragment(score, ++questionNumber))
+                                .replace(
+                                    R.id.game_fragment,
+                                    nextFragment
+                                )
                                 .addToBackStack("")
                                 .commitAllowingStateLoss()
                         }
@@ -48,9 +58,6 @@ class GameFragment(private var score: Int, var questionNumber: Int) : Fragment()
             }
         }
         )
-    }
-    fun nextQuestion(): Int {
-        return questionNumber++
     }
 
     override fun onCreateView(
@@ -76,7 +83,7 @@ class GameFragment(private var score: Int, var questionNumber: Int) : Fragment()
         when (appState) {
             is AppState.Success -> {
                 with(binding) {
-                    tvQuestion.text = appState.questions.question
+                    tvQuestion.text = "Вопрос: " + appState.questions.id.toString()
                     appState.questions.image?.let { ivImageQuestion.setBackgroundResource(it) }
                     gameAdapter.setData(
                         appState.questions,

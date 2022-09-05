@@ -30,7 +30,7 @@ class GameMainFragment : Fragment() {
                 btnBeginGame.visibility = View.GONE
                 activity!!.supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.game_fragment, GameFragment(0, 0))
+                    .replace(R.id.game_fragment, GameFragment(0, 18))
                     .addToBackStack("")
                     .commitAllowingStateLoss()
             }

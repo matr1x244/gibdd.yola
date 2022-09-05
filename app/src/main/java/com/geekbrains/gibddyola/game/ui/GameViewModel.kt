@@ -20,4 +20,5 @@ class GameViewModel(
             liveDataToObserve.postValue(AppState.Success(questionRepositoryImpl.getAllQuestions()[numberOfQuestion]))
         }
     }
+    fun getQuestionCount () : Int = questionRepositoryImpl.getAllQuestions().size
 }

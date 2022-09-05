@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
 
@@ -10,7 +11,7 @@
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Вопрос 1: " />
+        tools:text="Вопрос 8: " />
 
     <ImageView
         android:id="@+id/iv_image_question"
