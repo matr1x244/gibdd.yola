@@ -67,7 +67,7 @@
                         android:layout_height="match_parent"
                         android:padding="@dimen/dp1"
                         android:src="@mipmap/logo"
-                        android:visibility="gone" />
+                        android:visibility="visible" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -103,10 +103,10 @@
                     android:checkable="false"
                     android:text="@string/vk_view_post"
                     android:textSize="@dimen/view_vk_text_size"
-                    app:chipBackgroundColor="@color/vk_background_color_gray"
                     app:chipIcon="@drawable/ic_view_vk_post"
                     app:chipIconSize="@dimen/view_vk_text_size"
-                    app:rippleColor="@color/vk_background_color_gray" />
+                    app:rippleColor="@color/vk_background_color_gray"
+                    app:chipBackgroundColor="@color/amber_orange_50"/>
 
             </com.google.android.material.chip.ChipGroup>
 
