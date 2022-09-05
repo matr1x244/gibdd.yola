@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="low_density_start">0</integer>
+    <integer name="low_density_end">400</integer>
+    <integer name="low_density_y_scroll">870</integer>
+    <integer name="middle_density_start">400</integer>
+    <integer name="middle_density_end">500</integer>
+    <integer name="middle_density_y_scroll">970</integer>
+    <integer name="high_density_start">500</integer>
+    <integer name="high_density_end">600</integer>
+    <integer name="high_density_y_scroll">1060</integer>
+</resources>

@@ -5,6 +5,7 @@ import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 import com.geekbrains.gibddyola.databinding.FragmentVkNewsDetailsBinding
@@ -109,11 +110,11 @@ class VkNewsDetailsFragment :
     private fun setAdapterClicker() {
         videoAdapter.setOnDetailsItemClickListener(object : OnDetailsItemClickListener {
             override fun onItemClick(position: Int) {
-                val videoUrl = "https://vk.com/video${
-                    itemData?.attachments?.get(position)?.video?.owner_id
-                }_${
+                val videoUrl = getString(
+                    R.string.vk_video_url,
+                    itemData?.attachments?.get(position)?.video?.owner_id,
                     itemData?.attachments?.get(position)?.video?.id
-                }"
+                )
 
                 binding.vkNewsDetailsWebView.loadUrl(videoUrl)
             }

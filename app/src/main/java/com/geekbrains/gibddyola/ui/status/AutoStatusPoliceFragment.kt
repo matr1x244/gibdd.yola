@@ -2,18 +2,16 @@ package com.geekbrains.gibddyola.ui.status
 
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.webkit.WebSettings
-import androidx.fragment.app.Fragment
-import com.geekbrains.gibddyola.databinding.FragmentAutoStatusBinding
+import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAutoStatusPoliceBinding
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.vkontakte.MyWebViewClient
 
 class AutoStatusPoliceFragment : ViewBindingFragment<FragmentAutoStatusPoliceBinding>(
-    FragmentAutoStatusPoliceBinding::inflate){
+    FragmentAutoStatusPoliceBinding::inflate
+) {
 
     companion object {
         fun newInstance() = AutoStatusPoliceFragment()
@@ -26,9 +24,8 @@ class AutoStatusPoliceFragment : ViewBindingFragment<FragmentAutoStatusPoliceBin
     }
 
     private fun setWebView() {
-        val url = "https://гибдд.рф/check/fines"
+        val url = getString(R.string.police_status_check_url)
         val settings = binding.autoStatusWebView.settings
-        settings.javaScriptEnabled = true
         settings.textZoom = 90
 
         settings.javaScriptCanOpenWindowsAutomatically = true
@@ -45,16 +42,26 @@ class AutoStatusPoliceFragment : ViewBindingFragment<FragmentAutoStatusPoliceBin
         binding.autoStatusWebView.loadUrl(url)
 
         when (requireActivity().resources.displayMetrics.densityDpi) {
-            in (0..400) -> {
-                binding.autoStatusWebView.scrollY = 870
+            in (getInteger(R.integer.low_density_start)..
+                    getInteger(R.integer.low_density_end)) -> {
+                binding.autoStatusWebView.scrollY =
+                    getInteger(R.integer.low_density_y_scroll)
             }
-            in (400..500) -> {
-                binding.autoStatusWebView.scrollY = 970
+            in (getInteger(R.integer.middle_density_start)..
+                    getInteger(R.integer.middle_density_end)) -> {
+                binding.autoStatusWebView.scrollY =
+                    getInteger(R.integer.middle_density_y_scroll)
             }
-            in (500..600) -> {
-                binding.autoStatusWebView.scrollY = 1060
+            in (getInteger(R.integer.high_density_start)..
+                    getInteger(R.integer.high_density_end)) -> {
+                binding.autoStatusWebView.scrollY =
+                    getInteger(R.integer.high_density_y_scroll)
             }
         }
+    }
+
+    private fun getInteger(id: Int): Int {
+        return resources.getInteger(id)
     }
 }
 
