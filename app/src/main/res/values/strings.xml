@@ -47,5 +47,12 @@
  СБ-ВС: Выходной</string>
     <string name="contact_address">ул. Красноармейская, 84а, офис 2
  Йошкар-ола, 424000, Россия</string>
-
+    <!--Game-->
+    <string name="result_testing_pdd">Результат тестирования ПДД</string>
+    <string name="result_score">Количество правильных ответов: %1$d/%2$d</string>
+    <!--Updater-->
+    <string name="update_dialog_title">Обновление готово к установке</string>
+    <string name="update_dialog_message">Обновить приложение?</string>
+    <string name="update_dialog_install_button">Установить</string>
+    <string name="update_dialog_postponed_button">Отложить</string>
 </resources>

@@ -23,7 +23,7 @@ class ResultsQuestionsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentResultsQuestionsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,9 +32,12 @@ class ResultsQuestionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Set name on result page
-        binding.textviewNameResult.text = "Результат тестирования ПДД"
-        binding.textviewScore.text =
-            "Количество правильных ответов: $score/${LocalRepositoryGameImpl().getQuestions().size}"
+        binding.textviewNameResult.text = getString(R.string.result_testing_pdd)
+        binding.textviewScore.text = getString(
+            R.string.result_score,
+            score,
+            LocalRepositoryGameImpl().getQuestions().size
+        )
 
         binding.btnReloadGame.setOnClickListener {
             // Reset the score when the game finishes

@@ -1,23 +1,19 @@
 package com.geekbrains.gibddyola.ui.company
 
 import android.content.Context
+import com.geekbrains.gibddyola.BuildConfig
 import com.yandex.mapkit.MapKitFactory
 
 object MapKitInitializer {
-    /**
-     * Если не делать такую иницилизацию,
-     * тогда если заходить во фрагмент, потом выходить и опять заходить будет ->
-     * java.lang.AssertionError: setApiKey() should be called before initialize()!
-     */
 
     private var initialized = false
 
-    fun initialize(apikey: String, context: Context) {
+    fun initialize(context: Context) {
         if (initialized) {
             return
         }
 
-        MapKitFactory.setApiKey(API_KEY)
+        MapKitFactory.setApiKey(BuildConfig.YANDEX_MAP_API)
         MapKitFactory.initialize(context)
         initialized = true
     }

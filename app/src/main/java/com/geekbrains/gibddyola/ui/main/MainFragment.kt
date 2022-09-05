@@ -450,14 +450,14 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     private fun showUpdateDialog() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Обновление готово к установке")
-            .setMessage("Обновить приложение?")
+        builder.setTitle(getString(R.string.update_dialog_title))
+            .setMessage(getString(R.string.update_dialog_message))
             .setCancelable(true)
-            .setPositiveButton("Установить") { _, _ ->
+            .setPositiveButton(getString(R.string.update_dialog_install_button)) { _, _ ->
                 startActivity(installApk())
                 setUpdateParameters(UPDATE_INSTALL_STARTED, true)
             }
-            .setNegativeButton("Отложить") { _, _ ->
+            .setNegativeButton(getString(R.string.update_dialog_postponed_button)) { _, _ ->
                 setUpdateParameters(UPDATE_INSTALL_STARTED, false)
                 setUpdateParameters(UPDATE_INSTALL_POSTPONED, true)
             }

@@ -20,8 +20,6 @@ import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
 import com.yandex.runtime.image.ImageProvider
 
-const val API_KEY = BuildConfig.YANDEX_MAP_API
-
 class CompanyFragment :
     ViewBindingFragment<FragmentAboutCompanyBinding>(FragmentAboutCompanyBinding::inflate) {
 
@@ -35,7 +33,7 @@ class CompanyFragment :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MapKitInitializer.initialize(API_KEY, requireActivity())
+        MapKitInitializer.initialize(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
