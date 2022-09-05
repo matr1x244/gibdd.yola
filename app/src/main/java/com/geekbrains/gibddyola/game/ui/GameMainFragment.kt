@@ -23,7 +23,7 @@ class GameMainFragment : Fragment() {
     private var _binding: FragmentGameMainBinding? = null
     private val binding get() = _binding!!
     var mSettings: SharedPreferences? = null
-    private var listOfAnsweredQuestions = mutableSetOf<Int>()
+    var listOfAnsweredQuestions = mutableSetOf<Int>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,9 +43,9 @@ class GameMainFragment : Fragment() {
                 tvScore.text = it.toString()
             }
 //Количество пройденных вопросов
-            viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
-                listOfAnsweredQuestions.add(it)
-            }
+//            viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
+//                listOfAnsweredQuestions.add(it)
+//            }
 //Кнопка Начать игру
             btnBeginGame.setOnClickListener {
                 llGameFragment.visibility = View.VISIBLE
@@ -63,11 +63,11 @@ class GameMainFragment : Fragment() {
                     )
                     else -> getString(
                         R.string.tv_count_questions,
-                        listOfAnsweredQuestions.size,
+                        viewModel.getListAnsweredQuestion().size,
                         viewModel.getQuestionCount()
                     )
                 }
-                val changeQuestion = changeQuestion(listOfAnsweredQuestions.toList())
+                val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
                 val nextFragment =
                     if (changeQuestion >= 0) {
                         GameFragment(changeQuestion)

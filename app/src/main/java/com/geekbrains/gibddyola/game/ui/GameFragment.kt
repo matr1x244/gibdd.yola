@@ -46,9 +46,11 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                         editor.apply()
 
                         btnNext.setOnClickListener {
-                            var nextFragment =
+                            viewModel.addAnsweredQuestion(question.id)
+
+                            val nextFragment =
                                 if ((viewModel.getQuestionCount() - 1) > questionNumber) {
-                                    GameFragment(++questionNumber)
+                                    GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
                                 } else {
                                     GameFragmentOutOfQuestions()
                                 }
@@ -60,7 +62,6 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                                 )
                                 .addToBackStack("")
                                 .commitAllowingStateLoss()
-                            viewModel.addAnsweredQuestion(question.id)
                         }
                     }
                 }
@@ -107,6 +108,18 @@ class GameFragment(var questionNumber: Int) : Fragment() {
         }
     }
 
+    private fun randomQuestion(): Int {
+        return (Math.random() * viewModel.getQuestionCount()).toInt()
+    }
+
+    fun changeQuestion(answeredQuestions: List<Int>): Int {
+        if (answeredQuestions.size >= viewModel.getQuestionCount()) return -1
+        while (true) {
+            val randomQuestion = randomQuestion()
+            if (!answeredQuestions.contains(randomQuestion)) return randomQuestion
+        }
+        return -1
+    }
 
     interface OnItemViewClickListener {
         fun onItemViewClick(question: QuestionDomain, position: Int)

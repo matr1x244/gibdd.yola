@@ -15,17 +15,23 @@ class GameViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData(),
     private val questionRepositoryImpl: QuestionRepository = QuestionRepositoryImpl(),
     private val scoreToObserve: MutableLiveData<Int> = MutableLiveData(),
-    private val listAnsweredQuestions: MutableLiveData<Int> = MutableLiveData()
+    private val listAnsweredQuestions: MutableLiveData<Int> = MutableLiveData(),
+    private val listAnsweredQuestions2: MutableLiveData<MutableSet<Int>> = MutableLiveData()
 ) : ViewModel() {
+    val listAnsweredQuestion = mutableSetOf<Int>()
     fun getLiveData() = liveDataToObserve
     fun getScore() = scoreToObserve
     fun setScore(score: Int) {
         scoreToObserve.value = score
     }
     fun addAnsweredQuestion(id: Int) {
-        listAnsweredQuestions.value = id
+        listAnsweredQuestions2.value?.add(id)
     }
     fun getAnsweredQuestions() = listAnsweredQuestions
+
+    fun getListAnsweredQuestion():List<Int> {
+        return listAnsweredQuestions2.value?.toList() ?: listOf()
+    }
 
     fun getQuestion(numberOfQuestion: Int) = with(viewModelScope) {
         launch(Dispatchers.IO) {
