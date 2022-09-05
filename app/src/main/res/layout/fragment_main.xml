@@ -15,13 +15,13 @@
         android:layout_marginBottom="55dp"
         android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image_view_main"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:scaleType="centerInside"
-                app:srcCompat="@mipmap/logo" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            app:srcCompat="@mipmap/logo" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_hello"
@@ -47,12 +47,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/elsie"
                 android:padding="@dimen/dp5"
-                android:textColor="@color/white"
-                tools:text="@string/text_view_blocks_auto_helper"
                 android:shadowColor="@color/color_gray_transparent"
                 android:shadowDx="2"
                 android:shadowDy="2"
-                android:shadowRadius="1"/>
+                android:shadowRadius="1"
+                android:textColor="@color/white"
+                tools:text="@string/text_view_blocks_auto_helper" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -60,13 +60,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/my_team_avarkom"
-            android:textColor="@color/red_600"
-            android:textSize="@dimen/textview_team_avarkom_main"
             android:shadowColor="@color/color_gray"
             android:shadowDx="0"
             android:shadowDy="0.5"
-            android:shadowRadius="0.5"/>
+            android:shadowRadius="0.5"
+            android:text="@string/my_team_avarkom"
+            android:textColor="@color/red_600"
+            android:textSize="@dimen/textview_team_avarkom_main" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_list_avarkom"
@@ -94,42 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/download_process_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_gravity="center|bottom">
-
-            <com.geekbrains.gibddyola.utils.EquilateralImageView
-                android:id="@+id/iv_download_progress"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:src="@drawable/ic_tire"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_download_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="100%"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:padding="2dp"
-                android:background="@drawable/rounded_corner_text_view"
-                android:backgroundTint="@color/light_green_400"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/option_update_container"
@@ -420,5 +384,57 @@
         </com.google.android.material.card.MaterialCardView>
 
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/download_blocking_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.6"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/download_process_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center|bottom"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <com.geekbrains.gibddyola.utils.EquilateralImageView
+            android:id="@+id/iv_download_progress"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_tire"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_download_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_text_view"
+            android:backgroundTint="@color/light_green_400"
+            android:padding="2dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_download_progress"
+            app:layout_constraintEnd_toEndOf="@id/iv_download_progress"
+            app:layout_constraintStart_toStartOf="@id/iv_download_progress"
+            app:layout_constraintTop_toTopOf="@id/iv_download_progress"
+            tools:text="100%" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

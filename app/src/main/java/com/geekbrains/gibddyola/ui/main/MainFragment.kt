@@ -11,25 +11,17 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.CenterInside
-import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
-import com.geekbrains.gibddyola.databinding.FragmentStockBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
@@ -92,8 +84,11 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         private const val TOOLTIP_NUMBER = "tooltip_number"
         private const val UPDATE_DOWNLOAD_STARTED = "download_started"
         private const val UPDATE_DOWNLOAD_FINISHED = "download_finished"
+        private const val UPDATE_INSTALL_POSTPONED = "download_postponed"
         private const val UPDATE_INSTALL_STARTED = "install_started"
-        private const val SCOPE_ID = "mainFragmentScope"
+        private const val SCOPE_ID = "main_fragment_scope"
+        private const val UPDATE_ICON = "update_icon"
+        private const val DOWNLOAD_ICON = "download _icon"
         fun newInstance() = MainFragment()
     }
 
@@ -104,15 +99,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         setDefaultUpdateParams()
         initViews()
         initIncomingEvents()
-        banner()
-    }
-
-    private fun banner(){
-        Glide.with(binding.imageViewMain)
-            .asGif()
-            .load(R.mipmap.logo_animate)
-            .transform(FitCenter(), CenterInside())
-            .into(binding.imageViewMain)
+        upDateIcon()
     }
 
     private fun getSharedTooltipIndex() {
@@ -126,18 +113,23 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         binding.textTooltip.text = ""
         getSharedTooltipIndex()
         setTooltip()
-        upDateIcon()
         backStackCustom()
         updateReminder()
     }
 
     private fun updateReminder() {
         val fileExist = IsApkExist(downloadPath)
-        if (getUpdateParameters() == 2 && fileExist.start()) {
+        if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+            getUpdateParameters(UPDATE_DOWNLOAD_FINISHED) &&
+            fileExist.start()
+        ) {
             showUpdateDialog()
         }
-        if ((getUpdateParameters() == 0 && fileExist.start()) ||
-            (getUpdateParameters() == 1 && fileExist.start())
+        if ((!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && fileExist.start()) ||
+            (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+                    !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED) &&
+                    fileExist.start()) ||
+            (!getUpdateParameters(UPDATE_INSTALL_POSTPONED) && fileExist.start())
         ) {
             viewModel.deleteFile()
         }
@@ -146,7 +138,9 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     private fun initViews() {
         imageRotation = ImageRotation(binding.ivDownloadProgress)
 
-        if (getUpdateParameters() == 1) {
+        if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+            !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED)
+        ) {
             setUpdateParameters(UPDATE_DOWNLOAD_STARTED, false)
         }
 
@@ -276,12 +270,12 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             mainMenuOpen.setAnimation(binding.optionThreeContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionFourContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionFiveContainer, openMenu)
-            mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
-            mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
             mainMenuOpen.setAnimation(binding.transparentBackground, openMenu)
+            mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
+            mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
 
             if (openMenu) {
-                if (getUpdateParameters() == 0 && localVersion != remoteVersion) {
+                if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && localVersion != remoteVersion) {
                     playSoundMain.startSoundUpDate()
                 }
 
@@ -291,7 +285,9 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionFourContainer, true)
                 visibility.change(binding.optionFiveContainer, true)
 
-                if (getUpdateParameters() == 1) {
+                if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
+                    !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED)
+                ) {
                     visibility.change(binding.downloadProcessLayout, true)
                 }
 
@@ -335,9 +331,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                         remoteVersion != null &&
                         remoteVersion!! > localVersion!!
                     ) {
-                        if (getUpdateParameters() == 0) {
-                            visibility.change(binding.optionUpdateContainer, true)
-                            visibility.change(binding.downloadProcessLayout, false)
+                        if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED)) {
+                            updateIconSwitcher(UPDATE_ICON)
 
                             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
                             anim.duration = 500
@@ -349,8 +344,11 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                             binding.optionUpdateContainer.setOnClickListener {
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
                                 binding.optionUpdateContainer.clearAnimation()
-                                visibility.change(binding.optionUpdateContainer, false)
-                                visibility.change(binding.downloadProcessLayout, true)
+
+                                visibility.change(binding.downloadBlockingLayout, true)
+                                downloadBlockingClick(true)
+                                updateIconSwitcher(DOWNLOAD_ICON)
+
                                 imageRotation.startAnimation()
                                 playSoundMain.pauseSoundAll()
                                 viewModel.downloadNewAppApk()
@@ -359,11 +357,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                     UpdateData.fileName(),
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
-                                    val percentString =
-                                        getString(R.string.downloading_percent_count, percent)
-                                    binding.tvDownloadCount.text = percentString
-                                }
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->
                                     when (message) {
                                         UpdateData.downloadSuccess() -> {
@@ -373,10 +366,17 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             setUpdateParameters(UPDATE_DOWNLOAD_FINISHED, true)
+                                            visibility.change(binding.downloadBlockingLayout, false)
+                                            downloadBlockingClick(false)
                                             imageRotation.stopAnimation()
                                             showUpdateDialog()
                                         }
                                     }
+                                }
+                                viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
+                                    val percentString =
+                                        getString(R.string.downloading_percent_count, percent)
+                                    binding.tvDownloadCount.text = percentString
                                 }
                             }
                         } else {
@@ -390,23 +390,12 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         }
     }
 
-    private fun getUpdateParameters(): Int {
-        var downloadStarted = false
-        var downloadFinished = false
-
-        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_STARTED)) {
-            downloadStarted = sharedUpdateParameters
-                .getBoolean(UPDATE_DOWNLOAD_STARTED, false)
+    private fun getUpdateParameters(param: String): Boolean {
+        var value = false
+        if (sharedUpdateParameters.contains(param)) {
+            value = sharedUpdateParameters.getBoolean(param, false)
         }
-        if (sharedUpdateParameters.contains(UPDATE_DOWNLOAD_FINISHED)) {
-            downloadFinished = sharedUpdateParameters
-                .getBoolean(UPDATE_DOWNLOAD_FINISHED, false)
-        }
-
-        if (downloadStarted && !downloadFinished) return 1
-        if (!downloadStarted) return 0
-        if (downloadStarted && downloadFinished) return 2
-        return 3
+        return value
     }
 
     private fun setUpdateParameters(parameter: String, value: Boolean) {
@@ -424,6 +413,23 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 updateParamsEditor.putBoolean(UPDATE_INSTALL_STARTED, value)
                 updateParamsEditor.apply()
             }
+            UPDATE_INSTALL_POSTPONED -> {
+                updateParamsEditor.putBoolean(UPDATE_INSTALL_POSTPONED, value)
+                updateParamsEditor.apply()
+            }
+        }
+    }
+
+    private fun updateIconSwitcher(iconName: String) {
+        when (iconName) {
+            UPDATE_ICON -> {
+                visibility.change(binding.optionUpdateContainer, true)
+                visibility.change(binding.downloadProcessLayout, false)
+            }
+            DOWNLOAD_ICON -> {
+                visibility.change(binding.optionUpdateContainer, false)
+                visibility.change(binding.downloadProcessLayout, true)
+            }
         }
     }
 
@@ -438,6 +444,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             }
             .setNegativeButton("Отложить") { _, _ ->
                 setUpdateParameters(UPDATE_INSTALL_STARTED, false)
+                setUpdateParameters(UPDATE_INSTALL_POSTPONED, true)
             }
         builder.create()
         builder.show()
@@ -480,6 +487,21 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                     }
                 }
             })
+    }
+
+    private fun downloadBlockingClick(clickable: Boolean) {
+        if (clickable) {
+            binding.downloadBlockingLayout.isClickable = true
+            binding.downloadBlockingLayout.setOnClickListener {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.please_wait_downloading_end),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        } else {
+            binding.downloadBlockingLayout.isClickable = false
+        }
     }
 
     private fun receiveLocalVersion(): String {

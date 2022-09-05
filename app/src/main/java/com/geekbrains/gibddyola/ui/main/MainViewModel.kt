@@ -9,7 +9,6 @@ import com.geekbrains.gibddyola.data.employee.LocalRepositoryImpl
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.flow.FlowRepository
 import com.geekbrains.gibddyola.utils.updates.*
-import io.ktor.client.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
 import java.io.File
