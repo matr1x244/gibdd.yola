@@ -67,7 +67,7 @@ class TwoStockFragment :
                             dataSource: DataSource?,
                             isFirstResource: Boolean
                         ): Boolean {
-                            binding.textviewPromoCodId.text = "промокод: " + generateId()
+                            binding.textviewPromoCodId.text = getString(R.string.promo_code_id, generateId())
                             return false
                         }
                     })

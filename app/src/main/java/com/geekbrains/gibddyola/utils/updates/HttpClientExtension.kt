@@ -4,6 +4,7 @@ import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.android.*
 import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.utils.io.*
 import io.ktor.utils.io.core.*
@@ -23,13 +24,7 @@ suspend fun downloadFile(file: File, url: String): Flow<DownloadStatus> = callba
                 while (!channel.isClosedForRead) {
                     val packet = channel.readRemaining(DEFAULT_BUFFER_SIZE.toLong())
                     while (!packet.isEmpty) {
-                        val bytes = packet.readBytes()
-                        file.appendBytes(bytes)
-                        val progress =
-                            ((file.length().toDouble()
-                                    / httpResponse.contentLength()!!.toDouble())
-                                    * 100).roundToInt()
-                        trySend(DownloadStatus.Progress(progress))
+                        trySend(DownloadStatus.Progress(getProgress(packet, httpResponse, file)))
                     }
                 }
                 trySend(DownloadStatus.Success)
@@ -43,4 +38,12 @@ suspend fun downloadFile(file: File, url: String): Flow<DownloadStatus> = callba
         trySend(DownloadStatus.Error(UpdateData.connectionError()))
     }
     cancel()
+}
+
+private fun getProgress(packet: ByteReadPacket, httpResponse: HttpResponse, file: File): Int {
+    val bytes = packet.readBytes()
+    file.appendBytes(bytes)
+    return ((file.length().toDouble()
+            / httpResponse.contentLength()!!.toDouble())
+            * 100).roundToInt()
 }
