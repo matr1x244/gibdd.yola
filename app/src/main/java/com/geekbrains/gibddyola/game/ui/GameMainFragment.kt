@@ -48,9 +48,9 @@ class GameMainFragment : Fragment() {
             btnBeginGame.setOnClickListener {
                 llGameFragment.visibility = View.VISIBLE
                 btnBeginGame.visibility = View.GONE
-                radioGroup.visibility = View.GONE
+                llCountOfQuestions.visibility = View.GONE
                 tvCountQuestions.visibility = View.VISIBLE
-                tvCountQuestions.text = when (radioGroup.id) {
+                tvCountQuestions.text = when (radioGroup.checkedRadioButtonId) {
                     R.id.rb_20 -> getString(R.string.tv_count_questions, 0, 20)
                     R.id.rb_50 -> getString(R.string.tv_count_questions, 0, 50)
                     R.id.rb_100 -> getString(R.string.tv_count_questions, 0, 100)
