@@ -18,6 +18,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("apikeys.properties").newDataInputStream())
+        def api_token = properties.getProperty("VK_TOKEN", "")
+        it.buildConfigField "String", "VK_TOKEN", api_token
+    }
 
     buildTypes {
         release {
