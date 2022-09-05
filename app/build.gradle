@@ -21,8 +21,10 @@ android {
     buildTypes.each {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("apikeys.properties").newDataInputStream())
-        def api_token = properties.getProperty("VK_TOKEN", "")
-        it.buildConfigField "String", "VK_TOKEN", api_token
+        def vk_api_token = properties.getProperty("VK_TOKEN", "")
+        it.buildConfigField "String", "VK_TOKEN", vk_api_token
+        def yandex_map_api = properties.getProperty("YANDEX_MAP_API", "")
+        it.buildConfigField "String", "YANDEX_MAP_API", yandex_map_api
     }
 
     buildTypes {

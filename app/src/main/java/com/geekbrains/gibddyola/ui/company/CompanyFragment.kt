@@ -8,6 +8,7 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
+import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAboutCompanyBinding
 import com.geekbrains.gibddyola.utils.CallIntent
@@ -19,7 +20,7 @@ import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
 import com.yandex.runtime.image.ImageProvider
 
-const val API_KEY = "ffdf1ffa-349f-4d48-bba7-812ec5201452"
+const val API_KEY = BuildConfig.YANDEX_MAP_API
 
 class CompanyFragment :
     ViewBindingFragment<FragmentAboutCompanyBinding>(FragmentAboutCompanyBinding::inflate) {
