@@ -40,4 +40,12 @@
     <!--YANDEX MAPS-->
     <string name="text_view_license_yandex_maps">Условия использования Яндекс.Карт</string>
     <string name="please_wait_downloading_end">Пожалуйста, дождитесь окончания загрузки</string>
+    <string name="site_maps_yandex">https://yandex.ru/legal/maps_termsofuse</string>
+    <string name="organization_data">ИП Ковалёва Ю.С.
+ инн 121524178574 огрнип 316121500063612</string>
+    <string name="contact_time">ПН–ПТ: 09:00–18:00
+ СБ-ВС: Выходной</string>
+    <string name="contact_address">ул. Красноармейская, 84а, офис 2
+ Йошкар-ола, 424000, Россия</string>
+
 </resources>

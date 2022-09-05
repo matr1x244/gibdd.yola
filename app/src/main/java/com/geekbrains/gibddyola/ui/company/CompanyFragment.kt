@@ -75,7 +75,7 @@ class CompanyFragment :
             )
         }
         binding.itemTextMapsLicense.setOnClickListener {
-            val siteMapsYandex = "https://yandex.ru/legal/maps_termsofuse"
+            val siteMapsYandex = getString(R.string.site_maps_yandex)
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(siteMapsYandex)
             startActivity(intent)
@@ -83,12 +83,12 @@ class CompanyFragment :
     }
 
     private fun textEditTitle() {
-        val organizationTextView = "ИП Ковалёва Ю.С. \n инн 121524178574 огрнип 316121500063612"
+        val organizationTextView = getString(R.string.organization_data)
         binding.textViewOrganization.text = organizationTextView
-        val contactTime = "ПН–ПТ: 09:00–18:00 \n СБ-ВС: Выходной"
+        val contactTime = getString(R.string.contact_time)
         binding.itemTextContactTime.text = contactTime
-        val contactAdress = "ул. Красноармейская, 84а, офис 2 \n Йошкар-ола, 424000, Россия"
-        binding.itemTextContactContactAbout.text = contactAdress
+        val contactAddress = getString(R.string.contact_address)
+        binding.itemTextContactContactAbout.text = contactAddress
 
         val textTitle = binding.itemTittle.text
         val spannableStringBuilder = SpannableStringBuilder(textTitle)
@@ -112,9 +112,5 @@ class CompanyFragment :
         super.onStart()
         MapKitFactory.getInstance().onStart()
         yandexMap?.onStart()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }
