@@ -13,7 +13,7 @@ import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.ui.game.test.score
 
-class GameFragment(private var score: Int) : Fragment() {
+class GameFragment(private var score: Int, var questionNumber: Int) : Fragment() {
     private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
 
     private var _binding: FragmentGameBinding? = null
@@ -36,11 +36,10 @@ class GameFragment(private var score: Int) : Fragment() {
                         viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
 
                         if (question.answers[position].second) score++
-                        tvScore.text = score.toString()
                         btnNext.setOnClickListener {
                             activity!!.supportFragmentManager
                                 .beginTransaction()
-                                .replace(R.id.main_activity_container, GameFragment(score))
+                                .replace(R.id.game_fragment, GameFragment(score, ++questionNumber))
                                 .addToBackStack("")
                                 .commitAllowingStateLoss()
                         }
@@ -50,12 +49,15 @@ class GameFragment(private var score: Int) : Fragment() {
         }
         )
     }
+    fun nextQuestion(): Int {
+        return questionNumber++
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,7 +65,7 @@ class GameFragment(private var score: Int) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            viewModel.getQuestion(0)
+            viewModel.getQuestion(questionNumber)
             rvAnswers.layoutManager =
                 LinearLayoutManager(requireContext())
             viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
@@ -93,6 +95,6 @@ class GameFragment(private var score: Int) : Fragment() {
     }
 
     companion object {
-        fun newInstance() = GameFragment(score = score)
+        fun newInstance() = GameFragment(score = score, questionNumber = 0)
     }
 }
