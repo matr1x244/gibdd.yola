@@ -24,10 +24,77 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/tv_count_questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сколько вопросов Вы хотите в тесте?" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_radio_button_block_left"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_20"
+                        android:layout_height="wrap_content"
+                        android:text="20" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_50"
+                        android:layout_height="wrap_content"
+                        android:text="50" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_radio_button_block_right"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rb_100"
+
+                        android:text="100" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_all"
+
+                        android:layout_height="wrap_content"
+                        android:text="Все" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RadioGroup>
     </LinearLayout>
 
     <Button
@@ -51,9 +118,9 @@
 
         <include
             android:id="@+id/game_fragment"
+            layout="@layout/fragment_game"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/fragment_game"/>
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btn_next"
@@ -63,5 +130,10 @@
             android:visibility="gone" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_quit_game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выйти из игры" />
 
 </LinearLayout>

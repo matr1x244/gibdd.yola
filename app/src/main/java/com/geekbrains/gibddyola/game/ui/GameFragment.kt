@@ -1,5 +1,7 @@
 package com.geekbrains.gibddyola.game.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +13,15 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
-import com.geekbrains.gibddyola.ui.game.test.score
 
-class GameFragment(private var score: Int, var questionNumber: Int) : Fragment() {
+
+class GameFragment(var questionNumber: Int) : Fragment() {
     private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
-
+    public var score = 0
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private var chooseAnswer = -1
+    var mSettings: SharedPreferences? = null
 
     private val gameAdapter: GameFragmentAdapter by lazy {
         GameFragmentAdapter(object :
@@ -36,11 +39,16 @@ class GameFragment(private var score: Int, var questionNumber: Int) : Fragment()
                         viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
 
                         if (question.answers[position].second) score++
+                        viewModel.setScore(score)
+
+                        val editor: SharedPreferences.Editor = mSettings!!.edit()
+                        editor.putString(GAME_SCORE, score.toString())
+                        editor.apply()
 
                         btnNext.setOnClickListener {
                             var nextFragment =
                                 if ((viewModel.getQuestionCount() - 1) > questionNumber) {
-                                    GameFragment(score, ++questionNumber)
+                                    GameFragment(++questionNumber)
                                 } else {
                                     GameFragmentOutOfQuestions()
                                 }
@@ -52,6 +60,7 @@ class GameFragment(private var score: Int, var questionNumber: Int) : Fragment()
                                 )
                                 .addToBackStack("")
                                 .commitAllowingStateLoss()
+                            viewModel.addAnsweredQuestion(question.id)
                         }
                     }
                 }
@@ -71,6 +80,8 @@ class GameFragment(private var score: Int, var questionNumber: Int) : Fragment()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE);
+
         with(binding) {
             viewModel.getQuestion(questionNumber)
             rvAnswers.layoutManager =
@@ -102,6 +113,6 @@ class GameFragment(private var score: Int, var questionNumber: Int) : Fragment()
     }
 
     companion object {
-        fun newInstance() = GameFragment(score = score, questionNumber = 0)
+        fun newInstance() = GameFragment(questionNumber = 0)
     }
 }
