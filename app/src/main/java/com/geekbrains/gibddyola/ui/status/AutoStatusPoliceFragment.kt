@@ -7,21 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
 import androidx.fragment.app.Fragment
+import com.geekbrains.gibddyola.databinding.FragmentAutoStatusBinding
 import com.geekbrains.gibddyola.databinding.FragmentAutoStatusPoliceBinding
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.vkontakte.MyWebViewClient
 
-class AutoStatusPoliceFragment : Fragment() {
+class AutoStatusPoliceFragment : ViewBindingFragment<FragmentAutoStatusPoliceBinding>(
+    FragmentAutoStatusPoliceBinding::inflate){
 
-    private var _binding: FragmentAutoStatusPoliceBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentAutoStatusPoliceBinding.inflate(inflater, container, false)
-        return binding.root
-
+    companion object {
+        fun newInstance() = AutoStatusPoliceFragment()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,10 +55,6 @@ class AutoStatusPoliceFragment : Fragment() {
                 binding.autoStatusWebView.scrollY = 1060
             }
         }
-    }
-
-    companion object {
-        fun newInstance() = AutoStatusPoliceFragment()
     }
 }
 

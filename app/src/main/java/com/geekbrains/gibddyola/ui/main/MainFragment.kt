@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
+import com.geekbrains.gibddyola.databinding.FragmentStockBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
@@ -33,6 +34,7 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
 import com.geekbrains.gibddyola.ui.stock.StockFragment
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.animation.FragmentOpenBackStack
 import com.geekbrains.gibddyola.utils.animation.ImageRotation
 import com.geekbrains.gibddyola.utils.animation.MainMenuOpen
@@ -46,10 +48,7 @@ import org.koin.core.qualifier.named
 import java.io.File
 
 
-class MainFragment : Fragment() {
-
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
+class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     private lateinit var sharedTooltips: SharedPreferences
     private lateinit var sharedUpdateParameters: SharedPreferences
@@ -92,15 +91,6 @@ class MainFragment : Fragment() {
         private const val UPDATE_INSTALL_STARTED = "install_started"
         private const val SCOPE_ID = "mainFragmentScope"
         fun newInstance() = MainFragment()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -491,7 +481,6 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         playSoundMain.stopSoundAll()
-        _binding = null
     }
 
 }

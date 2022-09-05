@@ -2,10 +2,7 @@ package com.geekbrains.gibddyola.ui.stock
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -20,32 +17,17 @@ import com.geekbrains.gibddyola.ui.stock.StockUrl.ALPHA_DURATION_POSTER
 import com.geekbrains.gibddyola.ui.stock.StockUrl.DELAY_TIME_POSTER
 import com.geekbrains.gibddyola.ui.stock.StockUrl.POSTERS_THREE
 import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes.generateId
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.showSnackBarNoAction
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
 
-class ThreeStockFragment : Fragment() {
-
-    private var _binding: FragmentThreeStockBinding? = null
-    val binding: FragmentThreeStockBinding
-        get() = _binding!!
+class ThreeStockFragment :
+    ViewBindingFragment<FragmentThreeStockBinding>(FragmentThreeStockBinding::inflate) {
 
     companion object {
         @JvmStatic
         fun newInstance() = ThreeStockFragment()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentThreeStockBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,9 +53,13 @@ class ThreeStockFragment : Fragment() {
                             target: Target<Drawable>?,
                             isFirstResource: Boolean
                         ): Boolean {
-                            binding.fragmentThreeStock.showSnackBarNoAction(R.string.no_internet_stock, Snackbar.LENGTH_LONG)
+                            binding.fragmentThreeStock.showSnackBarNoAction(
+                                R.string.no_internet_stock,
+                                Snackbar.LENGTH_LONG
+                            )
                             return false
                         }
+
                         override fun onResourceReady(
                             resource: Drawable?,
                             model: Any?,

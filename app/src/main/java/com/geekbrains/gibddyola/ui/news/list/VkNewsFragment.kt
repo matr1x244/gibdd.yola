@@ -1,10 +1,7 @@
 package com.geekbrains.gibddyola.ui.news.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
@@ -14,15 +11,14 @@ import com.geekbrains.gibddyola.ui.news.details.VkNewsDetailsFragment
 import com.geekbrains.gibddyola.ui.news.list.recyclerView.OnItemClickListener
 import com.geekbrains.gibddyola.ui.news.list.recyclerView.VkNewsRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.showSnackBarNoAction
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
-class VkNewsFragment : Fragment(), VkNewsContract.View {
-
-    private var _binding: FragmentVkNewsBinding? = null
-    private val binding get() = _binding!!
+class VkNewsFragment : ViewBindingFragment<FragmentVkNewsBinding>(FragmentVkNewsBinding::inflate),
+    VkNewsContract.View {
 
     private val newsList = mutableListOf<VkNewsEntity.Response.Item>()
     private val groupInfo = mutableListOf<VkGroupEntity.Response>()
@@ -37,14 +33,6 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
 
     private val viewModel: VkNewsViewModel by lazy {
         scope.get(named("vk_news_view_model"))
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentVkNewsBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -143,10 +131,5 @@ class VkNewsFragment : Fragment(), VkNewsContract.View {
         binding.vkNewsHidingScreen.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
-    }
-
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
     }
 }

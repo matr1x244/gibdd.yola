@@ -2,10 +2,7 @@ package com.geekbrains.gibddyola.ui.news.details
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
@@ -15,14 +12,13 @@ import com.geekbrains.gibddyola.ui.news.details.recyclerView.OnDetailsItemClickL
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsImageRVAdapter
 import com.geekbrains.gibddyola.ui.news.details.recyclerView.VkNewsDetailsVideoRVAdapter
 import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.vkontakte.ConvertCounts
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
-class VkNewsDetailsFragment : Fragment() {
-
-    private var _binding: FragmentVkNewsDetailsBinding? = null
-    private val binding get() = _binding!!
+class VkNewsDetailsFragment :
+    ViewBindingFragment<FragmentVkNewsDetailsBinding>(FragmentVkNewsDetailsBinding::inflate) {
 
     private var itemData: VkNewsEntity.Response.Item? = null
     private var groupData: VkGroupEntity.Response? = null
@@ -39,14 +35,6 @@ class VkNewsDetailsFragment : Fragment() {
 
     private val videoAdapter: VkNewsDetailsVideoRVAdapter by lazy {
         scope.get(named("vk_news_details_video_rv_adapter"))
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentVkNewsDetailsBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -139,7 +127,6 @@ class VkNewsDetailsFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        _binding = null
         viewModel.blockScreen(false)
         super.onDestroy()
     }

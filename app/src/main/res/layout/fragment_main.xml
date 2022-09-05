@@ -15,23 +15,13 @@
         android:layout_marginBottom="55dp"
         android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/light_green_400"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp"
-            app:strokeColor="@color/gray_green_500">
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_view_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                app:srcCompat="@mipmap/test" />
-
-        </com.google.android.material.card.MaterialCardView>
+                android:scaleType="centerInside"
+                app:srcCompat="@mipmap/logo" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_hello"
@@ -146,9 +136,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:alpha="1"
+            android:alpha="0"
             android:orientation="vertical"
-            android:translationY="150dp"
+            android:translationY="200dp"
             android:visibility="invisible">
 
             <ImageView

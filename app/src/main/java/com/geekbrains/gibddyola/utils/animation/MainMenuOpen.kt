@@ -110,13 +110,13 @@ class MainMenuOpen {
                     anim = View.TRANSLATION_Y
                 }
                 R.id.option_update_container -> {
-                    startValue = -1200F
-                    stopValue = -490F
+                    startValue = -1400F
+                    stopValue = -190F
                     anim = View.TRANSLATION_Y
                 }
                 R.id.download_process_layout -> {
-                    startValue = -1200F
-                    stopValue = -490F
+                    startValue = -1400F
+                    stopValue = -190F
                     anim = View.TRANSLATION_Y
                 }
             }

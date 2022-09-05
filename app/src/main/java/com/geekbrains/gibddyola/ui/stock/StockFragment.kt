@@ -1,37 +1,26 @@
 package com.geekbrains.gibddyola.ui.stock
 
-import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentStockBinding
 import com.geekbrains.gibddyola.ui.stock.viewpager.*
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
-class StockFragment : Fragment() {
+class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBinding::inflate) {
 
     companion object {
         fun newInstance() = StockFragment()
     }
 
-    private var _binding: FragmentStockBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentStockBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        activity?.window?.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+        activity?.window?.setFlags(
+            WindowManager.LayoutParams.FLAG_SECURE,
+            WindowManager.LayoutParams.FLAG_SECURE
+        )
         super.onViewCreated(view, savedInstanceState)
 
         ViewPagerCustom()
@@ -62,6 +51,5 @@ class StockFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-        _binding = null
     }
 }

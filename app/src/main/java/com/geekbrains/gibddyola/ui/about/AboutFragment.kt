@@ -1,19 +1,16 @@
 package com.geekbrains.gibddyola.ui.about
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.databinding.FragmentAboutAvarkomDetailBinding
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 
-class AboutFragment : Fragment() {
+class AboutFragment :
+    ViewBindingFragment<FragmentAboutAvarkomDetailBinding>(FragmentAboutAvarkomDetailBinding::inflate) {
 
     companion object {
         const val ARGS_KEY = "ARGS_KEY"
@@ -22,18 +19,6 @@ class AboutFragment : Fragment() {
             arguments = Bundle()
             arguments?.putParcelable(ARGS_KEY, entityData)
         }
-    }
-
-    private var _binding: FragmentAboutAvarkomDetailBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAboutAvarkomDetailBinding.inflate(inflater, container, false)
-        return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,10 +50,5 @@ class AboutFragment : Fragment() {
         binding.buttonPhone.setOnClickListener {
             CallIntent.check(requireActivity())
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

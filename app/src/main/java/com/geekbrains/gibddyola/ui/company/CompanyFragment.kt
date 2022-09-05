@@ -7,13 +7,11 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAboutCompanyBinding
 import com.geekbrains.gibddyola.utils.CallIntent
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -23,14 +21,12 @@ import com.yandex.runtime.image.ImageProvider
 
 const val API_KEY = "ffdf1ffa-349f-4d48-bba7-812ec5201452"
 
-class CompanyFragment : Fragment() {
+class CompanyFragment :
+    ViewBindingFragment<FragmentAboutCompanyBinding>(FragmentAboutCompanyBinding::inflate) {
 
     companion object {
         fun newInstance() = CompanyFragment()
     }
-
-    private var _binding: FragmentAboutCompanyBinding? = null
-    private val binding get() = _binding!!
 
     private var yandexMap: MapView? = null
     private val pointOffice: Point = Point(56.64583, 47.87126)
@@ -39,14 +35,6 @@ class CompanyFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MapKitInitializer.initialize(API_KEY, requireActivity())
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAboutCompanyBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -108,7 +96,7 @@ class CompanyFragment : Fragment() {
         spannableStringBuilder.setSpan(red, 0, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.itemTittle.text = spannableStringBuilder
 
-        binding.itemTextContactCallAbout.setOnClickListener{
+        binding.itemTextContactCallAbout.setOnClickListener {
             CallIntent.check(requireActivity())
         }
     }
@@ -127,6 +115,5 @@ class CompanyFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }
