@@ -22,6 +22,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.CenterInside
+import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
@@ -100,6 +104,15 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         setDefaultUpdateParams()
         initViews()
         initIncomingEvents()
+        banner()
+    }
+
+    private fun banner(){
+        Glide.with(binding.imageViewMain)
+            .asGif()
+            .load(R.mipmap.logo_animate)
+            .transform(FitCenter(), CenterInside())
+            .into(binding.imageViewMain)
     }
 
     private fun getSharedTooltipIndex() {
