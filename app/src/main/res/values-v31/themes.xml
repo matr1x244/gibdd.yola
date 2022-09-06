@@ -3,6 +3,6 @@
     <style name="Theme.NewSplashScreen" parent="Theme.SplashScreen">
         <item name="postSplashScreenTheme">@style/Theme.Gibddyola</item>
         <item name="windowSplashScreenBackground">@color/white</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_icon_round</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/icon_start_logo</item>
     </style>
 </resources>

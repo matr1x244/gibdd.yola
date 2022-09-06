@@ -25,7 +25,7 @@ class StartActivityTheme : AppCompatActivity() {
                     screenProvider.view,
                     View.ALPHA, 5f, 0f
                 ).apply {
-                    duration = 1000
+                    duration = 900
                     doOnEnd {
                         screenProvider.remove()
                     }
@@ -34,13 +34,13 @@ class StartActivityTheme : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {
-            ObjectAnimator.ofFloat(findViewById(R.id.container_start_theme), View.ALPHA, 1.0f, 0.0f)
+            ObjectAnimator.ofFloat(findViewById(R.id.iv_logo), View.ALPHA, 0.2f, 1.0f)
                 .setDuration(900)
                 .start()
             Handler(mainLooper).postDelayed({
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
-            }, 800L)
+            }, 900L)
         }
     }
 }
