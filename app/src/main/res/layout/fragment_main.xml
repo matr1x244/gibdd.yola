@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background_gif"
     tools:context=".ui.main.MainFragment">
 
     <LinearLayout
@@ -17,10 +18,11 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_view_main"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/main_logo_height"
             android:layout_gravity="center"
             android:scaleType="centerInside"
+            android:background="@color/background_gif"
             app:srcCompat="@mipmap/logo" />
 
         <androidx.appcompat.widget.AppCompatTextView

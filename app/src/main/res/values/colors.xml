@@ -18,6 +18,7 @@
     <color name="transparent_grey_50">#FAFAFA</color>
     <color name="vk_background_color_gray">#e9ecf1</color>
     <color name="yellow_600">#FDD835</color>
+    <color name="background_gif">#fdfbfd</color>
 
     <color name="light_blue_50">#E1F5FE</color>
     <color name="light_blue_100">#B3E5FC</color>
