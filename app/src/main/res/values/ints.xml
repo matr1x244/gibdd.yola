@@ -3,6 +3,7 @@
     <integer name="low_density_start">0</integer>
     <integer name="low_density_end">400</integer>
     <integer name="low_density_y_scroll">870</integer>
+    <integer name="low_density_y_scroll_defects">910</integer>
     <integer name="middle_density_start">400</integer>
     <integer name="middle_density_end">500</integer>
     <integer name="middle_density_y_scroll">970</integer>

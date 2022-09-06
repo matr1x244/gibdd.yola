@@ -41,7 +41,7 @@ class AutoStatusFragment :
         ) { tab, position ->
             tab.text = when (position) {
                 VIN -> "Проверка дефектов"
-                GIBBD -> "Проверка штрафов ГИБДД"
+                GIBBD -> "Проверка штрафов"
                 else -> "Проверка дефектов"
             }
         }.attach()

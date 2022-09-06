@@ -45,7 +45,7 @@ class AutoStatusVinFragment : ViewBindingFragment<FragmentAutoStatusVinBinding>(
             in (getInteger(R.integer.low_density_start)..
                     getInteger(R.integer.low_density_end)) -> {
                 binding.autoStatusWebView.scrollY =
-                    getInteger(R.integer.low_density_y_scroll)
+                    getInteger(R.integer.low_density_y_scroll_defects)
             }
             in (getInteger(R.integer.middle_density_start)..
                     getInteger(R.integer.middle_density_end)) -> {
