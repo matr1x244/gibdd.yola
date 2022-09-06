@@ -106,7 +106,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         banner()
     }
 
-    private fun banner(){
+    private fun banner() {
         Glide.with(binding.imageViewMain)
             .asGif()
             .load(R.mipmap.logo_animate)
@@ -316,7 +316,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 }
             }
 
-            if (!openMenu){
+            if (!openMenu) {
                 anim.cancel()
                 playSoundMain.pauseSoundAll()
 
