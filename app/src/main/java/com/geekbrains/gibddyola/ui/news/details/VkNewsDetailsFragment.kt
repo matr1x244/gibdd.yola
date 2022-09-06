@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
@@ -73,6 +75,9 @@ class VkNewsDetailsFragment :
             false
         )
         binding.vkNewsDetailsRvImage.adapter = imageAdapter
+
+        val snapHelper: SnapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(binding.vkNewsDetailsRvImage)
 
         binding.vkNewsDetailsRvVideo.layoutManager = LinearLayoutManager(
             requireContext(),
