@@ -25,7 +25,7 @@
     <string name="game">Мини-игра ПДД</string>
     <string name="news">Новости</string>
     <string name="company">О компании</string>
-    <string name="check_auto">Проверка штрафов</string>
+    <string name="check_auto">Проверка АВТО</string>
     <!--UPDATE APP-->
     <string name="downloading_percent_count">%1$d %%</string>
     <!--VK NEWS AND STOCKS FRAGMENT-->
@@ -58,6 +58,7 @@
     <string name="update_dialog_postponed_button">Отложить</string>
     <!--Police status checking-->
     <string name="police_status_check_url">https://гибдд.рф/check/fines</string>
+    <string name="vin_status_check_url">https://easy.gost.ru</string>
     <!--Promo-->
     <string name="promo_code_id">промокод: %1$s</string>
     <string name="discount_1">Скидка № 1</string>
