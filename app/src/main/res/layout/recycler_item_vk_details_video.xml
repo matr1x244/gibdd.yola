@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vk_news_details_rv_video_container"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/vk_news_full_image_height"
-    android:background="@color/amber_orange_50"
+    android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="horizontal">
 
     <com.geekbrains.gibddyola.utils.EquilateralImageView

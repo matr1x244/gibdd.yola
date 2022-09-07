@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vk_news_details_rv_image_container"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/vk_news_full_image_height"
+    android:layout_height="match_parent"
     android:background="@color/amber_orange_50"
     android:orientation="horizontal">
 
@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="@dimen/dp1"
-        android:paddingEnd="@dimen/dp2"
-        android:scaleType="fitCenter"
+        android:paddingEnd="@dimen/dp1"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
