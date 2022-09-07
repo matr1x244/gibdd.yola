@@ -26,12 +26,6 @@
             android:background="@color/vk_background_color_gray"
             android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/vk_news_details_media_container"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/vk_news_full_image_height"
-                android:layout_marginHorizontal="@dimen/dp1">
-
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_view_view_blocks"
                     android:layout_width="match_parent"
@@ -77,8 +71,6 @@
                         android:visibility="visible" />
 
                 </com.google.android.material.card.MaterialCardView>
-
-            </FrameLayout>
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group"
