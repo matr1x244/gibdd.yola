@@ -1,126 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vk_news_with_photo_item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/vk_news_with_photo_item_layout"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/vk_background_color_gray"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp5"
+        android:hapticFeedbackEnabled="false"
+        app:cardCornerRadius="@dimen/dp5"
+        app:cardElevation="@dimen/dp2">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/dp5"
-            android:hapticFeedbackEnabled="false"
-            app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp2">
+            android:layout_height="wrap_content">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/vk_news_item_logo_image"
+                android:layout_width="@dimen/vk_news_item_logo_image"
+                android:layout_height="@dimen/vk_news_item_logo_image"
+                android:layout_marginStart="@dimen/dp5"
+                app:layout_constraintBottom_toTopOf="@id/vk_news_item_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/ic_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vk_news_item_tittle_group_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp3"
+                android:text="@string/vk_news_item_tittle_group_name"
+                android:textColor="@color/amber_orange_500"
+                android:textSize="@dimen/vk_news_title_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/vk_news_item_time"
+                app:layout_constraintStart_toEndOf="@+id/vk_news_item_logo_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vk_news_item_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp3"
+                android:paddingBottom="@dimen/dp3"
+                android:text="@string/vk_news_item_time"
+                android:textSize="@dimen/vk_news_time_text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/vk_news_item_logo_image"
+                app:layout_constraintStart_toEndOf="@+id/vk_news_item_logo_image" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/vk_news_item_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp3"
+                android:layout_marginStart="@dimen/dp3"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vk_news_item_logo_image"
+                tools:text="@string/vk_news_block_textview" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/vk_news_item_logo_image"
-                    android:layout_width="@dimen/vk_news_item_logo_image"
-                    android:layout_height="@dimen/vk_news_item_logo_image"
-                    android:paddingStart="@dimen/dp5"
-                    app:layout_constraintBottom_toTopOf="@id/vk_news_item_text"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_icon" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/vk_news_item_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vk_news_item_text"
+                tools:src="@mipmap/driver_license" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/vk_news_item_tittle_group_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingStart="@dimen/dp3"
-                    android:text="@string/vk_news_item_tittle_group_name"
-                    android:textColor="@color/amber_orange_500"
-                    android:textSize="@dimen/vk_news_title_text_size"
-                    app:layout_constraintBottom_toTopOf="@+id/vk_news_item_time"
-                    app:layout_constraintStart_toEndOf="@+id/vk_news_item_logo_image"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/vk_news_item_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingStart="@dimen/dp3"
-                    android:paddingBottom="@dimen/dp3"
-                    android:text="@string/vk_news_item_time"
-                    android:textSize="@dimen/vk_news_time_text_size"
-                    app:layout_constraintBottom_toBottomOf="@+id/vk_news_item_logo_image"
-                    app:layout_constraintStart_toEndOf="@+id/vk_news_item_logo_image" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/vk_news_item_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:justificationMode="inter_word"
-                    android:padding="@dimen/dp3"
-                    android:paddingStart="@dimen/dp5"
-                    android:textColor="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vk_news_item_logo_image"
-                    tools:text="@string/vk_news_block_textview" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/vk_news_item_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/dp3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/vk_news_item_text"
-                    tools:src="@mipmap/driver_license" />
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chip_group"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/dp5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/vk_news_item_image">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/like_vk"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="false"
-                        android:text="@string/like_vk_chips"
-                        android:textSize="@dimen/like_vk_text_size"
-                        app:chipIcon="@mipmap/ic_heart"
-                        app:rippleColor="@color/color_transparent"
-                        app:chipBackgroundColor="@color/color_transparent"/>
-
-                </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vk_news_item_image">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/see_post_vk"
+                    android:id="@+id/like_vk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:alpha="0.5"
                     android:checkable="false"
-                    android:text="@string/vk_view_post"
-                    android:textSize="@dimen/view_vk_text_size"
-                    app:chipBackgroundColor="@color/white"
-                    app:chipIcon="@drawable/ic_view_vk_post"
-                    app:chipIconSize="@dimen/view_vk_text_size"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/chip_group" />
+                    android:text="@string/like_vk_chips"
+                    android:textSize="@dimen/like_vk_text_size"
+                    app:chipBackgroundColor="@color/color_transparent"
+                    app:chipIcon="@mipmap/ic_heart"
+                    app:rippleColor="@color/color_transparent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.chip.ChipGroup>
 
-        </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/see_post_vk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:checkable="false"
+                android:text="@string/vk_view_post"
+                android:textSize="@dimen/view_vk_text_size"
+                app:chipBackgroundColor="@color/white"
+                app:chipIcon="@drawable/ic_view_vk_post"
+                app:chipIconSize="@dimen/view_vk_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/chip_group" />
 
-    </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
