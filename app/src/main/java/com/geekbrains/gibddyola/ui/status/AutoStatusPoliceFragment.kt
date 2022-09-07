@@ -3,6 +3,7 @@ package com.geekbrains.gibddyola.ui.status
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAutoStatusPoliceBinding
@@ -29,9 +30,11 @@ class AutoStatusPoliceFragment : ViewBindingFragment<FragmentAutoStatusPoliceBin
         settings.textZoom = 90
 
         settings.javaScriptCanOpenWindowsAutomatically = true
-        settings.cacheMode = WebSettings.LOAD_DEFAULT
+        settings.cacheMode = WebSettings.LOAD_NO_CACHE
         settings.useWideViewPort = true
         settings.loadWithOverviewMode = true
+        settings.javaScriptEnabled = true
+        settings.domStorageEnabled = true
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             settings.safeBrowsingEnabled = true

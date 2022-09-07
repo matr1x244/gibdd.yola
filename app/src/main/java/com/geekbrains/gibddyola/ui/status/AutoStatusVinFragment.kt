@@ -32,6 +32,8 @@ class AutoStatusVinFragment : ViewBindingFragment<FragmentAutoStatusVinBinding>(
         settings.cacheMode = WebSettings.LOAD_DEFAULT
         settings.useWideViewPort = true
         settings.loadWithOverviewMode = true
+        settings.javaScriptEnabled = true
+        settings.domStorageEnabled = true
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             settings.safeBrowsingEnabled = true
