@@ -2,6 +2,7 @@ package com.geekbrains.gibddyola.ui.news.details.recyclerView
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
@@ -21,7 +22,10 @@ class VkNewsDetailsImageRVAdapter :
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VkNewsImageDetailsViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): VkNewsImageDetailsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycler_item_vk_details_image, parent, false)
         return VkNewsImageDetailsViewHolder(view)
@@ -29,6 +33,10 @@ class VkNewsDetailsImageRVAdapter :
 
     override fun onBindViewHolder(holder: VkNewsImageDetailsViewHolder, position: Int) {
         holder.bindPhoto(images[position])
+        holder.fullImage.animation = AnimationUtils.loadAnimation(
+            holder.itemView.context,
+            R.anim.rv_news_image_details
+        )
         if (itemCount > 1 && position < itemCount - 1) {
             holder.arrowForwardVisibility(true)
         } else {

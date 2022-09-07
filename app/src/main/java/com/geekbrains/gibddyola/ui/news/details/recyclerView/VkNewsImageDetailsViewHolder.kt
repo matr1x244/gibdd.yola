@@ -10,7 +10,7 @@ import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
 class VkNewsImageDetailsViewHolder(
     itemView: View
 ) : RecyclerView.ViewHolder(itemView) {
-    private val fullImage: AppCompatImageView =
+    val fullImage: AppCompatImageView =
         itemView.findViewById(R.id.vk_news_details_rv_item_image)
     private val arrowBack: AppCompatImageView =
         itemView.findViewById(R.id.arrow_back)
