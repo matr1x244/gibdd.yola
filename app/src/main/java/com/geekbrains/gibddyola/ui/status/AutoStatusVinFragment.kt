@@ -29,7 +29,7 @@ class AutoStatusVinFragment : ViewBindingFragment<FragmentAutoStatusVinBinding>(
         settings.textZoom = 90
 
         settings.javaScriptCanOpenWindowsAutomatically = true
-        settings.cacheMode = WebSettings.LOAD_DEFAULT
+        settings.cacheMode = WebSettings.LOAD_NO_CACHE
         settings.useWideViewPort = true
         settings.loadWithOverviewMode = true
         settings.javaScriptEnabled = true
