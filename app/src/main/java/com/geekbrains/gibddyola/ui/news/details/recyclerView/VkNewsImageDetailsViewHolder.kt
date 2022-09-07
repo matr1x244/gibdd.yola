@@ -12,6 +12,10 @@ class VkNewsImageDetailsViewHolder(
 ) : RecyclerView.ViewHolder(itemView) {
     private val fullImage: AppCompatImageView =
         itemView.findViewById(R.id.vk_news_details_rv_item_image)
+    private val arrowBack: AppCompatImageView =
+        itemView.findViewById(R.id.arrow_back)
+    private val arrowForward: AppCompatImageView =
+        itemView.findViewById(R.id.arrow_forward)
 
     fun bindPhoto(image: VkNewsEntity.Response.Item.Attachment.Photo.Size?) {
         val imageUrl = image?.url.toString()
@@ -21,6 +25,22 @@ class VkNewsImageDetailsViewHolder(
                 .load(imageUrl)
                 .centerInside()
                 .into(fullImage)
+        }
+    }
+
+    fun arrowBackVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            arrowBack.visibility = View.VISIBLE
+        } else {
+            arrowBack.visibility = View.GONE
+        }
+    }
+
+    fun arrowForwardVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            arrowForward.visibility = View.VISIBLE
+        } else {
+            arrowForward.visibility = View.GONE
         }
     }
 }

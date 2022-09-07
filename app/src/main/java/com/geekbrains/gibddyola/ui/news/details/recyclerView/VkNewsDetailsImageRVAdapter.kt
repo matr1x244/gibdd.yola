@@ -28,7 +28,17 @@ class VkNewsDetailsImageRVAdapter :
     }
 
     override fun onBindViewHolder(holder: VkNewsImageDetailsViewHolder, position: Int) {
-            holder.bindPhoto(images[position])
+        holder.bindPhoto(images[position])
+        if (itemCount > 1 && position < itemCount - 1) {
+            holder.arrowForwardVisibility(true)
+        } else {
+            holder.arrowForwardVisibility(false)
+        }
+        if (position > 0) {
+            holder.arrowBackVisibility(true)
+        } else {
+            holder.arrowBackVisibility(false)
+        }
     }
 
     override fun getItemCount(): Int {

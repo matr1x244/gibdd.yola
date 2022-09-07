@@ -47,6 +47,13 @@
                         android:layout_height="match_parent"
                         android:padding="@dimen/dp1" />
 
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vk_news_details_vp_image"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="@dimen/vk_news_full_image_height"
+                        android:padding="@dimen/dp1" />
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/vk_news_details_rv_image"
                         android:layout_width="match_parent"
@@ -91,9 +98,9 @@
                     android:checkable="false"
                     android:text="@string/like_vk_chips"
                     android:textSize="@dimen/like_vk_text_size"
+                    app:chipBackgroundColor="@color/amber_orange_50"
                     app:chipIcon="@mipmap/ic_heart"
-                    app:rippleColor="@color/color_transparent"
-                    app:chipBackgroundColor="@color/amber_orange_50"/>
+                    app:rippleColor="@color/color_transparent" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/see_post_vk"
@@ -103,10 +110,10 @@
                     android:checkable="false"
                     android:text="@string/vk_view_post"
                     android:textSize="@dimen/view_vk_text_size"
+                    app:chipBackgroundColor="@color/amber_orange_50"
                     app:chipIcon="@drawable/ic_view_vk_post"
                     app:chipIconSize="@dimen/view_vk_text_size"
-                    app:rippleColor="@color/vk_background_color_gray"
-                    app:chipBackgroundColor="@color/amber_orange_50"/>
+                    app:rippleColor="@color/vk_background_color_gray" />
 
             </com.google.android.material.chip.ChipGroup>
 
