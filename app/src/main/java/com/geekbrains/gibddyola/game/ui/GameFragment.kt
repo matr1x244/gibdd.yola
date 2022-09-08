@@ -61,13 +61,16 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                                 "AnswerdQUestionList -${viewModel.getListAnsweredQuestion()} "
                             )
                             Log.d("GameLog", "AnswerdQUestion -${listOfAnsweredQuestions} ")
-
+                            val bundle= Bundle()
+                            bundle.putInt("numberOfQuestions", numberOfQuestions!!)
+                          val  nextFragment = GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
+                              nextFragment.arguments = bundle
                             if ((viewModel.getQuestionCount() - 1) > viewModel.getListAnsweredQuestion().size) {
                                 activity!!.supportFragmentManager
                                     .beginTransaction()
                                     .replace(
                                         R.id.main_activity_container,
-                                        GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
+                                        nextFragment
                                     )
                                     .addToBackStack("")
                                     .commitAllowingStateLoss()
@@ -89,19 +92,24 @@ class GameFragment(var questionNumber: Int) : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+//        numberOfQuestions = savedInstanceState?.getInt("numberOfQuestions", 0) ?: 0
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        numberOfQuestions = arguments?.getInt("numberOfQuestions")
+
         mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE);
+//        numberOfQuestions=  savedInstanceState?.getInt("numberOfQuestions") ?: 0
         with(binding)
         {
-//            viewModel.getNumberOfQuestion().observe(viewLifecycleOwner) {
-//                numberOfQuestions = it
-//            }
-//            if (numberOfQuestions != null) radioGroup.visibility = View.GONE
+//           numberOfQuestions= viewModel.getNumberOfQuestion().value
+            Log.d("GameLog", "Кол-во вопросов = ${numberOfQuestions} ")
+//            Log.d("GameLog", "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} ")
+
+            if (numberOfQuestions != null) radioGroup.visibility = View.GONE
 //Счет игры
             viewModel.getScore().observe(viewLifecycleOwner) {
                 tvScore.text = it.toString()
@@ -122,8 +130,11 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                     R.id.rb_all -> viewModel.getQuestionCount()
                     else -> 0
                 }
+                Log.d("GameLog", "Кол-во вопросов numberOfQuestions= ${numberOfQuestions} ")
+
                 tvCountQuestions.text = getString(R.string.tv_count_questions, 0, numberOfQuestions)
                 viewModel.setNumberOfQuestion(numberOfQuestions!!)
+                Log.d("GameLog", "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} ")
 
                 val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
                 val nextFragment =
@@ -132,6 +143,9 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                     } else {
                         GameFragmentOutOfQuestions()
                     }
+                val bundle= Bundle()
+                bundle.putInt("numberOfQuestions", numberOfQuestions!!)
+                nextFragment.arguments = bundle
                 activity!!.supportFragmentManager
                     .beginTransaction()
                     .replace(
@@ -197,7 +211,13 @@ class GameFragment(var questionNumber: Int) : Fragment() {
         fun onItemViewClick(question: QuestionDomain, position: Int)
     }
 
-    companion object {
-        fun newInstance() = GameFragment(questionNumber = -1)
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        numberOfQuestions?.let { outState.putInt("numberOfQuestions", it) };
+
     }
+
+//    companion object {
+//        fun newInstance() = GameFragment(questionNumber = -1)
+//    }
 }
