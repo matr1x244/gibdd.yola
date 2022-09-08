@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
@@ -36,7 +37,7 @@ class VkNewsViewHolder(
     fun bind(
         item: VkNewsEntity.Response.Item,
         groupInfo: VkGroupEntity.Response
-        ) {
+    ) {
         var imageUrl = ""
         if (item.text.isNotEmpty()) {
             if (item.attachments.isNullOrEmpty()) {
@@ -70,7 +71,8 @@ class VkNewsViewHolder(
         val postViews = itemView.findViewById<Chip>(R.id.see_post_vk)
         postViews.text = ConvertCounts.convert(item.views.count)
 
-        val groupName = itemView.findViewById<AppCompatTextView>(R.id.vk_news_item_tittle_group_name)
+        val groupName =
+            itemView.findViewById<AppCompatTextView>(R.id.vk_news_item_tittle_group_name)
         groupName.text = groupInfo.name
 
         val groupPhoto = itemView.findViewById<AppCompatImageView>(R.id.vk_news_item_logo_image)
@@ -82,7 +84,9 @@ class VkNewsViewHolder(
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
                 .load(imageUrl)
-                .error(R.mipmap.logo)
+                .placeholder(R.mipmap.logo_small)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.mipmap.logo_small)
                 .into(image)
         }
 

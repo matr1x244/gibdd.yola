@@ -23,7 +23,6 @@ class VkNewsImageDetailsViewHolder(
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
                 .load(imageUrl)
-                .centerInside()
                 .into(fullImage)
         }
     }
