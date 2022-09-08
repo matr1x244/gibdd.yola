@@ -1,49 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_question"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ваш счет: " />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_count_questions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_count_of_questions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Вопрос 8: " />
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_image_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сколько вопросов Вы хотите в тесте?" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_answers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tv_answer_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="Комментарий к ответу" />
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="20" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:text="50" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:text="100" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:text="Все" />
+        </RadioGroup>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btn_check"
+        android:id="@+id/btn_begin_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ответить"
-        android:visibility="gone"
-        />
+        android:text="Начать игру" />
 
     <Button
-        android:id="@+id/btn_next"
+        android:id="@+id/btn_clear_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Следующий вопрос"
+        android:text="Сбросить счет" />
+    <TextView
+        android:id="@+id/tv_out_of_questions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
         android:visibility="gone"
-        />
+        android:text="Вопросы кончились " />
+
+    <LinearLayout
+        android:id="@+id/ll_game_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <TextView
+            android:id="@+id/tv_question_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Вопрос 8: " />
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Вопрос: " />
+
+        <ImageView
+            android:id="@+id/iv_image_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_answers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_answer_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Комментарий к ответу"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ответить"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Следующий вопрос"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_quit_game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выйти из игры" />
+
 
 </LinearLayout>

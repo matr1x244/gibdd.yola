@@ -15,19 +15,30 @@ class GameViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData(),
     private val questionRepositoryImpl: QuestionRepository = QuestionRepositoryImpl(),
     private val scoreToObserve: MutableLiveData<Int> = MutableLiveData(),
+    private val numberOfQuestions: MutableLiveData<Int> = MutableLiveData(),
     private val listAnsweredQuestions: MutableLiveData<Int> = MutableLiveData(),
-    private val listAnsweredQuestions2: MutableLiveData<MutableSet<Int>> = MutableLiveData()
+    private val listAnsweredQuestions2: MutableLiveData<MutableSet<Int>> = MutableLiveData(),
+//    private val numberOfQuestions: MutableLiveData<Int> = MutableLiveData()
 ) : ViewModel() {
+    var listOfAnsweredQuestions = mutableSetOf<Int>()
+//    var numberOfQuestions = mutableListOf<Int>()
+
     val listAnsweredQuestion = mutableSetOf<Int>()
     fun getLiveData() = liveDataToObserve
     fun getScore() = scoreToObserve
+    fun getNumberOfQuestion() = numberOfQuestions
+    fun setNumberOfQuestion(number: Int) {numberOfQuestions.value = number}
     fun setScore(score: Int) {
         scoreToObserve.value = score
     }
     fun addAnsweredQuestion(id: Int) {
         listAnsweredQuestions2.value?.add(id)
     }
-    fun getAnsweredQuestions() = listAnsweredQuestions
+    fun addAnsweredQuestion2(id: Int) {
+        listAnsweredQuestions.value=id
+    }
+    fun getAnsweredQuestions()=listAnsweredQuestions
+
 
     fun getListAnsweredQuestion():List<Int> {
         return listAnsweredQuestions2.value?.toList() ?: listOf()

@@ -3,6 +3,7 @@ package com.geekbrains.gibddyola.game.ui
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,11 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
+import com.geekbrains.gibddyola.ui.main.MainFragment
+import kotlin.properties.Delegates
 
+const val GAME_PREFERENCES = "gamePref"
+const val GAME_SCORE = "gameScore"
 
 class GameFragment(var questionNumber: Int) : Fragment() {
     private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
@@ -22,6 +27,8 @@ class GameFragment(var questionNumber: Int) : Fragment() {
     private val binding get() = _binding!!
     private var chooseAnswer = -1
     var mSettings: SharedPreferences? = null
+    var listOfAnsweredQuestions = mutableSetOf<Int>()
+    private var numberOfQuestions: Int? = null
 
     private val gameAdapter: GameFragmentAdapter by lazy {
         GameFragmentAdapter(object :
@@ -47,21 +54,28 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 
                         btnNext.setOnClickListener {
                             viewModel.addAnsweredQuestion(question.id)
+                            viewModel.addAnsweredQuestion2(question.id)
+                            Log.d("GameLog", "question.id -${question.id} ")
+                            Log.d(
+                                "GameLog",
+                                "AnswerdQUestionList -${viewModel.getListAnsweredQuestion()} "
+                            )
+                            Log.d("GameLog", "AnswerdQUestion -${listOfAnsweredQuestions} ")
 
-                            val nextFragment =
-                                if ((viewModel.getQuestionCount() - 1) > questionNumber) {
-                                    GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
-                                } else {
-                                    GameFragmentOutOfQuestions()
-                                }
-                            activity!!.supportFragmentManager
-                                .beginTransaction()
-                                .replace(
-                                    R.id.game_fragment,
-                                    nextFragment
-                                )
-                                .addToBackStack("")
-                                .commitAllowingStateLoss()
+                            if ((viewModel.getQuestionCount() - 1) > viewModel.getListAnsweredQuestion().size) {
+                                activity!!.supportFragmentManager
+                                    .beginTransaction()
+                                    .replace(
+                                        R.id.main_activity_container,
+                                        GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
+                                    )
+                                    .addToBackStack("")
+                                    .commitAllowingStateLoss()
+
+                            } else {
+                                tvOutOfQuestions.visibility = View.VISIBLE
+                                llGameFragment.visibility = View.GONE
+                            }
                         }
                     }
                 }
@@ -82,20 +96,78 @@ class GameFragment(var questionNumber: Int) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE);
+        with(binding)
+        {
+//            viewModel.getNumberOfQuestion().observe(viewLifecycleOwner) {
+//                numberOfQuestions = it
+//            }
+//            if (numberOfQuestions != null) radioGroup.visibility = View.GONE
+//Счет игры
+            viewModel.getScore().observe(viewLifecycleOwner) {
+                tvScore.text = it.toString()
+            }
+//Количество пройденных вопросов
+            viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
+                listOfAnsweredQuestions.add(it)
+            }
+//Кнопка Начать игру
+            btnBeginGame.setOnClickListener {
+                btnBeginGame.visibility = View.GONE
+                llCountOfQuestions.visibility = View.GONE
+                tvCountQuestions.visibility = View.VISIBLE
+                numberOfQuestions = when (radioGroup.checkedRadioButtonId) {
+                    R.id.rb_20 -> 20
+                    R.id.rb_50 -> 50
+                    R.id.rb_100 -> 100
+                    R.id.rb_all -> viewModel.getQuestionCount()
+                    else -> 0
+                }
+                tvCountQuestions.text = getString(R.string.tv_count_questions, 0, numberOfQuestions)
+                viewModel.setNumberOfQuestion(numberOfQuestions!!)
 
-        with(binding) {
-            viewModel.getQuestion(questionNumber)
-            rvAnswers.layoutManager =
-                LinearLayoutManager(requireContext())
-            viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
+                val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
+                val nextFragment =
+                    if (changeQuestion >= 0) {
+                        GameFragment(changeQuestion)
+                    } else {
+                        GameFragmentOutOfQuestions()
+                    }
+                activity!!.supportFragmentManager
+                    .beginTransaction()
+                    .replace(
+                        R.id.main_activity_container,
+                        nextFragment
+                    )
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+
+//Кнопка Выйти из игры
+            btnQuitGame.setOnClickListener {
+                activity!!.supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_activity_container, MainFragment.newInstance())
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+            if (questionNumber != -1) {
+                viewModel.getQuestion(questionNumber)
+                rvAnswers.layoutManager =
+                    LinearLayoutManager(requireContext())
+                viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
+            } else {
+                llGameFragment.visibility = View.GONE
+
+            }
         }
     }
 
-    private fun renderData(appState: AppState?) = with(binding) {
+    private fun renderData(appState: AppState?) {
         when (appState) {
             is AppState.Success -> {
                 with(binding) {
-                    tvQuestion.text = "Вопрос: " + appState.questions.id.toString()
+                    tvQuestionNumber.text = "Вопрос: " + appState.questions.id.toString()
+                    tvQuestion.text = appState.questions.question
                     appState.questions.image?.let { ivImageQuestion.setBackgroundResource(it) }
                     gameAdapter.setData(
                         appState.questions,
@@ -126,6 +198,6 @@ class GameFragment(var questionNumber: Int) : Fragment() {
     }
 
     companion object {
-        fun newInstance() = GameFragment(questionNumber = 0)
+        fun newInstance() = GameFragment(questionNumber = -1)
     }
 }
