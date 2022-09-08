@@ -23,6 +23,7 @@ class VkNewsImageDetailsViewHolder(
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
                 .load(imageUrl)
+                .placeholder(R.mipmap.logo_small)
                 .into(fullImage)
         }
     }

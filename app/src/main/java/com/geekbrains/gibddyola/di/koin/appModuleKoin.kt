@@ -28,7 +28,11 @@ val appModuleKoin = module {
         scoped(named("downloadPath")) { androidContext().filesDir.path }
 
         viewModel(named("mainFragmentViewModel")) {
-            MainViewModel(get(), get(named("flowRepository")), get(named("downloadPath")))
+            MainViewModel(
+                get(),
+                get(named("flowRepository")),
+                get(named("downloadPath"))
+            )
         }
     }
 }

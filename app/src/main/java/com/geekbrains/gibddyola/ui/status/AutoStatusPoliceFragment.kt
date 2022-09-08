@@ -3,7 +3,6 @@ package com.geekbrains.gibddyola.ui.status
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAutoStatusPoliceBinding

@@ -8,7 +8,6 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
-import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAboutCompanyBinding
 import com.geekbrains.gibddyola.utils.CallIntent

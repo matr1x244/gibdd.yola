@@ -13,10 +13,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.LocalRepositoryGameImpl
 import com.geekbrains.gibddyola.databinding.FragmentQuestionsBinding
-
 import com.geekbrains.gibddyola.domain.game.Question
-import java.util.*
-import kotlin.collections.ArrayList
 
 var score = 0
 

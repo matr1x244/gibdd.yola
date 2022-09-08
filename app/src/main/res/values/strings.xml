@@ -67,5 +67,9 @@
     <string name="poster_1_url">https://гибдд12.рф/img/photos/posters/1.jpg</string>
     <string name="poster_2_url">https://гибдд12.рф/img/photos/posters/2.jpg</string>
     <string name="poster_3_url">https://гибдд12.рф/img/photos/posters/3.jpg</string>
+    <string name="no_internet_title">Отсутствует подключение</string>
+    <string name="no_internet_message">Для просмотра контента требуется подключение к интернету</string>
+    <string name="no_internet_refresh_button">Обновить</string>
+    <string name="no_internet_close_app">Выйти</string>
 
 </resources>
