@@ -68,7 +68,7 @@ class ThreeStockFragment :
                             isFirstResource: Boolean
                         ): Boolean {
                             binding.imageViewErrorInternet.visibility = View.GONE
-                            binding.textviewPromoCodId.visibility = View.VISIBLE
+                            binding.layoutPromoConteiner.visibility = View.VISIBLE
                             binding.textviewPromoCodId.text = getString(R.string.promo_code_id, generateId())
                             return false
                         }
