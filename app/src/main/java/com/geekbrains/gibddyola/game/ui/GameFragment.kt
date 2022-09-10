@@ -53,18 +53,20 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                         editor.apply()
 
                         btnNext.setOnClickListener {
-                            viewModel.addAnsweredQuestion(question.id)
-                            viewModel.addAnsweredQuestion2(question.id)
+                            viewModel.addAnsweredQuestion(question.id.toInt())
+                            viewModel.addAnsweredQuestion2(question.id.toInt())
                             Log.d("GameLog", "question.id -${question.id} ")
                             Log.d(
                                 "GameLog",
                                 "AnswerdQUestionList -${viewModel.getListAnsweredQuestion()} "
                             )
                             Log.d("GameLog", "AnswerdQUestion -${listOfAnsweredQuestions} ")
-                            val bundle= Bundle()
+                            val bundle = Bundle()
                             bundle.putInt("numberOfQuestions", numberOfQuestions!!)
-                          val  nextFragment = GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
-                              nextFragment.arguments = bundle
+                            bundle.putInt("score", score)
+                            val nextFragment =
+                                GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
+                            nextFragment.arguments = bundle
                             if ((viewModel.getQuestionCount() - 1) > viewModel.getListAnsweredQuestion().size) {
                                 activity!!.supportFragmentManager
                                     .beginTransaction()
@@ -100,6 +102,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         numberOfQuestions = arguments?.getInt("numberOfQuestions")
+        score = arguments?.getInt("score") ?: 0
 
         mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE);
 //        numberOfQuestions=  savedInstanceState?.getInt("numberOfQuestions") ?: 0
@@ -109,11 +112,14 @@ class GameFragment(var questionNumber: Int) : Fragment() {
             Log.d("GameLog", "Кол-во вопросов = ${numberOfQuestions} ")
 //            Log.d("GameLog", "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} ")
 
-            if (numberOfQuestions != null) radioGroup.visibility = View.GONE
+            if (numberOfQuestions != null) {
+                llCountOfQuestions.visibility = View.GONE
+            }
 //Счет игры
             viewModel.getScore().observe(viewLifecycleOwner) {
                 tvScore.text = it.toString()
             }
+            tvScore.text = score.toString()
 //Количество пройденных вопросов
             viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
                 listOfAnsweredQuestions.add(it)
@@ -134,7 +140,10 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 
                 tvCountQuestions.text = getString(R.string.tv_count_questions, 0, numberOfQuestions)
                 viewModel.setNumberOfQuestion(numberOfQuestions!!)
-                Log.d("GameLog", "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} ")
+                Log.d(
+                    "GameLog",
+                    "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} "
+                )
 
                 val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
                 val nextFragment =
@@ -143,7 +152,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                     } else {
                         GameFragmentOutOfQuestions()
                     }
-                val bundle= Bundle()
+                val bundle = Bundle()
                 bundle.putInt("numberOfQuestions", numberOfQuestions!!)
                 nextFragment.arguments = bundle
                 activity!!.supportFragmentManager
@@ -180,7 +189,6 @@ class GameFragment(var questionNumber: Int) : Fragment() {
         when (appState) {
             is AppState.Success -> {
                 with(binding) {
-                    tvQuestionNumber.text = "Вопрос: " + appState.questions.id.toString()
                     tvQuestion.text = appState.questions.question
                     appState.questions.image?.let { ivImageQuestion.setBackgroundResource(it) }
                     gameAdapter.setData(
