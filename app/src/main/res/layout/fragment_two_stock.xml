@@ -3,87 +3,84 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_two_stock"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/amber_orange_50">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_view"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_view_two_stock"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="@dimen/dp10"
-        android:layout_margin="@dimen/card_view_stock_main_margin"
+        android:padding="@dimen/dp5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_view_error_internet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp5"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/no_internet" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textview_promo_cod_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="18"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/amber_orange_600"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_view_two_stock"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/dp5"
-            android:background="@mipmap/background_stocks"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textview_promo_cod_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textAllCaps="true"
-            android:maxLength="18"
-            android:textStyle="bold"
-            android:textColor="@color/amber_orange_600"
-            android:layout_gravity="bottom|center"
-            android:visibility="visible">
-        </com.google.android.material.textview.MaterialTextView>
+            android:layout_marginStart="@dimen/dp7"
+            android:layout_marginLeft="@dimen/dp7"
+            android:layout_marginTop="@dimen/dp7"
+            android:layout_marginEnd="@dimen/dp7"
+            android:layout_marginRight="@dimen/dp7"
+            android:layout_marginBottom="@dimen/dp7"
+            android:src="@drawable/swipe_indicator_passive" />
 
-        <LinearLayout
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|end"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginStart="@dimen/dp7"
+            android:layout_marginLeft="@dimen/dp7"
+            android:layout_marginEnd="@dimen/dp7"
+            android:layout_marginRight="@dimen/dp7"
+            android:layout_marginBottom="@dimen/dp7"
+            android:src="@drawable/swipe_indicator_active" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp7"
-                android:layout_marginLeft="@dimen/dp7"
-                android:layout_marginTop="@dimen/dp7"
-                android:layout_marginEnd="@dimen/dp7"
-                android:layout_marginRight="@dimen/dp7"
-                android:layout_marginBottom="@dimen/dp7"
-                android:src="@drawable/swipe_indicator_passive" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp7"
+            android:layout_marginLeft="@dimen/dp7"
+            android:layout_marginEnd="@dimen/dp7"
+            android:layout_marginRight="@dimen/dp7"
+            android:layout_marginBottom="@dimen/dp7"
+            android:src="@drawable/swipe_indicator_passive" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp7"
-                android:layout_marginLeft="@dimen/dp7"
-                android:layout_marginEnd="@dimen/dp7"
-                android:layout_marginRight="@dimen/dp7"
-                android:layout_marginBottom="@dimen/dp7"
-                android:src="@drawable/swipe_indicator_active" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp7"
-                android:layout_marginLeft="@dimen/dp7"
-                android:layout_marginEnd="@dimen/dp7"
-                android:layout_marginRight="@dimen/dp7"
-                android:layout_marginBottom="@dimen/dp7"
-                android:src="@drawable/swipe_indicator_passive" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

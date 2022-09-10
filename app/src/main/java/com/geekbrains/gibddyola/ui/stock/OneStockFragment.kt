@@ -45,7 +45,6 @@ class OneStockFragment :
                     .centerInside()
                     .transform(RoundedCorners(10))
                     .transition(DrawableTransitionOptions.withCrossFade(ALPHA_DURATION_POSTER))
-                    .error(R.mipmap.no_internet)
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(
                             e: GlideException?,
@@ -57,6 +56,7 @@ class OneStockFragment :
                                 R.string.no_internet_stock,
                                 Snackbar.LENGTH_LONG
                             )
+                            binding.imageViewErrorInternet.visibility = View.VISIBLE
                             return false
                         }
 
@@ -67,6 +67,7 @@ class OneStockFragment :
                             dataSource: DataSource?,
                             isFirstResource: Boolean
                         ): Boolean {
+                            binding.imageViewErrorInternet.visibility = View.GONE
                             binding.textviewPromoCodId.text = getString(R.string.promo_code_id, generateId())
                             return false
                         }
