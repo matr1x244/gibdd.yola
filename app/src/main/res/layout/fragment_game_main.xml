@@ -14,7 +14,7 @@
             android:text="Ваш счет: " />
 
         <TextView
-            android:id="@+id/tv_score"
+            android:id="@+id/text_view_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -33,7 +33,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/ll_count_of_questions"
+        android:id="@+id/setting_layout_count_of_questions"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -97,7 +97,7 @@
         android:text="Сбросить счет" />
 
     <LinearLayout
-        android:id="@+id/ll_game_fragment"
+        android:id="@+id/game_layout_window"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

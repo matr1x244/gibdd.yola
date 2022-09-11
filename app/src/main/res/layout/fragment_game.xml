@@ -1,111 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/amber_orange_50">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <!--    блок счёт и закрыть игру -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_layout_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end">
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/setting_layout_count_of_questions"
+        android:visibility="visible">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_responses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Ваш счет: " />
+            android:text="Количество правильных ответов: "
+            android:layout_marginStart="@dimen/dp5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_score"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="1000"
+            android:layout_marginStart="2dp"
+            android:textColor="@color/red_600"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_view_responses"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_quit_game"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/yellow"
-            app:fabSize="mini"
-            android:layout_margin="@dimen/dp5"
-            android:layout_marginEnd="@dimen/dp10"
-            android:layout_gravity="end"
-            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_count_questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:layout_gravity="end"
+            app:fabSize="mini"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_exit_to_app" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_count_of_questions"
+<!--    БЛОК ВОБЩЕ НЕ ИСПОЛЬЗУЕТСЯ -->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_count_questions"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:visibility="visible" />-->
+
+<!--    </LinearLayout>-->
+
+    <!--    БЛОК ВОБЩЕ НЕ ИСПОЛЬЗУЕТСЯ -->
+
+                <!--    БЛОК НАЧАЛО ИГРЫ-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/setting_layout_count_of_questions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/tv_out_of_questions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_layout_game">
 
-        <TextView
-
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_questions"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сколько вопросов Вы хотите в тесте?" />
+            android:text="Выберите свой уровень:"
+            android:paddingStart="@dimen/dp5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
             android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_questions">
 
-            <androidx.appcompat.widget.AppCompatRadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:checked="true"
-                android:text="20" />
+                android:text="Чайник" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_50"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:text="50" />
+                android:text="Дачник" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_100"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:text="100" />
+                android:text="Гонщик" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:text="Все" />
+                android:text="Водила" />
+
         </RadioGroup>
 
-        <Button
-            android:id="@+id/btn_begin_game"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_logo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Начать игру" />
-    </LinearLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_group"
+            app:srcCompat="@mipmap/logo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_begin_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Проверить свой уровень"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    БЛОК НАЧАЛО ИГРЫ-->
+
+        <!--  ИГРА КОНЧИЛАСЬ?  -->
 
     <TextView
         android:id="@+id/tv_out_of_questions"
@@ -114,128 +166,124 @@
         android:text="Вопросы кончились "
         android:textSize="30sp"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        app:layout_constraintBottom_toTopOf="@+id/game_layout_window"
+        tools:visibility="invisible" />
 
-    <LinearLayout
-        android:id="@+id/ll_game_fragment"
+    <!--  БЛОК САМОЙ ИГРЫ  -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/game_layout_window"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:visibility="visible"
-        android:background="@color/light_blue_300">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_layout_count_of_questions"
+        tools:visibility="visible">
 
-
-        <com.google.android.material.card.MaterialCardView
+        <FrameLayout
+            android:id="@+id/conteiner_image_question"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/amber_orange_400"
             android:layout_margin="@dimen/dp5"
-            app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp5">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_image_question"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_image_question"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@mipmap/logo" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/conteiner_tv_question"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            android:layout_gravity="center"
-            android:scaleType="fitXY"
-            app:srcCompat="@mipmap/logo"/>
-
-    </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/amber_orange_400"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp5"
-            app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp5">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/conteiner_image_question">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:textSize="15sp"
                 android:paddingStart="@dimen/dp5"
+                android:textSize="20sp"
+                android:textColor="@color/black"
                 tools:text="Вопрос: " />
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/amber_orange_100"
-            android:padding="@dimen/dp5"
-            android:layout_margin="@dimen/dp5"
-            app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp5">
+        </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_answers"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_green_600"
-            android:padding="@dimen/dp5"
             android:layout_margin="@dimen/dp5"
-            app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp5">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/conteiner_tv_question" />
 
-        <TextView
-            android:id="@+id/tv_answer_comment"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Комментарий к ответу"
-            android:padding="@dimen/dp3"
-            android:visibility="gone"
-            tools:visibility="visible"/>
+            android:padding="@dimen/dp5"
+            app:layout_constraintBottom_toTopOf="@+id/btn_check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_answers">
 
-        </com.google.android.material.card.MaterialCardView>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_answer_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp3"
+                    android:text="Комментарий к ответу"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </ScrollView>
+
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_check"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ответить"
             android:visibility="gone"
-            tools:visibility="visible"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_next"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Следующий вопрос"-->
-<!--            android:visibility="gone"-->
-<!--            tools:visibility="visible"/>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
-
-<!--    <Button-->
-<!--        android:id="@+id/btn_quit_game"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Выйти из игры" />-->
+        <!--    КНОПКА ДАЛЕЕ ВОПРОС-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:backgroundTint="@color/yellow"
+        android:text="Далее"
+        android:textSize="30sp"
         app:icon="@drawable/ic_play_btn"
         app:iconSize="30dp"
-        android:textSize="30sp"
-        android:text="Далее"
-        android:layout_gravity="center" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

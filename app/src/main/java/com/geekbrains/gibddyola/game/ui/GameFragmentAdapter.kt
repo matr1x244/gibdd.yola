@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameQuestionItemBinding
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 

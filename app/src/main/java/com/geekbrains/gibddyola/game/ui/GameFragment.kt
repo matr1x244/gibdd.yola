@@ -83,7 +83,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 
                             } else {
                                 tvOutOfQuestions.visibility = View.VISIBLE
-                                llGameFragment.visibility = View.GONE
+                                gameLayoutWindow.visibility = View.GONE
                             }
                         }
                     }
@@ -117,13 +117,13 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 //            Log.d("GameLog", "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} ")
 
             if (numberOfQuestions != null) {
-                llCountOfQuestions.visibility = View.GONE
+                settingLayoutCountOfQuestions.visibility = View.GONE
             }
 //Счет игры
             viewModel.getScore().observe(viewLifecycleOwner) {
-                tvScore.text = it.toString()
+                textViewScore.text = it.toString()
             }
-            tvScore.text = score.toString()
+            textViewScore.text = score.toString()
 //Количество пройденных вопросов
             viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
                 listOfAnsweredQuestions.add(it)
@@ -131,8 +131,8 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 //Кнопка Начать игру
             btnBeginGame.setOnClickListener {
                 btnBeginGame.visibility = View.GONE
-                llCountOfQuestions.visibility = View.GONE
-                tvCountQuestions.visibility = View.VISIBLE
+                settingLayoutCountOfQuestions.visibility = View.GONE
+//                tvCountQuestions.visibility = View.VISIBLE
                 numberOfQuestions = when (radioGroup.checkedRadioButtonId) {
                     R.id.rb_20 -> 20
                     R.id.rb_50 -> 50
@@ -142,7 +142,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                 }
                 Log.d("GameLog", "Кол-во вопросов numberOfQuestions= ${numberOfQuestions} ")
 
-                tvCountQuestions.text = getString(R.string.tv_count_questions, 0, numberOfQuestions)
+//                tvCountQuestions.text = getString(R.string.tv_count_questions, 0, numberOfQuestions)
                 viewModel.setNumberOfQuestion(numberOfQuestions!!)
                 Log.d(
                     "GameLog",
@@ -183,7 +183,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                     LinearLayoutManager(requireContext())
                 viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
             } else {
-                llGameFragment.visibility = View.GONE
+                gameLayoutWindow.visibility = View.GONE
 
             }
         }
