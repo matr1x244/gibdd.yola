@@ -8,6 +8,15 @@
 
     <!--    блок счёт и закрыть игру -->
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_layout_game"
         android:layout_width="match_parent"
@@ -171,6 +180,7 @@
 
     <!--  БЛОК САМОЙ ИГРЫ  -->
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/game_layout_window"
         android:layout_width="match_parent"
@@ -214,8 +224,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/dp5"
-                android:textSize="20sp"
                 android:textColor="@color/black"
+                android:textSize="20sp"
                 tools:text="Вопрос: " />
 
         </FrameLayout>
@@ -231,16 +241,12 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="@dimen/dp5"
             app:layout_constraintBottom_toTopOf="@+id/btn_check"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_answers">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_answer_comment"
@@ -251,8 +257,6 @@
                     android:visibility="gone"
                     tools:visibility="visible" />
 
-            </ScrollView>
-
         </FrameLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -261,29 +265,49 @@
             android:layout_height="wrap_content"
             android:text="Ответить"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/yellow"
+            android:text="Далее"
+            android:textSize="30sp"
+            app:icon="@drawable/ic_play_btn"
+            app:iconSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
         <!--    КНОПКА ДАЛЕЕ ВОПРОС-->
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_next"
-        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/yellow"
-        android:text="Далее"
-        android:textSize="30sp"
-        app:icon="@drawable/ic_play_btn"
-        app:iconSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/btn_next"-->
+<!--        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:backgroundTint="@color/yellow"-->
+<!--        android:text="Далее"-->
+<!--        android:textSize="30sp"-->
+<!--        app:icon="@drawable/ic_play_btn"-->
+<!--        app:iconSize="30dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
