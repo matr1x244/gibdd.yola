@@ -70,6 +70,10 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                             if ((viewModel.getQuestionCount() - 1) > viewModel.getListAnsweredQuestion().size) {
                                 activity!!.supportFragmentManager
                                     .beginTransaction()
+                                    .setCustomAnimations(
+                                        //анимация переходы
+                                        R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
+                                    )
                                     .replace(
                                         R.id.main_activity_container,
                                         nextFragment
@@ -190,7 +194,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
             is AppState.Success -> {
                 with(binding) {
                     tvQuestion.text = appState.questions.question
-                    appState.questions.image?.let { ivImageQuestion.setBackgroundResource(it) }
+                    appState.questions.image?.let { ivImageQuestion.setImageResource(it) }
                     gameAdapter.setData(
                         appState.questions,
                         chooseAnswer
