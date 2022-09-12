@@ -1,6 +1,9 @@
 package com.geekbrains.gibddyola.game.ui
 
+import android.app.Activity
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +18,7 @@ import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.ui.main.MainFragment
-import kotlin.properties.Delegates
+
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
@@ -29,62 +32,77 @@ class GameFragment(var questionNumber: Int) : Fragment() {
     var mSettings: SharedPreferences? = null
     var listOfAnsweredQuestions = mutableSetOf<Int>()
     private var numberOfQuestions: Int? = null
+    private var questionsNumber = 0
 
     private val gameAdapter: GameFragmentAdapter by lazy {
         GameFragmentAdapter(object :
             OnItemViewClickListener {
             override fun onItemViewClick(question: QuestionDomain, position: Int) {
                 with(binding) {
-                    btnCheck.visibility = View.VISIBLE
-                    btnCheck.setOnClickListener {
-                        chooseAnswer = position
-                        btnCheck.visibility = View.GONE
-                        btnNext.visibility = View.VISIBLE
-                        tvAnswerComment.text = question.answer_about
-                        tvAnswerComment.visibility = View.VISIBLE
 
-                        viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
+                    chooseAnswer = position
+//                        btnCheck.visibility = View.GONE
+                    btnNext.visibility = View.VISIBLE
+                    tvAnswerComment.text = question.answer_about
+                    tvAnswerComment.visibility = View.VISIBLE
 
-                        if (question.answers[position].second) score++
-                        viewModel.setScore(score)
+                    viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
+                    questionsNumber++
+                    if (question.answers[position].second) score++
+                    viewModel.setScore(score)
 
-                        val editor: SharedPreferences.Editor = mSettings!!.edit()
-                        editor.putString(GAME_SCORE, score.toString())
-                        editor.apply()
+                    val editor: SharedPreferences.Editor = mSettings!!.edit()
+                    editor.putString(GAME_SCORE, score.toString())
+                    editor.apply()
 
-                        btnNext.setOnClickListener {
-                            viewModel.addAnsweredQuestion(question.id.toInt())
-                            viewModel.addAnsweredQuestion2(question.id.toInt())
-                            Log.d("GameLog", "question.id -${question.id} ")
-                            Log.d(
-                                "GameLog",
-                                "AnswerdQUestionList -${viewModel.getListAnsweredQuestion()} "
-                            )
-                            Log.d("GameLog", "AnswerdQUestion -${listOfAnsweredQuestions} ")
-                            val bundle = Bundle()
-                            bundle.putInt("numberOfQuestions", numberOfQuestions!!)
-                            bundle.putInt("score", score)
-                            val nextFragment =
-                                GameFragment(changeQuestion(viewModel.getListAnsweredQuestion()))
-                            nextFragment.arguments = bundle
-                            if ((viewModel.getQuestionCount() - 1) > viewModel.getListAnsweredQuestion().size) {
-                                activity!!.supportFragmentManager
-                                    .beginTransaction()
-                                    .setCustomAnimations(
-                                        //анимация переходы
-                                        R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-                                    )
-                                    .replace(
-                                        R.id.main_activity_container,
-                                        nextFragment
-                                    )
-                                    .addToBackStack("")
-                                    .commitAllowingStateLoss()
+                    btnNext.setOnClickListener {
+                        viewModel.addAnsweredQuestion(question.id.toInt())
+                        viewModel.addAnsweredQuestion2(question.id.toInt())
+                        Log.d("GameLog", "question.id -${question.id} ")
+                        Log.d(
+                            "GameLog",
+                            "AnswerdQUestionList -${viewModel.getListAnsweredQuestion()} "
+                        )
+                        Log.d("GameLog", "AnswerdQUestion -${listOfAnsweredQuestions} ")
 
-                            } else {
-                                tvOutOfQuestions.visibility = View.VISIBLE
-                                gameLayoutWindow.visibility = View.GONE
-                            }
+                        listOfAnsweredQuestions.add(question.id.toInt())
+
+                        val bundle = Bundle()
+                        bundle.putInt("numberOfQuestions", numberOfQuestions!!)
+                        bundle.putInt("score", score)
+                        bundle.putInt("questionsNumber", questionsNumber)
+                        bundle.putIntArray(
+                            "listOfAnsweredQuestions",
+                            listOfAnsweredQuestions.toIntArray()
+                        )
+                        val nextFragment =
+                            GameFragment(changeQuestion(listOfAnsweredQuestions.toList()))
+                        nextFragment.arguments = bundle
+                        if (numberOfQuestions!! > questionsNumber) {
+                            activity!!.supportFragmentManager
+                                .beginTransaction()
+                                .setCustomAnimations(
+                                    //анимация переходы
+                                    R.anim.to_left_in,
+                                    R.anim.to_left_out,
+                                    R.anim.to_right_in,
+                                    R.anim.to_right_out
+                                )
+                                .replace(
+                                    R.id.main_activity_container,
+                                    nextFragment
+                                )
+                                .addToBackStack("")
+                                .commitAllowingStateLoss()
+
+                        } else {
+                            tvOutOfQuestionsQuestion.visibility = View.VISIBLE
+                            tvOutOfQuestionsQuestion.text = "Вы ответили на $questionsNumber вопросов"
+                            tvOutOfQuestionsRightQuestion.visibility = View.VISIBLE
+                            tvOutOfQuestionsRightQuestion.text = "Правильных ответов - $score"
+                            gameLayoutWindow.visibility = View.GONE
+                            textViewResponses.visibility = View.GONE
+                            textViewScore.visibility = View.GONE
                         }
                     }
                 }
@@ -107,6 +125,9 @@ class GameFragment(var questionNumber: Int) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         numberOfQuestions = arguments?.getInt("numberOfQuestions")
         score = arguments?.getInt("score") ?: 0
+        questionsNumber = arguments?.getInt("questionsNumber") ?: 0
+        listOfAnsweredQuestions =
+            arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
 
         mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE);
 //        numberOfQuestions=  savedInstanceState?.getInt("numberOfQuestions") ?: 0
@@ -232,4 +253,23 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 //    companion object {
 //        fun newInstance() = GameFragment(questionNumber = -1)
 //    }
+
+//Реализация нажатия кнопки назад во фрагментах
+    /*fun onBackPressed() {
+        if (!blockUi.getValue()) {
+            val builder: AlertDialog.Builder = Builder(activity)
+            builder.setMessage(R.string.question_exit_without_saving)
+                .setPositiveButton(android.R.string.ok,
+                    DialogInterface.OnClickListener { dialog, which ->
+                        FragmentUtils.removeFragmentAndFireActivityResult(
+                            this@InventoryBaseCreateFragment,
+                            Activity.RESULT_CANCELED,
+                            Intent()
+                        )
+                    })
+                .setNegativeButton(android.R.string.cancel,
+                    DialogInterface.OnClickListener { dialog, which -> })
+            builder.show()
+        }
+    }*/
 }

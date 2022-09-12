@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
+
 
 class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
@@ -114,5 +116,21 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
     override fun onDestroy() {
         super.onDestroy()
     }
-
+//Реализация нажатия кнопки назад во фрагментах
+/*    override fun onBackPressed() {
+        if (lv_statusMain.getVisibility() === View.VISIBLE) {
+            lv_statusMain.setVisibility(View.INVISIBLE)
+            return
+        }
+        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+            mDrawerLayout.closeDrawers()
+        } else {
+            val fragment: Fragment? = supportFragmentManager.findFragmentById(R.id.content_frame)
+            if (fragment is OnBackPressedListener) {
+                (fragment as OnBackPressedListener?).onBackPressed()
+            } else {
+                super.onBackPressed()
+            }
+        }
+    }*/
 }
