@@ -194,7 +194,7 @@
         <FrameLayout
             android:id="@+id/conteiner_image_question"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="165dp"
             android:layout_margin="@dimen/dp5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +225,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/dp5"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 tools:text="Вопрос: " />
 
         </FrameLayout>
