@@ -1,5 +1,7 @@
 package com.geekbrains.gibddyola.game.ui
 
+import android.annotation.SuppressLint
+import android.content.res.Resources
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -25,20 +27,23 @@ class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemView
     }
 
     inner class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        @SuppressLint("ResourceAsColor")
         fun bind(question: QuestionDomain, position: Int, isChooseAnswer: Boolean) = with(binding) {
             tvAnswerItem.text = question.answers[position].first
-            if (chooseAnswer == position) {
-                root.setBackgroundColor(Color.YELLOW)
-            }
+//            if (chooseAnswer == position) {
+//                root.setBackgroundColor(Color.YELLOW)
+//            }
             if (isChooseAnswer && question.answers[position].second) {
-                root.setBackgroundColor(Color.GREEN)
+                listGameQuestionItem.setBackgroundColor(Color.parseColor("#4CAF50"))
+                tvAnswerItem.setTextColor(Color.WHITE)
             } else if (isChooseAnswer && !question.answers[position].second && chooseAnswer == position) {
-                root.setBackgroundColor(Color.RED)
+                listGameQuestionItem.setBackgroundColor(Color.parseColor("#E53935"))
+                tvAnswerItem.setTextColor(Color.WHITE)
             }
             root.setOnClickListener {
                 if (!isChecked) {
                     itemClickListener.onItemViewClick(answers, position)
-                    root.setBackgroundColor(Color.YELLOW)
+//                    root.setBackgroundColor(Color.YELLOW)
                 }
                 isChecked = true
             }

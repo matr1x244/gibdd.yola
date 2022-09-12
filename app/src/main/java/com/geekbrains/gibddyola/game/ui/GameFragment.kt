@@ -1,5 +1,6 @@
 package com.geekbrains.gibddyola.game.ui
 
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
@@ -39,12 +40,20 @@ class GameFragment(var questionNumber: Int) : Fragment() {
             OnItemViewClickListener {
             override fun onItemViewClick(question: QuestionDomain, position: Int) {
                 with(binding) {
-
                     chooseAnswer = position
-//                        btnCheck.visibility = View.GONE
+
+
                     btnNext.visibility = View.VISIBLE
+                    ObjectAnimator.ofFloat(btnNext, View.ALPHA, 0.2f, 1.0f)
+                        .setDuration(400)
+                        .start()
+
                     tvAnswerComment.text = question.answer_about
                     tvAnswerComment.visibility = View.VISIBLE
+
+                    ObjectAnimator.ofFloat(tvAnswerComment, View.ALPHA, 0.2f, 1.0f)
+                        .setDuration(400)
+                        .start()
 
                     viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
                     questionsNumber++
@@ -136,7 +145,6 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 //           numberOfQuestions= viewModel.getNumberOfQuestion().value
             Log.d("GameLog", "Кол-во вопросов = ${numberOfQuestions} ")
 //            Log.d("GameLog", "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} ")
-
             if (numberOfQuestions != null) {
                 settingLayoutCountOfQuestions.visibility = View.GONE
             }
@@ -149,7 +157,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
             viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
                 listOfAnsweredQuestions.add(it)
             }
-//Кнопка Начать игру
+            //Кнопка Начать игру
             btnBeginGame.setOnClickListener {
                 btnBeginGame.visibility = View.GONE
                 settingLayoutCountOfQuestions.visibility = View.GONE
