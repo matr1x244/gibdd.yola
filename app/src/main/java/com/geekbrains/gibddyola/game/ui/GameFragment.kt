@@ -1,10 +1,7 @@
 package com.geekbrains.gibddyola.game.ui
 
 import android.animation.ObjectAnimator
-import android.app.Activity
 import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -23,10 +20,10 @@ import com.geekbrains.gibddyola.ui.main.MainFragment
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
+var score = 0
 
 class GameFragment(var questionNumber: Int) : Fragment() {
     private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
-    public var score = 0
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private var chooseAnswer = -1
@@ -105,13 +102,13 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                                 .commitAllowingStateLoss()
 
                         } else {
-                            tvOutOfQuestionsQuestion.visibility = View.VISIBLE
-                            tvOutOfQuestionsQuestion.text = "Вы ответили на $questionsNumber вопросов"
-                            tvOutOfQuestionsRightQuestion.visibility = View.VISIBLE
-                            tvOutOfQuestionsRightQuestion.text = "Правильных ответов - $score"
-                            gameLayoutWindow.visibility = View.GONE
-                            textViewResponses.visibility = View.GONE
-                            textViewScore.visibility = View.GONE
+
+                            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                                //анимация переходы
+                                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
+                            ).replace(R.id.main_activity_container, ResultsQuestionsFragment.newInstance())
+                                .commit()
+
                         }
                     }
                 }
@@ -183,12 +180,13 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                     if (changeQuestion >= 0) {
                         GameFragment(changeQuestion)
                     } else {
-                        GameFragmentOutOfQuestions()
+                        ResultsQuestionsFragment()
+//                        GameFragmentOutOfQuestions()
                     }
                 val bundle = Bundle()
                 bundle.putInt("numberOfQuestions", numberOfQuestions!!)
                 nextFragment.arguments = bundle
-                activity!!.supportFragmentManager
+                requireActivity().supportFragmentManager
                     .beginTransaction()
                     .replace(
                         R.id.main_activity_container,
@@ -200,7 +198,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 
 //Кнопка Выйти из игры
             btnQuitGame.setOnClickListener {
-                activity!!.supportFragmentManager
+                requireActivity().supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.main_activity_container, MainFragment.newInstance())
                     .addToBackStack("")
@@ -261,6 +259,7 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 //    companion object {
 //        fun newInstance() = GameFragment(questionNumber = -1)
 //    }
+
 
 //Реализация нажатия кнопки назад во фрагментах
     /*fun onBackPressed() {
