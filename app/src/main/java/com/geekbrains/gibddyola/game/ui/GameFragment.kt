@@ -10,12 +10,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.ui.main.MainFragment
-
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
@@ -91,11 +92,10 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
                                     R.id.main_activity_container,
                                     nextFragment
                                 )
-                                .addToBackStack("")
+//                                .addToBackStack("")
                                 .commitAllowingStateLoss()
 
                         } else {
-
                             requireActivity().supportFragmentManager.beginTransaction()
                                 .setCustomAnimations(
                                     //анимация переходы
@@ -130,72 +130,83 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
         numberOfQuestions = arguments?.getInt("numberOfQuestions")
         score = arguments?.getInt("score") ?: 0
         countOfAnsweredQuestions = arguments?.getInt("questionsNumber") ?: 0
-        listOfAnsweredQuestions =
-            arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
+        listOfAnsweredQuestions = arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
 
-        mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE);
-        with(binding)
-        {
-            if (numberOfQuestions != null) {
-                settingLayoutCountOfQuestions.visibility = View.GONE
-                llHeaderRightAnswers.visibility = View.VISIBLE
+        mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE)
+
+        startGame()
+        autoSchoolLogo()
+    }
+
+    private fun autoSchoolLogo() {
+        Glide.with(binding.imageAutoSchoolLogo)
+            .load(R.mipmap.auto_school)
+            .centerInside()
+            .transform(RoundedCorners(10))
+            .error(R.mipmap.auto_school)
+            .into(binding.imageAutoSchoolLogo)
+    }
+
+    private fun startGame() {
+        if (numberOfQuestions != null) {
+            binding.settingLayoutCountOfQuestions.visibility = View.GONE
+            binding.imageAutoSchoolLogo.visibility = View.GONE
+            binding.llHeaderRightAnswers.visibility = View.VISIBLE
+        }
+        //Счет игры
+        binding.textViewScore.text = score.toString()
+        //Количество пройденных вопросов
+        viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
+            listOfAnsweredQuestions.add(it)
+        }
+        //Кнопка Начать игру
+        binding.btnBeginGame.setOnClickListener {
+            binding.btnBeginGame.visibility = View.GONE
+            binding.settingLayoutCountOfQuestions.visibility = View.GONE
+            numberOfQuestions = when (binding.radioGroup.checkedRadioButtonId) {
+                R.id.rb_20 -> 5
+                R.id.rb_50 -> 50
+                R.id.rb_100 -> 100
+                R.id.rb_all -> viewModel.getQuestionCount()
+                else -> 0
             }
-//Счет игры
-            textViewScore.text = score.toString()
-//Количество пройденных вопросов
-            viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
-                listOfAnsweredQuestions.add(it)
-            }
-            //Кнопка Начать игру
-            btnBeginGame.setOnClickListener {
-                btnBeginGame.visibility = View.GONE
-                settingLayoutCountOfQuestions.visibility = View.GONE
-                numberOfQuestions = when (radioGroup.checkedRadioButtonId) {
-                    R.id.rb_20 -> 5
-                    R.id.rb_50 -> 50
-                    R.id.rb_100 -> 100
-                    R.id.rb_all -> viewModel.getQuestionCount()
-                    else -> 0
+            binding.llHeaderRightAnswers.visibility = View.VISIBLE
+            viewModel.setNumberOfQuestion(numberOfQuestions!!)
+
+            val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
+            val nextFragment =
+                if (changeQuestion >= 0) {
+                    GameFragment(changeQuestion)
+                } else {
+                    ResultsQuestionsFragment()
                 }
-                llHeaderRightAnswers.visibility = View.VISIBLE
-                viewModel.setNumberOfQuestion(numberOfQuestions!!)
-
-                val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
-                val nextFragment =
-                    if (changeQuestion >= 0) {
-                        GameFragment(changeQuestion)
-                    } else {
-                        ResultsQuestionsFragment()
-                    }
-                val bundle = Bundle()
-                bundle.putInt("numberOfQuestions", numberOfQuestions!!)
-                nextFragment.arguments = bundle
-                requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.main_activity_container,
-                        nextFragment
-                    )
-                    .addToBackStack("")
-                    .commitAllowingStateLoss()
-            }
-
-//Кнопка Выйти из игры
-            btnQuitGame.setOnClickListener {
-                requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.main_activity_container, MainFragment.newInstance())
-                    .addToBackStack("")
-                    .commitAllowingStateLoss()
-            }
-            if (questionNumber != -1) {
-                viewModel.getQuestion(questionNumber)
-                rvAnswers.layoutManager =
-                    LinearLayoutManager(requireContext())
-                viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
-            } else {
-                gameLayoutWindow.visibility = View.GONE
-            }
+            val bundle = Bundle()
+            bundle.putInt("numberOfQuestions", numberOfQuestions!!)
+            nextFragment.arguments = bundle
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(
+                    R.id.main_activity_container,
+                    nextFragment
+                )
+//                .addToBackStack("")
+                .commitAllowingStateLoss()
+        }
+        //Кнопка Выйти из игры
+        binding.btnQuitGame.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_activity_container, MainFragment.newInstance())
+//                .addToBackStack("")
+                .commitAllowingStateLoss()
+        }
+        if (questionNumber != -1) {
+            viewModel.getQuestion(questionNumber)
+            binding.rvAnswers.layoutManager =
+                LinearLayoutManager(requireContext())
+            viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
+        } else {
+            binding.gameLayoutWindow.visibility = View.GONE
         }
     }
 

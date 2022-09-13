@@ -1,16 +1,12 @@
 package com.geekbrains.gibddyola.game.ui
 
-import android.annotation.SuppressLint
-import android.content.res.Resources
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameQuestionItemBinding
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
-
 
 class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemViewClickListener) :
     RecyclerView.Adapter<GameFragmentAdapter.GameViewHolder>() {
@@ -27,12 +23,8 @@ class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemView
     }
 
     inner class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        @SuppressLint("ResourceAsColor")
         fun bind(question: QuestionDomain, position: Int, isChooseAnswer: Boolean) = with(binding) {
             tvAnswerItem.text = question.answers[position].first
-//            if (chooseAnswer == position) {
-//                root.setBackgroundColor(Color.YELLOW)
-//            }
             if (isChooseAnswer && question.answers[position].second) {
                 listGameQuestionItem.setBackgroundColor(Color.parseColor("#4CAF50"))
                 tvAnswerItem.setTextColor(Color.WHITE)
@@ -43,7 +35,6 @@ class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemView
             root.setOnClickListener {
                 if (!isChecked) {
                     itemClickListener.onItemViewClick(answers, position)
-//                    root.setBackgroundColor(Color.YELLOW)
                 }
                 isChecked = true
             }
