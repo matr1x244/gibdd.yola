@@ -7,17 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameResultsQuestionsBinding
-import com.geekbrains.gibddyola.game.data.QuestionRepositoryImpl
-
 
 class ResultsQuestionsFragment : Fragment() {
 
     private var _binding: FragmentGameResultsQuestionsBinding? = null
     private val binding get() = _binding!!
-
-    companion object {
-        fun newInstance() = ResultsQuestionsFragment()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,21 +24,22 @@ class ResultsQuestionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Set name on result page
-        binding.textviewNameResult.text = "Результат тестирования ПДД"
-        binding.textviewScore.text =
-            //тут надо переписать логику получения кол-во правильных ответов + сколько было всего вопросов 20 50 100 и т.п
-            "Количество правильных ответов: $score/${QuestionRepositoryImpl().getAllQuestions().size}"
-
-//        binding.btnReloadGame.setOnClickListener {
-//            // Reset the score when the game finishes
-//            score = 0
-//            // Go to homepage
-//            activity?.supportFragmentManager?.beginTransaction()
-//                ?.replace(R.id.fragment_main_container, GameFragment.newInstance())
-//                ?.commitNow()
-//        }
-
+        with(binding) {
+            textviewNameResult.text = "Результат тестирования ПДД"
+            textviewScore.text =
+                "Количество правильных ответов: " +
+                        "${arguments?.getInt("score") ?: 0}/" +
+                        "${arguments?.getInt("numberOfQuestions")}"
+            btnReloadGame.setOnClickListener {
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .replace(
+                        R.id.main_activity_container,
+                        GameFragment(-1)
+                    )
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+        }
     }
 }
