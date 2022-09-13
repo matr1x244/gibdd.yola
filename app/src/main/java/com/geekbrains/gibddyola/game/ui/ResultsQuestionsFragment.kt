@@ -24,22 +24,25 @@ class ResultsQuestionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding) {
-            textviewNameResult.text = "Результат тестирования ПДД"
-            textviewScore.text =
-                "Количество правильных ответов: " +
-                        "${arguments?.getInt("score") ?: 0}/" +
-                        "${arguments?.getInt("numberOfQuestions")}"
-            btnReloadGame.setOnClickListener {
-                requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.main_activity_container,
-                        GameFragment(-1)
-                    )
-                    .addToBackStack("")
-                    .commitAllowingStateLoss()
-            }
+
+        finalTextViewBtn()
+    }
+
+    private fun finalTextViewBtn() {
+        binding.textviewNameResult.text = "Результат тестирования ПДД"
+        binding.textviewScore.text =
+            "Количество правильных ответов: " +
+                    "${arguments?.getInt("score") ?: 0}/" +
+                    "${arguments?.getInt("numberOfQuestions")}"
+
+        binding.btnReloadGame.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(
+                    R.id.main_activity_container,
+                    GameFragment(-1)
+                )
+                .commitAllowingStateLoss()
         }
     }
 }
