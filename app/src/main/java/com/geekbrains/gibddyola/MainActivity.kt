@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
@@ -62,15 +66,19 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                 finish()
             }
         val dialog = dialogBuilder.create()
-        viewModel.connectionStatus.observe(this) { status ->
-            when (status) {
-                true -> {
-                    if (dialog.isShowing) {
-                        dialog.dismiss()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.connectionStatus.collect { status ->
+                    when (status) {
+                        true -> {
+                            if (dialog.isShowing) {
+                                dialog.dismiss()
+                            }
+                        }
+                        else -> {
+                            dialog.show()
+                        }
                     }
-                }
-                else -> {
-                    dialog.show()
                 }
             }
         }
