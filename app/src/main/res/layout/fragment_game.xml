@@ -23,7 +23,7 @@
             android:id="@+id/text_view_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Офциальные билеты ПДД РФ"
+            android:text="Официальные билеты ПДД РФ"
             android:gravity="center"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
