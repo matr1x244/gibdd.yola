@@ -103,10 +103,17 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 
                         } else {
 
-                            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                                //анимация переходы
-                                R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
-                            ).replace(R.id.main_activity_container, ResultsQuestionsFragment.newInstance())
+                            requireActivity().supportFragmentManager.beginTransaction()
+                                .setCustomAnimations(
+                                    //анимация переходы
+                                    R.anim.to_left_in,
+                                    R.anim.to_left_out,
+                                    R.anim.to_right_in,
+                                    R.anim.to_right_out
+                                ).replace(
+                                R.id.main_activity_container,
+                                ResultsQuestionsFragment.newInstance()
+                            )
                                 .commit()
 
                         }
@@ -122,7 +129,6 @@ class GameFragment(var questionNumber: Int) : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        numberOfQuestions = savedInstanceState?.getInt("numberOfQuestions", 0) ?: 0
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -144,6 +150,8 @@ class GameFragment(var questionNumber: Int) : Fragment() {
 //            Log.d("GameLog", "Кол-во вопросов viewModel = ${viewModel.getNumberOfQuestion().value} ")
             if (numberOfQuestions != null) {
                 settingLayoutCountOfQuestions.visibility = View.GONE
+                llHeaderRightAnswers.visibility = View.VISIBLE
+
             }
 //Счет игры
             viewModel.getScore().observe(viewLifecycleOwner) {
@@ -160,12 +168,13 @@ class GameFragment(var questionNumber: Int) : Fragment() {
                 settingLayoutCountOfQuestions.visibility = View.GONE
 //                tvCountQuestions.visibility = View.VISIBLE
                 numberOfQuestions = when (radioGroup.checkedRadioButtonId) {
-                    R.id.rb_20 -> 20
+                    R.id.rb_20 -> 5
                     R.id.rb_50 -> 50
                     R.id.rb_100 -> 100
                     R.id.rb_all -> viewModel.getQuestionCount()
                     else -> 0
                 }
+                llHeaderRightAnswers.visibility = View.VISIBLE
                 Log.d("GameLog", "Кол-во вопросов numberOfQuestions= ${numberOfQuestions} ")
 
 //                tvCountQuestions.text = getString(R.string.tv_count_questions, 0, numberOfQuestions)
