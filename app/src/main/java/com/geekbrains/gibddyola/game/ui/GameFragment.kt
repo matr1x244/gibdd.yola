@@ -149,6 +149,7 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
 
     private fun startGame() {
         if (numberOfQuestions != null) {
+            binding.textViewHeader.visibility = View.INVISIBLE
             binding.settingLayoutCountOfQuestions.visibility = View.GONE
             binding.imageAutoSchoolLogo.visibility = View.GONE
             binding.llHeaderRightAnswers.visibility = View.VISIBLE
