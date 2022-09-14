@@ -34,6 +34,7 @@ class ThreeStockFragment :
         super.onViewCreated(view, savedInstanceState)
 
         startStockImage()
+        binding.stocksFlightLogo.visibility = View.VISIBLE
     }
 
     private fun startStockImage() {
@@ -52,6 +53,7 @@ class ThreeStockFragment :
                             target: Target<Drawable>?,
                             isFirstResource: Boolean
                         ): Boolean {
+                            binding.stocksFlightLogo.visibility = View.GONE
                             binding.imageViewErrorInternet.visibility = View.VISIBLE
                             binding.fragmentThreeStock.showSnackBarNoAction(
                                 R.string.no_internet_stock,
@@ -68,6 +70,7 @@ class ThreeStockFragment :
                             isFirstResource: Boolean
                         ): Boolean {
                             binding.imageViewErrorInternet.visibility = View.GONE
+                            binding.stocksFlightLogo.visibility = View.GONE
                             binding.layoutPromoConteiner.visibility = View.VISIBLE
                             binding.textviewPromoCodId.text = getString(R.string.promo_code_id, generateId())
                             return false

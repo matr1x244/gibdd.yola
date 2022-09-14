@@ -34,6 +34,7 @@ class TwoStockFragment :
         super.onViewCreated(view, savedInstanceState)
 
         startStockImage()
+        binding.stocksFlightLogo.visibility = View.VISIBLE
     }
 
     private fun startStockImage() {
@@ -52,6 +53,7 @@ class TwoStockFragment :
                             target: Target<Drawable>?,
                             isFirstResource: Boolean
                         ): Boolean {
+                            binding.stocksFlightLogo.visibility = View.GONE
                             binding.imageViewErrorInternet.visibility = View.VISIBLE
                             binding.fragmentTwoStock.showSnackBarNoAction(
                                 R.string.no_internet_stock,
