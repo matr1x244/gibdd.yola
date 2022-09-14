@@ -19,17 +19,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <LinearLayout
             android:id="@+id/text_view_header"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Официальные билеты ПДД РФ"
-            android:gravity="center"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/official_traffic_tickets"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_header_right_answers"
@@ -47,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/dp5"
-                android:text="Количество правильных ответов: "
+                android:text="@string/number_correct_answers"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,8 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="2dp"
-                android:text="1000"
+                android:layout_marginStart="@dimen/dp2"
                 android:textColor="@color/red_600"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/text_view_responses"
@@ -105,8 +114,8 @@
             android:id="@+id/text_view_questions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dp5"
-            android:text="Выберите свой уровень:"
+            android:layout_marginStart="@dimen/dp5"
+            android:text="@string/choose_level_game"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -126,28 +135,28 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="true"
-                android:text="Чайник" />
+                android:text="@string/one_level_game" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_50"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Дачник" />
+                android:text="@string/two_level_game" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_100"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Гонщик" />
+                android:text="@string/three_level_game" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Водила" />
+                android:text="@string/four_level_game" />
 
         </RadioGroup>
 
@@ -158,13 +167,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radio_group"
-            app:srcCompat="@mipmap/logo" />
+            app:srcCompat="@mipmap/driving_license_logo" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_begin_game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Проверить свой уровень"
+            android:text="@string/сheck_your_level"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_logo" />
@@ -179,7 +188,7 @@
         android:id="@+id/game_layout_window"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="@dimen/game_layout_window_bottom"
         android:orientation="vertical"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -189,7 +198,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="90dp"
+            android:paddingBottom="@dimen/scroll_view_game_layout_bottom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +212,7 @@
                 <FrameLayout
                     android:id="@+id/conteiner_image_question"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="@dimen/size_image_game"
                     android:layout_margin="@dimen/dp5">
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -226,7 +235,7 @@
                         android:id="@+id/tv_question"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/dp5"
+                        android:layout_marginStart="@dimen/dp5"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         tools:text="Вопрос: " />
@@ -252,7 +261,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/dp5"
-                        android:text="Комментарий к ответу"
+                        android:text="@string/comments_answer_game"
                         android:visibility="gone"
                         tools:visibility="visible" />
 
@@ -280,7 +289,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp5"
             android:backgroundTint="@color/amber_orange_500"
-            android:text="Далее"
+            android:text="@string/next_questions_game"
             android:textColor="@color/white"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"

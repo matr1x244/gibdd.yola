@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
     private fun startContainerAlphaAnimator() {
         ObjectAnimator.ofFloat(findViewById(R.id.main_activity_container), View.ALPHA, 0.2f, 1.0f)
-            .setDuration(600)
+            .setDuration(700)
             .start()
     }
 

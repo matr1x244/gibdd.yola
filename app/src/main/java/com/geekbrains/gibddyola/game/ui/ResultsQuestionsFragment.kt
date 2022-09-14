@@ -1,14 +1,10 @@
-package com.geekbrains.gibddyola.ui.game.test
+package com.geekbrains.gibddyola.game.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameResultsQuestionsBinding
-import com.geekbrains.gibddyola.databinding.FragmentMainBinding
-import com.geekbrains.gibddyola.game.ui.GameFragment
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 
 
@@ -24,11 +20,12 @@ class ResultsQuestionsFragment : ViewBindingFragment<FragmentGameResultsQuestion
         finalTextViewBtn()
     }
 
+        @SuppressLint("SetTextI18n")
         private fun finalTextViewBtn() {
-            binding.textviewNameResult.text = "Результат тестирования ПДД"
+            binding.textviewNameResult.text = getString(R.string.result_test_pdd)
             binding.textviewScore.text =
-                "Количество правильных ответов: " +
-                        "${arguments?.getInt("score") ?: 0}/" +
+                getString(R.string.number_correct_answers) +
+                        " ${arguments?.getInt("score") ?: 0}/" +
                         "${arguments?.getInt("numberOfQuestions")}"
 
             binding.btnReloadGame.setOnClickListener {

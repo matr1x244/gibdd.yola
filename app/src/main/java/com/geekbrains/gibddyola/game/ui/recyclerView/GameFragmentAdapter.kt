@@ -1,5 +1,6 @@
-package com.geekbrains.gibddyola.game.ui
+package com.geekbrains.gibddyola.game.ui.recyclerView
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.gibddyola.databinding.FragmentGameQuestionItemBinding
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
+import com.geekbrains.gibddyola.game.ui.GameFragment
 
 class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemViewClickListener) :
     RecyclerView.Adapter<GameFragmentAdapter.GameViewHolder>() {
@@ -16,6 +18,7 @@ class GameFragmentAdapter(private val itemClickListener: GameFragment.OnItemView
     private var isChecked = false
     private var chooseAnswer = -1
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(answers: QuestionDomain, chooseAnswer: Int) {
         this.answers = answers
         this.chooseAnswer = chooseAnswer

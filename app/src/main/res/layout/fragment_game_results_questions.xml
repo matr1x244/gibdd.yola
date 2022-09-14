@@ -9,8 +9,8 @@
     <com.geekbrains.gibddyola.utils.EquilateralImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp20"
         android:src="@mipmap/driver_license">
 
     </com.geekbrains.gibddyola.utils.EquilateralImageView>
@@ -19,24 +19,24 @@
         android:id="@+id/textview_name_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="@dimen/size_layout_margin_top_name"
         android:gravity="center"
-        android:text="Результат тестирования ПДД"
+        android:text="@string/result_test_pdd"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="@dimen/size_layout_margin_top_score"
         android:alpha="0.7"
         android:gravity="center"
-        android:text="Количество правильных ответов: Х/XXX"
+        android:text="@string/number_correct_answers"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textSize="@dimen/size_text_view_score"
+        android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_reload_game"
@@ -45,9 +45,9 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="100dp"
         android:backgroundTint="@color/amber_orange_500"
-        android:text="Пройти тест еще раз"
+        android:text="@string/test_game_again"
         android:textColor="@color/white"
-        android:textSize="15sp">
+        android:textSize="@dimen/size_text_btn_again_game">
 
     </com.google.android.material.button.MaterialButton>
 

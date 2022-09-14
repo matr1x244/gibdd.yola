@@ -49,5 +49,13 @@
     <dimen name="sp12_text">12sp</dimen>
     <dimen name="textview_team_avarkom_main">17sp</dimen>
     <dimen name="main_logo_height">150dp</dimen>
+    <!--Game-->
+    <dimen name="game_layout_window_bottom">40dp</dimen>
+    <dimen name="scroll_view_game_layout_bottom">90dp</dimen>
+    <dimen name="size_image_game">160dp</dimen>
+    <dimen name="size_text_btn_again_game">15sp</dimen>
+    <dimen name="size_text_view_score">18sp</dimen>
+    <dimen name="size_layout_margin_top_score">20sp</dimen>
+    <dimen name="size_layout_margin_top_name">30sp</dimen>
 
 </resources>

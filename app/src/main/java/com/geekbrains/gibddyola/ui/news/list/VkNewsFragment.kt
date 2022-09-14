@@ -98,7 +98,6 @@ class VkNewsFragment : ViewBindingFragment<FragmentVkNewsBinding>(FragmentVkNews
         adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
                 requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
-                    //анимация переходы
                     R.anim.zoom_in,
                     R.anim.zoom_out
                 )

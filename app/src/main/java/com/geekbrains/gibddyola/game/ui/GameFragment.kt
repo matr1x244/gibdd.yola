@@ -4,29 +4,25 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
-import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
-import com.geekbrains.gibddyola.ui.game.test.ResultsQuestionsFragment
+import com.geekbrains.gibddyola.game.ui.recyclerView.GameFragmentAdapter
 import com.geekbrains.gibddyola.ui.main.MainFragment
-import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
 
 class GameFragment(private var questionNumber: Int) : ViewBindingFragment<FragmentGameBinding>(
-    FragmentGameBinding::inflate) {
+    FragmentGameBinding::inflate
+) {
 
     companion object {
         fun newInstance() = GameFragment(questionNumber = 0)
@@ -59,7 +55,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
                         .setDuration(400)
                         .start()
 
-                    viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
+                    viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
                     countOfAnsweredQuestions++
                     if (question.answers[position].second) score++
                     viewModel.setScore(score)
@@ -88,10 +84,9 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
                         val resultFragment = ResultsQuestionsFragment()
                         resultFragment.arguments = bundle
                         if (numberOfQuestions!! > countOfAnsweredQuestions) {
-                            activity!!.supportFragmentManager
+                            requireActivity().supportFragmentManager
                                 .beginTransaction()
                                 .setCustomAnimations(
-                                    //анимация переходы
                                     R.anim.to_left_in,
                                     R.anim.to_left_out,
                                     R.anim.to_right_in,
@@ -101,13 +96,11 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
                                     R.id.main_activity_container,
                                     nextFragment
                                 )
-//                                .addToBackStack("")
                                 .commit()
 
                         } else {
                             requireActivity().supportFragmentManager.beginTransaction()
                                 .setCustomAnimations(
-                                    //анимация переходы
                                     R.anim.to_left_in,
                                     R.anim.to_left_out,
                                     R.anim.to_right_in,
@@ -130,7 +123,8 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
         numberOfQuestions = arguments?.getInt("numberOfQuestions")
         score = arguments?.getInt("score") ?: 0
         countOfAnsweredQuestions = arguments?.getInt("questionsNumber") ?: 0
-        listOfAnsweredQuestions = arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
+        listOfAnsweredQuestions =
+            arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf()
 
         mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE)
 
@@ -149,7 +143,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
 
     private fun startGame() {
         if (numberOfQuestions != null) {
-            binding.textViewHeader.visibility = View.INVISIBLE
+            binding.textViewHeader.visibility = View.GONE
             binding.settingLayoutCountOfQuestions.visibility = View.GONE
             binding.imageAutoSchoolLogo.visibility = View.GONE
             binding.llHeaderRightAnswers.visibility = View.VISIBLE
@@ -191,7 +185,6 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
                     R.id.main_activity_container,
                     nextFragment
                 )
-//                .addToBackStack("")
                 .commit()
         }
         //Кнопка Выйти из игры
@@ -205,7 +198,6 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
                     R.anim.to_right_out
                 )
                 .replace(R.id.main_activity_container, MainFragment.newInstance())
-//                .addToBackStack("")
                 .commit()
         }
         if (questionNumber != -1) {
@@ -254,7 +246,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        numberOfQuestions?.let { outState.putInt("numberOfQuestions", it) };
+        numberOfQuestions?.let { outState.putInt("numberOfQuestions", it) }
 
     }
 
