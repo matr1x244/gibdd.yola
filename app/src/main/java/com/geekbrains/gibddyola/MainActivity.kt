@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -18,6 +19,7 @@ import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
+import java.io.File
 
 
 class MainActivity : AppCompatActivity(), ControllerOpenFragment {
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                 .commitNow()
         }
         checkPermissionsCallPhone()
+        databaseCopy()
     }
 
     fun checkPermissionsCallPhone(): Boolean {
@@ -76,7 +79,18 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         }
     }
 
-
+    private fun databaseCopy() {
+        val copiedFile = File("/data/data/$packageName/databases/", "game_questions")
+        if (!copiedFile.exists()) {
+            this.assets.open("game_questions").use { input ->
+                copiedFile.outputStream().use { output ->
+                    input.copyTo(output, 1024)
+                }
+            }
+        } else {
+            Log.i("", "database already exist")
+        }
+    }
 
     fun showDialogPhoneCopy(message: Int, okListener: DialogInterface.OnClickListener) {
         AlertDialog.Builder(this@MainActivity)
