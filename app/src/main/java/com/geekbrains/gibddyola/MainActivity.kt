@@ -52,18 +52,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         dialogBuilder.setTitle(getString(R.string.no_internet_title))
             .setMessage(getString(R.string.no_internet_message))
             .setCancelable(true)
-            .setPositiveButton(getString(R.string.no_internet_refresh_button)) { _, _ ->
-                val fragment =
-                    supportFragmentManager.findFragmentById(R.id.main_activity_container)!!
-                supportFragmentManager.beginTransaction()
-                    .detach(fragment)
-                    .commit()
-                supportFragmentManager.beginTransaction()
-                    .attach(fragment)
-                    .commit()
-            }
-            .setNegativeButton(getString(R.string.no_internet_close_app)) { _, _ ->
-                finish()
+            .setPositiveButton(getString(R.string.no_internet_ok_button)) { _, _ ->
             }
         val dialog = dialogBuilder.create()
         lifecycleScope.launch {
