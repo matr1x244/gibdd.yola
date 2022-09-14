@@ -1,7 +1,8 @@
 package com.geekbrains.gibddyola.di.koin
 
-import com.geekbrains.gibddyola.data.LocalRepositoryGameImpl
 import com.geekbrains.gibddyola.data.employee.LocalRepositoryImpl
+import com.geekbrains.gibddyola.domain.game.RepositoryGame
+import com.geekbrains.gibddyola.game.data.QuestionRepositoryImpl
 import com.geekbrains.gibddyola.ui.main.MainFragment
 import com.geekbrains.gibddyola.ui.main.MainViewModel
 import com.geekbrains.gibddyola.utils.flow.FlowRepository
@@ -16,7 +17,7 @@ import org.koin.dsl.module
 val appModuleKoin = module {
 
     factory { LocalRepositoryImpl() }
-    factory { LocalRepositoryGameImpl() }
+    factory { QuestionRepositoryImpl() }
 
     single<TooltipApi>(named("tooltipApi")) { TooltipApiImpl() }
 

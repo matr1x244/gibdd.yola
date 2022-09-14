@@ -34,6 +34,7 @@ class OneStockFragment :
         super.onViewCreated(view, savedInstanceState)
 
         startStockImage()
+        binding.stocksFlightLogo.visibility = View.VISIBLE
     }
 
     private fun startStockImage() {
@@ -56,6 +57,7 @@ class OneStockFragment :
                                 R.string.no_internet_stock,
                                 Snackbar.LENGTH_LONG
                             )
+                            binding.stocksFlightLogo.visibility = View.GONE
                             binding.imageViewErrorInternet.visibility = View.VISIBLE
                             return false
                         }
@@ -68,6 +70,7 @@ class OneStockFragment :
                             isFirstResource: Boolean
                         ): Boolean {
                             binding.imageViewErrorInternet.visibility = View.GONE
+                            binding.stocksFlightLogo.visibility = View.GONE
                             binding.layoutPromoConteiner.visibility = View.VISIBLE
                             binding.textviewPromoCodId.text = getString(R.string.promo_code_id, generateId())
                             return false
