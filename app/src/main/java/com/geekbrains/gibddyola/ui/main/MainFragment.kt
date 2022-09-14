@@ -20,6 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -73,7 +74,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedTooltips = activity!!
+        sharedTooltips = requireActivity()
             .getSharedPreferences(SHARED_TOOLTIP_NAME, Context.MODE_PRIVATE)
 
         initViews()
@@ -93,6 +94,7 @@ class MainFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onResume() {
         super.onResume()
         setTooltip()
@@ -182,6 +184,7 @@ class MainFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     private fun setTooltip() {
         val tooltipSize = TooltipList.getTooltipSize()
         var currentTooltipNumber = 0

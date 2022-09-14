@@ -1,4 +1,4 @@
-package com.geekbrains.gibddyola
+package com.geekbrains.gibddyola.di.koin
 
 import com.geekbrains.gibddyola.data.LocalRepositoryGameImpl
 import com.geekbrains.gibddyola.data.employee.LocalRepositoryImpl

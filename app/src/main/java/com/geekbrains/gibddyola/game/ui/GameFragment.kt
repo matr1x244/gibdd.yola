@@ -8,21 +8,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
+import com.geekbrains.gibddyola.game.data.QuestionDatabaseHelperImpl
+import com.geekbrains.gibddyola.game.domain.QuestionDatabaseBuilder
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.ui.main.MainFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
 
 class GameFragment(private var questionNumber: Int) : Fragment() {
-    private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
+    private val viewModel: GameViewModel by viewModel(named("game_view_model"))
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private var score = 0
@@ -130,12 +133,14 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
         numberOfQuestions = arguments?.getInt("numberOfQuestions")
         score = arguments?.getInt("score") ?: 0
         countOfAnsweredQuestions = arguments?.getInt("questionsNumber") ?: 0
-        listOfAnsweredQuestions = arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
+        listOfAnsweredQuestions =
+            arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
 
         mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE)
 
         startGame()
         autoSchoolLogo()
+
     }
 
     private fun autoSchoolLogo() {

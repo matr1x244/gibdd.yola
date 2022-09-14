@@ -76,6 +76,8 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         }
     }
 
+
+
     fun showDialogPhoneCopy(message: Int, okListener: DialogInterface.OnClickListener) {
         AlertDialog.Builder(this@MainActivity)
             .setMessage(message)
