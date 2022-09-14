@@ -173,7 +173,6 @@
 
     <!--    БЛОК НАЧАЛО ИГРЫ-->
 
-
     <!--  БЛОК САМОЙ ИГРЫ  -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -182,6 +181,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:orientation="vertical"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setting_layout_count_of_questions">

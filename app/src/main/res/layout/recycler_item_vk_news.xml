@@ -75,11 +75,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vk_news_item_text"
-                tools:src="@mipmap/driver_license" />
+                tools:src="@mipmap/logo" />
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group"
-                android:layout_width="0dp"
+                android:id="@+id/chip_group"                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp5"
                 app:layout_constraintBottom_toBottomOf="parent"

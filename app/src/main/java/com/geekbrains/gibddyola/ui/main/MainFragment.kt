@@ -26,8 +26,8 @@ import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
+import com.geekbrains.gibddyola.game.ui.GameFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
-import com.geekbrains.gibddyola.ui.game.test.QuestionsFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.AdaptersAvarkom
 import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusFragment
@@ -198,7 +198,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         openMenu = fragmentOpenBackStack.setClick(
             binding.tvPlayGameMenu,
             requireActivity(),
-            QuestionsFragment.newInstance(),
+            GameFragment.newInstance(),
             playSoundMain
         )
         openMenu = fragmentOpenBackStack.setClick(

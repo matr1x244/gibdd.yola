@@ -14,17 +14,26 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
+import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
+import com.geekbrains.gibddyola.ui.game.test.ResultsQuestionsFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
+import com.geekbrains.gibddyola.ui.news.list.VkNewsFragment
+import com.geekbrains.gibddyola.utils.ViewBindingFragment
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
 
-class GameFragment(private var questionNumber: Int) : Fragment() {
+class GameFragment(private var questionNumber: Int) : ViewBindingFragment<FragmentGameBinding>(
+    FragmentGameBinding::inflate) {
+
+    companion object {
+        fun newInstance() = GameFragment(questionNumber = 0)
+    }
+
     private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
-    private var _binding: FragmentGameBinding? = null
-    private val binding get() = _binding!!
+
     private var score = 0
     private var clickedAnswerPosition = -1
     var mSettings: SharedPreferences? = null
@@ -93,7 +102,7 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
                                     nextFragment
                                 )
 //                                .addToBackStack("")
-                                .commitAllowingStateLoss()
+                                .commit()
 
                         } else {
                             requireActivity().supportFragmentManager.beginTransaction()
@@ -114,15 +123,6 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
             }
         }
         )
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentGameBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -153,6 +153,7 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
             binding.settingLayoutCountOfQuestions.visibility = View.GONE
             binding.imageAutoSchoolLogo.visibility = View.GONE
             binding.llHeaderRightAnswers.visibility = View.VISIBLE
+            binding.gameLayoutWindow.visibility = View.VISIBLE
         }
         //Счет игры
         binding.textViewScore.text = score.toString()
@@ -191,15 +192,21 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
                     nextFragment
                 )
 //                .addToBackStack("")
-                .commitAllowingStateLoss()
+                .commit()
         }
         //Кнопка Выйти из игры
         binding.btnQuitGame.setOnClickListener {
             requireActivity().supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(
+                    R.anim.to_left_in,
+                    R.anim.to_left_out,
+                    R.anim.to_right_in,
+                    R.anim.to_right_out
+                )
                 .replace(R.id.main_activity_container, MainFragment.newInstance())
 //                .addToBackStack("")
-                .commitAllowingStateLoss()
+                .commit()
         }
         if (questionNumber != -1) {
             viewModel.getQuestion(questionNumber)
