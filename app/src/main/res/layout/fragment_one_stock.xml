@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/dp5"
+        android:layout_marginBottom="@dimen/layout_bottom_margin_iv_stock"
         app:layout_constraintBottom_toTopOf="@+id/layout_promo_conteiner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
