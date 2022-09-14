@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -14,7 +16,7 @@ android {
         minSdk 24
         targetSdk 32
         versionCode 1
-        versionName "1.0"
+        versionName rootProject.ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,6 +33,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
+                    def versionName = defaultConfig.versionName
+                    outputFileName = "GIBDD v${versionName}_${date}.apk"
+                }
+            }
         }
     }
     compileOptions {
