@@ -10,7 +10,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
 import com.geekbrains.gibddyola.data.news.web.entity.VkNewsEntity
@@ -54,7 +53,7 @@ class VkNewsViewHolder(
                     }
                 }
                 if (attachment.type == "video") {
-                    if (attachment.video?.image?.get(1)?.url?.isNotEmpty() == true) {
+                    if (attachment.video?.image?.get(2)?.url?.isNotEmpty() == true) {
                         image.visibility = View.VISIBLE
                         imageUrl = attachment.video.image[2].url
                     }
@@ -84,8 +83,6 @@ class VkNewsViewHolder(
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
                 .load(imageUrl)
-                .placeholder(R.mipmap.logo_small)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .error(R.mipmap.logo_small)
                 .into(image)
         }
