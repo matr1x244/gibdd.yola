@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -18,7 +17,6 @@ import com.geekbrains.gibddyola.ui.main.MainFragment
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
-import java.lang.Exception
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
