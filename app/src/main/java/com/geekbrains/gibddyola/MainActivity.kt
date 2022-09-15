@@ -2,6 +2,7 @@ package com.geekbrains.gibddyola
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ import com.geekbrains.gibddyola.ui.main.MainFragment
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
+import java.io.File
 
 private const val MAIN_ACTIVITY_SCOPE_ID = "mainActivityScopeId"
 
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         checkConnection()
+        databaseCopy()
         if (savedInstanceState == null) {
             startContainerAlphaAnimator()
             supportFragmentManager.beginTransaction()
@@ -70,6 +73,19 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                     }
                 }
             }
+        }
+    }
+
+    private fun databaseCopy() {
+        val copiedFile = File("${this.dataDir}/databases/", "game_questions")
+        if (!copiedFile.exists()) {
+            this.assets.open("game_questions").use { input ->
+                copiedFile.outputStream().use { output ->
+                    input.copyTo(output, 1024)
+                }
+            }
+        } else {
+            Log.i("", "database already exist")
         }
     }
 

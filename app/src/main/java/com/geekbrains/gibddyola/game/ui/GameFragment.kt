@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -16,6 +15,8 @@ import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.game.ui.recyclerView.GameFragmentAdapter
 import com.geekbrains.gibddyola.ui.main.MainFragment
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
@@ -28,7 +29,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
         fun newInstance() = GameFragment(questionNumber = 0)
     }
 
-    private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
+    private val viewModel: GameViewModel by viewModel(named("game_view_model"))
 
     private var score = 0
     private var clickedAnswerPosition = -1
@@ -215,7 +216,11 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
             is AppState.Success -> {
                 with(binding) {
                     tvQuestion.text = appState.questions.question
-                    appState.questions.image?.let { ivImageQuestion.setImageResource(it) }
+                    appState.questions.image.let {
+                        ivImageQuestion.setImageResource(
+                            R.mipmap::class.java.getId(it)
+                        )
+                    }
                     gameAdapter.setData(
                         appState.questions,
                         clickedAnswerPosition
@@ -248,6 +253,16 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
         super.onSaveInstanceState(outState)
         numberOfQuestions?.let { outState.putInt("numberOfQuestions", it) }
 
+    }
+
+    private inline fun <reified T: Class<*>> T.getId(name: String): Int {
+        return try {
+            val idField = getDeclaredField(name)
+            idField.getInt(idField)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            -1
+        }
     }
 
 //Реализация нажатия кнопки назад во фрагментах
