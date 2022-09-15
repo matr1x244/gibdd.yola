@@ -3,9 +3,7 @@ package com.geekbrains.gibddyola
 import android.app.Application
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.geekbrains.gibddyola.di.koin.appModuleKoin
-import com.geekbrains.gibddyola.di.koin.mainActivityKoinModule
-import com.geekbrains.gibddyola.di.koin.vkNewsKoinModule
+import com.geekbrains.gibddyola.di.koin.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -18,7 +16,7 @@ class App : Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(appModuleKoin, vkNewsKoinModule, mainActivityKoinModule)
+            modules(appModuleKoin, vkNewsKoinModule, mActivityKoinModule, gameKoinModule)
         }
     }
 }
