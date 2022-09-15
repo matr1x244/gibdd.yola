@@ -3,9 +3,7 @@ package com.geekbrains.gibddyola.game.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.geekbrains.gibddyola.game.data.QuestionRepositoryImpl
 import com.geekbrains.gibddyola.game.domain.QuestionDatabaseHelper
-import com.geekbrains.gibddyola.game.domain.QuestionRepository
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
