@@ -4,15 +4,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.geekbrains.gibddyola.game.data.QuestionRepositoryImpl
+import com.geekbrains.gibddyola.game.domain.QuestionDatabaseHelper
 import com.geekbrains.gibddyola.game.domain.QuestionRepository
 import com.geekbrains.gibddyola.game.domain.entity.AppState
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 
 class GameViewModel(
+    private val dbHelper: QuestionDatabaseHelper,
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData(),
-    private val questionRepositoryImpl: QuestionRepository = QuestionRepositoryImpl(),
     private val scoreToObserve: MutableLiveData<Int> = MutableLiveData(),
     private val numberOfQuestions: MutableLiveData<Int> = MutableLiveData(),
     private val listAnsweredQuestions: MutableLiveData<Int> = MutableLiveData(),
@@ -22,6 +25,13 @@ class GameViewModel(
     var listOfAnsweredQuestions = mutableSetOf<Int>()
 //    var numberOfQuestions = mutableListOf<Int>()
 
+    private val coroutineScope = CoroutineScope(Dispatchers.IO)
+    private var size = 0
+    init {
+        coroutineScope.launch {
+            size = dbHelper.getAll().size
+        }
+    }
     val listAnsweredQuestion = mutableSetOf<Int>()
     fun getLiveData() = liveDataToObserve
     fun getScore() = scoreToObserve
@@ -43,11 +53,18 @@ class GameViewModel(
         return listAnsweredQuestions2.value?.toList() ?: listOf()
     }
 
-    fun getQuestion(numberOfQuestion: Int) = with(viewModelScope) {
-        launch(Dispatchers.IO) {
-            liveDataToObserve.postValue(AppState.Success(questionRepositoryImpl.getAllQuestions()[numberOfQuestion]))
+    fun getQuestion(numberOfQuestion: Int) {
+        viewModelScope.launch {
+            liveDataToObserve.postValue(
+                AppState.Success(dbHelper.getAll()[numberOfQuestion])
+            )
         }
     }
 
-    fun getQuestionCount(): Int = questionRepositoryImpl.getAllQuestions().size
+    fun getQuestionCount(): Int = size
+
+    override fun onCleared() {
+        coroutineScope.cancel()
+        super.onCleared()
+    }
 }

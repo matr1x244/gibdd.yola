@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c9ec06f72aae198929eee6a7fb738f27",
+    "identityHash": "7247162f9b68a4b4e71475796360efe0",
     "entities": [
       {
         "tableName": "QuestionDomain",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `image` INTEGER, `question` TEXT NOT NULL, `answers` TEXT NOT NULL, `explanation` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `image` TEXT NOT NULL, `question` TEXT NOT NULL, `answers` TEXT NOT NULL, `explanation` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -17,8 +17,8 @@
           {
             "fieldPath": "image",
             "columnName": "image",
-            "affinity": "INTEGER",
-            "notNull": false
+            "affinity": "TEXT",
+            "notNull": true
           },
           {
             "fieldPath": "question",
@@ -52,7 +52,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c9ec06f72aae198929eee6a7fb738f27')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7247162f9b68a4b4e71475796360efe0')"
     ]
   }
 }

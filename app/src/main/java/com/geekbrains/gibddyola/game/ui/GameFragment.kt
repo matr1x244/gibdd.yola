@@ -16,6 +16,9 @@ import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.game.ui.recyclerView.GameFragmentAdapter
 import com.geekbrains.gibddyola.ui.main.MainFragment
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
+import java.lang.Exception
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
@@ -28,7 +31,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
         fun newInstance() = GameFragment(questionNumber = 0)
     }
 
-    private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
+    private val viewModel: GameViewModel by viewModel(named("game_view_model"))
 
     private var score = 0
     private var clickedAnswerPosition = -1
@@ -216,7 +219,9 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
                 with(binding) {
                     tvQuestion.text = appState.questions.question
                     appState.questions.image.let {
-                        ivImageQuestion.setImageResource(getImageId(it))
+                        ivImageQuestion.setImageResource(
+                            R.mipmap::class.java.getId("none_image_question")
+                        )
                     }
                     gameAdapter.setData(
                         appState.questions,
@@ -252,8 +257,14 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
 
     }
 
-    private fun getImageId(name: String): Int {
-        return resources.getIdentifier(name, "drawable", requireContext().packageName)
+    inline fun <reified T: Class<*>> T.getId(name: String): Int {
+        return try {
+            val idField = getDeclaredField(name)
+            idField.getInt(idField)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            -1
+        }
     }
 
 //Реализация нажатия кнопки назад во фрагментах
