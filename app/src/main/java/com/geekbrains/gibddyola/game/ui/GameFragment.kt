@@ -139,13 +139,13 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
 
         mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE)
 
-        startGame()
-        autoSchoolLogo()
+//        startGame()
+//        autoSchoolLogo()
 
-//        binding.btnBeginGame.setOnClickListener {
-//            val rep = QuestionRepositoryImpl()
-//            viewModel.writeDB(rep.getAllQuestions())
-//        }
+        binding.btnBeginGame.setOnClickListener {
+            val rep = QuestionRepositoryImpl()
+            viewModel.writeDB(rep.getAllQuestions())
+        }
 
     }
 
