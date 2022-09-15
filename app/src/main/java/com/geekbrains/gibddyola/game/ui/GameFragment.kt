@@ -218,7 +218,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
                     tvQuestion.text = appState.questions.question
                     appState.questions.image.let {
                         ivImageQuestion.setImageResource(
-                            R.mipmap::class.java.getId("none_image_question")
+                            R.mipmap::class.java.getId(it)
                         )
                     }
                     gameAdapter.setData(
@@ -255,7 +255,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
 
     }
 
-    inline fun <reified T: Class<*>> T.getId(name: String): Int {
+    private inline fun <reified T: Class<*>> T.getId(name: String): Int {
         return try {
             val idField = getDeclaredField(name)
             idField.getInt(idField)
