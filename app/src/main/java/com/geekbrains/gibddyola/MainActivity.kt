@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
+import com.geekbrains.gibddyola.game.ui.GameFragment
 import com.geekbrains.gibddyola.ui.about.AboutFragment
 import com.geekbrains.gibddyola.ui.main.MainFragment
 
@@ -113,24 +114,16 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             .commit()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    interface IOnBackPressed {
+        fun onBackPressed(): Boolean
     }
-//Реализация нажатия кнопки назад во фрагментах
-/*    override fun onBackPressed() {
-        if (lv_statusMain.getVisibility() === View.VISIBLE) {
-            lv_statusMain.setVisibility(View.INVISIBLE)
-            return
+
+    //Реализация нажатия кнопки назад во фрагментах
+    override fun onBackPressed() {
+        val fragment =
+            this.supportFragmentManager.findFragmentById(R.id.main_activity_container)
+        (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let {
+            super.onBackPressed()
         }
-        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
-            mDrawerLayout.closeDrawers()
-        } else {
-            val fragment: Fragment? = supportFragmentManager.findFragmentById(R.id.content_frame)
-            if (fragment is OnBackPressedListener) {
-                (fragment as OnBackPressedListener?).onBackPressed()
-            } else {
-                super.onBackPressed()
-            }
-        }
-    }*/
+    }
 }

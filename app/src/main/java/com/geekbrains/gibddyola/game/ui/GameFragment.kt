@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.geekbrains.gibddyola.MainActivity
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
@@ -21,7 +22,7 @@ import com.geekbrains.gibddyola.ui.main.MainFragment
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
 
-class GameFragment(private var questionNumber: Int) : Fragment() {
+class GameFragment(private var questionNumber: Int) : Fragment(), MainActivity.IOnBackPressed {
     private val viewModel: GameViewModel by lazy { ViewModelProvider(this)[GameViewModel::class.java] }
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
@@ -130,84 +131,76 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
         numberOfQuestions = arguments?.getInt("numberOfQuestions")
         score = arguments?.getInt("score") ?: 0
         countOfAnsweredQuestions = arguments?.getInt("questionsNumber") ?: 0
-        listOfAnsweredQuestions = arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
+        listOfAnsweredQuestions =
+            arguments?.getIntArray("listOfAnsweredQuestions")?.toMutableSet() ?: mutableSetOf<Int>()
 
-        mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE)
-
-        startGame()
-        autoSchoolLogo()
-    }
-
-    private fun autoSchoolLogo() {
-        Glide.with(binding.imageAutoSchoolLogo)
-            .load(R.mipmap.auto_school)
-            .centerInside()
-            .transform(RoundedCorners(10))
-            .error(R.mipmap.auto_school)
-            .into(binding.imageAutoSchoolLogo)
-    }
-
-    private fun startGame() {
-        if (numberOfQuestions != null) {
-            binding.textViewHeader.visibility = View.INVISIBLE
-            binding.settingLayoutCountOfQuestions.visibility = View.GONE
-            binding.imageAutoSchoolLogo.visibility = View.GONE
-            binding.llHeaderRightAnswers.visibility = View.VISIBLE
-        }
-        //Счет игры
-        binding.textViewScore.text = score.toString()
-        //Количество пройденных вопросов
-        viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
-            listOfAnsweredQuestions.add(it)
-        }
-        //Кнопка Начать игру
-        binding.btnBeginGame.setOnClickListener {
-            binding.btnBeginGame.visibility = View.GONE
-            binding.settingLayoutCountOfQuestions.visibility = View.GONE
-            numberOfQuestions = when (binding.radioGroup.checkedRadioButtonId) {
-                R.id.rb_20 -> 5
-                R.id.rb_50 -> 50
-                R.id.rb_100 -> 100
-                R.id.rb_all -> viewModel.getQuestionCount()
-                else -> 0
+        mSettings = context?.getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE);
+        with(binding)
+        {
+            if (numberOfQuestions != null) {
+                settingLayoutCountOfQuestions.visibility = View.GONE
+                llHeaderRightAnswers.visibility = View.VISIBLE
+                textViewHeader.visibility = View.GONE
+                imageAutoSchoolLogo.visibility = View.GONE
             }
-            binding.llHeaderRightAnswers.visibility = View.VISIBLE
-            viewModel.setNumberOfQuestion(numberOfQuestions!!)
-
-            val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
-            val nextFragment =
-                if (changeQuestion >= 0) {
-                    GameFragment(changeQuestion)
-                } else {
-                    ResultsQuestionsFragment()
+//Счет игры
+            textViewScore.text = score.toString()
+//Количество пройденных вопросов
+            viewModel.getAnsweredQuestions().observe(viewLifecycleOwner) {
+                listOfAnsweredQuestions.add(it)
+            }
+            //Кнопка Начать игру
+            btnBeginGame.setOnClickListener {
+                btnBeginGame.visibility = View.GONE
+                settingLayoutCountOfQuestions.visibility = View.GONE
+                textViewHeader.visibility = View.GONE
+                imageAutoSchoolLogo.visibility = View.GONE
+                numberOfQuestions = when (radioGroup.checkedRadioButtonId) {
+                    R.id.rb_20 -> 20
+                    R.id.rb_50 -> 50
+                    R.id.rb_100 -> 100
+                    R.id.rb_all -> viewModel.getQuestionCount()
+                    else -> 0
                 }
-            val bundle = Bundle()
-            bundle.putInt("numberOfQuestions", numberOfQuestions!!)
-            nextFragment.arguments = bundle
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(
-                    R.id.main_activity_container,
-                    nextFragment
-                )
-//                .addToBackStack("")
-                .commitAllowingStateLoss()
-        }
-        //Кнопка Выйти из игры
-        binding.btnQuitGame.setOnClickListener {
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.main_activity_container, MainFragment.newInstance())
-//                .addToBackStack("")
-                .commitAllowingStateLoss()
-        }
-        if (questionNumber != -1) {
-            viewModel.getQuestion(questionNumber)
-            binding.rvAnswers.layoutManager =
-                LinearLayoutManager(requireContext())
-            viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
-        } else {
-            binding.gameLayoutWindow.visibility = View.GONE
+                llHeaderRightAnswers.visibility = View.VISIBLE
+                viewModel.setNumberOfQuestion(numberOfQuestions!!)
+
+                val changeQuestion = changeQuestion(viewModel.getListAnsweredQuestion())
+                val nextFragment =
+                    if (changeQuestion >= 0) {
+                        GameFragment(changeQuestion)
+                    } else {
+                        ResultsQuestionsFragment()
+                    }
+                val bundle = Bundle()
+                bundle.putInt("numberOfQuestions", numberOfQuestions!!)
+                nextFragment.arguments = bundle
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .replace(
+                        R.id.main_activity_container,
+                        nextFragment
+                    )
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+
+//Кнопка Выйти из игры
+            btnQuitGame.setOnClickListener {
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_activity_container, MainFragment.newInstance())
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+            if (questionNumber != -1) {
+                viewModel.getQuestion(questionNumber)
+                rvAnswers.layoutManager =
+                    LinearLayoutManager(requireContext())
+                viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
+            } else {
+                gameLayoutWindow.visibility = View.GONE
+            }
         }
     }
 
@@ -245,28 +238,16 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
         fun onItemViewClick(question: QuestionDomain, position: Int)
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        numberOfQuestions?.let { outState.putInt("numberOfQuestions", it) };
-
+    //Реализация нажатия кнопки назад во фрагментах
+    override fun onBackPressed(): Boolean {
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.main_activity_container,
+                GameFragment(-1)
+            )
+//            .addToBackStack("")
+            .commitNow()
+        return true
     }
-
-//Реализация нажатия кнопки назад во фрагментах
-    /*fun onBackPressed() {
-        if (!blockUi.getValue()) {
-            val builder: AlertDialog.Builder = Builder(activity)
-            builder.setMessage(R.string.question_exit_without_saving)
-                .setPositiveButton(android.R.string.ok,
-                    DialogInterface.OnClickListener { dialog, which ->
-                        FragmentUtils.removeFragmentAndFireActivityResult(
-                            this@InventoryBaseCreateFragment,
-                            Activity.RESULT_CANCELED,
-                            Intent()
-                        )
-                    })
-                .setNegativeButton(android.R.string.cancel,
-                    DialogInterface.OnClickListener { dialog, which -> })
-            builder.show()
-        }
-    }*/
 }
