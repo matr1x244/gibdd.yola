@@ -12,7 +12,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         // Б1
 //        QuestionDomain(
 //            "0101",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каком случае водитель совершит вынужденную остановку?",
 //            listOf(
 //                Pair(
@@ -29,7 +29,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0102",
-//            R.mipmap.n1_2,
+//            "n1_2",
 //            "Разрешен ли Вам съезд на дорогу с грунтовым покрытием?",
 //            listOf(
 //                Pair("Разрешен", true),
@@ -40,7 +40,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0103",
-//            R.mipmap.n1_3,
+//            "n1_3",
 //            "Можно ли Вам остановиться в указанном месте для посадки пассажира?",
 //            listOf(
 //                Pair("Можно", true),
@@ -51,7 +51,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0104",
-//            R.mipmap.n1_4,
+//            "n1_4",
 //            "Какие из указанных знаков запрещают движение водителям мопедов?",
 //            listOf(
 //                Pair("Только А", false),
@@ -59,11 +59,11 @@ class QuestionRepositoryImpl : QuestionRepository {
 //                Pair("В и Г", false),
 //                Pair("Все", true)
 //            ),
-//            "Все указанные знаки запрещают движение водителям мопедов. Знак 5.14  (знак Б) «Полоса для маршрутных транспортных средств» используется для обозначения полосы, предназначенной для движения только маршрутных ТС, велосипедистов, школьных автобусов и ТС, используемых в качестве легкового такси. Знаки 4.4.1  (знак А) «Велосипедная дорожка», 4.5.2  «Пешеходная и велосипедная дорожка с совмещенным движением» (знак В) и 4.5.4  «Пешеходная и велосипедная дорожка с разделением движения» (знак Г) движение мопедов также не предусматривают п 1.2 «Велосипедная дорожка». P.S.Только знак 5.14.2  «Полоса для велосипедистов» разрешает движение мопедов п 24.7, , но его нет в вопросе."
+//            "Все указанные знаки запрещают движение водителям мопедов. Знак 5.14  (знак Б) «Полоса для маршрутных транспортных средств» используется для обозначения полосы, предназначенной для движения только маршрутных ТС, велосипедистов, школьных автобусов и ТС, используемых в качестве легкового такси. Знаки 4.4.1  (знак А) «Велосипедная дорожка», 4.5.2  «Пешеходная и велосипедная дорожка с совмещенным движением» (знак В) и 4.5.4  «Пешеходная и велосипедная дорожка с разделением движения» (знак Г) движение мопедов также не предусматривают п 1.2 «Велосипедная дорожка». P.S.Только знак 5.14.2  «Полоса для велосипедистов» разрешает движение мопедов п 24.7, но его нет в вопросе."
 //        ),
 //        QuestionDomain(
 //            "0105",
-//            R.mipmap.n1_5,
+//            "n1_5",
 //            "Вы намерены повернуть налево. Где следует остановиться, чтобы уступить дорогу легковому автомобилю?",
 //            listOf(
 //                Pair("Перед знаком", false),
@@ -75,7 +75,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0106",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что означает мигание зеленого сигнала светофора?",
 //            listOf(
 //                Pair("Предупреждает о неисправности светофора", false),
@@ -89,7 +89,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0107",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Водитель обязан подавать сигналы световыми указателями поворота (рукой):",
 //            listOf(
 //                Pair("Перед началом движения или перестроением", false),
@@ -101,7 +101,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0108",
-//            R.mipmap.n1_8,
+//            "n1_8",
 //            "Как Вам следует поступить при повороте направо?",
 //            listOf(
 //                Pair("Перестроиться на правую полосу, затем осуществить поворот", false),
@@ -112,7 +112,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0109",
-//            R.mipmap.n1_9,
+//            "n1_9",
 //            "По какой траектории Вам разрешено выполнить разворот?",
 //            listOf(
 //                Pair("Только по А", true),
@@ -123,7 +123,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0110",
-//            R.mipmap.n1_10,
+//            "n1_10",
 //            "С какой скоростью Вы можете продолжить движение вне населенного пункта по левой полосе на легковом автомобиле?",
 //            listOf(
 //                Pair("Не более 50 км/ч", false),
@@ -134,7 +134,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0111",
-//            R.mipmap.n1_11,
+//            "n1_11",
 //            "Можно ли водителю легкового автомобиля выполнить опережение грузовых автомобилей вне населенного пункта по такой траектории?",
 //            listOf(
 //                Pair("Можно", true),
@@ -145,7 +145,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0112",
-//            R.mipmap.n1_12,
+//            "n1_12",
 //            "В каком случае водителю разрешается поставить автомобиль на стоянку в указанном месте?",
 //            listOf(
 //                Pair("Только если расстояние до сплошной линии разметки не менее 3 м", false),
@@ -159,7 +159,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0113",
-//            R.mipmap.n1_13,
+//            "n1_13",
 //            "При повороте направо Вы должны уступить дорогу:",
 //            listOf(
 //                Pair("Только велосипедисту", false),
@@ -170,7 +170,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0114",
-//            R.mipmap.n1_14,
+//            "n1_14",
 //            "Вы намерены проехать перекресток в прямом направлении. Кому Вы должны уступить дорогу?",
 //            listOf(
 //                Pair("Обоим трамваям", true),
@@ -182,7 +182,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0115",
-//            R.mipmap.n1_15,
+//            "n1_15",
 //            "Кому Вы обязаны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair("Только автобусу", false),
@@ -193,7 +193,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0116",
-//            R.mipmap.n1_16,
+//            "n1_16",
 //            "С какой максимальной скоростью можно продолжить движение за знаком?",
 //            listOf(
 //                Pair("60 км/ч", false),
@@ -205,7 +205,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0117",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Для перевозки людей на мотоцикле водитель должен иметь водительское удостоверение на право управления транспортными средствами:",
 //            listOf(
 //                Pair("Категории «A» или подкатегории «A1»", false),
@@ -216,7 +216,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0118",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При какой неисправности разрешается эксплуатация транспортного средства?",
 //            listOf(
 //                Pair("Не работают пробки топливных баков", false),
@@ -228,7 +228,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0119",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В случае, когда правые колеса автомобиля наезжают на неукрепленную влажную обочину, рекомендуется:",
 //            listOf(
 //                Pair("Затормозить и полностью остановиться", false),
@@ -242,7 +242,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0120",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что понимается под временем реакции водителя?",
 //            listOf(
 //                Pair(
@@ -263,7 +263,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //B2
 //        QuestionDomain(
 //            "0201",
-//            R.mipmap.n2_1,
+//            "n2_1",
 //            "Сколько полос для движения имеет данная дорога?",
 //            listOf(
 //                Pair("Две", false),
@@ -274,7 +274,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0202",
-//            R.mipmap.n2_2,
+//            "n2_2",
 //            "Можно ли Вам въехать на мост первым?",
 //            listOf(
 //                Pair("Можно", true),
@@ -285,7 +285,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0203",
-//            R.mipmap.n2_3,
+//            "n2_3",
 //            "Разрешено ли Вам произвести остановку для посадки пассажира?",
 //            listOf(
 //                Pair("Разрешено", true),
@@ -297,7 +297,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0204",
-//            R.mipmap.n2_4,
+//            "n2_4",
 //            "Что запрещено в зоне действия этого знака?",
 //            listOf(
 //                Pair("Движение любых транспортных средств", false),
@@ -308,7 +308,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0205",
-//            R.mipmap.n2_5,
+//            "n2_5",
 //            "Разрешен ли Вам выезд на полосу с реверсивным движением, если реверсивный светофор выключен?",
 //            listOf(
 //                Pair("Разрешен", false),
@@ -319,7 +319,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0206",
-//            R.mipmap.n2_6,
+//            "n2_6",
 //            "В каких направлениях Вам разрешается продолжить движение?",
 //            listOf(
 //                Pair("Только налево", true),
@@ -330,7 +330,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0207",
-//            R.mipmap.n2_7,
+//            "n2_7",
 //            "Поднятая вверх рука водителя легкового автомобиля является сигналом, информирующим Вас о его намерении:",
 //            listOf(
 //                Pair("Повернуть направо", false),
@@ -341,7 +341,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0208",
-//            R.mipmap.n2_8,
+//            "n2_8",
 //            "Двигаясь по левой полосе, водитель намерен перестроиться на правую. На каком из рисунков показана ситуация, в которой он обязан уступить дорогу?",
 //            listOf(
 //                Pair("На левом", false),
@@ -352,7 +352,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0209",
-//            R.mipmap.n2_9,
+//            "n2_9",
 //            "Можно ли Вам выполнить разворот в этом месте?",
 //            listOf(
 //                Pair("Можно", true),
@@ -363,7 +363,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0210",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях разрешается наезжать на прерывистые линии разметки, разделяющие проезжую часть на полосы движения?",
 //            listOf(
 //                Pair("Только если на дороге нет других транспортных средств", false),
@@ -375,7 +375,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0211",
-//            R.mipmap.n2_11,
+//            "n2_11",
 //            "Разрешено ли Вам обогнать мотоцикл?",
 //            listOf(
 //                Pair("Разрешено", false),
@@ -386,7 +386,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0212",
-//            R.mipmap.n2_11,
+//            "n2_11",
 //            "Разрешается ли Вам остановиться в указанном месте?",
 //            listOf(
 //                Pair("Разрешается", false),
@@ -400,7 +400,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0213",
-//            R.mipmap.n2_13,
+//            "n2_13",
 //            "Вы намерены повернуть налево. Кому Вы должны уступить дорогу?",
 //            listOf(
 //                Pair("Только пешеходам", false),
@@ -411,7 +411,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0214",
-//            R.mipmap.n2_14,
+//            "n2_14",
 //            "В каком случае Вы имеете преимущество?",
 //            listOf(
 //                Pair("Только при повороте направо", false),
@@ -422,7 +422,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0215",
-//            R.mipmap.n2_15,
+//            "n2_15",
 //            "Обязан ли водитель мотоцикла уступить Вам дорогу?",
 //            listOf(
 //                Pair("Не обязан", false),
@@ -432,7 +432,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0216",
-//            R.mipmap.n2_16,
+//            "n2_16",
 //            "Разрешается ли водителю выполнить объезд грузового автомобиля?",
 //            listOf(
 //                Pair("Разрешается", false),
@@ -446,7 +446,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0217",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких из перечисленных случаев запрещена буксировка на гибкой сцепке?",
 //            listOf(
 //                Pair("Только на горных дорогах", false),
@@ -458,7 +458,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0218",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Запрещается эксплуатация мототранспортных средств (категории L), если остаточная глубина рисунка протектора шин (при отсутствии индикаторов износа) составляет не более:",
 //            listOf(
 //                Pair("1,0 мм", false),
@@ -470,7 +470,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0219",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Исключает ли антиблокировочная тормозная система возможность возникновения заноса или сноса при прохождении поворота?",
 //            listOf(
 //                Pair("Полностью исключает возможность возникновения только заноса", false),
@@ -481,7 +481,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0220",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях следует начинать сердечно-легочную реанимацию пострадавшего?",
 //            listOf(
 //                Pair("При наличии болей в области сердца и затрудненного дыхания", false),
@@ -496,7 +496,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б3
 //        QuestionDomain(
 //            "0301",
-//            R.mipmap.n3_1,
+//            "n3_1",
 //            "Выезжая с грунтовой дороги на перекресток, Вы попадаете:",
 //            listOf(
 //                Pair("На главную дорогу", true),
@@ -510,7 +510,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0302",
-//            R.mipmap.n3_2,
+//            "n3_2",
 //            "Где Вы должны остановиться?",
 //            listOf(
 //                Pair("Перед знаком (А)", false),
@@ -521,7 +521,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0303",
-//            R.mipmap.n3_3,
+//            "n3_3",
 //            "Вам необходимо двигаться со скоростью не более 40 км/ч:",
 //            listOf(
 //                Pair("Только во время дождя", false),
@@ -532,7 +532,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0304",
-//            R.mipmap.n3_4,
+//            "n3_4",
 //            "Какой из указанных знаков устанавливается в начале дороги с односторонним движением?",
 //            listOf(
 //                Pair("Только Б", true),
@@ -544,7 +544,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0305",
-//            R.mipmap.n3_5,
+//            "n3_5",
 //            "Можно ли Вам остановиться в этом месте для посадки или высадки пассажиров?",
 //            listOf(
 //                Pair("Можно", false),
@@ -558,7 +558,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0306",
-//            R.mipmap.n3_6,
+//            "n3_6",
 //            "При повороте направо Вы:",
 //            listOf(
 //                Pair("Имеете право проехать перекресток первым", false),
@@ -572,7 +572,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0307",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях водитель не должен подавать сигнал указателями поворота?",
 //            listOf(
 //                Pair("Только при отсутствии на дороге других участников движения", false),
@@ -586,7 +586,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0308",
-//            R.mipmap.n3_8,
+//            "n3_8",
 //            "Вам разрешено выполнить поворот направо:",
 //            listOf(
 //                Pair("Только по траектории А", true),
@@ -597,7 +597,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0309",
-//            R.mipmap.n3_9,
+//            "n3_9",
 //            "Разрешается ли Вам выполнить разворот на перекрестке по указанной траектории?",
 //            listOf(
 //                Pair("Разрешается", false),
@@ -608,7 +608,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0310",
-//            R.mipmap.n3_10,
+//            "n3_10",
 //            "По какой полосе Вы имеете право двигаться с максимально разрешенной скоростью вне населенных пунктов?",
 //            listOf(
 //                Pair("Только по правой", true),
@@ -619,7 +619,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0311",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каком случае водитель может начать обгон, если такой маневр на данном участке дороги не запрещен?",
 //            listOf(
 //                Pair(
@@ -633,7 +633,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0312",
-//            R.mipmap.n3_12,
+//            "n3_12",
 //            "Кто из водителей нарушил правила стоянки?",
 //            listOf(
 //                Pair("Оба", false),
@@ -645,7 +645,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0313",
-//            R.mipmap.n3_13,
+//            "n3_13",
 //            "При движении прямо Вы:",
 //            listOf(
 //                Pair("Должны остановиться перед стоп-линией", false),
@@ -659,7 +659,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0314",
-//            R.mipmap.n3_14,
+//            "n3_14",
 //            "Вы намерены повернуть направо. Ваши действия?",
 //            listOf(
 //                Pair("Проедете перекресток первым", true),
@@ -670,7 +670,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0315",
-//            R.mipmap.n3_15,
+//            "n3_15",
 //            "Кому Вы обязаны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair("Трамваям А и Б", false),
@@ -681,7 +681,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0316",
-//            R.mipmap.n3_16,
+//            "n3_16",
 //            "Кто из водителей нарушил правила остановки?",
 //            listOf(
 //                Pair("Только водитель легкового автомобиля", false),
@@ -692,7 +692,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0317",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какое оборудование должно иметь механическое транспортное средство, используемое для обучения вождению?",
 //            listOf(
 //                Pair("Опознавательные знаки «Учебное транспортное средство»", false),
@@ -707,7 +707,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0318",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие из перечисленных транспортных средств разрешается эксплуатировать без огнетушителя?",
 //            listOf(
 //                Pair("Любые мотоциклы", true),
@@ -718,7 +718,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0319",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "На повороте возник занос задней оси переднеприводного автомобиля. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -736,7 +736,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0320",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие сведения необходимо сообщить диспетчеру для вызова скорой медицинской помощи при дорожно-транспортном происшествии (ДТП)?",
 //            listOf(
 //                Pair(
@@ -757,7 +757,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б4
 //        QuestionDomain(
 //            "0401",
-//            R.mipmap.n4_1,
+//            "n4_1",
 //            "Сколько полос для движения имеет проезжая часть данной дороги?",
 //            listOf(
 //                Pair(
@@ -777,7 +777,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0402",
-//            R.mipmap.n4_2,
+//            "n4_2",
 //            "Эти знаки предупреждают Вас:",
 //            listOf(
 //                Pair(
@@ -797,7 +797,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0403",
-//            R.mipmap.n4_3,
+//            "n4_3",
 //            "Какой из указанных знаков распространяет свое действие только на ту полосу, над которой он установлен?",
 //            listOf(
 //                Pair(
@@ -817,7 +817,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0404",
-//            R.mipmap.n4_4,
+//            "n4_4",
 //            "Вы буксируете неисправный автомобиль. По какой полосе Вам можно продолжить движение в населенном пункте?",
 //            listOf(
 //                Pair(
@@ -837,7 +837,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0405",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что означает разметка в виде надписи «СТОП» на проезжей части?",
 //            listOf(
 //                Pair(
@@ -857,7 +857,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0406",
-//            R.mipmap.n4_6,
+//            "n4_6",
 //            "Каким транспортным средствам разрешено движение прямо?",
 //            listOf(
 //                Pair(
@@ -877,7 +877,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0407",
-//            R.mipmap.n4_7,
+//            "n4_7",
 //            "Вы намерены продолжить движение по главной дороге. Обязаны ли Вы при этом включить указатели правого поворота?",
 //            listOf(
 //                Pair(
@@ -897,7 +897,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0408",
-//            R.mipmap.n4_8,
+//            "n4_8",
 //            "Кто должен уступить дорогу?",
 //            listOf(
 //                Pair(
@@ -913,7 +913,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0409",
-//            R.mipmap.n4_9,
+//            "n4_9",
 //            "Вам можно выполнить разворот:",
 //            listOf(
 //                Pair(
@@ -933,7 +933,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0410",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "По какой полосе проезжей части разрешено движение в населенном пункте, если по техническим причинам транспортное средство не может развивать скорость более 40 км/ч?",
 //            listOf(
 //                Pair(
@@ -953,7 +953,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0411",
-//            R.mipmap.n4_11,
+//            "n4_11",
 //            "Разрешено ли Вам обогнать мотоцикл?",
 //            listOf(
 //                Pair(
@@ -973,7 +973,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0412",
-//            R.mipmap.n4_12,
+//            "n4_12",
 //            "Разрешается ли Вам остановка для посадки пассажира в этом месте?",
 //            listOf(
 //                Pair(
@@ -993,7 +993,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0413",
-//            R.mipmap.n4_13,
+//            "n4_13",
 //            "Вы намерены проехать перекресток в прямом направлении. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -1017,7 +1017,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0414",
-//            R.mipmap.n4_14,
+//            "n4_14",
 //            "Кому Вы должны уступить дорогу при повороте направо?",
 //            listOf(
 //                Pair(
@@ -1037,7 +1037,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0415",
-//            R.mipmap.n4_15,
+//            "n4_15",
 //            "Как Вам следует поступить при выполнении разворота?",
 //            listOf(
 //                Pair(
@@ -1057,7 +1057,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0416",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие из перечисленных действий запрещены водителям транспортных средств в жилой зоне?",
 //            listOf(
 //                Pair(
@@ -1081,7 +1081,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0417",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какое расстояние должно быть обеспечено между буксирующим и буксируемым транспортными средствами при буксировке на жесткой сцепке?",
 //            listOf(
 //                Pair(
@@ -1101,7 +1101,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0418",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каком случае разрешается эксплуатация транспортного средства?",
 //            listOf(
 //                Pair(
@@ -1125,7 +1125,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0419",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что следует предпринять водителю для предотвращения опасных последствий заноса автомобиля при резком повороте рулевого колеса на скользкой дороге?",
 //            listOf(
 //                Pair(
@@ -1145,7 +1145,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0420",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как следует расположить руки на грудной клетке пострадавшего при проведении сердечно-легочной реанимации?",
 //            listOf(
 //                Pair(
@@ -1166,7 +1166,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б5
 //        QuestionDomain(
 //            "0501",
-//            R.mipmap.n5_1,
+//            "n5_1",
 //            "Сколько проезжих частей имеет данная дорога?",
 //            listOf(
 //                Pair(
@@ -1186,7 +1186,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0502",
-//            R.mipmap.n5_2,
+//            "n5_2",
 //            "При наличии какого знака водитель должен уступить дорогу, если встречный разъезд затруднен?",
 //            listOf(
 //                Pair(
@@ -1210,7 +1210,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0503",
-//            R.mipmap.n5_3,
+//            "n5_3",
 //            "Разрешена ли Вам стоянка в указанном месте?",
 //            listOf(
 //                Pair(
@@ -1230,7 +1230,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0504",
-//            R.mipmap.n5_4,
+//            "n5_4",
 //            "Нарушил ли водитель грузового автомобиля правила стоянки?",
 //            listOf(
 //                Pair(
@@ -1250,7 +1250,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0505",
-//            R.mipmap.n5_5,
+//            "n5_5",
 //            "О чем предупреждает Вас вертикальная разметка, нанесенная на ограждение дороги?",
 //            listOf(
 //                Pair(
@@ -1270,7 +1270,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0506",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Разрешается ли водителю продолжить движение после переключения зеленого сигнала светофора на желтый, если возможно остановиться перед перекрестком, только применив экстренное торможение?",
 //            listOf(
 //                Pair(
@@ -1290,7 +1290,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0507",
-//            R.mipmap.n5_7,
+//            "n5_7",
 //            "Поднятая вверх рука водителя мотоцикла является сигналом, информирующим Вас о его намерении:",
 //            listOf(
 //                Pair(
@@ -1310,7 +1310,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0508",
-//            R.mipmap.n5_8,
+//            "n5_8",
 //            "В каких направлениях Вам можно продолжить движение по левой полосе на грузовом автомобиле с разрешенной максимальной массой не более 3,5 т?",
 //            listOf(
 //                Pair(
@@ -1330,7 +1330,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0509",
-//            R.mipmap.n5_9,
+//            "n5_9",
 //            "Вам необходимо повернуть на примыкающую справа дорогу. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -1350,7 +1350,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0510",
-//            R.mipmap.n5_10,
+//            "n5_10",
 //            "С какой максимальной скоростью Вы имеете право продолжить движение вне населенных пунктов на легковом автомобиле с прицепом?",
 //            listOf(
 //                Pair(
@@ -1370,7 +1370,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0511",
-//            R.mipmap.n5_11,
+//            "n5_11",
 //            "Разрешен ли Вам обгон?",
 //            listOf(
 //                Pair(
@@ -1390,7 +1390,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0512",
-//            R.mipmap.n5_12,
+//            "n5_12",
 //            "Кто из водителей нарушил правила стоянки?",
 //            listOf(
 //                Pair(
@@ -1414,7 +1414,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0513",
-//            R.mipmap.n5_13,
+//            "n5_13",
 //            "Вы намерены развернуться. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -1434,7 +1434,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0514",
-//            R.mipmap.n5_14,
+//            "n5_14",
 //            "Кому Вы должны уступить дорогу при движении в прямом направлении?",
 //            listOf(
 //                Pair(
@@ -1454,7 +1454,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0515",
-//            R.mipmap.n5_15,
+//            "n5_15",
 //            "Как Вам следует поступить при повороте налево?",
 //            listOf(
 //                Pair(
@@ -1474,7 +1474,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0516",
-//            R.mipmap.n5_16,
+//            "n5_16",
 //            "Разрешено ли Вам проехать железнодорожный переезд?",
 //            listOf(
 //                Pair(
@@ -1494,7 +1494,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0517",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях разрешено применять звуковые сигналы в населенных пунктах?",
 //            listOf(
 //                Pair(
@@ -1514,7 +1514,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0518",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При каком максимальном значении суммарного люфта в рулевом управлении допускается эксплуатация легкового автомобиля?",
 //            listOf(
 //                Pair(
@@ -1534,7 +1534,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0519",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как следует поступить водителю при высадке из автомобиля, стоящего у тротуара или на обочине?",
 //            listOf(
 //                Pair(
@@ -1554,7 +1554,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0520",
-//            R.mipmap.n5_20,
+//            "n5_20",
 //            "При движении в условиях тумана расстояние до предметов представляется:",
 //            listOf(
 //                Pair(
@@ -1575,7 +1575,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б6
 //        QuestionDomain(
 //            "0601",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что называется разрешенной максимальной массой транспортного средства?",
 //            listOf(
 //                Pair(
@@ -1595,7 +1595,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0602",
-//            R.mipmap.n6_2,
+//            "n6_2",
 //            "Вам разрешено продолжить движение:",
 //            listOf(
 //                Pair(
@@ -1615,7 +1615,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0603",
-//            R.mipmap.n6_3,
+//            "n6_3",
 //            "Какие из указанных знаков разрешают проезд на автомобиле к месту проживания или работы?",
 //            listOf(
 //                Pair(
@@ -1639,7 +1639,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0604",
-//            R.mipmap.n6_4,
+//            "n6_4",
 //            "Что обозначают эти дорожные знаки?",
 //            listOf(
 //                Pair(
@@ -1659,7 +1659,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0605",
-//            R.mipmap.n6_5,
+//            "n6_5",
 //            "Разметка в виде треугольника на полосе движения:",
 //            listOf(
 //                Pair(
@@ -1679,7 +1679,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0606",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Разрешается ли продолжить движение, если регулировщик поднял руку вверх после того, как Вы въехали на перекресток?",
 //            listOf(
 //                Pair(
@@ -1699,7 +1699,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0607",
-//            R.mipmap.n6_7,
+//            "n6_7",
 //            "Вы намерены продолжить движение по главной дороге. Обязаны ли Вы включить указатели левого поворота?",
 //            listOf(
 //                Pair(
@@ -1719,7 +1719,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0608",
-//            R.mipmap.n6_8,
+//            "n6_8",
 //            "Кто должен уступить дорогу при взаимном перестроении?",
 //            listOf(
 //                Pair(
@@ -1739,7 +1739,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0609",
-//            R.mipmap.n6_9,
+//            "n6_9",
 //            "В каких направлениях Вам можно продолжить движение?",
 //            listOf(
 //                Pair(
@@ -1759,7 +1759,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0610",
-//            R.mipmap.n6_10,
+//            "n6_10",
 //            "С какой максимальной скоростью Вы имеете право продолжить движение на легковом автомобиле?",
 //            listOf(
 //                Pair(
@@ -1779,7 +1779,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0611",
-//            R.mipmap.n6_11,
+//            "n6_11",
 //            "Как Вам следует поступить в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -1799,7 +1799,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0612",
-//            R.mipmap.n6_12,
+//            "n6_12",
 //            "Разрешено ли Вам поставить автомобиль на стоянку в этом месте?",
 //            listOf(
 //                Pair(
@@ -1819,7 +1819,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0613",
-//            R.mipmap.n6_13,
+//            "n6_13",
 //            "Вы намерены повернуть налево. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -1839,7 +1839,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0614",
-//            R.mipmap.n6_14,
+//            "n6_14",
 //            "Кому Вы обязаны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair(
@@ -1859,7 +1859,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0615",
-//            R.mipmap.n6_15,
+//            "n6_15",
 //            "В каком случае Вы должны будете уступить дорогу автомобилю ДПС?",
 //            listOf(
 //                Pair(
@@ -1879,7 +1879,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0616",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При приближении к остановившемуся транспортному средству с включенной аварийной сигнализацией, которое имеет опознавательные знаки «Перевозка детей», водитель должен:",
 //            listOf(
 //                Pair(
@@ -1899,7 +1899,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0617",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях водители мопедов нарушают Правила?",
 //            listOf(
 //                Pair(
@@ -1919,7 +1919,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0618",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Эксплуатировать грузовой автомобиль с разрешенной максимальной массой не более 3,5 т можно при отсутствии:",
 //            listOf(
 //                Pair(
@@ -1943,7 +1943,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0619",
-//            R.mipmap.n6_19,
+//            "n6_19",
 //            "В случае остановки на подъеме(спуске) при наличии обочины можно предотвратить самопроизвольное скатывание автомобиля на проезжую часть, повернув его передние колеса в положение:",
 //            listOf(
 //                Pair(
@@ -1967,7 +1967,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0620",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Установленный факт употребления водителем вызывающих алкогольное опьянение веществ определяется наличием в его организме абсолютного этилового спирта в концентрации, превышающей:",
 //            listOf(
 //                Pair(
@@ -1988,7 +1988,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 ////Б7
 //        QuestionDomain(
 //            "0701",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Может ли владелец мотоцикла с рабочим объемом двигателя внутреннего сгорания, не превышающим 125 см3 , и максимальной мощностью, не превышающей 11 квт, передавать управление этим транспортным средством в своем присутствии другому лицу, имея страховой полис обязательного страхования гражданской ответственности на бумажном носителе или в виде электронного документа либо его копии на бумажном носителе?",
 //            listOf(
 //                Pair(
@@ -2009,7 +2009,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0702",
-//            R.mipmap.n7_2,
+//            "n7_2",
 //            "О чем информируют Вас эти дорожные знаки?",
 //            listOf(
 //                Pair(
@@ -2029,7 +2029,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0703",
-//            R.mipmap.n7_3,
+//            "n7_3",
 //            "Разрешено ли Вам произвести остановку в указанном месте?",
 //            listOf(
 //                Pair(
@@ -2049,7 +2049,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0704",
-//            R.mipmap.n7_4,
+//            "n7_4",
 //            "Действие каких знаков из указанных распространяется только до ближайшего по ходу движения перекрестка?",
 //            listOf(
 //                Pair(
@@ -2069,7 +2069,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0705",
-//            R.mipmap.n7_5,
+//            "n7_5",
 //            "Что обозначают прерывистые линии разметки на перекрестке?",
 //            listOf(
 //                Pair(
@@ -2089,7 +2089,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0706",
-//            R.mipmap.n7_6,
+//            "n7_6",
 //            "Вам разрешается движение:",
 //            listOf(
 //                Pair(
@@ -2109,7 +2109,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0707",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Когда следует выключить указатели левого поворота, выполняя обгон?",
 //            listOf(
 //                Pair(
@@ -2129,7 +2129,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0708",
-//            R.mipmap.n7_8,
+//            "n7_8",
 //            "Обязан ли водитель легкового автомобиля уступить дорогу водителю грузового автомобиля?",
 //            listOf(
 //                Pair(
@@ -2149,7 +2149,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0709",
-//            R.mipmap.n7_9,
+//            "n7_9",
 //            "Разрешен ли Вам разворот на этом участке дороги?",
 //            listOf(
 //                Pair(
@@ -2169,7 +2169,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0710",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "С какой скоростью мотоциклам разрешается движение вне населенных пунктов на автомагистралях?",
 //            listOf(
 //                Pair(
@@ -2189,7 +2189,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0711",
-//            R.mipmap.n7_11,
+//            "n7_11",
 //            "Разрешается ли Вам в конце подъема перестроиться на среднюю полосу для опережения грузового автомобиля?",
 //            listOf(
 //                Pair(
@@ -2209,7 +2209,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0712",
-//            R.mipmap.n7_12,
+//            "n7_12",
 //            "В каком из указанных мест Вам можно поставить на стоянку легковой автомобиль?",
 //            listOf(
 //                Pair(
@@ -2232,7 +2232,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0713",
-//            R.mipmap.n7_13,
+//            "n7_13",
 //            "Как Вам следует поступить при повороте налево?",
 //            listOf(
 //                Pair(
@@ -2252,7 +2252,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0714",
-//            R.mipmap.n7_14,
+//            "n7_14",
 //            "Разрешено ли Вам выехать на перекресток, за которым образовался затор?",
 //            listOf(
 //                Pair(
@@ -2272,7 +2272,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0715",
-//            R.mipmap.n7_15,
+//            "n7_15",
 //            "Вы намерены продолжить движение прямо. Кому Вы обязаны уступить дорогу?",
 //            listOf(
 //                Pair(
@@ -2292,7 +2292,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0716",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Где могут двигаться пешеходы в жилой зоне?",
 //            listOf(
 //                Pair(
@@ -2312,7 +2312,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0717",
-//            R.mipmap.n7_17,
+//            "n7_17",
 //            "На каком рисунке изображен автомобиль, водитель которого не нарушает правил перевозки грузов?",
 //            listOf(
 //                Pair(
@@ -2332,7 +2332,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0718",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях разрешается эксплуатация транспортного средства?",
 //            listOf(
 //                Pair(
@@ -2356,7 +2356,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0719",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Двигаться по глубокому снегу на грунтовой дороге следует:",
 //            listOf(
 //                Pair(
@@ -2376,7 +2376,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0720",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какую оптимальную позу следует придать пострадавшему, находящемуся в сознании, при подозрении на травму позвоночника?",
 //            listOf(
 //                Pair(
@@ -2396,7 +2396,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0801",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие действия при дорожно-транспортном происшествии должны немедленно осуществить водители, причастные к нему?",
 //            listOf(
 //                Pair(
@@ -2416,7 +2416,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0802",
-//            R.mipmap.n8_2,
+//            "n8_2",
 //            "В чем особенность скоростного режима на этом участке дороги?",
 //            listOf(
 //                Pair(
@@ -2436,7 +2436,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0803",
-//            R.mipmap.n8_3,
+//            "n8_3",
 //            "Какие из указанных знаков запрещают поворот налево?",
 //            listOf(
 //                Pair(
@@ -2460,7 +2460,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0804",
-//            R.mipmap.n8_4,
+//            "n8_4",
 //            "Можно ли Вам повернуть направо на этом перекрестке?",
 //            listOf(
 //                Pair(
@@ -2480,7 +2480,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0805",
-//            R.mipmap.n8_5,
+//            "n8_5",
 //            "Разрешается ли Вам перестроиться?",
 //            listOf(
 //                Pair(
@@ -2500,7 +2500,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0806",
-//            R.mipmap.n8_6,
+//            "n8_6",
 //            "Разрешено ли Вам движение?",
 //            listOf(
 //                Pair(
@@ -2520,7 +2520,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0807",
-//            R.mipmap.n8_7,
+//            "n8_7",
 //            "Водитель легкового автомобиля должен выключить указатели левого поворота:",
 //            listOf(
 //                Pair(
@@ -2540,7 +2540,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0808",
-//            R.mipmap.n8_8,
+//            "n8_8",
 //            "По какой траектории Вам разрешается выполнить поворот налево?",
 //            listOf(
 //                Pair(
@@ -2560,7 +2560,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0809",
-//            R.mipmap.n8_9,
+//            "n8_9",
 //            "Вы имеете право выполнить разворот:",
 //            listOf(
 //                Pair(
@@ -2580,7 +2580,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0810",
-//            R.mipmap.n8_10,
+//            "n8_10",
 //            "Вне населенных пунктов Вам можно продолжить движение:",
 //            listOf(
 //                Pair(
@@ -2600,7 +2600,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0811",
-//            R.mipmap.n8_11,
+//            "n8_11",
 //            "Разрешено ли Вам после опережения первого автомобиля продолжить движение по левой полосе вне населенных пунктов?",
 //            listOf(
 //                Pair(
@@ -2620,7 +2620,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0812",
-//            R.mipmap.n8_12,
+//            "n8_12",
 //            "Нарушил ли водитель грузового автомобиля правила стоянки?",
 //            listOf(
 //                Pair(
@@ -2640,7 +2640,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0813",
-//            R.mipmap.n8_13,
+//            "n8_13",
 //            "Кто из водителей, выполняющих поворот, нарушит Правила?",
 //            listOf(
 //                Pair(
@@ -2664,7 +2664,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0814",
-//            R.mipmap.n8_14,
+//            "n8_14",
 //            "Вы намерены продолжить движение в прямом направлении. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -2684,7 +2684,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0815",
-//            R.mipmap.n8_15,
+//            "n8_15",
 //            "Кому Вы должны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair(
@@ -2704,7 +2704,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0816",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Остановка на автомагистрали разрешена:",
 //            listOf(
 //                Pair(
@@ -2724,7 +2724,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0817",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие внешние световые приборы должны использоваться при движении в темное время суток на освещенных участках дорог населенного пункта?",
 //            listOf(
 //                Pair(
@@ -2744,7 +2744,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0818",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При возникновении какой неисправности запрещается дальнейшее движение транспортного средства даже до места ремонта или стоянки?",
 //            listOf(
 //                Pair(
@@ -2764,7 +2764,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0819",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Более устойчив против опрокидывания на повороте легковой автомобиль:",
 //            listOf(
 //                Pair(
@@ -2788,7 +2788,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0820",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как оказать первую помощь при отморожении и переохлаждении?",
 //            listOf(
 //                Pair(
@@ -2808,7 +2808,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0901",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какое удостоверение достаточно иметь водителю, управляющему легковым автомобилем с прицепом, разрешенная максимальная масса которого не превышает 750кг?",
 //            listOf(
 //                Pair(
@@ -2828,7 +2828,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0902",
-//            R.mipmap.n9_2,
+//            "n9_2",
 //            "Знаки предупреждают Вас о том, что:",
 //            listOf(
 //                Pair(
@@ -2848,7 +2848,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0903",
-//            R.mipmap.n9_3,
+//            "n9_3",
 //            "Вам разрешено продолжить движение:",
 //            listOf(
 //                Pair(
@@ -2868,7 +2868,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0904",
-//            R.mipmap.n9_4,
+//            "n9_4",
 //            "Какие из указанных знаков запрещают движение транспортных средств, скорость которых по технической характеристике или их состоянию менее 40 км/ч?",
 //            listOf(
 //                Pair(
@@ -2888,7 +2888,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0905",
-//            R.mipmap.n9_5,
+//            "n9_5",
 //            "Можно ли Вам выполнить обгон при наличии данной разметки?",
 //            listOf(
 //                Pair(
@@ -2908,7 +2908,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0906",
-//            R.mipmap.n9_6,
+//            "n9_6",
 //            "В каких направлениях регулировщик разрешает Вам движение?",
 //            listOf(
 //                Pair(
@@ -2928,7 +2928,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0907",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Когда следует включать указатели поворота?",
 //            listOf(
 //                Pair(
@@ -2948,7 +2948,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0908",
-//            R.mipmap.n9_8,
+//            "n9_8",
 //            "Кто должен уступить дорогу?",
 //            listOf(
 //                Pair(
@@ -2968,7 +2968,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0909",
-//            R.mipmap.n9_9,
+//            "n9_9",
 //            "Разрешено ли Вам выполнить разворот в этом месте?",
 //            listOf(
 //                Pair(
@@ -2988,7 +2988,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0910",
-//            R.mipmap.n9_10,
+//            "n9_10",
 //            "По какой траектории Вам разрешается продолжить движение?",
 //            listOf(
 //                Pair(
@@ -3008,7 +3008,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0911",
-//            R.mipmap.n9_11,
+//            "n9_11",
 //            "Можно ли Вам после опережения грузового автомобиля продолжить движение по левой полосе вне населенных пунктов?",
 //            listOf(
 //                Pair(
@@ -3028,7 +3028,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0912",
-//            R.mipmap.n9_12,
+//            "n9_12",
 //            "Разрешено ли Вам остановиться на легковом автомобиле в указанном месте?",
 //            listOf(
 //                Pair(
@@ -3048,7 +3048,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0913",
-//            R.mipmap.n9_13,
+//            "n9_13",
 //            "Разрешено ли Вам выехать на перекресток, за которым образовался затор:",
 //            listOf(
 //                Pair(
@@ -3068,7 +3068,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0914",
-//            R.mipmap.n9_14,
+//            "n9_14",
 //            "Вы намерены продолжить движение в прямом направлении. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -3084,7 +3084,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0915",
-//            R.mipmap.n9_15,
+//            "n9_15",
 //            "Кому Вы обязаны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair(
@@ -3104,7 +3104,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0916",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Разрешается ли движение задним ходом на автомагистрали?",
 //            listOf(
 //                Pair(
@@ -3124,7 +3124,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0917",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Водителям мопедов разрешено двигаться:",
 //            listOf(
 //                Pair(
@@ -3148,7 +3148,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0918",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Дальнейшее движение транспортного средства (даже к месту стоянки или ремонта) при негорящих (отсутствующих) фарах и задних габаритных огнях запрещается:",
 //            listOf(
 //                Pair(
@@ -3168,7 +3168,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0919",
-//            R.mipmap.n9_19,
+//            "n9_19",
 //            "Способ разворота с использованием прилегающей территории слева, обеспечивающий безопасность движения, показан:",
 //            listOf(
 //                Pair(
@@ -3188,7 +3188,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "0920",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Вероятность возникновения аварийной ситуации при движении в плотном транспортном потоке будет меньше, если скорость Вашего транспортного средства:",
 //            listOf(
 //                Pair(
@@ -3208,7 +3208,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1001",
-//            R.mipmap.n10_1,
+//            "n10_1",
 //            "Главная дорога показана:",
 //            listOf(
 //                Pair(
@@ -3228,7 +3228,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1002",
-//            R.mipmap.n10_2,
+//            "n10_2",
 //            "Какие из указанных знаков распространяют свое действие только на период времени, когда покрытие проезжей части влажное?",
 //            listOf(
 //                Pair(
@@ -3248,7 +3248,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1003",
-//            R.mipmap.n10_3,
+//            "n10_3",
 //            "Разрешается ли Вам поставить автомобиль на стоянку в указанном месте?",
 //            listOf(
 //                Pair(
@@ -3268,7 +3268,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1004",
-//            R.mipmap.n10_4,
+//            "n10_4",
 //            "Вы управляете грузовым автомобилем с разрешенной максимальной массой не более 3,5 т. В каком направлении Вам разрешено дальнейшее движение?",
 //            listOf(
 //                Pair(
@@ -3288,7 +3288,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1005",
-//            R.mipmap.n10_5,
+//            "n10_5",
 //            "Такой вертикальной разметкой обозначают:",
 //            listOf(
 //                Pair(
@@ -3304,7 +3304,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1006",
-//            R.mipmap.n10_6,
+//            "n10_6",
 //            "Каким транспортным средствам разрешено продолжить движение?",
 //            listOf(
 //                Pair(
@@ -3328,7 +3328,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1007",
-//            R.mipmap.n10_7,
+//            "n10_7",
 //            "Вы намерены произвести разворот на перекрестке. Какие указатели поворота необходимо включить перед въездом на перекресток?",
 //            listOf(
 //                Pair(
@@ -3348,7 +3348,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1008",
-//            R.mipmap.n10_8,
+//            "n10_8",
 //            "По какой траектории Вам разрешается выполнить поворот налево?",
 //            listOf(
 //                Pair(
@@ -3368,7 +3368,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1009",
-//            R.mipmap.n10_9,
+//            "n10_9",
 //            "Водитель легкового автомобиля в данной ситуации:",
 //            listOf(
 //                Pair(
@@ -3388,7 +3388,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1010",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что должно иметь решающее значение при выборе водителем скорости движения в темное время суток?",
 //            listOf(
 //                Pair(
@@ -3408,7 +3408,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1011",
-//            R.mipmap.n10_11,
+//            "n10_11",
 //            "Можно ли Вам обогнать трактор?",
 //            listOf(
 //                Pair(
@@ -3428,7 +3428,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1012",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Где разрешается стоянка в целях длительного отдыха или ночлега на дорогах вне населенного пункта?",
 //            listOf(
 //                Pair(
@@ -3448,7 +3448,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1013",
-//            R.mipmap.n10_13,
+//            "n10_13",
 //            "При включении зеленого сигнала светофора Вам следует:",
 //            listOf(
 //                Pair(
@@ -3468,7 +3468,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1014",
-//            R.mipmap.n10_14,
+//            "n10_14",
 //            "Вы намерены проехать перекресток в прямом направлении. Кому Вы обязаны уступить дорогу?",
 //            listOf(
 //                Pair(
@@ -3488,7 +3488,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1015",
-//            R.mipmap.n10_15,
+//            "n10_15",
 //            "Кому Вы должны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair(
@@ -3508,7 +3508,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1016",
-//            R.mipmap.n10_16,
+//            "n10_16",
 //            "Разрешен ли Вам въезд на железнодорожный переезд в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -3528,7 +3528,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1017",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При движении в условиях недостаточной видимости можно использовать противотуманные фары:",
 //            listOf(
 //                Pair(
@@ -3548,7 +3548,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1018",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие из перечисленных транспортных средств разрешается эксплуатировать без медицинской аптечки?",
 //            listOf(
 //                Pair(
@@ -3572,7 +3572,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1019",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При приближении к вершине подъема в темное время суток водителю следует:",
 //            listOf(
 //                Pair(
@@ -3592,7 +3592,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1020",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какова первая помощь при черепно-мозговой травме, сопровождающейся ранением волосистой части головы?",
 //            listOf(
 //                Pair(
@@ -3612,7 +3612,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1101",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие транспортные средства относятся к маршрутным транспортным средствам?",
 //            listOf(
 //                Pair(
@@ -3632,7 +3632,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1102",
-//            R.mipmap.n11_2,
+//            "n11_2",
 //            "Двигаясь в населенном пункте, Вы можете продолжить движение:",
 //            listOf(
 //                Pair(
@@ -3652,7 +3652,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1103",
-//            R.mipmap.n11_3,
+//            "n11_3",
 //            "Этот знак указывает:",
 //            listOf(
 //                Pair(
@@ -3672,7 +3672,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1104",
-//            R.mipmap.n11_4,
+//            "n11_4",
 //            "До какого места действует требование данного знака?",
 //            listOf(
 //                Pair(
@@ -3692,7 +3692,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1105",
-//            R.mipmap.n11_5,
+//            "n11_5",
 //            "Эта разметка, нанесенная на полосе движения:",
 //            listOf(
 //                Pair(
@@ -3712,7 +3712,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1106",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Запрещается выполнять обгон транспортного средства, имеющего нанесенные на наружные поверхности специальные цветографические схемы:",
 //            listOf(
 //                Pair(
@@ -3732,7 +3732,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1107",
-//            R.mipmap.n11_7,
+//            "n11_7",
 //            "Обязаны ли Вы в данной ситуации подать сигнал правого поворота?",
 //            listOf(
 //                Pair(
@@ -3752,7 +3752,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1108",
-//            R.mipmap.n11_8,
+//            "n11_8",
 //            "По какой траектории Вам разрешено выполнить поворот направо?",
 //            listOf(
 //                Pair(
@@ -3772,7 +3772,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1109",
-//            R.mipmap.n11_9,
+//            "n11_9",
 //            "Вам можно выполнить разворот:",
 //            listOf(
 //                Pair(
@@ -3792,7 +3792,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1110",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях разрешается выезжать за пределы правой полосы, если Вы управляете транспортным средством, скорость которого по техническим причинам не может быть более 40 км/ч?",
 //            listOf(
 //                Pair(
@@ -3812,7 +3812,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1111",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Водитель обгоняемого транспортного средства:",
 //            listOf(
 //                Pair(
@@ -3832,7 +3832,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1112",
-//            R.mipmap.n11_12,
+//            "n11_12",
 //            "Кто из водителей нарушил правила стоянки?",
 //            listOf(
 //                Pair(
@@ -3856,7 +3856,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1113",
-//            R.mipmap.n11_13,
+//            "n11_13",
 //            "Обязаны ли Вы при повороте направо уступить дорогу автомобилю, выполняющему разворот?",
 //            listOf(
 //                Pair(
@@ -3872,7 +3872,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1114",
-//            R.mipmap.n11_14,
+//            "n11_14",
 //            "В каком случае Вы имеете право проехать перекресток первым?",
 //            listOf(
 //                Pair(
@@ -3892,7 +3892,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1115",
-//            R.mipmap.n11_15,
+//            "n11_15",
 //            "Вы намерены продолжить движение прямо. При желтом мигающем сигнале светофора следует:",
 //            listOf(
 //                Pair(
@@ -3916,7 +3916,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1116",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "С какой максимальной скоростью разрешается движение транспортных средств в жилых зонах и на дворовых территориях?",
 //            listOf(
 //                Pair(
@@ -3936,7 +3936,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1117",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При движении в темное время суток вне населенных пунктов необходимо использовать:",
 //            listOf(
 //                Pair(
@@ -3956,7 +3956,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1118",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях водители привлекаются к уголовной ответственности за нарушения Правил, повлекшие тяжкие последствия?",
 //            listOf(
 //                Pair(
@@ -3976,7 +3976,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1119",
-//            R.mipmap.n11_19,
+//            "n11_19",
 //            "В случае остановки на подъеме (спуске) при наличии тротуара можно предотвратить самопроизвольное скатывание автомобиля, повернув его передние колеса в положение:",
 //            listOf(
 //                Pair(
@@ -4000,7 +4000,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1120",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какое расстояние проедет транспортное средство за время, равное среднему времени реакции водителя, при скорости движения около 90 км/час?",
 //            listOf(
 //                Pair(
@@ -4020,7 +4020,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1201",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях владелец легкового автомобиля может передавать управление этим транспортным средством в своем присутствии другому лицу, имея страховой полис обязательного страхования гражданской ответственности на бумажном носителе или в виде электронного документа либо его копии на бумажном носителе?",
 //            listOf(
 //                Pair(
@@ -4040,7 +4040,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1202",
-//            R.mipmap.n12_2,
+//            "n12_2",
 //            "Этот знак:",
 //            listOf(
 //                Pair(
@@ -4060,7 +4060,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1203",
-//            R.mipmap.n12_3,
+//            "n12_3",
 //            "В каких направлениях Вам можно продолжить движение на перекрестке?",
 //            listOf(
 //                Pair(
@@ -4080,7 +4080,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1204",
-//            R.mipmap.n12_4,
+//            "n12_4",
 //            "Какие из указанных знаков разрешают движение мопедов?",
 //            listOf(
 //                Pair(
@@ -4104,7 +4104,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1205",
-//            R.mipmap.n12_5,
+//            "n12_5",
 //            "Движение разрешается:",
 //            listOf(
 //                Pair(
@@ -4124,7 +4124,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1206",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какое значение имеет сигнал свистком, подаваемый регулировщиком?",
 //            listOf(
 //                Pair(
@@ -4144,7 +4144,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1207",
-//            R.mipmap.n12_7,
+//            "n12_7",
 //            "Вы намерены повернуть налево на этом перекрестке. В какой момент следует включить указатели левого поворота?",
 //            listOf(
 //                Pair(
@@ -4164,7 +4164,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1208",
-//            R.mipmap.n12_8,
+//            "n12_8",
 //            "Кто должен уступить дорогу при одновременном перестроении?",
 //            listOf(
 //                Pair(
@@ -4184,7 +4184,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1209",
-//            R.mipmap.n12_9,
+//            "n12_9",
 //            "Разрешено ли Вам выполнить разворот на мосту по указанной траектории?",
 //            listOf(
 //                Pair(
@@ -4204,7 +4204,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1210",
-//            R.mipmap.n12_10,
+//            "n12_10",
 //            "С какой скоростью Вы имеете право продолжить движение в населенном пункте по правой полосе?",
 //            listOf(
 //                Pair(
@@ -4224,7 +4224,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1211",
-//            R.mipmap.n12_11,
+//            "n12_11",
 //            "Разрешено ли Вам выполнить обгон в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -4244,7 +4244,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1212",
-//            R.mipmap.n12_12,
+//            "n12_12",
 //            "Можно ли Вам поставить автомобиль на стоянку в указанном месте?",
 //            listOf(
 //                Pair(
@@ -4264,7 +4264,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1213",
-//            R.mipmap.n12_13,
+//            "n12_13",
 //            "Вы намерены повернуть направо. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -4284,7 +4284,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1214",
-//            R.mipmap.n12_14,
+//            "n12_14",
 //            "При движении в каком направлении Вы должны уступить дорогу автомобилю с включенными проблесковым маячком и специальным звуковым сигналом?",
 //            listOf(
 //                Pair(
@@ -4304,7 +4304,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1215",
-//            R.mipmap.n12_15,
+//            "n12_15",
 //            "Вы намерены продолжить движение прямо. Ваши действия при желтом мигающем сигнале светофора?",
 //            listOf(
 //                Pair(
@@ -4328,7 +4328,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1216",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Разрешается ли учебная езда на автомагистрали?",
 //            listOf(
 //                Pair(
@@ -4348,7 +4348,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1217",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При движении в темное время суток на неосвещенных участках дорог можно использовать противотуманные фары:",
 //            listOf(
 //                Pair(
@@ -4368,7 +4368,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1218",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При какой неисправности тормозной системы запрещается эксплуатация транспортного средства?",
 //            listOf(
 //                Pair(
@@ -4388,7 +4388,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1219",
-//            R.mipmap.n12_19,
+//            "n12_19",
 //            "Способ разворота с использованием прилегающей территории справа, обеспечивающий безопасность движения, показан:",
 //            listOf(
 //                Pair(
@@ -4408,7 +4408,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1220",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как следует уложить пострадавшего при потере им сознания и наличии дыхания и кровообращения для оказания первой помощи?",
 //            listOf(
 //                Pair(
@@ -4429,7 +4429,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б13
 //        QuestionDomain(
 //            "1301",
-//            R.mipmap.n13_1,
+//            "n13_1",
 //            "Соответствуют ли действия водителя Правилам, если он движется посередине дороги?",
 //            listOf(
 //                Pair("Не соответствуют", true),
@@ -4440,7 +4440,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1302",
-//            R.mipmap.n13_2,
+//            "n13_2",
 //            "Как следует поступить, если Вам необходимо развернуться?",
 //            listOf(
 //                Pair(
@@ -4454,7 +4454,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1303",
-//            R.mipmap.n13_3,
+//            "n13_3",
 //            "Разрешена ли Вам стоянка в указанном месте?",
 //            listOf(
 //                Pair("Разрешена", false),
@@ -4465,7 +4465,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1304",
-//            R.mipmap.n13_4,
+//            "n13_4",
 //            "Эта табличка распространяет действие установленного с ней знака:",
 //            listOf(
 //                Pair("Только на легковые автомобили", false),
@@ -4479,7 +4479,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1305",
-//            R.mipmap.n13_5,
+//            "n13_5",
 //            "Какой пешеходный переход обозначает данная разметка?",
 //            listOf(
 //                Pair("Любой", true),
@@ -4490,7 +4490,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1306",
-//            R.mipmap.n13_6,
+//            "n13_6",
 //            "Ваши действия в данной ситуации?",
 //            listOf(
 //                Pair("Проедете переезд, убедившись в отсутствии приближающегося поезда", true),
@@ -4504,7 +4504,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1307",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Когда может быть прекращена подача сигнала рукой о повороте?",
 //            listOf(
 //                Pair("После начала маневра", false),
@@ -4515,7 +4515,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1308",
-//            R.mipmap.n13_8,
+//            "n13_8",
 //            "Из какой полосы разрешено въехать на данный перекресток?",
 //            listOf(
 //                Pair("Только из правой", false),
@@ -4526,7 +4526,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1309",
-//            R.mipmap.n13_9,
+//            "n13_9",
 //            "Разрешается ли Вам выполнить разворот на этом участке дороги?",
 //            listOf(
 //                Pair("Разрешается только при видимости дороги не менее 100 м", true),
@@ -4537,7 +4537,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1310",
-//            R.mipmap.n13_10,
+//            "n13_10",
 //            "С какой максимальной скоростью Вы имеете право продолжить движение на легковом автомобиле?",
 //            listOf(
 //                Pair("60 км/ч", false),
@@ -4549,7 +4549,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1311",
-//            R.mipmap.n13_11,
+//            "n13_11",
 //            "Сколько транспортных средств Вам можно обогнать одновременно после проезда пешеходного перехода?",
 //            listOf(
 //                Pair("Только одно", false),
@@ -4560,7 +4560,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1312",
-//            R.mipmap.n13_12,
+//            "n13_12",
 //            "Разрешено ли Вам остановиться на мосту для посадки пассажира?",
 //            listOf(
 //                Pair("Запрещено", true),
@@ -4571,7 +4571,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1313",
-//            R.mipmap.n13_13,
+//            "n13_13",
 //            "Вы намерены проехать перекресток в прямом направлении. Ваши действия?",
 //            listOf(
 //                Pair("Уступите дорогу трамваю", false),
@@ -4581,7 +4581,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1314",
-//            R.mipmap.n13_14,
+//            "n13_14",
 //            "Кто из водителей, выполняющих поворот, должен уступить дорогу пешеходам?",
 //            listOf(
 //                Pair("Оба", true),
@@ -4592,7 +4592,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1315",
-//            R.mipmap.n13_15,
+//            "n13_15",
 //            "Можете ли Вы в данной ситуации приступить к повороту налево?",
 //            listOf(
 //                Pair("Можете", false),
@@ -4606,7 +4606,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1316",
-//            R.mipmap.n13_16,
+//            "n13_16",
 //            "Разрешается ли Вам на легковом автомобиле перестроиться вправо, чтобы продолжить движение в прямом направлении?",
 //            listOf(
 //                Pair("Разрешается, если Вы управляете легковым такси", true),
@@ -4620,7 +4620,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1317",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Задние противотуманные фонари можно использовать:",
 //            listOf(
 //                Pair("Только в условиях недостаточной видимости", true),
@@ -4631,7 +4631,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1318",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При возникновении какой неисправности запрещено дальнейшее движение транспортного средства даже до места ремонта или стоянки?",
 //            listOf(
 //                Pair("Не работает стеклоподъемник", false),
@@ -4642,7 +4642,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1319",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Двигаясь в прямом направлении, Вы внезапно попали на небольшой участок скользкой дороги. Что следует предпринять?",
 //            listOf(
 //                Pair("Плавно затормозить", false),
@@ -4653,7 +4653,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1320",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "На какой срок может быть наложен кровоостанавливающий жгут?",
 //            listOf(
 //                Pair(
@@ -4671,7 +4671,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б14
 //        QuestionDomain(
 //            "1401",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что означает термин «Ограниченная видимость»?",
 //            listOf(
 //                Pair(
@@ -4688,7 +4688,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1402",
-//            R.mipmap.n14_2,
+//            "n14_2",
 //            "О чем предупреждают Вас эти знаки?",
 //            listOf(
 //                Pair("Остановка транспортных средств на обочине запрещена", false),
@@ -4699,7 +4699,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1403",
-//            R.mipmap.n14_3,
+//            "n14_3",
 //            "Какие из указанных знаков разрешают движение грузовым автомобилям с разрешенной максимальной массой не более 3,5 т?",
 //            listOf(
 //                Pair("А и В", true),
@@ -4710,7 +4710,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1404",
-//            R.mipmap.n14_4,
+//            "n14_4",
 //            "Вам можно продолжить движение по крайней левой полосе на легковом автомобиле:",
 //            listOf(
 //                Pair("Только налево", false),
@@ -4721,7 +4721,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1405",
-//            R.mipmap.n14_5,
+//            "n14_5",
 //            "В каком из указанных мест Вам разрешено пересечь сплошную линию разметки и остановиться?",
 //            listOf(
 //                Pair("А и Б", false),
@@ -4732,7 +4732,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1406",
-//            R.mipmap.n14_6,
+//            "n14_6",
 //            "Должны ли Вы остановиться по требованию регулировщика в указанном им месте?",
 //            listOf(
 //                Pair("Должны", true),
@@ -4743,7 +4743,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1407",
-//            R.mipmap.n14_7,
+//            "n14_7",
 //            "Такой сигнал рукой, подаваемый водителем мотоцикла, информирует Вас:",
 //            listOf(
 //                Pair("О его намерении повернуть налево или выполнить разворот", true),
@@ -4754,7 +4754,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1408",
-//            R.mipmap.n14_8,
+//            "n14_8",
 //            "По какой траектории Вам разрешается выполнить поворот налево?",
 //            listOf(
 //                Pair("Только по А", false),
@@ -4765,7 +4765,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1409",
-//            R.mipmap.n14_9,
+//            "n14_9",
 //            "Можно ли Вам развернуться в этом месте?",
 //            listOf(
 //                Pair("Можно", true),
@@ -4776,7 +4776,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1410",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Допускается ли движение автомобилей по тротуарам или пешеходным дорожкам?",
 //            listOf(
 //                Pair("Допускается", false),
@@ -4790,7 +4790,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1411",
-//            R.mipmap.n14_11,
+//            "n14_11",
 //            "В данной ситуации Вы:",
 //            listOf(
 //                Pair(
@@ -4807,7 +4807,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1412",
-//            R.mipmap.n14_12,
+//            "n14_12",
 //            "Разрешено ли Вам остановиться на мосту в этом месте?",
 //            listOf(
 //                Pair("Разрешено только для высадки пассажиров", false),
@@ -4818,7 +4818,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1413",
-//            R.mipmap.n14_13,
+//            "n14_13",
 //            "При включении зеленого сигнала светофора Вы должны уступить дорогу:",
 //            listOf(
 //                Pair("Только грузовому автомобилю, завершающему разворот на перекрестке", false),
@@ -4829,7 +4829,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1414",
-//            R.mipmap.n14_14,
+//            "n14_14",
 //            "Вы намерены проехать перекресток в прямом направлении. Кому Вы обязаны уступить дорогу?",
 //            listOf(
 //                Pair("Обоим трамваям", true),
@@ -4840,7 +4840,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1415",
-//            R.mipmap.n14_15,
+//            "n14_15",
 //            "При повороте налево Вы:",
 //            listOf(
 //                Pair("Должны уступить дорогу только автобусу", true),
@@ -4851,7 +4851,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1416",
-//            R.mipmap.n14_16,
+//            "n14_16",
 //            "Кто из водителей нарушает правила разворота на автомагистрали?",
 //            listOf(
 //                Pair("Оба", false),
@@ -4866,7 +4866,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1417",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Буксировка двухколесного мотоцикла разрешается:",
 //            listOf(
 //                Pair(
@@ -4883,7 +4883,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1418",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каком из перечисленных случаев разрешается эксплуатация автомобиля?",
 //            listOf(
 //                Pair("Шины имеют отслоения протектора или боковины", false),
@@ -4897,7 +4897,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1419",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как влияет длительный разгон транспортного средства с включенной первой передачей на расход топлива?",
 //            listOf(
 //                Pair("Расход топлива увеличивается", true),
@@ -4908,7 +4908,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1420",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Является ли безопасным движение вне населенного пункта на легковом автомобиле в темное время суток с включенным ближним светом фар по неосвещенному участку дороги со скоростью 90 км/ч?",
 //            listOf(
 //                Pair(
@@ -4925,7 +4925,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1501",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какой неподвижный объект, не позволяющий продолжить движение по полосе, не относится к понятию «Препятствие»?",
 //            listOf(
 //                Pair(
@@ -4949,7 +4949,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1502",
-//            R.mipmap.n15_2,
+//            "n15_2",
 //            "Вам можно продолжить движение на перекрестке:",
 //            listOf(
 //                Pair(
@@ -4969,7 +4969,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1503",
-//            R.mipmap.n15_3,
+//            "n15_3",
 //            "Этот дорожный знак:",
 //            listOf(
 //                Pair(
@@ -4989,7 +4989,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1504",
-//            R.mipmap.n15_4,
+//            "n15_4",
 //            "Какие из указанных табличек указывают протяженность зоны действия знаков, с которыми они применяются?",
 //            listOf(
 //                Pair(
@@ -5009,7 +5009,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1505",
-//            R.mipmap.n15_5,
+//            "n15_5",
 //            "Разрешен ли Вам такой маневр при выключенных реверсивных светофорах?",
 //            listOf(
 //                Pair(
@@ -5033,7 +5033,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1506",
-//            R.mipmap.n15_6,
+//            "n15_6",
 //            "При таких сигналах светофора и жесте регулировщика Вы должны:",
 //            listOf(
 //                Pair(
@@ -5053,7 +5053,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1507",
-//            R.mipmap.n15_7,
+//            "n15_7",
 //            "Обязан ли в этой ситуации водитель, остановившийся из-за неисправности, выставить знак аварийной остановки?",
 //            listOf(
 //                Pair(
@@ -5073,7 +5073,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1508",
-//            R.mipmap.n15_8,
+//            "n15_8",
 //            "По какой траектории Вам разрешено продолжить движение налево?",
 //            listOf(
 //                Pair(
@@ -5093,7 +5093,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1509",
-//            R.mipmap.n15_9,
+//            "n15_9",
 //            "Как Вам следует действовать, выезжая с места стоянки одновременно с другим автомобилем?",
 //            listOf(
 //                Pair(
@@ -5113,7 +5113,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1510",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "К резкому торможению можно прибегнуть:",
 //            listOf(
 //                Pair(
@@ -5133,7 +5133,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1511",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Разрешается ли на двухполосной дороге выполнять обгон на перекрестках?",
 //            listOf(
 //                Pair(
@@ -5157,7 +5157,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1512",
-//            R.mipmap.n15_12,
+//            "n15_12",
 //            "Кто из водителей нарушил правила остановки?",
 //            listOf(
 //                Pair(
@@ -5177,7 +5177,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1513",
-//            R.mipmap.n15_13,
+//            "n15_13",
 //            "В каком случае Вы обязаны уступить дорогу трамваю?",
 //            listOf(
 //                Pair(
@@ -5197,7 +5197,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1514",
-//            R.mipmap.n15_14,
+//            "n15_14",
 //            "При движении в прямом направлении Вам следует:",
 //            listOf(
 //                Pair(
@@ -5217,7 +5217,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1515",
-//            R.mipmap.n15_15,
+//            "n15_15",
 //            "Кому Вы должны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair(
@@ -5237,7 +5237,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1516",
-//            R.mipmap.n15_16,
+//            "n15_16",
 //            "Вам разрешено продолжить движение:",
 //            listOf(
 //                Pair(
@@ -5265,7 +5265,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1517",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Привлечь внимание водителя обгоняемого автомобиля при движении вне населенного пункта в светлое время суток можно:",
 //            listOf(
 //                Pair(
@@ -5289,7 +5289,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1518",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Эксплуатация мотоцикла запрещается:",
 //            listOf(
 //                Pair(
@@ -5309,7 +5309,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1519",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как следует выбирать передачу при торможении двигателем с учетом крутизны спуска?",
 //            listOf(
 //                Pair(
@@ -5329,7 +5329,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1520",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "О каких травмах у пострадавшего может свидетельствовать поза «лягушки» (ноги согнуты в коленях и разведены, а стопы развернуты подошвами друг к другу) и какую первую помощь необходимо при этом оказать?",
 //            listOf(
 //                Pair(
@@ -5350,7 +5350,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б16
 //        QuestionDomain(
 //            "1601",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При наличии каких условий в случаях вынужденной остановки транспортного средства или дорожно-транспортного происшествия водитель обязан быть одетым в куртку, жилет или жилет-накидку с полосами световозвращающего материала?",
 //            listOf(
 //                Pair(
@@ -5374,7 +5374,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1602",
-//            R.mipmap.n16_2,
+//            "n16_2",
 //            "В какой из дворов Вам можно въехать в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -5394,7 +5394,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1603",
-//            R.mipmap.n16_3,
+//            "n16_3",
 //            "Какой из указанных знаков запрещает дальнейшее движение всех без исключения транспортных средств?",
 //            listOf(
 //                Pair(
@@ -5414,7 +5414,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1604",
-//            R.mipmap.n16_4,
+//            "n16_4",
 //            "О чем информируют эти знаки?",
 //            listOf(
 //                Pair(
@@ -5434,7 +5434,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1605",
-//            R.mipmap.n16_5,
+//            "n16_5",
 //            "Разрешена ли Вам остановка в этом месте?",
 //            listOf(
 //                Pair(
@@ -5454,7 +5454,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1606",
-//            R.mipmap.n16_6,
+//            "n16_6",
 //            "Как следует поступить водителю при переключении такого сигнала светофора?",
 //            listOf(
 //                Pair(
@@ -5474,7 +5474,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1607",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Аварийная сигнализация на буксируемом механическом транспортном средстве должна быть включена:",
 //            listOf(
 //                Pair(
@@ -5494,7 +5494,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1608",
-//            R.mipmap.n16_8,
+//            "n16_8",
 //            "Обязан ли водитель автомобиля, который движется по левой полосе, уступить дорогу в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -5510,7 +5510,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1609",
-//            R.mipmap.n16_9,
+//            "n16_9",
 //            "Можно ли Вам на перекрестке выполнить разворот, двигаясь задним ходом?",
 //            listOf(
 //                Pair(
@@ -5530,7 +5530,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1610",
-//            R.mipmap.n16_10,
+//            "n16_10",
 //            "С какой максимальной скоростью Вы имеете право продолжить движение вне населенных пунктов на легковом автомобиле?",
 //            listOf(
 //                Pair(
@@ -5550,7 +5550,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1611",
-//            R.mipmap.n16_11,
+//            "n16_11",
 //            "Разрешается ли Вам выполнить обгон в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -5570,7 +5570,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1613",
-//            R.mipmap.n16_13,
+//            "n16_13",
 //            "Вы намерены проехать перекресток в прямом направлении. Кому Вы должны уступить дорогу?",
 //            listOf(
 //                Pair(
@@ -5590,7 +5590,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1614",
-//            R.mipmap.n16_14,
+//            "n16_14",
 //            "При въезде на перекресток Вы:",
 //            listOf(
 //                Pair(
@@ -5610,7 +5610,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1615",
-//            R.mipmap.n16_15,
+//            "n16_15",
 //            "Кому Вы обязаны уступить дорогу при повороте налево?",
 //            listOf(
 //                Pair(
@@ -5630,7 +5630,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1616",
-//            R.mipmap.n16_16,
+//            "n16_16",
 //            "Разрешено ли Вам остановиться на автомагистрали правее линии, обозначающей край проезжей части?",
 //            listOf(
 //                Pair(
@@ -5650,7 +5650,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1617",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие из перечисленных требований являются обязательными при перевозке детей?",
 //            listOf(
 //                Pair(
@@ -5670,7 +5670,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1618",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Запрещается эксплуатация легкового автомобиля, если стояночная тормозная система не обеспечивает неподвижное состояние автомобиля в снаряженном состоянии на уклоне:",
 //            listOf(
 //                Pair(
@@ -5690,7 +5690,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1619",
-//            R.mipmap.n16_9,
+//            "n16_9",
 //            "При повороте направо обеспечение безопасности движения достигается путем выполнения поворота по траектории, которая показана:",
 //            listOf(
 //                Pair(
@@ -5710,7 +5710,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1620",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как определить наличие дыхания у потерявшего сознание пострадавшего?",
 //            listOf(
 //                Pair(
@@ -5731,7 +5731,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б17
 //        QuestionDomain(
 //            "1701",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Являются ли тротуары и обочины частью дороги?",
 //            listOf(
 //                Pair(
@@ -5751,7 +5751,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1702",
-//            R.mipmap.n17_2,
+//            "n17_2",
 //            "На каком расстоянии до неровного участка дороги устанавливается этот знак вне населенного пункта?",
 //            listOf(
 //                Pair(
@@ -5771,7 +5771,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1703",
-//            R.mipmap.n17_3,
+//            "n17_3",
 //            "Требования каких знаков из указанных вступают в силу непосредственно в том месте, где они установлены?",
 //            listOf(
 //                Pair(
@@ -5791,7 +5791,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1704",
-//            R.mipmap.n17_4,
+//            "n17_4",
 //            "Вам разрешено продолжить движение:",
 //            listOf(
 //                Pair(
@@ -5811,7 +5811,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1705",
-//            R.mipmap.n17_5,
+//            "n17_5",
 //            "Можно ли Вам выполнить обгон при наличии данной разметки?",
 //            listOf(
 //                Pair(
@@ -5831,7 +5831,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1706",
-//            R.mipmap.n17_6,
+//            "n17_6",
 //            "В каком месте Вам следует остановиться?",
 //            listOf(
 //                Pair(
@@ -5851,7 +5851,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1707",
-//            R.mipmap.n17_7,
+//            "n17_7",
 //            "На каком расстоянии от транспортного средства должен быть выставлен знак аварийной остановки в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -5875,7 +5875,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1708",
-//            R.mipmap.n17_8,
+//            "n17_8",
 //            "Разрешено ли Вам выполнить поворот направо в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -5895,7 +5895,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1709",
-//            R.mipmap.n17_9,
+//            "n17_9",
 //            "Можно ли Вам выполнить разворот по данной траектории?",
 //            listOf(
 //                Pair(
@@ -5915,7 +5915,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1710",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Разрешается ли водителю движение со слишком малой скоростью?",
 //            listOf(
 //                Pair(
@@ -5935,7 +5935,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1711",
-//            R.mipmap.n17_11,
+//            "n17_11",
 //            "Разрешается ли водителю движение со слишком малой скоростью?",
 //            listOf(
 //                Pair(
@@ -5955,7 +5955,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1712",
-//            R.mipmap.n17_12,
+//            "n17_12",
 //            "В каком месте на данном участке дороги Вам разрешено поставить автомобиль на длительную стоянку?",
 //            listOf(
 //                Pair(
@@ -5975,7 +5975,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1713",
-//            R.mipmap.n17_13,
+//            "n17_13",
 //            "Обязаны ли Вы уступить дорогу автобусу?",
 //            listOf(
 //                Pair(
@@ -5991,7 +5991,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1714",
-//            R.mipmap.n17_14,
+//            "n17_14",
 //            "Вы намерены повернуть налево. Ваши действия?",
 //            listOf(
 //                Pair(
@@ -6011,7 +6011,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1715",
-//            R.mipmap.n17_15,
+//            "n17_15",
 //            "После въезда на этот перекресток:",
 //            listOf(
 //                Pair(
@@ -6031,7 +6031,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1716",
-//            R.mipmap.n17_16,
+//            "n17_16",
 //            "Кто из водителей должен уступить дорогу трамваю?",
 //            listOf(
 //                Pair(
@@ -6055,7 +6055,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1717",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Можно ли буксировать автомобиль с недействующей тормозной системой, если фактическая масса этого автомобиля превышает половину фактической массы Вашего автомобиля?",
 //            listOf(
 //                Pair(
@@ -6075,7 +6075,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1718",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "При совершении административного правонарушения, влекущего задержание транспортного средства, оно задерживается до:",
 //            listOf(
 //                Pair(
@@ -6095,7 +6095,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1719",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как изменяется длина тормозного пути легкового автомобиля при движении с прицепом, не имеющим тормозной системы?",
 //            listOf(
 //                Pair(
@@ -6115,7 +6115,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1720",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В темное время суток и в пасмурную погоду скорость встречного автомобиля воспринимается:",
 //            listOf(
 //                Pair(
@@ -6136,7 +6136,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б18
 //        QuestionDomain(
 //            "1801",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что означает термин «Обгон»?",
 //            listOf(
 //                Pair(
@@ -6156,7 +6156,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1802",
-//            R.mipmap.n18_2,
+//            "n18_2",
 //            "Этот дорожный знак предупреждает:",
 //            listOf(
 //                Pair(
@@ -6176,7 +6176,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1803",
-//            R.mipmap.n18_3,
+//            "n18_3",
 //            "Разрешено ли Вам ставить автомобиль на стоянку в этом месте по четным числам месяца?",
 //            listOf(
 //                Pair(
@@ -6196,7 +6196,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1804",
-//            R.mipmap.n18_4,
+//            "n18_4",
 //            "Какие из указанных знаков информируют о том, что на данной дороге действуют требования Правил, устанавливающие порядок движения в населенных пунктах?",
 //            listOf(
 //                Pair(
@@ -6216,7 +6216,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1805",
-//            R.mipmap.n18_5,
+//            "n18_5",
 //            "В данной ситуации Вы:",
 //            listOf(
 //                Pair(
@@ -6236,7 +6236,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1806",
-//            R.mipmap.n18_6,
+//            "n18_6",
 //            "В каком направлении Вам разрешено движение?",
 //            listOf(
 //                Pair(
@@ -6256,7 +6256,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1807",
-//            R.mipmap.n18_7,
+//            "n18_7",
 //            "Вы намерены остановиться слева у тротуара. В каком случае Вы обязаны включить указатели поворота?",
 //            listOf(
 //                Pair(
@@ -6276,7 +6276,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1808",
-//            R.mipmap.n18_8,
+//            "n18_8",
 //            "Вам можно продолжить движение:",
 //            listOf(
 //                Pair(
@@ -6296,7 +6296,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1809",
-//            R.mipmap.n18_9,
+//            "n18_9",
 //            "По какой траектории Вы имеете право выполнить разворот?",
 //            listOf(
 //                Pair(
@@ -6320,7 +6320,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1810",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких из перечисленных случаев разрешается движение в населенных пунктах со скоростью не более 20 км/час?",
 //            listOf(
 //                Pair(
@@ -6340,7 +6340,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1811",
-//            R.mipmap.n18_11,
+//            "n18_11",
 //            "Можно ли водителю легкового автомобиля начать обгон?",
 //            listOf(
 //                Pair(
@@ -6360,7 +6360,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1812",
-//            R.mipmap.n18_12,
+//            "n18_12",
 //            "Кто нарушил правила остановки?",
 //            listOf(
 //                Pair(
@@ -6380,7 +6380,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1813",
-//            R.mipmap.n18_13,
+//            "n18_13",
 //            "Обязаны ли Вы уступить дорогу легковому автомобилю при повороте направо?",
 //            listOf(
 //                Pair(
@@ -6400,7 +6400,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1814",
-//            R.mipmap.n18_14,
+//            "n18_14",
 //            "Вы намерены выполнить разворот. Ваши возможные действия?",
 //            listOf(
 //                Pair(
@@ -6420,7 +6420,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1815",
-//            R.mipmap.n18_15,
+//            "n18_15",
 //            "Вы намерены проехать перекресток в прямом направлении. В данной ситуации:",
 //            listOf(
 //                Pair(
@@ -6436,7 +6436,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1816",
-//            R.mipmap.n18_16,
+//            "n18_16",
 //            "Обязаны ли Вы уступить дорогу маршрутному транспортному средству, отъезжающему от тротуара, где нет обозначенного места остановки?",
 //            listOf(
 //                Pair(
@@ -6456,7 +6456,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1817",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Разрешено ли перевозить людей в буксируемом легковом автомобиле?",
 //            listOf(
 //                Pair(
@@ -6476,7 +6476,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1818",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "За какие административные правонарушения в области дорожного движения предусмотрено наказание в виде обязательных работ?",
 //            listOf(
 //                Pair(
@@ -6500,7 +6500,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1819",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Как водитель должен воздействовать на педаль управления подачей топлива при возникновении заноса, вызванного резким ускорением движения?",
 //            listOf(
 //                Pair(
@@ -6520,7 +6520,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1820",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "В каких случаях следует увеличить боковой интервал?",
 //            listOf(
 //                Pair(
@@ -6541,7 +6541,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        //Б19
 //        QuestionDomain(
 //            "1901",
-//            R.mipmap.n19_1,
+//            "n19_1",
 //            "Сколько проезжих частей имеет данная дорога?",
 //            listOf(
 //                Pair("Одну", false),
@@ -6552,7 +6552,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1902",
-//            R.mipmap.n19_2,
+//            "n19_2",
 //            "В каком направлении Вам можно продолжить движение на легковом автомобиле?",
 //            listOf(
 //                Pair("Только прямо", false),
@@ -6563,7 +6563,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1903",
-//            R.mipmap.n19_3,
+//            "n19_3",
 //            "Разрешено ли осуществлять посадку (высадку) пассажиров либо загрузку (разгрузку) транспортного средства в зоне действия этого знака?",
 //            listOf(
 //                Pair("Разрешено", true),
@@ -6574,7 +6574,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1904",
-//            R.mipmap.n19_4,
+//            "n19_4",
 //            "Какие из указанных знаков разрешают выполнить разворот?",
 //            listOf(
 //                Pair("Только А", false),
@@ -6585,7 +6585,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1905",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Чем необходимо руководствоваться, если значения дорожных знаков и линий горизонтальной разметки противоречат друг другу?",
 //            listOf(
 //                Pair("Требованиями дорожных знаков", true),
@@ -6596,7 +6596,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1906",
-//            R.mipmap.n19_6,
+//            "n19_6",
 //            "Как Вы должны поступить в данной ситуации?",
 //            listOf(
 //                Pair(
@@ -6613,7 +6613,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1907",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Когда должна быть прекращена подача сигнала указателями поворота?",
 //            listOf(
 //                Pair("Сразу после начала маневра", false),
@@ -6624,7 +6624,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1908",
-//            R.mipmap.n19_8,
+//            "n19_8",
 //            "Вам можно выполнить поворот налево:",
 //            listOf(
 //                Pair("Только по траектории Б", false),
@@ -6635,7 +6635,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1909",
-//            R.mipmap.n19_9,
+//            "n19_9",
 //            "Водитель случайно проехал нужный въезд во двор. Разрешено ли в этой ситуации использовать задний ход, чтобы затем повернуть направо?",
 //            listOf(
 //                Pair("Разрешено", true),
@@ -6646,7 +6646,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1910",
-//            R.mipmap.n19_10,
+//            "n19_10",
 //            "С какой скоростью Вы имеете право продолжить движение в населенном пункте по левой полосе?",
 //            listOf(
 //                Pair("Не более 40 км/ч", false),
@@ -6657,7 +6657,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1911",
-//            R.mipmap.n19_11,
+//            "n19_11",
 //            "По какой полосе Вам можно продолжить движение в населенном пункте после опережения грузового автомобиля?",
 //            listOf(
 //                Pair("Только по правой", false),
@@ -6668,7 +6668,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1912",
-//            R.mipmap.n19_12,
+//            "n19_12",
 //            "Кто из водителей нарушил правила стоянки?",
 //            listOf(
 //                Pair("Оба", false),
@@ -6679,7 +6679,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1913",
-//            R.mipmap.n19_13,
+//            "n19_13",
 //            "Вы намерены проехать перекресток в прямом направлении. Ваши действия?",
 //            listOf(
 //                Pair("Остановитесь перед стоп-линией", false),
@@ -6690,7 +6690,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1914",
-//            R.mipmap.n19_14,
+//            "n19_14",
 //            "Как Вам следует поступить при повороте направо?",
 //            listOf(
 //                Pair("Проехать перекресток первым", true),
@@ -6701,7 +6701,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1915",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Если невозможно определить наличие покрытия на дороге (тёмное время суток, грязь, снег и тому подобное), а знаков приоритета нет, то:",
 //            listOf(
 //                Pair("Вы имеете право считать, что находитесь на главной дороге", false),
@@ -6712,7 +6712,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1916",
-//            R.mipmap.n19_16,
+//            "n19_16",
 //            "В данной ситуации Вы:",
 //            listOf(
 //                Pair(
@@ -6728,7 +6728,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1917",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Какие внешние световые приборы должны быть включены в темное время суток и в условиях недостаточной видимости независимо от освещения дороги, а также в тоннелях на буксируемых механических транспортных средствах?",
 //            listOf(
 //                Pair("Дневные ходовые огни", false),
@@ -6739,7 +6739,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1918",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "У водителя, совершившего административное правонарушение, водительское удостоверение изымается:",
 //            listOf(
 //                Pair(
@@ -6756,7 +6756,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1919",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Для прекращения заноса, вызванного торможением, водитель в первую очередь должен:",
 //            listOf(
 //                Pair("Прекратить начатое торможение", true),
@@ -6767,7 +6767,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        ),
 //        QuestionDomain(
 //            "1920",
-//            R.mipmap.none_image_question,
+//            "none_image_question",
 //            "Что необходимо сделать для извлечения инородного тела, попавшего в дыхательные пути пострадавшего?",
 //            listOf(
 //                Pair(
@@ -6787,7 +6787,7 @@ class QuestionRepositoryImpl : QuestionRepository {
 //        )
         QuestionDomain(
             "2001",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие условия являются обязательными для оформления документа о дорожно-транспортном происшествии (ДТП) без участия уполномоченных на то сотрудников полиции?",
             listOf(
                 Pair(
@@ -6811,7 +6811,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2002",
-            R.mipmap.n20_2,
+            "n20_2",
             "Можно ли Вам за перекрестком въехать во двор?",
             listOf(
                 Pair(
@@ -6831,7 +6831,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2003",
-            R.mipmap.n20_3,
+            "n20_3",
             "Разрешается ли Вам остановка за знаком?",
             listOf(
                 Pair(
@@ -6851,7 +6851,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2004",
-            R.mipmap.n20_4,
+            "n20_4",
             "Какие из указанных знаков запрещают дальнейшее движение без остановки?",
             listOf(
                 Pair(
@@ -6875,7 +6875,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2005",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Чем необходимо руководствоваться, если нанесенные на проезжей части белые и оранжевые линии разметки противоречат друг другу?",
             listOf(
                 Pair(
@@ -6895,7 +6895,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2006",
-            R.mipmap.n20_6,
+            "n20_6",
             "Вы намеревались проехать перекресток в прямом направлении. Как следует поступить, если Вы не успели заранее перестроиться на левую полосу?",
             listOf(
                 Pair(
@@ -6915,7 +6915,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2007",
-            R.mipmap.n20_7,
+            "n20_7",
             "Какой знак используется для обозначения транспортного средства при вынужденной остановке в местах, где с учетом условий видимости оно не может быть своевременно замечено другими водителями?",
             listOf(
                 Pair(
@@ -6935,7 +6935,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2008",
-            R.mipmap.n20_8,
+            "n20_8",
             "Вам можно выполнить поворот налево:",
             listOf(
                 Pair(
@@ -6955,7 +6955,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2009",
-            R.mipmap.n20_9,
+            "n20_9",
             "Разрешается ли Вам выполнить разворот с заездом во двор задним ходом?",
             listOf(
                 Pair(
@@ -6975,7 +6975,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2010",
-            R.mipmap.n20_10,
+            "n20_10",
             "Укажите расстояние, под которым в Правилах понимается дистанция:",
             listOf(
                 Pair(
@@ -6999,7 +6999,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2011",
-            R.mipmap.n20_11,
+            "n20_11",
             "Можно ли Вам начать обгон грузового автомобиля в данной ситуации?",
             listOf(
                 Pair(
@@ -7019,7 +7019,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2012",
-            R.mipmap.n20_12,
+            "n20_12",
             "Какой автомобиль разрешено поставить на стоянку указанным на табличке способом?",
             listOf(
                 Pair(
@@ -7039,7 +7039,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2013",
-            R.mipmap.n20_13,
+            "n20_13",
             "Кому Вы обязаны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -7059,7 +7059,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2014",
-            R.mipmap.n20_14,
+            "n20_14",
             "При повороте направо Вам следует:",
             listOf(
                 Pair(
@@ -7075,7 +7075,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2015",
-            R.mipmap.n20_15,
+            "n20_15",
             "Кому Вы обязаны уступить дорогу?",
             listOf(
                 Pair(
@@ -7095,7 +7095,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2016",
-            R.mipmap.n20_16,
+            "n20_16",
             "В данной ситуации Вы должны остановиться:",
             listOf(
                 Pair(
@@ -7115,7 +7115,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2017",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Противотуманные фары и задние противотуманные фонари могут быть включены одновременно:",
             listOf(
                 Pair(
@@ -7135,7 +7135,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2018",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие меры административного принуждения предусмотрены за управление транспортным средством, на котором установлены стекла (в том числе покрытые прозрачными цветными пленками), светопропускание которых не соответствует требованиям технического регламента о безопасности колесных транспортных средств?",
             listOf(
                 Pair(
@@ -7155,7 +7155,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2019",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как правильно произвести экстренное торможение, если автомобиль оборудован антиблокировочной тормозной системой?",
             listOf(
                 Pair(
@@ -7175,7 +7175,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2020",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При движении по какому участку дороги действие сильного бокового ветра наиболее опасно?",
             listOf(
                 Pair(
@@ -7195,7 +7195,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2101",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли водителю пользоваться телефоном во время движения?",
             listOf(
                 Pair(
@@ -7219,7 +7219,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2102",
-            R.mipmap.n21_2,
+            "n21_2",
             "Этот знак предупреждает о приближении к перекрестку, на котором Вы:",
             listOf(
                 Pair(
@@ -7239,7 +7239,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2103",
-            R.mipmap.n21_3,
+            "n21_3",
             "Продолжить буксировку можно:",
             listOf(
                 Pair(
@@ -7259,7 +7259,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2104",
-            R.mipmap.n21_4,
+            "n21_4",
             "Какой из указанных знаков информирует о начале дороги с реверсивным движением?",
             listOf(
                 Pair(
@@ -7279,7 +7279,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2105",
-            R.mipmap.n21_5,
+            "n21_5",
             "Данная вертикальная разметка:",
             listOf(
                 Pair(
@@ -7299,7 +7299,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2106",
-            R.mipmap.n21_6,
+            "n21_6",
             "Разрешено ли Вам за перекрестком выехать на полосу с реверсивным движением?",
             listOf(
                 Pair(
@@ -7319,7 +7319,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2107",
-            R.mipmap.n21_7,
+            "n21_7",
             "Такой сигнал рукой, подаваемый водителем легкового автомобиля, информирует Вас:",
             listOf(
                 Pair(
@@ -7339,7 +7339,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2108",
-            R.mipmap.n21_8,
+            "n21_8",
             "При повороте налево для въезда во двор Вы обязаны уступить дорогу:",
             listOf(
                 Pair(
@@ -7359,7 +7359,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2109",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Движение транспортных средств задним ходом разрешается:",
             listOf(
                 Pair(
@@ -7383,7 +7383,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2110",
-            R.mipmap.n21_10,
+            "n21_10",
             "Разрешается ли Вам, управляя легковым автомобилем, продолжить движение по трамвайным путям попутного направления?",
             listOf(
                 Pair(
@@ -7403,7 +7403,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2111",
-            R.mipmap.n21_11,
+            "n21_11",
             "Вы можете начать обгон:",
             listOf(
                 Pair(
@@ -7423,7 +7423,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2112",
-            R.mipmap.n21_12,
+            "n21_12",
             "В каком месте Вам следует поставить автомобиль на стоянку с правой стороны дороги?",
             listOf(
                 Pair(
@@ -7443,7 +7443,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2113",
-            R.mipmap.n21_13,
+            "n21_13",
             "Кому Вы должны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -7463,7 +7463,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2114",
-            R.mipmap.n21_14,
+            "n21_14",
             "Вы намерены повернуть налево. Ваши действия?",
             listOf(
                 Pair(
@@ -7483,7 +7483,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2115",
-            R.mipmap.n21_15,
+            "n21_15",
             "Как Вам следует поступить при движении в прямом направлении?",
             listOf(
                 Pair(
@@ -7499,7 +7499,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2116",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При выезде из жилой зоны необходимо уступить дорогу:",
             listOf(
                 Pair(
@@ -7523,7 +7523,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2117",
-            R.mipmap.n21_17,
+            "n21_17",
             "В зоне действия каких знаков Правила разрешают подачу звуковых сигналов только для предотвращения дорожно-транспортного происшествия?",
             listOf(
                 Pair(
@@ -7547,7 +7547,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2118",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие административные наказания предусмотрены за управление транспортным средством, если обязательное страхование гражданской ответственности владельца этого транспортного средства заведомо отсутствует?",
             listOf(
                 Pair(
@@ -7567,7 +7567,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2119",
-            R.mipmap.n21_19,
+            "n21_19",
             "В месте выезда из лесистого участка, где установлен знак «Боковой ветер», Вам следует:",
             listOf(
                 Pair(
@@ -7587,7 +7587,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2120",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Каковы признаки кровотечения из крупной артерии и с чего начинается первая помощь при ее ранении?",
             listOf(
                 Pair(
@@ -7607,7 +7607,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2201",
-            R.mipmap.n22_1,
+            "n22_1",
             "Сколько перекрестков изображено на рисунке?",
             listOf(
                 Pair(
@@ -7627,7 +7627,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2202",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие из предупреждающих и запрещающих знаков являются временными?",
             listOf(
                 Pair(
@@ -7647,7 +7647,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2203",
-            R.mipmap.n22_3,
+            "n22_3",
             "Как Вы должны поступить в данной ситуации?",
             listOf(
                 Pair(
@@ -7667,7 +7667,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2204",
-            R.mipmap.n22_4,
+            "n22_4",
             "Что означают эти дорожные знаки?",
             listOf(
                 Pair(
@@ -7687,7 +7687,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2205",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Допускается ли пересекать сплошную линию разметки, обозначающую край проезжей части?",
             listOf(
                 Pair(
@@ -7707,7 +7707,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2206",
-            R.mipmap.n22_6,
+            "n22_6",
             "В данной ситуации водитель автомобиля с включенными проблесковыми маячками:",
             listOf(
                 Pair(
@@ -7727,7 +7727,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2207",
-            R.mipmap.n22_7,
+            "n22_7",
             "Обязаны ли Вы в данной ситуации включить указатели левого поворота?",
             listOf(
                 Pair(
@@ -7747,7 +7747,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2208",
-            R.mipmap.n22_8,
+            "n22_8",
             "По какой траектории Вам можно выполнить поворот налево?",
             listOf(
                 Pair(
@@ -7767,7 +7767,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2209",
-            R.mipmap.n22_9,
+            "n22_9",
             "Разрешено ли водителю движение задним ходом на путепроводе для посадки пассажира?",
             listOf(
                 Pair(
@@ -7787,7 +7787,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2210",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли использовать для движения трамвайные пути встречного направления?",
             listOf(
                 Pair(
@@ -7811,7 +7811,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2211",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие ограничения, относящиеся к обгону, действуют на железнодорожных переездах и вблизи них?",
             listOf(
                 Pair(
@@ -7831,7 +7831,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2212",
-            R.mipmap.n22_12,
+            "n22_12",
             "Разрешено ли водителю грузового автомобиля остановиться в этом месте?",
             listOf(
                 Pair(
@@ -7851,7 +7851,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2213",
-            R.mipmap.n22_13,
+            "n22_13",
             "Вы намерены повернуть налево. Ваши действия?",
             listOf(
                 Pair(
@@ -7867,7 +7867,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2214",
-            R.mipmap.n22_14,
+            "n22_14",
             "В каком случае Вы должны уступить дорогу трамваю?",
             listOf(
                 Pair(
@@ -7887,7 +7887,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2215",
-            R.mipmap.n22_15,
+            "n22_15",
             "Вы намерены повернуть направо. Можете ли Вы приступить к повороту?",
             listOf(
                 Pair(
@@ -7907,7 +7907,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2216",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Водители должны уступать дорогу другим участникам движения:",
             listOf(
                 Pair(
@@ -7927,7 +7927,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2217",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие внешние световые приборы следует включать на мотоцикле в светлое время суток?",
             listOf(
                 Pair(
@@ -7947,7 +7947,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2218",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Допускается ли применять шторки и жалюзи на заднем стекле легкового автомобиля?",
             listOf(
                 Pair(
@@ -7967,7 +7967,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2219",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При каком стиле вождения будет обеспечен наименьший расход топлива?",
             listOf(
                 Pair(
@@ -7987,7 +7987,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2220",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Если во время движения по сухой дороге с асфальтобетонным покрытием начал моросить дождь, водителю следует:",
             listOf(
                 Pair(
@@ -8007,7 +8007,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2301",
-            R.mipmap.n23_1,
+            "n23_1",
             "Сколько пересечений проезжих частей имеет этот перекресток?",
             listOf(
                 Pair(
@@ -8027,7 +8027,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2302",
-            R.mipmap.n23_2,
+            "n23_2",
             "Данный дорожный знак:",
             listOf(
                 Pair(
@@ -8047,7 +8047,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2303",
-            R.mipmap.n23_3,
+            "n23_3",
             "Эти знаки обязывают соблюдать дистанцию:",
             listOf(
                 Pair(
@@ -8067,7 +8067,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2304",
-            R.mipmap.n23_4,
+            "n23_4",
             "В каких направлениях Вам разрешено продолжить движение?",
             listOf(
                 Pair(
@@ -8087,7 +8087,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2305",
-            R.mipmap.n23_5,
+            "n23_5",
             "Разрешается ли Вам поставить автомобиль на стоянку в этом месте?",
             listOf(
                 Pair(
@@ -8107,7 +8107,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2306",
-            R.mipmap.n23_6,
+            "n23_6",
             "Вам можно продолжить движение:",
             listOf(
                 Pair(
@@ -8127,7 +8127,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2307",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Обязан ли водитель подавать сигналы указателями поворота при начале движения в жилой зоне, обозначенной соответствующим знаком?",
             listOf(
                 Pair(
@@ -8147,7 +8147,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2308",
-            R.mipmap.n23_8,
+            "n23_8",
             "По какой траектории Вам разрешено продолжить движение?",
             listOf(
                 Pair(
@@ -8167,7 +8167,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2309",
-            R.mipmap.n23_9,
+            "n23_9",
             "На этом участке дороги Вам запрещается:",
             listOf(
                 Pair(
@@ -8191,7 +8191,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2310",
-            R.mipmap.n23_10,
+            "n23_10",
             "Разрешается ли Вам выехать на трамвайные пути встречного направления в данной ситуации?",
             listOf(
                 Pair(
@@ -8211,7 +8211,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2311",
-            R.mipmap.n23_11,
+            "n23_11",
             "В данной ситуации Вы:",
             listOf(
                 Pair(
@@ -8231,7 +8231,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2312",
-            R.mipmap.n23_12,
+            "n23_12",
             "На каком расстоянии от знака Вам разрешено поставить автомобиль на стоянку?",
             listOf(
                 Pair(
@@ -8251,7 +8251,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2313",
-            R.mipmap.n23_13,
+            "n23_13",
             "Как следует поступить в этой ситуации, если Вам необходимо повернуть направо?",
             listOf(
                 Pair(
@@ -8271,7 +8271,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2314",
-            R.mipmap.n23_14,
+            "n23_14",
             "Вы намерены проехать перекресток в прямом направлении. В данной ситуации:",
             listOf(
                 Pair(
@@ -8287,7 +8287,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2315",
-            R.mipmap.n23_15,
+            "n23_15",
             "Кому Вы обязаны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -8311,7 +8311,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2316",
-            R.mipmap.n23_16,
+            "n23_16",
             "Кто из водителей правильно остановился для высадки пассажиров?",
             listOf(
                 Pair(
@@ -8335,7 +8335,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2317",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком случае при движении в светлое время суток недостаточно включения дневных ходовых огней?",
             listOf(
                 Pair(
@@ -8355,7 +8355,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2318",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что требуется для возврата водительского удостоверения после истечения срока лишения права управления, назначенного за оставление водителем в нарушение Правил дорожного движения места дорожно-транспортного происшествия, участником которого он являлся?",
             listOf(
                 Pair(
@@ -8375,7 +8375,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2319",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Чем опасно длительное торможение с выключенными передачей или сцеплением на крутом спуске?",
             listOf(
                 Pair(
@@ -8395,7 +8395,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2320",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как изменяется поле зрения водителя с увеличением скорости движения?",
             listOf(
                 Pair(
@@ -8415,7 +8415,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2401",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При движении на легковом автомобиле, оборудованном ремнями безопасности, должны быть пристегнуты:",
             listOf(
                 Pair(
@@ -8435,7 +8435,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2402",
-            R.mipmap.n24_2,
+            "n24_2",
             "Эти знаки предупреждают Вас:",
             listOf(
                 Pair(
@@ -8455,7 +8455,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2403",
-            R.mipmap.n24_3,
+            "n24_3",
             "Разрешено ли Вам поставить автомобиль на стоянку в этом месте?",
             listOf(
                 Pair(
@@ -8475,7 +8475,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2404",
-            R.mipmap.n24_4,
+            "n24_4",
             "Какие из указанных знаков обязывают водителя грузового автомобиля с разрешенной максимальной массой не более 3,5 т повернуть направо?",
             listOf(
                 Pair(
@@ -8499,7 +8499,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2405",
-            R.mipmap.n24_5,
+            "n24_5",
             "Данная разметка обозначает:",
             listOf(
                 Pair(
@@ -8519,7 +8519,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2406",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что означает мигание желтого сигнала светофора?",
             listOf(
                 Pair(
@@ -8539,7 +8539,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2407",
-            R.mipmap.n24_7,
+            "n24_7",
             "Какую ошибку совершает водитель, въезжающий во двор?",
             listOf(
                 Pair(
@@ -8559,7 +8559,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2408",
-            R.mipmap.n24_8,
+            "n24_8",
             "Должны ли Вы уступить дорогу грузовому автомобилю в данной ситуации?",
             listOf(
                 Pair(
@@ -8579,7 +8579,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2409",
-            R.mipmap.n24_9,
+            "n24_9",
             "Разрешается ли Вам выполнить разворот?",
             listOf(
                 Pair(
@@ -8603,7 +8603,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2410",
-            R.mipmap.n24_10,
+            "n24_10",
             "С какой максимальной скоростью Вы имеете право продолжить движение вне населенных пунктов на грузовом автомобиле с разрешенной максимальной массой не более 3,5 т?",
             listOf(
                 Pair(
@@ -8623,7 +8623,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2411",
-            R.mipmap.n24_11,
+            "n24_11",
             "Разрешено ли Вам выполнить обгон?",
             listOf(
                 Pair(
@@ -8643,7 +8643,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2412",
-            R.mipmap.n24_12,
+            "n24_12",
             "Кто из водителей нарушил правила стоянки?",
             listOf(
                 Pair(
@@ -8667,7 +8667,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2413",
-            R.mipmap.n24_13,
+            "n24_13",
             "При повороте налево Вы:",
             listOf(
                 Pair(
@@ -8687,7 +8687,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2414",
-            R.mipmap.n24_14,
+            "n24_14",
             "Кто имеет право проехать перекресток первым, если все намерены двигаться прямо?",
             listOf(
                 Pair(
@@ -8707,7 +8707,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2415",
-            R.mipmap.n24_15,
+            "n24_15",
             "В каком случае Вы обязаны уступить дорогу пешеходам?",
             listOf(
                 Pair(
@@ -8727,7 +8727,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2416",
-            R.mipmap.n24_16,
+            "n24_16",
             "В данной ситуации Вы:",
             listOf(
                 Pair(
@@ -8743,7 +8743,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2417",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "На каком расстоянии до встречного транспортного средства следует переключать дальний свет фар на ближний?",
             listOf(
                 Pair(
@@ -8763,7 +8763,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2418",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком случае разрешается эксплуатация легкового автомобиля?",
             listOf(
                 Pair(
@@ -8787,7 +8787,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2419",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что следует сделать водителю, чтобы предотвратить возникновение заноса при проезде крутого поворота?",
             listOf(
                 Pair(
@@ -8807,7 +8807,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2420",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешено ли давать пострадавшему лекарственные средства при оказании ему первой помощи?",
             listOf(
                 Pair(
@@ -8827,7 +8827,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2501",
-            R.mipmap.n25_1,
+            "n25_1",
             "На каком рисунке изображена дорога с разделительной полосой?",
             listOf(
                 Pair(
@@ -8847,7 +8847,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2502",
-            R.mipmap.n25_2,
+            "n25_2",
             "Вам разрешено продолжить движение на грузовом автомобиле с разрешенной максимальной массой не более 3,5 т:",
             listOf(
                 Pair(
@@ -8867,7 +8867,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2503",
-            R.mipmap.n25_3,
+            "n25_3",
             "Какие из указанных знаков отменяют все ограничения, введенные ранее запрещающими знаками?",
             listOf(
                 Pair(
@@ -8891,7 +8891,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2504",
-            R.mipmap.n25_4,
+            "n25_4",
             "Этот знак указывает, что:",
             listOf(
                 Pair(
@@ -8911,7 +8911,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2505",
-            R.mipmap.n25_5,
+            "n25_5",
             "Какой маневр Вам запрещается выполнить при наличии данной линии разметки?",
             listOf(
                 Pair(
@@ -8935,7 +8935,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2506",
-            R.mipmap.n25_6,
+            "n25_6",
             "Сигналы такого светофора распространяются:",
             listOf(
                 Pair(
@@ -8955,7 +8955,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2507",
-            R.mipmap.n25_7,
+            "n25_7",
             "Обязаны ли Вы включить указатели поворота в данной ситуации?",
             listOf(
                 Pair(
@@ -8975,7 +8975,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2508",
-            R.mipmap.n25_8,
+            "n25_8",
             "Кто должен уступить дорогу?",
             listOf(
                 Pair(
@@ -8991,7 +8991,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2509",
-            R.mipmap.n25_9,
+            "n25_9",
             "Водитель случайно проехал перекресток. Разрешено ли ему в этой ситуации использовать задний ход, чтобы затем продолжить движение налево?",
             listOf(
                 Pair(
@@ -9011,7 +9011,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2510",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Каким автомобилям и в каких случаях разрешается движение вне населенных пунктов со скоростью не более 90 км/ч?",
             listOf(
                 Pair(
@@ -9031,7 +9031,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2511",
-            R.mipmap.n25_11,
+            "n25_11",
             "Можно ли Вам выполнить обгон?",
             listOf(
                 Pair(
@@ -9051,7 +9051,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2512",
-            R.mipmap.n25_12,
+            "n25_12",
             "Разрешена ли остановка в этом месте?",
             listOf(
                 Pair(
@@ -9071,7 +9071,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2513",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Значения каких дорожных знаков отменяются сигналами светофора?",
             listOf(
                 Pair(
@@ -9095,7 +9095,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2514",
-            R.mipmap.n25_14,
+            "n25_14",
             "При повороте направо Вы должны уступить дорогу:",
             listOf(
                 Pair(
@@ -9115,7 +9115,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2515",
-            R.mipmap.n25_15,
+            "n25_15",
             "Вы намерены повернуть налево. Кому Вы обязаны уступить дорогу?",
             listOf(
                 Pair(
@@ -9139,7 +9139,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2516",
-            R.mipmap.n25_16,
+            "n25_16",
             "Как Вам следует поступить в данной ситуации?",
             listOf(
                 Pair(
@@ -9159,7 +9159,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2517",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Привлечь внимание водителя обгоняемого автомобиля при движении в населенном пункте в светлое время суток можно:",
             listOf(
                 Pair(
@@ -9183,7 +9183,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2518",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком случае запрещается эксплуатация транспортного средства?",
             listOf(
                 Pair(
@@ -9207,7 +9207,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2519",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как зависит величина тормозного пути транспортного средства от скорости движения?",
             listOf(
                 Pair(
@@ -9227,7 +9227,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2520",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как остановить кровотечение при ранении вены и некрупных артерий?",
             listOf(
                 Pair(
@@ -9248,7 +9248,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         //Б26
         QuestionDomain(
             "2601",
-            R.mipmap.n26_1,
+            "n26_1",
             "Выезд из двора или c другой прилегающей территории:",
             listOf(
                 Pair("Считается перекрестком равнозначных дорог", false),
@@ -9259,7 +9259,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2602",
-            R.mipmap.n26_2,
+            "n26_2",
             "Какие из указанных знаков требуют обязательной остановки?",
             listOf(
                 Pair("Только А", false),
@@ -9271,7 +9271,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2603",
-            R.mipmap.n26_3,
+            "n26_3",
             "В зоне действия этого знака разрешается использовать звуковой сигнал:",
             listOf(
                 Pair("Только для предупреждения об обгоне", false),
@@ -9282,7 +9282,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2604",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Где начинают действовать требования Правил, относящиеся к населенным пунктам?",
             listOf(
                 Pair(
@@ -9299,7 +9299,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2605",
-            R.mipmap.n26_5,
+            "n26_5",
             "Такой вертикальной разметкой обозначают боковые поверхности ограждений",
             listOf(
                 Pair("Только на опасных участках дорог", false),
@@ -9310,7 +9310,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2606",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что означают красный мигающий сигнал или два попеременно мигающих красных сигнала светофора, установленного на железнодорожном переезде?",
             listOf(
                 Pair("Движение разрешается с особой осторожностью.", false),
@@ -9321,7 +9321,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2607",
-            R.mipmap.n26_7,
+            "n26_7",
             "Какие световые сигналы Вы обязаны подать в данной ситуации?",
             listOf(
                 Pair("Включить световые указатели поворота налево.", true),
@@ -9332,7 +9332,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2608",
-            R.mipmap.n26_8,
+            "n26_8",
             "В каких направлениях Вам можно продолжить движение по второй полосе?",
             listOf(
                 Pair("Только налево.", false),
@@ -9343,7 +9343,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2609",
-            R.mipmap.n26_9,
+            "n26_9",
             "Разрешен ли Вам разворот в этом месте?",
             listOf(
                 Pair("Разрешен.", false),
@@ -9354,7 +9354,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2610",
-            R.mipmap.n26_10,
+            "n26_10",
             "По какой траектории Вы имеете право продолжить движение?",
             listOf(
                 Pair("Только по А.", false),
@@ -9365,7 +9365,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2611",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли обгон на перекрестках?",
             listOf(
                 Pair("Разрешается.", false),
@@ -9383,7 +9383,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2612",
-            R.mipmap.n26_12,
+            "n26_12",
             "Водители каких автомобилей нарушили правила остановки?",
             listOf(
                 Pair("Только автомобиля Б.", false),
@@ -9394,7 +9394,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2613",
-            R.mipmap.n26_13,
+            "n26_13",
             "Вы намерены повернуть налево. Ваши действия?",
             listOf(
                 Pair(
@@ -9410,7 +9410,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2614",
-            R.mipmap.n26_14,
+            "n26_14",
             "Кому Вы должны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -9424,7 +9424,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2615",
-            R.mipmap.n26_15,
+            "n26_15",
             "При движении прямо Вы обязаны уступить дорогу:",
             listOf(
                 Pair("Только легковому автомобилю.", false),
@@ -9435,7 +9435,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2616",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Где необходимо остановиться, если сразу за пешеходным переходом образовался затор?",
             listOf(
                 Pair(
@@ -9449,7 +9449,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2617",
-            R.mipmap.n26_17,
+            "n26_17",
             "На каком рисунке изображен автомобиль, водитель которого нарушает правила перевозки грузов?",
             listOf(
                 Pair(
@@ -9463,7 +9463,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2618",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком случае запрещается эксплуатация транспортных средств?",
             listOf(
                 Pair(
@@ -9477,7 +9477,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2619",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Уменьшение тормозного пути транспортного средства, не оборудованного антиблокировочной тормозной системой, достигается:",
             listOf(
                 Pair(
@@ -9494,7 +9494,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2620",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Минимальной величиной необходимой дистанции при движении по сухой дороге на легковом автомобиле принято считать расстояние, которое автомобиль проедет не менее чем за:",
             listOf(
                 Pair(
@@ -9514,7 +9514,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2701",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Если в результате дорожно-транспортного происшествия (ДТП) вред причинен только имуществу, то, предварительно зафиксировав положение транспортных средств по отношению друг другу и объектам дорожной инфраструктуры, следы и предметы, относящиеся к ДТП, повреждения транспортных средств, водитель, причастный к ДТП:",
             listOf(
                 Pair(
@@ -9534,7 +9534,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2702",
-            R.mipmap.n27_2,
+            "n27_2",
             "Какие из указанных знаков используются для обозначения границ искусственной неровности?",
             listOf(
                 Pair(
@@ -9554,7 +9554,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2703",
-            R.mipmap.n27_3,
+            "n27_3",
             "В данной ситуации остановка:",
             listOf(
                 Pair(
@@ -9574,7 +9574,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2704",
-            R.mipmap.n27_4,
+            "n27_4",
             "Управляя каким автомобилем, можно осуществить опережение в данной ситуации?",
             listOf(
                 Pair(
@@ -9594,7 +9594,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2705",
-            R.mipmap.n27_5,
+            "n27_5",
             "Что обозначает эта разметка?",
             listOf(
                 Pair(
@@ -9614,7 +9614,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2706",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Чем должны руководствоваться водители, если указания регулировщика противоречат значениям сигналов светофоров и требованиям дорожных знаков?",
             listOf(
                 Pair(
@@ -9634,7 +9634,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2707",
-            R.mipmap.n27_7,
+            "n27_7",
             "Такой сигнал рукой, подаваемый водителем мотоцикла, который движется по левой полосе, информирует о его намерении:",
             listOf(
                 Pair(
@@ -9654,7 +9654,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2708",
-            R.mipmap.n27_8,
+            "n27_8",
             "При перестроении на правую полосу в данной ситуации Вы:",
             listOf(
                 Pair(
@@ -9670,7 +9670,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2709",
-            R.mipmap.n27_9,
+            "n27_9",
             "По какой траектории Вам разрешается выполнить разворот?",
             listOf(
                 Pair(
@@ -9690,7 +9690,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2710",
-            R.mipmap.n27_10,
+            "n27_10",
             "Каковы Ваши действия в данной ситуации?",
             listOf(
                 Pair(
@@ -9710,7 +9710,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2711",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Запрещено ли выполнить обгон на подъеме?",
             listOf(
                 Pair(
@@ -9730,7 +9730,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2712",
-            R.mipmap.n27_12,
+            "n27_12",
             "Разрешается ли водителям транспортных средств остановка в указанных местах?",
             listOf(
                 Pair(
@@ -9750,7 +9750,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2713",
-            R.mipmap.n27_13,
+            "n27_13",
             "Как Вам следует поступить при повороте направо?",
             listOf(
                 Pair(
@@ -9770,7 +9770,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2714",
-            R.mipmap.n27_14,
+            "n27_14",
             "Как Вам следует поступить, двигаясь по перекрестку с круговым движением?",
             listOf(
                 Pair(
@@ -9790,7 +9790,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2715",
-            R.mipmap.n27_15,
+            "n27_15",
             "Кому Вы обязаны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -9810,7 +9810,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2716",
-            R.mipmap.n27_16,
+            "n27_16",
             "На каком наименьшем расстоянии до ближайшего рельса Вы должны остановиться?",
             listOf(
                 Pair(
@@ -9834,7 +9834,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2717",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При буксировке на гибкой сцепке между буксирующим и буксируемым транспортными средствами должно быть обеспечено расстояние:",
             listOf(
                 Pair(
@@ -9854,7 +9854,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2718",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие административные правонарушения, совершенные водителем, который лишен права управления транспортными средствами, влекут административный арест?",
             listOf(
                 Pair(
@@ -9874,7 +9874,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2719",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Устранение заноса задней оси путем увеличения скорости возможно:",
             listOf(
                 Pair(
@@ -9894,7 +9894,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2720",
-            R.mipmap.n27_20,
+            "n27_20",
             "На каком рисунке показано правильное положение рук на рулевом колесе?",
             listOf(
                 Pair(
@@ -9914,7 +9914,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2801",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Обязан ли водитель предоставлять транспортное средство медицинским и фармацевтическим работникам для перевозки граждан в ближайшее лечебно-профилактическое учреждение в случаях, угрожающих их жизни?",
             listOf(
                 Pair(
@@ -9934,7 +9934,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2802",
-            R.mipmap.n28_2,
+            "n28_2",
             "Вам можно продолжить движение:",
             listOf(
                 Pair(
@@ -9954,7 +9954,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2803",
-            R.mipmap.n28_3,
+            "n28_3",
             "С какой максимальной скоростью Вы имеете право продолжить движение на грузовом автомобиле с разрешенной максимальной массой не более 3,5 т?",
             listOf(
                 Pair(
@@ -9974,7 +9974,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2804",
-            R.mipmap.n28_4,
+            "n28_4",
             "Какие из указанных знаков используются для обозначения номера, присвоенного дороге (маршруту)?",
             listOf(
                 Pair(
@@ -9998,7 +9998,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2805",
-            R.mipmap.n28_5,
+            "n28_5",
             "Движение по предназначенной для велосипедистов полосе проезжей части, которая обозначена данной разметкой, разрешается:",
             listOf(
                 Pair(
@@ -10018,7 +10018,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2806",
-            R.mipmap.n28_6,
+            "n28_6",
             "Вы имеете право двигаться:",
             listOf(
                 Pair(
@@ -10038,7 +10038,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2807",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как необходимо обозначить свое транспортное средство при дорожно-транспортном происшествии?",
             listOf(
                 Pair(
@@ -10058,7 +10058,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2808",
-            R.mipmap.n28_8,
+            "n28_8",
             "Кто имеет преимущество в движении?",
             listOf(
                 Pair(
@@ -10074,7 +10074,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2809",
-            R.mipmap.n28_9,
+            "n28_9",
             "Разрешено ли водителю движение задним ходом для посадки пассажира на этом участке дороги?",
             listOf(
                 Pair(
@@ -10094,7 +10094,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2810",
-            R.mipmap.n28_10,
+            "n28_10",
             "Разрешается ли Вам, управляя грузовым автомобилем с разрешенной максимальной массой более 2,5 т, выехать на третью полосу в данной ситуации?",
             listOf(
                 Pair(
@@ -10118,7 +10118,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2811",
-            R.mipmap.n28_11,
+            "n28_11",
             "Можно ли Вам обогнать трактор, управляя грузовым автомобилем с разрешенной максимальной массой не более 3,5 т?",
             listOf(
                 Pair(
@@ -10138,7 +10138,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2812",
-            R.mipmap.n28_12,
+            "n28_12",
             "В каком месте и направлении Вам разрешено остановиться?",
             listOf(
                 Pair(
@@ -10158,7 +10158,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2813",
-            R.mipmap.n28_13,
+            "n28_13",
             "Кому Вы обязаны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -10182,7 +10182,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2814",
-            R.mipmap.n28_14,
+            "n28_14",
             "Вы должны уступить дорогу грузовому автомобилю:",
             listOf(
                 Pair(
@@ -10202,7 +10202,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2815",
-            R.mipmap.n28_15,
+            "n28_15",
             "Вы намерены развернуться. Кому Вам необходимо уступить дорогу?",
             listOf(
                 Pair(
@@ -10222,7 +10222,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2816",
-            R.mipmap.n28_16,
+            "n28_16",
             "Где Вам разрешается остановиться при движении по автомагистрали?",
             listOf(
                 Pair(
@@ -10242,7 +10242,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2817",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Двигаясь в темное время суток вне населенного пункта с включенными фарами дальнего света, Вы догнали движущееся впереди транспортное средство. Ваши действия?",
             listOf(
                 Pair(
@@ -10262,7 +10262,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2818",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как обязан поступить водитель, если во время движения отказал в работе спидометр?",
             listOf(
                 Pair(
@@ -10282,7 +10282,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2819",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что следует предпринять, если на повороте возник занос задней оси заднеприводного автомобиля?",
             listOf(
                 Pair(
@@ -10306,7 +10306,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2820",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком случае водителю необходимо оценивать обстановку сзади?",
             listOf(
                 Pair(
@@ -10330,7 +10330,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2901",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что означает требование уступить дорогу?",
             listOf(
                 Pair(
@@ -10350,7 +10350,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2902",
-            R.mipmap.n29_2,
+            "n29_2",
             "Какие из указанных знаков предоставляют право преимущественного проезда нерегулируемых перекрестков?",
             listOf(
                 Pair(
@@ -10370,7 +10370,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2903",
-            R.mipmap.n29_3,
+            "n29_3",
             "Разрешено ли Вам выполнить обгон?",
             listOf(
                 Pair(
@@ -10390,7 +10390,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2904",
-            R.mipmap.n29_4,
+            "n29_4",
             "Можно ли водителю поставить грузовой автомобиль на стоянку в этом месте указанным способом?",
             listOf(
                 Pair(
@@ -10410,7 +10410,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2905",
-            R.mipmap.n29_5,
+            "n29_5",
             "Такой вертикальной разметкой обозначают:",
             listOf(
                 Pair(
@@ -10430,7 +10430,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2906",
-            R.mipmap.n29_6,
+            "n29_6",
             "В каком месте Вы должны остановиться?",
             listOf(
                 Pair(
@@ -10450,7 +10450,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2907",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Должны ли водители подавать сигналы указателями поворота при маневрировании на территории автостоянки или АЗС?",
             listOf(
                 Pair(
@@ -10470,7 +10470,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2908",
-            R.mipmap.n29_8,
+            "n29_8",
             "Кто из водителей нарушает правила поворота на перекрестке?",
             listOf(
                 Pair(
@@ -10494,7 +10494,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2909",
-            R.mipmap.n29_9,
+            "n29_9",
             "Разрешено ли водителю движение задним ходом при отсутствии других участников движения?",
             listOf(
                 Pair(
@@ -10514,7 +10514,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2910",
-            R.mipmap.n29_10,
+            "n29_10",
             "Можно ли Вам выехать на крайнюю левую полосу в данной ситуации?",
             listOf(
                 Pair(
@@ -10534,7 +10534,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2911",
-            R.mipmap.n29_11,
+            "n29_11",
             "Разрешается ли Вам выполнить обгон?",
             listOf(
                 Pair(
@@ -10554,7 +10554,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2912",
-            R.mipmap.n29_12,
+            "n29_12",
             "Кто из водителей нарушил правила остановки?",
             listOf(
                 Pair(
@@ -10578,7 +10578,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2913",
-            R.mipmap.n29_13,
+            "n29_13",
             "При выполнении какого маневра водитель легкового автомобиля имеет преимущество в движении?",
             listOf(
                 Pair(
@@ -10598,7 +10598,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2914",
-            R.mipmap.n29_14,
+            "n29_14",
             "Вы намерены повернуть налево. Ваши действия?",
             listOf(
                 Pair(
@@ -10614,7 +10614,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2915",
-            R.mipmap.n29_15,
+            "n29_15",
             "Кому Вы обязаны уступить дорогу при движении в прямом направлении?",
             listOf(
                 Pair(
@@ -10634,7 +10634,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2916",
-            R.mipmap.n29_16,
+            "n29_16",
             "Можно ли Вам, управляя грузовым автомобилем, осуществить опережение в данной ситуации?",
             listOf(
                 Pair(
@@ -10654,7 +10654,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2917",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При движении в светлое время суток на транспортном средстве должны быть включены:",
             listOf(
                 Pair(
@@ -10678,7 +10678,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2918",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Запрещается эксплуатация легкового автомобиля (категория М1), если остаточная глубина рисунка протектора шин (при отсутствии индикаторов износа) составляет не более:",
             listOf(
                 Pair(
@@ -10702,7 +10702,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2919",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что следует предпринять для быстрого восстановления эффективности тормозов транспортного средства после проезда через водную преграду?",
             listOf(
                 Pair(
@@ -10722,7 +10722,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "2920",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Каковы первоначальные действия при оказании первой помощи в случае ранения, полученного в результате ДТП?",
             listOf(
                 Pair(
@@ -10742,7 +10742,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3001",
-            R.mipmap.n30_1,
+            "n30_1",
             "На каком рисунке изображен перекресток?",
             listOf(
                 Pair(
@@ -10762,7 +10762,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3002",
-            R.mipmap.n30_2,
+            "n30_2",
             "Вам можно выполнить разворот:",
             listOf(
                 Pair(
@@ -10782,7 +10782,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3003",
-            R.mipmap.n30_3,
+            "n30_3",
             "Разрешено ли Вам ставить автомобиль на стоянку в этом месте по нечетным числам месяца?",
             listOf(
                 Pair(
@@ -10802,7 +10802,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3004",
-            R.mipmap.n30_4,
+            "n30_4",
             "Какие из указанных знаков обозначают участки, на которых водитель обязан уступать дорогу пешеходам, находящимся на проезжей части?",
             listOf(
                 Pair(
@@ -10822,7 +10822,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3005",
-            R.mipmap.n30_5,
+            "n30_5",
             "Что обозначает разметка А 100, нанесенная на проезжую часть дороги?",
             listOf(
                 Pair(
@@ -10842,7 +10842,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3006",
-            R.mipmap.n30_6,
+            "n30_6",
             "Вам можно продолжить движение:",
             listOf(
                 Pair(
@@ -10862,7 +10862,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3007",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как следует действовать, выполняя поворот налево на двухполосной дороге?",
             listOf(
                 Pair(
@@ -10882,7 +10882,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3008",
-            R.mipmap.n30_8,
+            "n30_8",
             "Вы намерены начать движение от тротуара. Должны ли Вы уступить дорогу мотоциклу, выполняющему разворот?",
             listOf(
                 Pair(
@@ -10902,7 +10902,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3009",
-            R.mipmap.n30_9,
+            "n30_9",
             "Разрешено ли водителю легкового автомобиля движение задним ходом для посадки пассажира в тоннеле?",
             listOf(
                 Pair(
@@ -10922,7 +10922,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3010",
-            R.mipmap.n30_10,
+            "n30_10",
             "В данной ситуации Вам разрешается движение:",
             listOf(
                 Pair(
@@ -10942,7 +10942,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3011",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешено ли выполнить обгон в тоннеле?",
             listOf(
                 Pair(
@@ -10962,7 +10962,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3012",
-            R.mipmap.n30_12,
+            "n30_12",
             "Можно ли водителю поставить автомобиль на стоянку указанным способом?",
             listOf(
                 Pair(
@@ -10982,7 +10982,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3013",
-            R.mipmap.n30_13,
+            "n30_13",
             "В каком случае Вы обязаны уступить дорогу грузовому автомобилю?",
             listOf(
                 Pair(
@@ -11002,7 +11002,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3014",
-            R.mipmap.n30_14,
+            "n30_14",
             "Вы намерены продолжить движение прямо при желтом мигающем сигнале светофора. Ваши действия?",
             listOf(
                 Pair(
@@ -11022,7 +11022,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3015",
-            R.mipmap.n30_15,
+            "n30_15",
             "Вы намерены повернуть налево. Кому Вы обязаны уступить дорогу?",
             listOf(
                 Pair(
@@ -11046,7 +11046,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3016",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком случае водитель транспортного средства, приближающегося к нерегулируемому пешеходному переходу, обязан уступить дорогу пешеходам?",
             listOf(
                 Pair(
@@ -11066,7 +11066,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3017",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Должны ли Вы переключить дальний свет на ближний, если водитель встречного транспортного средства периодическим переключением света фар покажет необходимость этого?",
             listOf(
                 Pair(
@@ -11086,7 +11086,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3018",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какое административное наказание может быть назначено водителю транспортного средства за оставление в нарушение Правил места дорожно-транспортного происшествия, участником которого он является?",
             listOf(
                 Pair(
@@ -11106,7 +11106,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3019",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Для предупреждения скатывания автомобиля с механической трансмиссией при кратковременной остановке на подъеме следует:",
             listOf(
                 Pair(
@@ -11126,7 +11126,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3020",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Зависит ли выбор бокового интервала от скорости движения?",
             listOf(
                 Pair(
@@ -11142,7 +11142,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3101",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Водительское удостоверение, подтверждающее право на управление транспортными средствами категории «А», подтверждает также право на управление транспортными средствами:",
             listOf(
                 Pair(
@@ -11166,7 +11166,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3102",
-            R.mipmap.n31_2,
+            "n31_2",
             "Какие из указанных знаков информируют о приближении к началу участка дороги со встречным движением?",
             listOf(
                 Pair(
@@ -11186,7 +11186,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3103",
-            R.mipmap.n31_3,
+            "n31_3",
             "Разрешено ли Вам подъехать к месту своей работы, расположенному в зоне действия этих знаков?",
             listOf(
                 Pair(
@@ -11210,7 +11210,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3104",
-            R.mipmap.n31_4,
+            "n31_4",
             "О чем информирует Вас данный дорожный знак с желтым фоном?",
             listOf(
                 Pair(
@@ -11230,7 +11230,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3105",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли Вам пересекать двойную сплошную линию горизонтальной разметки?",
             listOf(
                 Pair(
@@ -11254,7 +11254,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3106",
-            R.mipmap.n31_6,
+            "n31_6",
             "О чем информируют Вас стрелки на зеленом сигнале светофора?",
             listOf(
                 Pair(
@@ -11274,7 +11274,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3107",
-            R.mipmap.n31_7,
+            "n31_7",
             "Такой сигнал рукой, подаваемый водителем легкового автомобиля, информирует Вас:",
             listOf(
                 Pair(
@@ -11294,7 +11294,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3108",
-            R.mipmap.n31_8,
+            "n31_8",
             "В каком направлении разрешено продолжить движение водителю легкового автомобиля?",
             listOf(
                 Pair(
@@ -11314,7 +11314,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3109",
-            R.mipmap.n31_9,
+            "n31_9",
             "Вам можно продолжить движение на перекрестке:",
             listOf(
                 Pair(
@@ -11334,7 +11334,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3110",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Движение в населенном пункте со скоростью более 60 км/ч разрешается:",
             listOf(
                 Pair(
@@ -11354,7 +11354,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3111",
-            R.mipmap.n31_11,
+            "n31_11",
             "В данной ситуации преимущество имеет:",
             listOf(
                 Pair(
@@ -11374,7 +11374,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3112",
-            R.mipmap.n31_12,
+            "n31_12",
             "Можно ли Вам поставить автомобиль на стоянку в указанном месте?",
             listOf(
                 Pair(
@@ -11394,7 +11394,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3113",
-            R.mipmap.n31_13,
+            "n31_13",
             "Как Вам следует поступить при повороте налево?",
             listOf(
                 Pair(
@@ -11414,7 +11414,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3114",
-            R.mipmap.n31_14,
+            "n31_14",
             "Вы намерены проехать перекресток в прямом направлении. Ваши действия?",
             listOf(
                 Pair(
@@ -11430,7 +11430,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3115",
-            R.mipmap.n31_15,
+            "n31_15",
             "Кому Вы обязаны уступить дорогу при движении прямо?",
             listOf(
                 Pair(
@@ -11454,7 +11454,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3116",
-            R.mipmap.n31_16,
+            "n31_16",
             "Разрешено ли обучать вождению на этой дороге?",
             listOf(
                 Pair(
@@ -11474,7 +11474,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3117",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Можно ли использовать в светлое время суток противотуманные фары вместо ближнего света фар?",
             listOf(
                 Pair(
@@ -11494,7 +11494,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3118",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли устанавливать на одну ось легкового автомобиля шины с различными рисунками протектора?",
             listOf(
                 Pair(
@@ -11514,7 +11514,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3119",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В случае потери сцепления колес с дорогой из-за образования «водяного клина» водителю следует:",
             listOf(
                 Pair(
@@ -11534,7 +11534,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3120",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как влияет утомленное состояние водителя на его внимание и реакцию?",
             listOf(
                 Pair(
@@ -11554,7 +11554,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3201",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "По требованию каких лиц водители обязаны проходить освидетельствование на состояние алкогольного опьянения и медицинское освидетельствование на состояние опьянения?",
             listOf(
                 Pair(
@@ -11574,7 +11574,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3202",
-            R.mipmap.n32_2,
+            "n32_2",
             "Какие из указанных знаков информируют о том, что на перекрестке необходимо уступить дорогу транспортным средствам, приближающимся слева?",
             listOf(
                 Pair(
@@ -11598,7 +11598,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3203",
-            R.mipmap.n32_3,
+            "n32_3",
             "Разрешено ли Вам при управлении легковым автомобилем с прицепом продолжить движение в прямом направлении?",
             listOf(
                 Pair(
@@ -11618,7 +11618,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3204",
-            R.mipmap.n32_4,
+            "n32_4",
             "Вам разрешается движение:",
             listOf(
                 Pair(
@@ -11642,7 +11642,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3205",
-            R.mipmap.n32_5,
+            "n32_5",
             "О чем информирует Вас увеличение длины штриха прерывистой линии разметки?",
             listOf(
                 Pair(
@@ -11662,7 +11662,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3206",
-            R.mipmap.n32_6,
+            "n32_6",
             "Можно ли Вам перестроиться на соседнюю полосу?",
             listOf(
                 Pair(
@@ -11682,7 +11682,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3207",
-            R.mipmap.n32_7,
+            "n32_7",
             "Обязаны ли Вы включить указатели правого поворота перед въездом на этот перекресток?",
             listOf(
                 Pair(
@@ -11702,7 +11702,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3208",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Выезжая с прилегающей территории, необходимо уступить дорогу:",
             listOf(
                 Pair(
@@ -11722,7 +11722,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3209",
-            R.mipmap.n32_9,
+            "n32_9",
             "Разрешено ли выполнить разворот на участке дороги, обозначенном этим знаком?",
             listOf(
                 Pair(
@@ -11746,7 +11746,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3210",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каких случаях водителю запрещается движение со скоростью более 50 км/ч?",
             listOf(
                 Pair(
@@ -11770,7 +11770,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3211",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли выполнить обгон на пешеходном переходе?",
             listOf(
                 Pair(
@@ -11790,7 +11790,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3212",
-            R.mipmap.n32_12,
+            "n32_12",
             "В каком месте Вам можно остановиться?",
             listOf(
                 Pair(
@@ -11814,7 +11814,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3213",
-            R.mipmap.n32_13,
+            "n32_13",
             "Как Вам следует поступить при повороте налево?",
             listOf(
                 Pair(
@@ -11834,7 +11834,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3214",
-            R.mipmap.n32_14,
+            "n32_14",
             "Вы намерены развернуться. Ваши действия?",
             listOf(
                 Pair(
@@ -11854,7 +11854,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3215",
-            R.mipmap.n32_15,
+            "n32_15",
             "Кому Вы обязаны уступить дорогу при движении прямо?",
             listOf(
                 Pair(
@@ -11878,7 +11878,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3216",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли движение по автомагистрали на транспортном средстве, скорость которого по техническому состоянию менее 40 км/ч?",
             listOf(
                 Pair(
@@ -11898,7 +11898,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3217",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Перевозка груза запрещена, если он:",
             listOf(
                 Pair(
@@ -11918,7 +11918,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3218",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешено ли движение транспортного средства до места ремонта или стоянки в темное время суток с негорящими (из-за неисправности) фарами и задними габаритными огнями?",
             listOf(
                 Pair(
@@ -11938,7 +11938,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3219",
-            R.mipmap.n32_19,
+            "n32_19",
             "При повороте налево обеспечение безопасности движения достигается путем выполнения поворота по траектории, которая показана:",
             listOf(
                 Pair(
@@ -11958,7 +11958,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3220",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как обеспечить восстановление проходимости дыхательных путей пострадавшего при подготовке его к проведению сердечно-легочной реанимации?",
             listOf(
                 Pair(
@@ -11978,7 +11978,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3301",
-            R.mipmap.n33_1,
+            "n33_1",
             "Какой маневр намеревается выполнить водитель легкового автомобиля?",
             listOf(
                 Pair(
@@ -11998,7 +11998,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3302",
-            R.mipmap.n33_2,
+            "n33_2",
             "Этот знак:",
             listOf(
                 Pair(
@@ -12018,7 +12018,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3303",
-            R.mipmap.n33_3,
+            "n33_3",
             "На грузовом автомобиле с разрешенной максимальной массой не более 3,5 т можно двигаться со скоростью:",
             listOf(
                 Pair(
@@ -12038,7 +12038,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3304",
-            R.mipmap.n33_4,
+            "n33_4",
             "Какой из знаков указывает протяженность зоны для разворота?",
             listOf(
                 Pair(
@@ -12058,7 +12058,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3305",
-            R.mipmap.n33_5,
+            "n33_5",
             "Данная разметка обозначает:",
             listOf(
                 Pair(
@@ -12078,7 +12078,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3306",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каких случаях необходимо уступить дорогу транспортному средству, имеющему нанесенные на наружные поверхности специальные цветографические схемы?",
             listOf(
                 Pair(
@@ -12098,7 +12098,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3307",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Дает ли преимущество в движении подача сигнала указателями поворота?",
             listOf(
                 Pair(
@@ -12118,7 +12118,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3308",
-            R.mipmap.n33_8,
+            "n33_8",
             "Разрешается ли Вам выполнить поворот направо по указанной траектории в данной ситуации?",
             listOf(
                 Pair(
@@ -12134,7 +12134,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3309",
-            R.mipmap.n33_9,
+            "n33_9",
             "Можно ли Вам выполнить разворот?",
             listOf(
                 Pair(
@@ -12158,7 +12158,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3310",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каких случаях на дорогах с двусторонним движением запрещается движение по полосе, предназначенной для встречного движения?",
             listOf(
                 Pair(
@@ -12182,7 +12182,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3311",
-            R.mipmap.n33_11,
+            "n33_11",
             "Разрешается ли Вам обогнать грузовой автомобиль в конце подъема?",
             listOf(
                 Pair(
@@ -12202,7 +12202,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3312",
-            R.mipmap.n33_12,
+            "n33_12",
             "Разрешено ли Вам поставить автомобиль на стоянку в этом месте при наличии узкой обочины?",
             listOf(
                 Pair(
@@ -12222,7 +12222,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3313",
-            R.mipmap.n33_13,
+            "n33_13",
             "Как Вам следует поступить при повороте направо?",
             listOf(
                 Pair(
@@ -12246,7 +12246,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3314",
-            R.mipmap.n33_14,
+            "n33_14",
             "Вы намерены повернуть налево. Ваши действия?",
             listOf(
                 Pair(
@@ -12266,7 +12266,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3315",
-            R.mipmap.n33_15,
+            "n33_15",
             "Вы обязаны уступить дорогу при движении прямо:",
             listOf(
                 Pair(
@@ -12286,7 +12286,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3316",
-            R.mipmap.n33_16,
+            "n33_16",
             "Кто из водителей нарушает Правила?",
             listOf(
                 Pair(
@@ -12306,7 +12306,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3317",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При ослеплении дальним светом фар встречных или движущихся попутно транспортных средств водитель должен:",
             listOf(
                 Pair(
@@ -12326,7 +12326,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3318",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие виды административных наказаний могут применяться к водителям за нарушения Правил?",
             listOf(
                 Pair(
@@ -12346,7 +12346,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3319",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие действия водителя приведут к уменьшению центробежной силы, возникающей на повороте?",
             listOf(
                 Pair(
@@ -12366,7 +12366,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3320",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как влияет алкоголь на время реакции водителя?",
             listOf(
                 Pair(
@@ -12386,7 +12386,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3401",
-            R.mipmap.n34_1,
+            "n34_1",
             "Главная дорога показана:",
             listOf(
                 Pair(
@@ -12410,7 +12410,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3402",
-            R.mipmap.n34_2,
+            "n34_2",
             "На каком расстоянии до скользкого участка дороги устанавливается данный знак в населенном пункте?",
             listOf(
                 Pair(
@@ -12430,7 +12430,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3403",
-            R.mipmap.n34_3,
+            "n34_3",
             "Остановка в зоне действия этого знака разрешена:",
             listOf(
                 Pair(
@@ -12450,7 +12450,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3404",
-            R.mipmap.n34_4,
+            "n34_4",
             "Какие из указанных знаков используются для обозначения кемпинга?",
             listOf(
                 Pair(
@@ -12474,7 +12474,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3405",
-            R.mipmap.n34_5,
+            "n34_5",
             "Если реверсивные светофоры выключились, Вам следует:",
             listOf(
                 Pair(
@@ -12494,7 +12494,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3406",
-            R.mipmap.n34_6,
+            "n34_6",
             "Вам разрешено продолжить движение:",
             listOf(
                 Pair(
@@ -12514,7 +12514,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3407",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как необходимо обозначить буксируемый автомобиль при отсутствии или неисправности аварийной сигнализации?",
             listOf(
                 Pair(
@@ -12534,7 +12534,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3408",
-            R.mipmap.n34_8,
+            "n34_8",
             "Можно ли водителю легкового автомобиля в данной ситуации начать движение от тротуара?",
             listOf(
                 Pair(
@@ -12554,7 +12554,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3409",
-            R.mipmap.n34_9,
+            "n34_9",
             "Водитель случайно проехал нужный въезд во двор. Разрешается ли ему в этой ситуации использовать задний ход, чтобы затем повернуть направо?",
             listOf(
                 Pair(
@@ -12574,7 +12574,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3410",
-            R.mipmap.n34_10,
+            "n34_10",
             "Кто из водителей мопедов занял правильное положение на полосе движения?",
             listOf(
                 Pair(
@@ -12594,7 +12594,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3411",
-            R.mipmap.n34_11,
+            "n34_11",
             "Можно ли Вам продолжить движение по средней полосе после опережения автомобиля, движущегося по правой полосе?",
             listOf(
                 Pair(
@@ -12614,7 +12614,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3412",
-            R.mipmap.n34_12,
+            "n34_12",
             "Водители каких автомобилей нарушили правила остановки?",
             listOf(
                 Pair(
@@ -12638,7 +12638,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3413",
-            R.mipmap.n34_13,
+            "n34_13",
             "Как Вам следует поступить при движении в прямом направлении?",
             listOf(
                 Pair(
@@ -12658,7 +12658,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3414",
-            R.mipmap.n34_14,
+            "n34_14",
             "Кому Вы обязаны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -12678,7 +12678,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3415",
-            R.mipmap.n34_15,
+            "n34_15",
             "Вы намерены повернуть налево. Ваши действия?",
             listOf(
                 Pair(
@@ -12698,7 +12698,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3416",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Сигналом остановки для машиниста поезда служит следующее расположение руки или рук (днем с лоскутом яркой материи либо каким-нибудь хорошо видимым предметом, ночью — с факелом или фонарем):",
             listOf(
                 Pair(
@@ -12722,7 +12722,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3417",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В тоннеле с искусственным освещением должны быть включены:",
             listOf(
                 Pair(
@@ -12742,7 +12742,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3418",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Уголовная ответственность предусмотрена за управление транспортным средством, не повлекшее причинение тяжкого вреда здоровью или смерть человека, лицом, находящимся в состоянии опьянения, если оно ранее было подвергнуто административному наказанию:",
             listOf(
                 Pair(
@@ -12762,7 +12762,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3419",
-            R.mipmap.n34_19,
+            "n34_19",
             "При движении по двухполосной дороге за грузовым автомобилем у Вас появилась возможность совершить обгон. Ваши действия?",
             listOf(
                 Pair(
@@ -12782,7 +12782,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3420",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Каким образом проводится сердечно-легочная реанимация пострадавшего?",
             listOf(
                 Pair(
@@ -12802,7 +12802,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3501",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что означает термин «Недостаточная видимость»?",
             listOf(
                 Pair(
@@ -12822,7 +12822,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3502",
-            R.mipmap.n35_2,
+            "n35_2",
             "Вы можете продолжить движение на следующем перекрестке:",
             listOf(
                 Pair(
@@ -12842,7 +12842,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3503",
-            R.mipmap.n35_3,
+            "n35_3",
             "Какие из указанных знаков разрешают движение со скоростью 60 км/ч?",
             listOf(
                 Pair(
@@ -12862,7 +12862,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3504",
-            R.mipmap.n35_4,
+            "n35_4",
             "Кто из водителей нарушил правила стоянки?",
             listOf(
                 Pair(
@@ -12886,7 +12886,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3505",
-            R.mipmap.n35_5,
+            "n35_5",
             "Вы можете объехать препятствие:",
             listOf(
                 Pair(
@@ -12906,7 +12906,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3506",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что означает сочетание красного и желтого сигналов светофора?",
             listOf(
                 Pair(
@@ -12926,7 +12926,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3507",
-            R.mipmap.n35_7,
+            "n35_7",
             "На каком расстоянии от транспортного средства должен быть выставлен знак аварийной остановки в данной ситуации?",
             listOf(
                 Pair(
@@ -12946,7 +12946,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3508",
-            R.mipmap.n35_8,
+            "n35_8",
             "Кому Вы должны уступить дорогу при повороте во двор?",
             listOf(
                 Pair(
@@ -12966,7 +12966,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3509",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Для обеспечения безопасности при выезде задним ходом с места стоянки, имеющего ограниченную видимость, необходимо:",
             listOf(
                 Pair(
@@ -12986,7 +12986,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3510",
-            R.mipmap.n35_10,
+            "n35_10",
             "С какой максимальной скоростью Вы имеете право продолжить движение на грузовом автомобиле с разрешенной максимальной массой не более 3,5 т после въезда на примыкающую слева дорогу?",
             listOf(
                 Pair(
@@ -13006,7 +13006,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3511",
-            R.mipmap.n35_11,
+            "n35_11",
             "Как Вам следует поступить в данной ситуации?",
             listOf(
                 Pair(
@@ -13026,7 +13026,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3512",
-            R.mipmap.n35_12,
+            "n35_12",
             "Водители каких автомобилей не нарушили правила остановки?",
             listOf(
                 Pair(
@@ -13050,7 +13050,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3513",
-            R.mipmap.n35_13,
+            "n35_13",
             "Вам необходимо уступить дорогу другим участникам движения:",
             listOf(
                 Pair(
@@ -13070,7 +13070,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3514",
-            R.mipmap.n35_14,
+            "n35_14",
             "Вы намерены продолжить движение прямо. Ваши действия?",
             listOf(
                 Pair(
@@ -13090,7 +13090,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3515",
-            R.mipmap.n35_15,
+            "n35_15",
             "Кому Вы обязаны уступить дорогу при повороте налево?",
             listOf(
                 Pair(
@@ -13110,7 +13110,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3516",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При вынужденной остановке на железнодорожном переезде, если в транспортном средстве находятся пассажиры, водитель должен:",
             listOf(
                 Pair(
@@ -13130,7 +13130,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3517",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При остановке и стоянке на неосвещенных участках дорог в темное время суток необходимо:",
             listOf(
                 Pair(
@@ -13150,7 +13150,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3518",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком случае разрешается эксплуатация автомобиля?",
             listOf(
                 Pair(
@@ -13170,7 +13170,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3519",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "По какой траектории двигается прицеп легкового автомобиля при прохождении поворота?",
             listOf(
                 Pair(
@@ -13190,7 +13190,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3520",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Принято считать, что среднее время реакции водителя составляет:",
             listOf(
                 Pair(
@@ -13210,7 +13210,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3601",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Главной на перекрестке является:",
             listOf(
                 Pair(
@@ -13230,7 +13230,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3602",
-            R.mipmap.n36_2,
+            "n36_2",
             "Разрешается ли Вам въехать на мост одновременно с водителем мотоцикла?",
             listOf(
                 Pair(
@@ -13250,7 +13250,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3603",
-            R.mipmap.n36_3,
+            "n36_3",
             "Водители каких автомобилей нарушили правила стоянки?",
             listOf(
                 Pair(
@@ -13270,7 +13270,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3604",
-            R.mipmap.n36_4,
+            "n36_4",
             "Какие из указанных табличек распространяют действие установленных с ними знаков на грузовые автомобили с разрешенной максимальной массой не более 3,5 т?",
             listOf(
                 Pair(
@@ -13294,7 +13294,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3605",
-            R.mipmap.n36_5,
+            "n36_5",
             "Правая полоса предназначена для движения:",
             listOf(
                 Pair(
@@ -13314,7 +13314,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3606",
-            R.mipmap.n36_6,
+            "n36_6",
             "Как следует поступить водителю легкового автомобиля при приближении автомобиля оперативной службы?",
             listOf(
                 Pair(
@@ -13334,7 +13334,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3607",
-            R.mipmap.n36_7,
+            "n36_7",
             "Согнутая в локте рука водителя автомобиля является сигналом, информирующим Вас о его намерении:",
             listOf(
                 Pair(
@@ -13354,7 +13354,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3608",
-            R.mipmap.n36_8,
+            "n36_8",
             "Вам можно продолжить движение при повороте налево:",
             listOf(
                 Pair(
@@ -13374,7 +13374,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3609",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Если траектории движения транспортных средств пересекаются, а очередность проезда не оговорена Правилами, следует:",
             listOf(
                 Pair(
@@ -13394,7 +13394,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3610",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каких случаях на дорогах, проезжая часть которых разделена линиями разметки, водители обязаны двигаться строго по полосам?",
             listOf(
                 Pair(
@@ -13414,7 +13414,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3611",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Водитель обгоняемого транспортного средства:",
             listOf(
                 Pair(
@@ -13434,7 +13434,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3612",
-            R.mipmap.n36_12,
+            "n36_12",
             "Разрешена ли Вам остановка для высадки пассажиров в указанном месте?",
             listOf(
                 Pair(
@@ -13454,7 +13454,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3613",
-            R.mipmap.n36_13,
+            "n36_13",
             "Вы намерены повернуть направо. Ваши действия?",
             listOf(
                 Pair(
@@ -13474,7 +13474,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3614",
-            R.mipmap.n36_14,
+            "n36_14",
             "В каких случаях Вы должны уступить дорогу трамваю?",
             listOf(
                 Pair(
@@ -13494,7 +13494,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3615",
-            R.mipmap.n36_15,
+            "n36_15",
             "Как Вам следует поступить при повороте налево?",
             listOf(
                 Pair(
@@ -13514,7 +13514,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3616",
-            R.mipmap.n36_16,
+            "n36_16",
             "Вы обязаны уступить дорогу грузовому автомобилю:",
             listOf(
                 Pair(
@@ -13534,7 +13534,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3617",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каких случаях необходимо включать фары ближнего света или дневные ходовые огни в светлое время суток?",
             listOf(
                 Pair(
@@ -13554,7 +13554,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3618",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Административная ответственность установлена за нарушение Правил дорожного движения или правил эксплуатации транспортного средства, повлекшее причинение:",
             listOf(
                 Pair(
@@ -13574,7 +13574,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3619",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как правильно произвести экстренное торможение на скользкой дороге, если автомобиль не оборудован антиблокировочной тормозной системой?",
             listOf(
                 Pair(
@@ -13594,7 +13594,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3620",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как воспринимается водителем скорость своего автомобиля при длительном движении по равнинной дороге на большой скорости?",
             listOf(
                 Pair(
@@ -13614,7 +13614,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3701",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "К категории «В» относятся автомобили:",
             listOf(
                 Pair(
@@ -13634,7 +13634,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3702",
-            R.mipmap.n37_2,
+            "n37_2",
             "Какие из указанных знаков устанавливают непосредственно перед железнодорожным переездом?",
             listOf(
                 Pair("Только А.", false),
@@ -13646,7 +13646,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3703",
-            R.mipmap.n37_3,
+            "n37_3",
             "Вам разрешено выполнить разворот:",
             listOf(
                 Pair("Только по траектории А.", false),
@@ -13657,7 +13657,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3704",
-            R.mipmap.n37_4,
+            "n37_4",
             "Можно ли Вам поставить автомобиль на стоянку за путепроводом?",
             listOf(
                 Pair("Можно.", false),
@@ -13668,7 +13668,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3705",
-            R.mipmap.n37_5,
+            "n37_5",
             "Разрешается ли Вам перестроиться на полосу с реверсивным движением в данной ситуации?",
             listOf(
                 Pair("Разрешается.", true),
@@ -13679,7 +13679,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3706",
-            R.mipmap.n37_6,
+            "n37_6",
             "Вам разрешено движение:",
             listOf(
                 Pair("Только в направлении А.", true),
@@ -13690,7 +13690,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3707",
-            R.mipmap.n37_7,
+            "n37_7",
             "Какие указатели поворота Вы обязаны включить при выполнении разворота по такой траектории?",
             listOf(
                 Pair("Только правого поворота.", false),
@@ -13704,7 +13704,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3708",
-            R.mipmap.n37_8,
+            "n37_8",
             "Ситуация, в которой водитель транспортного средства, движущегося по правой полосе, обязан уступить дорогу при перестроении, показана:",
             listOf(
                 Pair("На левом рисунке.", true),
@@ -13715,7 +13715,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3709",
-            R.mipmap.n37_9,
+            "n37_9",
             "Разрешено ли водителю легкового автомобиля движение задним ходом для посадки пассажира?",
             listOf(
                 Pair("Разрешено.", false),
@@ -13729,7 +13729,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3710",
-            R.mipmap.n37_10,
+            "n37_10",
             "В данной ситуации для того, чтобы продолжить движение в прямом направлении, Вы имеете право:",
             listOf(
                 Pair("Объехать грузовой автомобиль справа.", false),
@@ -13743,7 +13743,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3711",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Запрещается ли выполнять обгон на мостах, путепроводах, эстакадах и под ними?",
             listOf(
                 Pair("Запрещается.", true),
@@ -13755,7 +13755,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3712",
-            R.mipmap.n37_12,
+            "n37_12",
             "Можно ли Вам остановиться в тоннеле для посадки пассажира?",
             listOf(
                 Pair("Можно.", false),
@@ -13766,7 +13766,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3713",
-            R.mipmap.n37_13,
+            "n37_13",
             "Как Вам следует поступить при повороте направо?",
             listOf(
                 Pair(
@@ -13783,7 +13783,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3714",
-            R.mipmap.n37_14,
+            "n37_14",
             "При движении в каком направлении Вы будете иметь преимущество?",
             listOf(
                 Pair("Только при повороте направо.", false),
@@ -13794,7 +13794,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3715",
-            R.mipmap.n37_15,
+            "n37_15",
             "Вы намерены продолжить движение прямо. Ваши действия?",
             listOf(
                 Pair("Проедете перекресток первым.", false),
@@ -13804,7 +13804,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3716",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "На каких участках автомагистрали запрещается движение задним ходом?",
             listOf(
                 Pair("Только в местах въезда или выезда с нее.", false),
@@ -13815,7 +13815,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3717",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Водителям мопедов запрещается поворачивать налево или разворачиваться:",
             listOf(
                 Pair("Только при движении по дороге с трамвайным движением.", false),
@@ -13829,7 +13829,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3718",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При какой неисправности запрещено дальнейшее движение на автомобиле во время дождя или снегопада?",
             listOf(
                 Pair("Не работают в установленном режиме стеклоочистители.", false),
@@ -13843,7 +13843,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3719",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "С увеличением скорости движения на повороте величина центробежной силы:",
             listOf(
                 Pair("Не изменяется.", false),
@@ -13854,7 +13854,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3720",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как оказывается первая помощь при переломах конечностей, если отсутствуют транспортные шины и подручные средства для их изготовления?",
             listOf(
                 Pair(
@@ -13874,7 +13874,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3801",
-            R.mipmap.n38_1,
+            "n38_1",
             "Сколько пересечений проезжих частей имеет этот перекресток?",
             listOf(
                 Pair("Одно.", false),
@@ -13885,7 +13885,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3802",
-            R.mipmap.n38_2,
+            "n38_2",
             "Данные знаки предупреждают о приближении:",
             listOf(
                 Pair("К месту производства работ на дороге.", false),
@@ -13896,7 +13896,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3803",
-            R.mipmap.n38_3,
+            "n38_3",
             "Действие каких из указанных знаков не распространяется на транспортные средства, управляемые инвалидами I и II групп, перевозящие таких инвалидов или детей-инвалидов, если на транспортных средствах установлен опознавательный знак «Инвалид»?",
             listOf(
                 Pair("А и Б.", false),
@@ -13908,7 +13908,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3804",
-            R.mipmap.n38_4,
+            "n38_4",
             "Вы можете продолжить движение по крайней левой полосе:",
             listOf(
                 Pair("Только налево.", false),
@@ -13919,7 +13919,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3805",
-            R.mipmap.n38_5,
+            "n38_5",
             "Разрешается ли Вам остановка в этом месте?",
             listOf(
                 Pair("Разрешается.", true),
@@ -13934,7 +13934,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3806",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Преимущество перед другими участниками движения имеет водитель автомобиля:",
             listOf(
                 Pair(
@@ -13955,7 +13955,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3807",
-            R.mipmap.n38_7,
+            "n38_7",
             "Вы намерены остановиться сразу за перекрестком. В каком месте необходимо включить указатели правого поворота?",
             listOf(
                 Pair(
@@ -13972,7 +13972,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3808",
-            R.mipmap.n38_8,
+            "n38_8",
             "При съезде с дороги на прилегающую справа территорию Вы:",
             listOf(
                 Pair("Пользуетесь преимуществом перед другими участниками движения.", false),
@@ -13984,7 +13984,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3809",
-            R.mipmap.n38_9,
+            "n38_9",
             "Разрешено ли Вам выполнить разворот при движении на подъеме?",
             listOf(
                 Pair("Разрешено.", false),
@@ -13995,7 +13995,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3810",
-            R.mipmap.n38_10,
+            "n38_10",
             "С какой максимальной скоростью разрешается продолжить движение при буксировке неисправного механического транспортного средства?",
             listOf(
                 Pair("50 км/ч.", true),
@@ -14006,7 +14006,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3811",
-            R.mipmap.n38_11,
+            "n38_11",
             "Можно ли Вам начать обгон?",
             listOf(
                 Pair("Можно.", false),
@@ -14017,7 +14017,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3812",
-            R.mipmap.n38_12,
+            "n38_12",
             "Водители каких автомобилей нарушили правила остановки?",
             listOf(
                 Pair("Только автомобиля В.", false),
@@ -14029,7 +14029,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3813",
-            R.mipmap.n38_13,
+            "n38_13",
             "Как Вам следует поступить при повороте налево?",
             listOf(
                 Pair("Проехать перекресток первым.", false),
@@ -14043,7 +14043,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3814",
-            R.mipmap.n38_14,
+            "n38_14",
             "При движении в каком направлении Вы обязаны уступить дорогу трамваю?",
             listOf(
                 Pair("Только налево.", false),
@@ -14054,7 +14054,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3815",
-            R.mipmap.n38_15,
+            "n38_15",
             "Вы намерены повернуть направо. Можете ли Вы приступить к повороту?",
             listOf(
                 Pair("Можете.", false),
@@ -14068,7 +14068,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3816",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Подъехав к трамваю попутного направления, остановившемуся у посадочной площадки, которая расположена посередине дороги, водитель должен:",
             listOf(
                 Pair("Уступить дорогу пешеходам, идущим к трамваю или от него.", true),
@@ -14085,7 +14085,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3817",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каких случаях запрещена перевозка детей в легковом автомобиле без использования соответствующих детских удерживающих систем(устройств):",
             listOf(
                 Pair("Если они перевозятся в возрасте младше 7 лет.", false),
@@ -14099,7 +14099,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3818",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Владелец транспортного средства обязан возместить вред, причиненный этим транспортным средством, если не докажет, что вред возник:",
             listOf(
                 Pair("Исключительно вследствие непреодолимой силы.", false),
@@ -14110,7 +14110,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3819",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При движении ночью во время сильной метели наилучшую видимость дороги обеспечивает включение:",
             listOf(
                 Pair("Только противотуманных фар.", false),
@@ -14121,7 +14121,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3820",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каких случаях пострадавшего следует извлекать из салона автомобиля?",
             listOf(
                 Pair(
@@ -14141,7 +14141,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3901",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "В каком виде предусмотрено представление для проверки страхового полиса обязательного страхования гражданской ответственности?",
             listOf(
                 Pair("На бумажном носителе.", false),
@@ -14152,7 +14152,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3902",
-            R.mipmap.n39_2,
+            "n39_2",
             "Этот знак предупреждает о приближении к тоннелю, в котором:",
             listOf(
                 Pair("Будет затруднен разъезд со встречными транспортными средствами.", false),
@@ -14163,7 +14163,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3903",
-            R.mipmap.n39_3,
+            "n39_3",
             "Вы имеете право продолжить движение на перекрестке:",
             listOf(
                 Pair("Только в направлении В.", false),
@@ -14174,7 +14174,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3904",
-            R.mipmap.n39_4,
+            "n39_4",
             "Какие из указанных знаков разрешают выполнить поворот налево?",
             listOf(
                 Pair("Только А.", false),
@@ -14186,7 +14186,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3905",
-            R.mipmap.n39_5,
+            "n39_5",
             "При наличии данной разметки, нанесенной на полосе движения, Вам разрешено выполнить:",
             listOf(
                 Pair("Только поворот налево.", false),
@@ -14197,7 +14197,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3906",
-            R.mipmap.n39_6,
+            "n39_6",
             "Вам можно двигаться:",
             listOf(
                 Pair("Только налево.", false),
@@ -14208,7 +14208,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3907",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какие внешние световые приборы должны быть включены на транспортном средстве, имеющем опознавательные знаки «Перевозка детей», при посадке и высадке из него детей?",
             listOf(
                 Pair("Габаритные огни.", false),
@@ -14219,7 +14219,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3908",
-            R.mipmap.n39_8,
+            "n39_8",
             "Водитель автомобиля, выполняющий перестроение на правую полосу, в данной ситуации:",
             listOf(
                 Pair("Не должен создавать помехи двигающемуся по правой полосе автомобилю.", true),
@@ -14233,7 +14233,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3909",
-            R.mipmap.n39_9,
+            "n39_9",
             "Разрешается ли Вам выполнить разворот в указанном месте?",
             listOf(
                 Pair("Разрешается.", false),
@@ -14244,7 +14244,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3910",
-            R.mipmap.n39_10,
+            "n39_10",
             "С какой максимальной скоростью Вы имеете право продолжить движение на легковом автомобиле с прицепом?",
             listOf(
                 Pair("50 км/ч.", false),
@@ -14256,7 +14256,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3911",
-            R.mipmap.n39_11,
+            "n39_11",
             "По какой траектории водителю легкового автомобиля можно выполнить обгон?",
             listOf(
                 Pair("Только по А.", true),
@@ -14267,7 +14267,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3912",
-            R.mipmap.n39_12,
+            "n39_12",
             "Разрешается ли Вам остановка в указанном месте?",
             listOf(
                 Pair("Разрешается.", false),
@@ -14278,7 +14278,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3913",
-            R.mipmap.n39_13,
+            "n39_13",
             "Вы намерены проехать перекресток в прямом направлении. Ваши действия?",
             listOf(
                 Pair("Проедете первым, руководствуясь сигналом светофора.", false),
@@ -14289,7 +14289,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3914",
-            R.mipmap.n39_14,
+            "n39_14",
             "Как Вам следует поступить при повороте налево?",
             listOf(
                 Pair("Уступить дорогу легковому автомобилю.", true),
@@ -14299,7 +14299,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3915",
-            R.mipmap.n39_15,
+            "n39_15",
             "Кому Вы должны уступить дорогу при движении прямо?",
             listOf(
                 Pair("Легковому автомобилю и мотоциклу.", false),
@@ -14310,7 +14310,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3916",
-            R.mipmap.n39_16,
+            "n39_16",
             "Нарушил ли водитель Правила при вынужденной остановке на автомагистрали?",
             listOf(
                 Pair("Нарушил.", false),
@@ -14321,7 +14321,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3917",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли буксировка в гололедицу, если у буксируемого транспортного средства исправны тормоза и рулевое управление?",
             listOf(
                 Pair("Разрешается.", false),
@@ -14332,7 +14332,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3918",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли устанавливать на транспортном средстве ошипованные шины совместно с неошипованными?",
             listOf(
                 Pair("Разрешается.", false),
@@ -14343,7 +14343,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3919",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "При трогании на подъеме на автомобиле с механической коробкой передач следует начинать отключать (отпускать) стояночный тормоз:",
             listOf(
                 Pair("До начала движения.", false),
@@ -14354,7 +14354,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "3920",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Что понимается под остановочным путем?",
             listOf(
                 Pair(
@@ -14374,7 +14374,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4001",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "По требованию каких лиц необходимо передавать для проверки водительское удостоверение на право управления транспортным средством соответствующей категории или подкатегории и представлять для проверки страховой полис обязательного страхования гражданской ответственности на бумажном носителе или в виде электронного документа либо его копии на бумажном носителе?",
             listOf(
                 Pair("Сотрудника полиции.", true),
@@ -14386,7 +14386,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4002",
-            R.mipmap.n40_2,
+            "n40_2",
             "Вам разрешено продолжить движение на перекрестке:",
             listOf(
                 Pair("Только прямо.", true),
@@ -14398,7 +14398,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4003",
-            R.mipmap.n40_3,
+            "n40_3",
             "Какие из указанных знаков разрешают разворот?",
             listOf(
                 Pair("Только А.", false),
@@ -14409,7 +14409,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4004",
-            R.mipmap.n40_4,
+            "n40_4",
             "Поставить на стоянку указанным на табличке способом можно:",
             listOf(
                 Pair("Только легковые автомобили и мотоциклы.", true),
@@ -14423,7 +14423,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4005",
-            R.mipmap.n40_5,
+            "n40_5",
             "Разметкой в виде буквы «А» обозначают:",
             listOf(
                 Pair("Специальную полосу для любых автобусов.", false),
@@ -14434,7 +14434,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4006",
-            R.mipmap.n40_6,
+            "n40_6",
             "Разрешено ли Вам движение?",
             listOf(
                 Pair("Разрешено прямо и направо.", false),
@@ -14445,7 +14445,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4007",
-            R.mipmap.n40_7,
+            "n40_7",
             "Какой опознавательный знак должен быть закреплен на задней части буксируемого механического транспортного средства при отсутствии или неисправности аварийной сигнализации?",
             listOf(
                 Pair("А.", true),
@@ -14456,7 +14456,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4008",
-            R.mipmap.n40_8,
+            "n40_8",
             "На перекрестке Вы намерены повернуть направо. Как Вам следует поступить?",
             listOf(
                 Pair("Перестроиться на правую полосу, затем осуществить поворот.", false),
@@ -14467,7 +14467,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4009",
-            R.mipmap.n40_9,
+            "n40_9",
             "Кто должен уступить дорогу при одновременном развороте?",
             listOf(
                 Pair("Водитель автобуса.", true),
@@ -14481,7 +14481,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4010",
-            R.mipmap.n40_10,
+            "n40_10",
             "Кто из водителей занял правильное положение на полосе движения?",
             listOf(
                 Pair("Оба.", false),
@@ -14499,7 +14499,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4011",
-            R.mipmap.n40_11,
+            "n40_11",
             "Как Вам следует поступить в данной ситуации?",
             listOf(
                 Pair("Проехать первым.", true),
@@ -14510,7 +14510,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4012",
-            R.mipmap.n40_12,
+            "n40_12",
             "Нарушил ли водитель автомобиля правила остановки?",
             listOf(
                 Pair("Нарушил.", true),
@@ -14521,7 +14521,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4013",
-            R.mipmap.n40_13,
+            "n40_13",
             "Вы намерены повернуть направо. Ваши действия?",
             listOf(
                 Pair("Проедете перекресток первым.", false),
@@ -14533,7 +14533,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4014",
-            R.mipmap.n40_14,
+            "n40_14",
             "При движении прямо Вы:",
             listOf(
                 Pair("Имеете преимущество.", false),
@@ -14545,7 +14545,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4015",
-            R.mipmap.n40_15,
+            "n40_15",
             "Кому Вы обязаны уступить дорогу при повороте налево?",
             listOf(
                 Pair("Только автобусу.", false),
@@ -14556,7 +14556,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4016",
-            R.mipmap.n40_16,
+            "n40_16",
             "Можно ли Вам въехать на железнодорожный переезд?",
             listOf(
                 Pair("Можно.", false),
@@ -14567,7 +14567,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4017",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Разрешается ли перевозка людей в салоне легкового автомобиля, буксирующего неисправное транспортное средство?",
             listOf(
                 Pair("Разрешается.", true),
@@ -14578,7 +14578,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4018",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Водитель, в отношении которого имеются достаточные основания полагать, что он находится в состоянии опьянения, направляется на медицинское освидетельствование на состояние опьянения:",
             listOf(
                 Pair(
@@ -14599,7 +14599,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4019",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Как следует поступить водителю при посадке в автомобиль, стоящий у тротуара или на обочине?",
             listOf(
                 Pair("Обойти автомобиль спереди.", true),
@@ -14610,7 +14610,7 @@ class QuestionRepositoryImpl : QuestionRepository {
         ),
         QuestionDomain(
             "4020",
-            R.mipmap.none_image_question,
+            "none_image_question",
             "Какова первая помощь при наличии признаков поверхностного термического ожога (покраснение и отек кожи, образование на месте ожога пузырей, наполненных прозрачной жидкостью, сильная боль)?",
             listOf(
                 Pair(
