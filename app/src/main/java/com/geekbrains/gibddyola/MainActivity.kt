@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
                 .commitNow()
         }
         checkPermissionsCallPhone()
-        databaseCopy()
+//        databaseCopy()
     }
 
     fun checkPermissionsCallPhone(): Boolean {

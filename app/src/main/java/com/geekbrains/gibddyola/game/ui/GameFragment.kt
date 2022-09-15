@@ -14,6 +14,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.data.QuestionDatabaseHelperImpl
+import com.geekbrains.gibddyola.game.data.QuestionRepositoryImpl
 import com.geekbrains.gibddyola.game.domain.QuestionDatabaseBuilder
 import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
@@ -140,6 +141,11 @@ class GameFragment(private var questionNumber: Int) : Fragment() {
 
         startGame()
         autoSchoolLogo()
+
+//        binding.btnBeginGame.setOnClickListener {
+//            val rep = QuestionRepositoryImpl()
+//            viewModel.writeDB(rep.getAllQuestions())
+//        }
 
     }
 

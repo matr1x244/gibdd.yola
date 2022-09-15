@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.geekbrains.gibddyola.game.domain.QuestionDatabaseHelper
 import com.geekbrains.gibddyola.game.domain.entity.AppState
+import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
@@ -67,6 +68,12 @@ class GameViewModel(
                 Log.e("", e.message.toString())
             }
 
+        }
+    }
+
+    fun writeDB(list: List<QuestionDomain>) {
+        coroutineScope.launch {
+            dbHelper.insertAll(list)
         }
     }
 
