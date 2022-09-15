@@ -215,7 +215,9 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
             is AppState.Success -> {
                 with(binding) {
                     tvQuestion.text = appState.questions.question
-                    appState.questions.image?.let { ivImageQuestion.setImageResource(it) }
+                    appState.questions.image.let {
+                        ivImageQuestion.setImageResource(getImageId(it))
+                    }
                     gameAdapter.setData(
                         appState.questions,
                         clickedAnswerPosition
@@ -248,6 +250,10 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
         super.onSaveInstanceState(outState)
         numberOfQuestions?.let { outState.putInt("numberOfQuestions", it) }
 
+    }
+
+    private fun getImageId(name: String): Int {
+        return resources.getIdentifier(name, "drawable", requireContext().packageName)
     }
 
 //Реализация нажатия кнопки назад во фрагментах
