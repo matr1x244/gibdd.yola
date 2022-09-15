@@ -20,6 +20,7 @@
     <string name="item_contact_work_time">Часы работы канцелярии</string>
     <string name="item_contact_time">Режим работы</string>
     <string name="company_organization">ООО Организация</string>
+    <string name="job_name_avarkom">Аварийный комиссар</string>
     <!--MENU-->
     <string name="sell">Скидки</string>
     <string name="game">Автошкола</string>

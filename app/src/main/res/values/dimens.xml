@@ -19,6 +19,7 @@
     <dimen name="dp26">26dp</dimen>
     <dimen name="dp32">32dp</dimen>
     <dimen name="dp36">36dp</dimen>
+    <dimen name="dp43">43dp</dimen>
     <dimen name="dp50">50dp</dimen>
     <dimen name="dp60">60dp</dimen>
     <dimen name="dp90">90dp</dimen>
@@ -50,6 +51,7 @@
     <dimen name="textview_team_avarkom_main">17sp</dimen>
     <dimen name="main_logo_height">150dp</dimen>
     <dimen name="layout_bottom_margin_iv_stock">30dp</dimen>
+    <dimen name="app_bar_conteiner">300dp</dimen>
     <!--Game-->
     <dimen name="game_layout_window_bottom">40dp</dimen>
     <dimen name="scroll_view_game_layout_bottom">90dp</dimen>

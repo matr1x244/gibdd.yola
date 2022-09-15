@@ -2,12 +2,14 @@ package com.geekbrains.gibddyola.ui.about
 
 import android.os.Bundle
 import android.view.View
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.geekbrains.gibddyola.databinding.FragmentAboutAvarkomDetailBinding
 import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.CallIntent
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
+import com.geekbrains.gibddyola.utils.behavior.ButtonBehavior
 
 class AboutFragment :
     ViewBindingFragment<FragmentAboutAvarkomDetailBinding>(FragmentAboutAvarkomDetailBinding::inflate) {
@@ -30,15 +32,15 @@ class AboutFragment :
 
     private fun detailAbout() {
         val about = detailAboutArguments()
+        val behavior = ButtonBehavior(requireContext())
+
+        (binding.buttonPhone.layoutParams as CoordinatorLayout.LayoutParams).behavior = behavior
 
         Glide.with(binding.avatar)
             .load(about?.avatar)
-            .centerInside()
-            .transform(RoundedCorners(10))
             .into(binding.avatar)
 
         binding.itemTextName.text = about?.textName
-        binding.itemTextJobYear.text = about?.textJobYear
         binding.itemTextBio.text = about?.textAbout
     }
 
