@@ -33,4 +33,16 @@
 
     </style>
 
+    <!--myCustomActivityAnimation-->
+    <style name="myCustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/to_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/to_left_out</item>
+    </style>
+
+    <!--myCustomDialogAnimation-->
+    <style name="myCustomDialogAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/zoom_in</item>
+        <item name="android:windowExitAnimation">@anim/zoom_out</item>
+    </style>
+
 </resources>

@@ -17,6 +17,9 @@
         <!-- Customize your theme here. -->
         <item name="chipStyle">@style/myChipsStyleActionBaseStyle</item>
         <item name="snackbarStyle">@style/mySnackBarStyle</item>
+
+        <item name="android:windowAnimationStyle">@style/myCustomActivityAnimation</item>
+        <item name="android:alertDialogStyle">@style/myCustomDialogAnimation</item>
     </style>
 
     <!-- ДЛЯ API меньше 30 SPLASH SCREEN -->

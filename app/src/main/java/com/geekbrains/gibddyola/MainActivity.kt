@@ -36,17 +36,10 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
         checkConnection()
         databaseCopy()
         if (savedInstanceState == null) {
-            startContainerAlphaAnimator()
             supportFragmentManager.beginTransaction()
                 .add(R.id.main_activity_container, MainFragment.newInstance())
                 .commitNow()
         }
-    }
-
-    private fun startContainerAlphaAnimator() {
-        ObjectAnimator.ofFloat(findViewById(R.id.main_activity_container), View.ALPHA, 0.2f, 1.0f)
-            .setDuration(700)
-            .start()
     }
 
     private fun checkConnection() {
