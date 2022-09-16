@@ -16,6 +16,7 @@
     <dimen name="dp21">21dp</dimen>
     <dimen name="dp22">22dp</dimen>
     <dimen name="dp23">23dp</dimen>
+    <dimen name="dp25">25dp</dimen>
     <dimen name="dp26">26dp</dimen>
     <dimen name="dp32">32dp</dimen>
     <dimen name="dp36">36dp</dimen>

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp5"
         android:hapticFeedbackEnabled="false"
-        app:cardCornerRadius="@dimen/dp5"
+        app:cardCornerRadius="@dimen/dp25"
         app:cardElevation="@dimen/dp2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,6 +25,7 @@
                 android:layout_width="@dimen/vk_news_item_logo_image"
                 android:layout_height="@dimen/vk_news_item_logo_image"
                 android:layout_marginStart="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp5"
                 app:layout_constraintBottom_toTopOf="@id/vk_news_item_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -36,6 +37,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/dp3"
                 android:text="@string/vk_news_item_tittle_group_name"
+                android:layout_marginTop="@dimen/dp5"
                 android:textColor="@color/amber_orange_500"
                 android:textSize="@dimen/vk_news_title_text_size"
                 app:layout_constraintBottom_toTopOf="@+id/vk_news_item_time"
