@@ -183,6 +183,12 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
             nextFragment.arguments = bundle
             requireActivity().supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(
+                    R.anim.to_left_in,
+                    R.anim.to_left_out,
+                    R.anim.to_right_in,
+                    R.anim.to_right_out
+                )
                 .replace(
                     R.id.main_activity_container,
                     nextFragment
