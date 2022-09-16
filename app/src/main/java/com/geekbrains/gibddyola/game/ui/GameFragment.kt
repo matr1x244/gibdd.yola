@@ -160,6 +160,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
         binding.btnBeginGame.setOnClickListener {
             binding.btnBeginGame.visibility = View.GONE
             binding.settingLayoutCountOfQuestions.visibility = View.GONE
+            binding.textViewHeader.visibility = View.GONE
             numberOfQuestions = when (binding.radioGroup.checkedRadioButtonId) {
                 R.id.rb_20 -> 5
                 R.id.rb_50 -> 50
