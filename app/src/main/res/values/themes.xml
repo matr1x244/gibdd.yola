@@ -20,6 +20,8 @@
 
         <item name="android:windowAnimationStyle">@style/myCustomActivityAnimation</item>
         <item name="android:alertDialogStyle">@style/myCustomDialogAnimation</item>
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
     <!-- ДЛЯ API меньше 30 SPLASH SCREEN -->

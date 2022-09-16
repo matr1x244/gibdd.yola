@@ -26,7 +26,8 @@
         <activity
             android:name=".StartActivityTheme"
             android:exported="true"
-            android:theme="@style/Theme.Gibddyola">
+            android:theme="@style/Theme.Gibddyola"
+            android:configChanges="uiMode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +37,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Gibddyola">
+            android:theme="@style/Theme.Gibddyola"
+            android:configChanges="uiMode">
         </activity>
 
         <service
