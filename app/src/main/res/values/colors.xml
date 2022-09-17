@@ -8,7 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFDE03</color>
-    <color name="red_600">#E53935</color>
+    <color name="red_game">#E53935</color>
+    <color name="green_game">#4CAF50</color>
+
     <color name="system_dark_grey">#FF444444</color>
 
     <color name="color_gray">#A3000000</color>

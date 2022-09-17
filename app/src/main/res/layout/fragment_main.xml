@@ -67,7 +67,7 @@
             android:shadowDy="0.5"
             android:shadowRadius="0.5"
             android:text="@string/my_team_avarkom"
-            android:textColor="@color/red_600"
+            android:textColor="@color/red_game"
             android:textSize="@dimen/textview_team_avarkom_main" />
 
         <androidx.recyclerview.widget.RecyclerView

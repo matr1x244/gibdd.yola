@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/dp2"
-                android:textColor="@color/red_600"
+                android:textColor="@color/red_game"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/text_view_responses"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -90,8 +90,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_auto_school_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:src="@mipmap/auto_school"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

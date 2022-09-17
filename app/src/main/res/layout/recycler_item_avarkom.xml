@@ -72,7 +72,7 @@
                     android:paddingStart="@dimen/dp5"
                     android:singleLine="true"
                     android:text="@string/item_text_about"
-                    android:textColor="@color/red_600"
+                    android:textColor="@color/red_game"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_slogan" />
