@@ -45,7 +45,7 @@ class CompanyFragment :
     private fun maps() {
         binding.mapView.map?.mapObjects?.addPlacemark(
             pointOfficeParking,
-            ImageProvider.fromResource(requireContext(), R.mipmap.cars_crash)
+            ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_geo_pick)
         )
         binding.mapView.map?.move(
             CameraPosition(pointOffice, 17.2f, 0.0f, 0.0f),
