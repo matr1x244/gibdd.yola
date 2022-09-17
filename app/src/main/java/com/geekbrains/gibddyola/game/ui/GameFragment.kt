@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.geekbrains.gibddyola.MainActivity
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
@@ -18,16 +20,20 @@ import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
+
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
 
-class GameFragment(private var questionNumber: Int) : ViewBindingFragment<FragmentGameBinding>(
-    FragmentGameBinding::inflate
-) {
+class GameFragment(private var questionNumber: Int) : MainActivity.IOnBackPressed,
+    ViewBindingFragment<FragmentGameBinding>(
+        FragmentGameBinding::inflate
+    ) {
 
     companion object {
         fun newInstance() = GameFragment(questionNumber = 0)
     }
+
+    private var backPressedTime: Long = 0
 
     private val viewModel: GameViewModel by viewModel(named("game_view_model"))
 
@@ -262,7 +268,7 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
 
     }
 
-    private inline fun <reified T: Class<*>> T.getId(name: String): Int {
+    private inline fun <reified T : Class<*>> T.getId(name: String): Int {
         return try {
             val idField = getDeclaredField(name)
             idField.getInt(idField)
@@ -272,22 +278,15 @@ class GameFragment(private var questionNumber: Int) : ViewBindingFragment<Fragme
         }
     }
 
-//Реализация нажатия кнопки назад во фрагментах
-    /*fun onBackPressed() {
-        if (!blockUi.getValue()) {
-            val builder: AlertDialog.Builder = Builder(activity)
-            builder.setMessage(R.string.question_exit_without_saving)
-                .setPositiveButton(android.R.string.ok,
-                    DialogInterface.OnClickListener { dialog, which ->
-                        FragmentUtils.removeFragmentAndFireActivityResult(
-                            this@InventoryBaseCreateFragment,
-                            Activity.RESULT_CANCELED,
-                            Intent()
-                        )
-                    })
-                .setNegativeButton(android.R.string.cancel,
-                    DialogInterface.OnClickListener { dialog, which -> })
-            builder.show()
+    //    Реализация нажатия кнопки назад во фрагментах
+    override fun onBackPressed(): Boolean {
+        return if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            true
+        } else {
+            Toast.makeText(requireContext(), "Нажмите еще раз для выхода", Toast.LENGTH_SHORT)
+                .show();
+            backPressedTime = System.currentTimeMillis();
+            false
         }
-    }*/
+    }
 }

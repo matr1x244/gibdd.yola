@@ -20,7 +20,6 @@ import java.io.File
 private const val MAIN_ACTIVITY_SCOPE_ID = "mainActivityScopeId"
 
 class MainActivity : AppCompatActivity(), ControllerOpenFragment {
-
     private val scope by lazy {
         getKoin().getOrCreateScope<MainActivity>(MAIN_ACTIVITY_SCOPE_ID)
     }
@@ -91,5 +90,19 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             .replace(R.id.main_activity_container, AboutFragment.newInstance(localClick))
             .addToBackStack("")
             .commit()
+    }
+
+    interface IOnBackPressed {
+        fun onBackPressed(): Boolean
+    }
+
+    override fun onBackPressed() {
+        val fragment =
+            this.supportFragmentManager.findFragmentById(R.id.main_activity_container)
+        if ((fragment == fragment as? IOnBackPressed)) {
+            (fragment as? IOnBackPressed)?.onBackPressed()?.let {
+                if (it) super.onBackPressed()
+            }
+        } else super.onBackPressed()
     }
 }
