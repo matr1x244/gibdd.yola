@@ -36,6 +36,8 @@ class GameFragment(private var questionNumber: Int) :
     private val viewModel: GameViewModel by viewModel(named("game_view_model"))
 
     private var score = 0
+    private var globalScore = 0
+
     private var clickedAnswerPosition = -1
     var mSettings: SharedPreferences? = null
     var listOfAnsweredQuestions = mutableSetOf<Int>()     //Лист отвеченных вопросов
@@ -62,12 +64,16 @@ class GameFragment(private var questionNumber: Int) :
 
                     viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
                     countOfAnsweredQuestions++
-                    if (question.answers[position].second) score++
-                    viewModel.setScore(score)
+                    if (question.answers[position].second) {
+                        score++
+                        globalScore = mSettings!!.getInt(GAME_SCORE, 0)
+                        globalScore++
+                        val editor: SharedPreferences.Editor = mSettings!!.edit()
+                        editor.putInt(GAME_SCORE, globalScore)
+                        editor.apply()
 
-                    val editor: SharedPreferences.Editor = mSettings!!.edit()
-                    editor.putString(GAME_SCORE, score.toString())
-                    editor.apply()
+                    }
+                    viewModel.setScore(score)
 
                     btnNext.setOnClickListener {
                         viewModel.addAnsweredQuestion(question.id.toInt())

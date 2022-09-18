@@ -26,6 +26,8 @@ import com.geekbrains.gibddyola.BuildConfig
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentMainBinding
 import com.geekbrains.gibddyola.domain.employee.ControllerOpenFragment
+import com.geekbrains.gibddyola.game.ui.GAME_PREFERENCES
+import com.geekbrains.gibddyola.game.ui.GAME_SCORE
 import com.geekbrains.gibddyola.game.ui.GameFragment
 import com.geekbrains.gibddyola.ui.company.CompanyFragment
 import com.geekbrains.gibddyola.ui.main.recyclerView.AdaptersAvarkom
@@ -51,6 +53,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     private lateinit var sharedTooltips: SharedPreferences
     private lateinit var sharedUpdateParameters: SharedPreferences
+    private lateinit var getGlobalScore: SharedPreferences
 
     private val controller by lazy { activity as ControllerOpenFragment }
 
@@ -77,7 +80,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         controller.aboutFragment(it)
         Toast.makeText(context, it.textName, Toast.LENGTH_SHORT).show()
     }
-
+    private var globalScore = 0
     private var openMenu = false
     private val playSoundMain by lazy { AudioManager(requireContext()) }
 
@@ -108,6 +111,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     }
 
     private fun hisStatusText() {
+        binding.hisStatusGame.text = "Уровень знаний ПДД: ${getHisStatusText()}"
         binding.hisStatusGame.setOnClickListener {
             requireActivity().supportFragmentManager
                 .beginTransaction()
@@ -119,6 +123,21 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 )
                 .replace(R.id.main_activity_container, GameFragment.newInstance())
                 .commit()
+        }
+    }
+
+    private fun getHisStatusText(): String {
+        globalScore = getGlobalScore.getInt(GAME_SCORE, 0)
+        return if (globalScore == 0) {
+            "Не определен"
+        } else if (globalScore < 20) {
+            "Чайник"
+        } else if (globalScore < 50) {
+            "Дачник"
+        } else if (globalScore < 100) {
+            "Гонщик"
+        } else {
+            "Водила"
         }
     }
 
@@ -205,7 +224,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         )
         spannableStringBuilder.setSpan(black, 0, 46, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableStringBuilder.setSpan(red, 47, 58, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableStringBuilder.insert(31,"\n")
+        spannableStringBuilder.insert(31, "\n")
 
         binding.textHello.text = spannableStringBuilder
     }
@@ -258,7 +277,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     private fun setDefaultUpdateParams() {
         sharedUpdateParameters = requireActivity()
             .getSharedPreferences(SHARED_UPDATE_NAME, Context.MODE_PRIVATE)
-
+        getGlobalScore =
+            requireActivity().getSharedPreferences(GAME_PREFERENCES, Context.MODE_PRIVATE)
         if (!sharedUpdateParameters.contains(UPDATE_DOWNLOAD_STARTED)) {
             sharedUpdateParameters.edit()
                 .putBoolean(UPDATE_DOWNLOAD_STARTED, false)
@@ -398,7 +418,10 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             setUpdateParameters(UPDATE_DOWNLOAD_FINISHED, true)
-                                            visibility.change(binding.downloadBlockingLayout, false)
+                                            visibility.change(
+                                                binding.downloadBlockingLayout,
+                                                false
+                                            )
                                             downloadBlockingClick(false)
                                             imageRotation.stopAnimation()
                                             showUpdateDialog()
