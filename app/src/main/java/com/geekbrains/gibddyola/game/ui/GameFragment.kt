@@ -5,11 +5,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.geekbrains.gibddyola.MainActivity
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentGameBinding
 import com.geekbrains.gibddyola.game.domain.entity.AppState
@@ -17,14 +16,16 @@ import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.game.ui.recyclerView.GameFragmentAdapter
 import com.geekbrains.gibddyola.ui.main.MainFragment
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
+import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
+import com.geekbrains.gibddyola.utils.showSnackBarNoAction
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
-
 
 const val GAME_PREFERENCES = "gamePref"
 const val GAME_SCORE = "gameScore"
 
-class GameFragment(private var questionNumber: Int) : MainActivity.IOnBackPressed,
+class GameFragment(private var questionNumber: Int) :
     ViewBindingFragment<FragmentGameBinding>(
         FragmentGameBinding::inflate
     ) {
@@ -32,8 +33,6 @@ class GameFragment(private var questionNumber: Int) : MainActivity.IOnBackPresse
     companion object {
         fun newInstance() = GameFragment(questionNumber = 0)
     }
-
-    private var backPressedTime: Long = 0
 
     private val viewModel: GameViewModel by viewModel(named("game_view_model"))
 
@@ -137,6 +136,7 @@ class GameFragment(private var questionNumber: Int) : MainActivity.IOnBackPresse
 
         startGame()
         autoSchoolLogo()
+        backStackCustom()
     }
 
     private fun autoSchoolLogo() {
@@ -278,15 +278,32 @@ class GameFragment(private var questionNumber: Int) : MainActivity.IOnBackPresse
         }
     }
 
-    //    Реализация нажатия кнопки назад во фрагментах
-    override fun onBackPressed(): Boolean {
-        return if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            true
-        } else {
-            Toast.makeText(requireContext(), "Нажмите еще раз для выхода", Toast.LENGTH_SHORT)
-                .show();
-            backPressedTime = System.currentTimeMillis();
-            false
-        }
+    private fun backStackCustom() {
+        var openGame = false
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (!openGame) {
+                        binding.frameLayout.showSnackBarNoAction(
+                            R.string.exit_game,
+                            Snackbar.LENGTH_SHORT
+                        )
+                        openGame = true
+                    } else {
+                        requireActivity().supportFragmentManager
+                            .beginTransaction()
+                            .setCustomAnimations(
+                                R.anim.to_left_in,
+                                R.anim.to_left_out,
+                                R.anim.to_right_in,
+                                R.anim.to_right_out
+                            )
+                            .replace(R.id.main_activity_container, MainFragment.newInstance())
+                            .commit()
+                    }
+                }
+            })
     }
 }

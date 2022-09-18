@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-
 class GameViewModel(
     private val dbHelper: QuestionDatabaseHelper,
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData(),
@@ -25,29 +24,37 @@ class GameViewModel(
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
     private var size = 0
+
     init {
         coroutineScope.launch {
             size = dbHelper.getAll().size
         }
     }
+
     val listAnsweredQuestion = mutableSetOf<Int>()
     fun getLiveData() = liveDataToObserve
     fun getScore() = scoreToObserve
     fun getNumberOfQuestion() = numberOfQuestions
-    fun setNumberOfQuestion(number: Int) {numberOfQuestions.value = number}
+    fun setNumberOfQuestion(number: Int) {
+        numberOfQuestions.value = number
+    }
+
     fun setScore(score: Int) {
         scoreToObserve.value = score
     }
+
     fun addAnsweredQuestion(id: Int) {
         listAnsweredQuestions2.value?.add(id)
     }
+
     fun addAnsweredQuestion2(id: Int) {
-        listAnsweredQuestions.value=id
+        listAnsweredQuestions.value = id
     }
-    fun getAnsweredQuestions()=listAnsweredQuestions
+
+    fun getAnsweredQuestions() = listAnsweredQuestions
 
 
-    fun getListAnsweredQuestion():List<Int> {
+    fun getListAnsweredQuestion(): List<Int> {
         return listAnsweredQuestions2.value?.toList() ?: listOf()
     }
 

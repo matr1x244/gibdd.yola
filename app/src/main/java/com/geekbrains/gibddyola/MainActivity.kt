@@ -92,17 +92,4 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             .commit()
     }
 
-    interface IOnBackPressed {
-        fun onBackPressed(): Boolean
-    }
-
-    override fun onBackPressed() {
-        val fragment =
-            this.supportFragmentManager.findFragmentById(R.id.main_activity_container)
-        if ((fragment == fragment as? IOnBackPressed)) {
-            (fragment as? IOnBackPressed)?.onBackPressed()?.let {
-                if (it) super.onBackPressed()
-            }
-        } else super.onBackPressed()
-    }
 }

@@ -8,8 +8,8 @@ import com.geekbrains.gibddyola.databinding.FragmentGameResultsQuestionsBinding
 import com.geekbrains.gibddyola.ui.main.MainFragment
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 
-
-class ResultsQuestionsFragment : ViewBindingFragment<FragmentGameResultsQuestionsBinding>(FragmentGameResultsQuestionsBinding::inflate) {
+class ResultsQuestionsFragment :
+    ViewBindingFragment<FragmentGameResultsQuestionsBinding>(FragmentGameResultsQuestionsBinding::inflate) {
 
     companion object {
         fun newInstance() = ResultsQuestionsFragment()
@@ -23,23 +23,23 @@ class ResultsQuestionsFragment : ViewBindingFragment<FragmentGameResultsQuestion
     }
 
     @SuppressLint("SetTextI18n")
-        private fun finalTextViewBtn() {
-            binding.textviewNameResult.text = getString(R.string.result_test_pdd)
-            binding.textviewScore.text =
-                getString(R.string.number_correct_answers) +
-                        " ${arguments?.getInt("score") ?: 0}/" +
-                        "${arguments?.getInt("numberOfQuestions")}"
+    private fun finalTextViewBtn() {
+        binding.textviewNameResult.text = getString(R.string.result_test_pdd)
+        binding.textviewScore.text =
+            getString(R.string.number_correct_answers) +
+                    " ${arguments?.getInt("score") ?: 0}/" +
+                    "${arguments?.getInt("numberOfQuestions")}"
 
-            binding.btnReloadGame.setOnClickListener {
-                requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.main_activity_container,
-                        GameFragment(-1)
-                    )
-                    .commitAllowingStateLoss()
-            }
+        binding.btnReloadGame.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(
+                    R.id.main_activity_container,
+                    GameFragment(-1)
+                )
+                .commitAllowingStateLoss()
         }
+    }
 
     private fun btnExitGame() {
         binding.btnExitGame.setOnClickListener {

@@ -53,6 +53,7 @@
     <!--Game-->
     <string name="result_testing_pdd">Результат тестирования ПДД</string>
     <string name="result_score">Количество правильных ответов: %1$d/%2$d</string>
+    <string name="exit_game">Нажмите еще раз для выхода из игры</string>
     <!--Updater-->
     <string name="update_dialog_title">Обновление готово к установке</string>
     <string name="update_dialog_message">Обновить приложение?</string>
