@@ -17,10 +17,8 @@ class GameViewModel(
     private val numberOfQuestions: MutableLiveData<Int> = MutableLiveData(),
     private val listAnsweredQuestions: MutableLiveData<Int> = MutableLiveData(),
     private val listAnsweredQuestions2: MutableLiveData<MutableSet<Int>> = MutableLiveData(),
-//    private val numberOfQuestions: MutableLiveData<Int> = MutableLiveData()
 ) : ViewModel() {
     var listOfAnsweredQuestions = mutableSetOf<Int>()
-//    var numberOfQuestions = mutableListOf<Int>()
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
     private var size = 0

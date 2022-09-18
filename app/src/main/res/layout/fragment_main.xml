@@ -16,9 +16,19 @@
         android:layout_marginBottom="55dp"
         android:orientation="vertical">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/his_status_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Уровень знания ПДД: Чайник"
+            android:textSize="10sp"
+            android:textColor="@color/green_game"
+            android:layout_marginEnd="@dimen/dp5"/>
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_view_main"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/main_logo_height"
             android:layout_gravity="center"
             android:scaleType="centerInside"

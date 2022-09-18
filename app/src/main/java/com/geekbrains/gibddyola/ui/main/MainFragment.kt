@@ -104,6 +104,22 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         initIncomingEvents()
         upDateIcon()
         banner()
+        hisStatusText()
+    }
+
+    private fun hisStatusText() {
+        binding.hisStatusGame.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(
+                    R.anim.to_left_in,
+                    R.anim.to_left_out,
+                    R.anim.to_right_in,
+                    R.anim.to_right_out
+                )
+                .replace(R.id.main_activity_container, GameFragment.newInstance())
+                .commit()
+        }
     }
 
     private fun banner() {
