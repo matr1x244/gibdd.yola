@@ -61,7 +61,7 @@
     <string name="update_dialog_postponed_button">Отложить</string>
     <!--Police status checking-->
     <string name="police_status_check_url">https://гибдд.рф/check/fines</string>
-    <string name="vin_status_check_url">https://easy.gost.ru</string>
+    <string name="ocago_status_check_url">https://гибдд12.рф/status</string>
     <!--Promo-->
     <string name="promo_code_id">промокод: %1$s</string>
     <string name="discount_1">Скидка № 1</string>

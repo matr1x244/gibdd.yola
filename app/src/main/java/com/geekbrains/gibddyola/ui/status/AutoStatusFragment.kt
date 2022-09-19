@@ -5,7 +5,7 @@ import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAutoStatusBinding
-import com.geekbrains.gibddyola.ui.status.viewpager.GIBBD
+import com.geekbrains.gibddyola.ui.status.viewpager.GIBDD
 import com.geekbrains.gibddyola.ui.status.viewpager.VIN
 import com.geekbrains.gibddyola.ui.status.viewpager.ViewPagerAdapter
 import com.geekbrains.gibddyola.ui.stock.viewpager.ZoomOutPageTransformer
@@ -40,14 +40,14 @@ class AutoStatusFragment :
             binding.tabLayoutAutoStatus, binding.viewPager
         ) { tab, position ->
             tab.text = when (position) {
-                VIN -> "Проверка дефектов"
-                GIBBD -> "Проверка штрафов"
-                else -> "Проверка дефектов"
+                VIN -> "Проверка ОСАГО"
+                GIBDD -> "Проверка штрафов"
+                else -> "Проверка ОСАГО"
             }
         }.attach()
 
         binding.tabLayoutAutoStatus.getTabAt(VIN)?.setIcon(R.drawable.ic_status_vin)
-        binding.tabLayoutAutoStatus.getTabAt(GIBBD)?.setIcon(R.drawable.ic_checklist_auto)
+        binding.tabLayoutAutoStatus.getTabAt(GIBDD)?.setIcon(R.drawable.ic_checklist_auto)
     }
 
 }

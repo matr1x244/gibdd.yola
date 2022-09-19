@@ -24,7 +24,7 @@ class AutoStatusVinFragment : ViewBindingFragment<FragmentAutoStatusVinBinding>(
     }
 
     private fun setWebView() {
-        val url = getString(R.string.vin_status_check_url)
+        val url = getString(R.string.ocago_status_check_url)
         val settings = binding.autoStatusWebView.settings
         settings.textZoom = 90
 
@@ -42,27 +42,6 @@ class AutoStatusVinFragment : ViewBindingFragment<FragmentAutoStatusVinBinding>(
         binding.autoStatusWebView.webViewClient = MyWebViewClient()
         binding.autoStatusWebView.setPadding(0, 0, 0, 0)
         binding.autoStatusWebView.loadUrl(url)
-
-        when (requireActivity().resources.displayMetrics.densityDpi) {
-            in (getInteger(R.integer.low_density_start)..
-                    getInteger(R.integer.low_density_end)) -> {
-                binding.autoStatusWebView.scrollY =
-                    getInteger(R.integer.low_density_y_scroll_defects)
-            }
-            in (getInteger(R.integer.middle_density_start)..
-                    getInteger(R.integer.middle_density_end)) -> {
-                binding.autoStatusWebView.scrollY =
-                    getInteger(R.integer.middle_density_y_scroll)
-            }
-            in (getInteger(R.integer.high_density_start)..
-                    getInteger(R.integer.high_density_end)) -> {
-                binding.autoStatusWebView.scrollY =
-                    getInteger(R.integer.high_density_y_scroll)
-            }
-        }
     }
 
-    private fun getInteger(id: Int): Int {
-        return resources.getInteger(id)
-    }
 }

@@ -6,7 +6,7 @@ import com.geekbrains.gibddyola.ui.status.AutoStatusPoliceFragment
 import com.geekbrains.gibddyola.ui.status.AutoStatusVinFragment
 
 const val VIN = 0
-const val GIBBD = 1
+const val GIBDD = 1
 
 class ViewPagerAdapter(fragmentManager: AutoStatusFragment) :
     FragmentStateAdapter(fragmentManager) {
