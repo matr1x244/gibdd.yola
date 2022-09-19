@@ -1,6 +1,5 @@
 package com.geekbrains.gibddyola.ui.main
 
-//Testing Branch
 
 import android.content.Context
 import android.content.Intent

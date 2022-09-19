@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="title_text_20sp">20sp</dimen>
+    <dimen name="global_score_text_10sp">10sp</dimen>
     <dimen name="layout_margin_10dp">10dp</dimen>
     <dimen name="dp0">0dp</dimen>
     <dimen name="dp1">1dp</dimen>

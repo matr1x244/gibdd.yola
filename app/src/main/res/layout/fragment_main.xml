@@ -21,8 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="Уровень знания ПДД: Чайник"
-            android:textSize="10sp"
+            android:drawableEnd="@drawable/ic_license"
+            android:gravity="center"
+            android:textSize="@dimen/global_score_text_10sp"
             android:textColor="@color/green_game"
             android:layout_marginEnd="@dimen/dp5"/>
 
