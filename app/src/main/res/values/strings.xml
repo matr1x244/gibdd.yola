@@ -82,6 +82,7 @@
     <string name="сheck_your_level">Проверить свой уровень</string>
     <string name="comments_answer_game">Комментарий к ответу</string>
     <string name="next_questions_game">Далее</string>
+    <string name="null_level_game">Не определён</string>
     <string name="one_level_game">Чайник</string>
     <string name="two_level_game">Дачник</string>
     <string name="three_level_game">Гонщик</string>
@@ -89,5 +90,6 @@
     <string name="answer_game_item">Ответ</string>
     <string name="test_game_again">Пройти тест еще раз</string>
     <string name="no_internet_ok_button">OK</string>
+    <string name="global_score_text_view">\Уровень знаний ПДД:\ </string>
 
 </resources>

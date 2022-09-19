@@ -1,6 +1,7 @@
 package com.geekbrains.gibddyola.ui.main
 
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -109,8 +110,9 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         hisStatusText()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun hisStatusText() {
-        binding.hisStatusGame.text = "Уровень знаний ПДД: ${getHisStatusText()}"
+        binding.hisStatusGame.text = getString(R.string.global_score_text_view) + getHisStatusText()
         binding.hisStatusGame.setOnClickListener {
             requireActivity().supportFragmentManager
                 .beginTransaction()
@@ -128,15 +130,15 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     private fun getHisStatusText(): String {
         globalScore = getGlobalScore.getInt(GAME_SCORE, 0)
         return if (globalScore == 0) {
-            "Не определен"
+            resources.getString(R.string.null_level_game)
         } else if (globalScore < 20) {
-            "Чайник"
+            resources.getString(R.string.one_level_game)
         } else if (globalScore < 50) {
-            "Дачник"
+            resources.getString(R.string.two_level_game)
         } else if (globalScore < 100) {
-            "Гонщик"
+            resources.getString(R.string.three_level_game)
         } else {
-            "Водила"
+            resources.getString(R.string.four_level_game)
         }
     }
 
