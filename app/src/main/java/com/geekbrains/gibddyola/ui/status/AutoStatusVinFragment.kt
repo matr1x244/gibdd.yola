@@ -1,5 +1,6 @@
 package com.geekbrains.gibddyola.ui.status
 
+import android.animation.ObjectAnimator
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -42,6 +43,8 @@ class AutoStatusVinFragment : ViewBindingFragment<FragmentAutoStatusVinBinding>(
         binding.autoStatusWebView.webViewClient = MyWebViewClient()
         binding.autoStatusWebView.setPadding(0, 0, 0, 0)
         binding.autoStatusWebView.loadUrl(url)
+        ObjectAnimator.ofFloat(binding.containerAutoStatusVin, View.TRANSLATION_Y, -200F, 0F)
+            .setDuration(1900L).start()
     }
 
 }

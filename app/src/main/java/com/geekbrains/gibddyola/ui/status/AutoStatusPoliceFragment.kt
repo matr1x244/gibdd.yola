@@ -1,5 +1,6 @@
 package com.geekbrains.gibddyola.ui.status
 
+import android.animation.ObjectAnimator
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -42,6 +43,8 @@ class AutoStatusPoliceFragment : ViewBindingFragment<FragmentAutoStatusPoliceBin
         binding.autoStatusWebView.webViewClient = MyWebViewClient()
         binding.autoStatusWebView.setPadding(0, 0, 0, 0)
         binding.autoStatusWebView.loadUrl(url)
+        ObjectAnimator.ofFloat(binding.containerAutoStatusPolice, View.ALPHA, 0.0f, 1.0F)
+            .setDuration(2500L).start()
 
         when (requireActivity().resources.displayMetrics.densityDpi) {
             in (getInteger(R.integer.low_density_start)..
