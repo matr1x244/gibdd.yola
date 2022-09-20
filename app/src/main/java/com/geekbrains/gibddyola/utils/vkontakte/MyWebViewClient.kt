@@ -1,5 +1,6 @@
 package com.geekbrains.gibddyola.utils.vkontakte
 
+import android.view.View
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -24,6 +25,7 @@ class MyWebViewClient : WebViewClient() {
             R.string.no_internet_message,
             Toast.LENGTH_SHORT
         ).show()
+        view?.visibility = View.INVISIBLE
     }
 
     override fun onPageFinished(view: WebView?, url: String?) {
