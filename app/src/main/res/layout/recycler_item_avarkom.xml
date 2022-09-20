@@ -59,6 +59,7 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@string/textview_open_detail_avarkom"
+                    android:textSize="11sp"
                     android:textColor="@color/system_dark_grey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
