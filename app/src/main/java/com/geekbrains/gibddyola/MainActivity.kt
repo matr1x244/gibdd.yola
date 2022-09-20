@@ -43,8 +43,9 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
 
     private fun checkConnection() {
         viewModel.checkConnection()
-        val dialogBuilder = AlertDialog.Builder(this)
-        dialogBuilder.setTitle(getString(R.string.no_internet_title))
+        val dialogBuilder = AlertDialog.Builder(this, R.style.myAlertDialog)
+            .setIcon(R.drawable.ic_car_crash)
+            .setTitle(R.string.no_internet_title)
             .setMessage(getString(R.string.no_internet_message))
             .setCancelable(true)
             .setPositiveButton(getString(R.string.no_internet_ok_button)) { _, _ ->
