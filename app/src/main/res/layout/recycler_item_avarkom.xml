@@ -15,10 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dp5"
-            android:hapticFeedbackEnabled="false"
             android:background="@color/white"
-            app:cardCornerRadius="@dimen/dp5"
-            app:cardElevation="@dimen/dp1">
+            android:hapticFeedbackEnabled="false"
+            app:cardCornerRadius="@dimen/dp7"
+            app:cardElevation="@dimen/dp2">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -29,8 +29,10 @@
                     android:layout_width="@dimen/dp90"
                     android:layout_height="@dimen/dp90"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/dp5"
                     android:cropToPadding="true"
                     android:padding="@dimen/dp1"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -56,26 +58,23 @@
                     android:layout_margin="@dimen/dp10"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:paddingStart="@dimen/dp5"
-                    android:text="Если у тебя ВАЗ, тебе не ко мне"
+                    android:text="@string/textview_open_detail_avarkom"
                     android:textColor="@color/system_dark_grey"
-                    app:layout_constraintStart_toEndOf="@+id/avatar"
-                    app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/item_text_small_about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp10"
-                    android:layout_marginBottom="@dimen/dp16"
                     android:ellipsize="end"
                     android:paddingStart="@dimen/dp5"
                     android:singleLine="true"
                     android:text="@string/item_text_about"
                     android:textColor="@color/red_game"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
-                    app:layout_constraintTop_toBottomOf="@+id/item_text_slogan" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

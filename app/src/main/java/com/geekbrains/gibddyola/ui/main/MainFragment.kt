@@ -78,7 +78,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     private var adaptersAvarkom = AdaptersAvarkom {
         controller.aboutFragment(it)
-        Toast.makeText(context, it.textName, Toast.LENGTH_SHORT).show()
     }
     private var globalScore = 0
     private var openMenu = false

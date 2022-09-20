@@ -28,7 +28,7 @@ class ViewHolderAvarkom(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         Glide.with(binding.avatar)
             .load(item.avatar)
-            .transform(CircleCrop(), RoundedCorners(16))
+            .transform(CircleCrop(), RoundedCorners(15))
             .transition(DrawableTransitionOptions.withCrossFade(1000))
             .into(binding.avatar)
 

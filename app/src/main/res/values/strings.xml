@@ -8,7 +8,7 @@
     <string name="text_view_blocks_auto_helper">Блок подсказок водителю</string>
     <string name="my_team_avarkom">Наша команда аварийных комиссаров</string>
     <!--ABOUT COMPANY | ABOUT AVARKOM-->
-    <string name="item_text_about">Об аваркоме</string>
+    <string name="item_text_about">Стаж работы</string>
     <string name="item_text_name">ФИО</string>
     <string name="item_text_bio">Биография</string>
     <string name="item_text_raiting">Рейтинг аваркома</string>
@@ -21,6 +21,7 @@
     <string name="item_contact_time">Режим работы</string>
     <string name="company_organization">ООО Организация</string>
     <string name="job_name_avarkom">Аварийный комиссар</string>
+    <string name="textview_open_detail_avarkom">Подробнее</string>
     <!--MENU-->
     <string name="sell">Скидки</string>
     <string name="game">Автошкола</string>
