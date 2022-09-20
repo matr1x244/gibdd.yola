@@ -7,6 +7,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import com.geekbrains.gibddyola.R
+import com.geekbrains.gibddyola.utils.showSnackBarNoAction
+import com.google.android.material.snackbar.Snackbar
 
 class MyWebViewClient : WebViewClient() {
 
@@ -20,11 +22,10 @@ class MyWebViewClient : WebViewClient() {
         request: WebResourceRequest?,
         error: WebResourceError
     ) {
-        Toast.makeText(
-            view?.context,
+        view?.showSnackBarNoAction(
             R.string.no_internet_message,
-            Toast.LENGTH_SHORT
-        ).show()
+            Snackbar.LENGTH_SHORT
+        )
         view?.visibility = View.INVISIBLE
     }
 
