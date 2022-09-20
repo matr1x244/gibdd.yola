@@ -9,6 +9,7 @@ interface VkNewsContract {
         fun setData()
         fun onProcessLoading()
         fun onError()
+        fun checkConnection()
     }
 
     abstract class ViewModel : androidx.lifecycle.ViewModel() {
@@ -19,5 +20,6 @@ interface VkNewsContract {
         abstract val isBlocked: LiveData<Boolean>
         abstract fun setNews()
         abstract fun blockScreen(isBlock: Boolean)
+        abstract fun connectionCheck()
     }
 }
