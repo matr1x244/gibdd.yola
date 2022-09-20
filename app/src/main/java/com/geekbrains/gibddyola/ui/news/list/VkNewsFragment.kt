@@ -2,6 +2,9 @@ package com.geekbrains.gibddyola.ui.news.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.data.news.web.entity.VkGroupEntity
@@ -14,6 +17,7 @@ import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.showSnackBarNoAction
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
@@ -39,12 +43,10 @@ class VkNewsFragment : ViewBindingFragment<FragmentVkNewsBinding>(FragmentVkNews
         super.onViewCreated(view, savedInstanceState)
 
         initRV()
-        onProcessLoading()
         onError()
-        viewModel.setNews()
-        setData()
-        isBlocked()
         setAdapterClicker()
+        checkConnection()
+        isBlocked()
     }
 
     companion object {
@@ -90,6 +92,27 @@ class VkNewsFragment : ViewBindingFragment<FragmentVkNewsBinding>(FragmentVkNews
                     R.string.no_internet_vk_news,
                     Snackbar.LENGTH_LONG
                 )
+            }
+        }
+    }
+
+    override fun checkConnection() {
+        onProcessLoading()
+        viewModel.connectionCheck()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.connectionStatus.collect { status ->
+                    when (status) {
+                        true -> {
+                            disableBackground(false)
+                            viewModel.setNews()
+                            setData()
+                        }
+                        else -> {
+                            disableBackground(true)
+                        }
+                    }
+                }
             }
         }
     }
