@@ -40,7 +40,7 @@ class AutoStatusPoliceFragment : ViewBindingFragment<FragmentAutoStatusPoliceBin
             settings.safeBrowsingEnabled = true
         }
 
-        binding.autoStatusWebView.webViewClient = MyWebViewClient()
+        binding.autoStatusWebView.webViewClient = MyWebViewClient(binding.loadingProcessLayout)
         binding.autoStatusWebView.setPadding(0, 0, 0, 0)
         binding.autoStatusWebView.loadUrl(url)
         ObjectAnimator.ofFloat(binding.containerAutoStatusPolice, View.ALPHA, 0.0f, 1.0F)

@@ -40,7 +40,7 @@ class AutoStatusVinFragment : ViewBindingFragment<FragmentAutoStatusVinBinding>(
             settings.safeBrowsingEnabled = true
         }
 
-        binding.autoStatusWebView.webViewClient = MyWebViewClient()
+        binding.autoStatusWebView.webViewClient = MyWebViewClient(binding.loadingProcessLayout)
         binding.autoStatusWebView.setPadding(0, 0, 0, 0)
         binding.autoStatusWebView.loadUrl(url)
         ObjectAnimator.ofFloat(binding.containerAutoStatusVin, View.TRANSLATION_Y, -200F, 0F)
