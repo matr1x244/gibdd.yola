@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dp5"
-            android:background="@color/white"
             android:hapticFeedbackEnabled="false"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/dp7"
             app:cardElevation="@dimen/dp2">
 
@@ -41,41 +41,49 @@
                     android:id="@+id/item_text_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp10"
-                    android:layout_marginTop="@dimen/layout_margin_10dp"
+                    android:layout_margin="@dimen/dp5"
+                    android:layout_marginStart="@dimen/dp10"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:paddingStart="@dimen/dp5"
                     android:text="@string/item_text_name"
                     android:textColor="@color/black"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/item_text_slogan"
+                    android:id="@+id/item_text_small_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/item_text_about"
+                    android:textColor="@color/red_game"
+                    app:layout_constraintStart_toEndOf="@+id/avatar"
+                    app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/appCompatImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:src="@drawable/ic_wishlist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_text_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp10"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@string/textview_open_detail_avarkom"
-                    android:textSize="11sp"
                     android:textColor="@color/system_dark_grey"
+                    android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/item_text_small_about"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp10"
-                    android:ellipsize="end"
-                    android:paddingStart="@dimen/dp5"
-                    android:singleLine="true"
-                    android:text="@string/item_text_about"
-                    android:textColor="@color/red_game"
-                    app:layout_constraintStart_toEndOf="@+id/avatar"
-                    app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

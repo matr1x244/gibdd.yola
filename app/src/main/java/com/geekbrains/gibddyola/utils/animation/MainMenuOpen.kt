@@ -65,7 +65,7 @@ class MainMenuOpen {
 
             if (view.id != R.id.fab_main_image && view.id != R.id.transparent_background) {
                 view.animate()
-                    .alpha(0.8F)
+                    .alpha(0.95F)
                     .setDuration(durationAnimOpenMenu * 2)
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
@@ -75,7 +75,7 @@ class MainMenuOpen {
             }
             if (view.id == R.id.transparent_background) {
                 view.animate()
-                    .alpha(0.8F).duration = durationAnimOpenMenu
+                    .alpha(0.95F).duration = durationAnimOpenMenu
             }
         } else {
             when (view.id) {

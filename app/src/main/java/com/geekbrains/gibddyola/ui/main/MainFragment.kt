@@ -230,7 +230,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     }
 
     private fun nextFragmentOpen() {
-
         openMenu = fragmentOpenBackStack.setClick(
             binding.tvPlayGameMenu,
             requireActivity(),
@@ -310,7 +309,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     private fun rotateFab() {
         val mainMenuOpen = MainMenuOpen()
-
         val anim: Animation = AlphaAnimation(0.0f, 1.0f)
         anim.duration = 500
         anim.startOffset = 20

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/vk_news_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,11 +29,17 @@
         android:background="@color/light_blue_50"
         tools:visibility="visible">
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/vk_news_loading_progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:indicatorDirectionCircular="clockwise"
+            app:trackThickness="@dimen/dp5"
+            app:indicatorSize="@dimen/dp50"
+            app:trackColor="@color/amber_orange_700"
+            app:indicatorColor="@color/white"/>
 
     </FrameLayout>
 

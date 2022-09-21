@@ -77,10 +77,6 @@ class VkNewsFragment : ViewBindingFragment<FragmentVkNewsBinding>(FragmentVkNews
                 binding.vkNewsLoadingProcessLayout.visibility = View.VISIBLE
             } else {
                 binding.vkNewsLoadingProcessLayout.visibility = View.GONE
-                binding.vkNewsFragmentContainer.showSnackBarNoAction(
-                    R.string.internet_vk_news,
-                    Snackbar.LENGTH_SHORT
-                )
             }
         }
     }
