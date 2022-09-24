@@ -29,7 +29,7 @@ class AutoStatusFragment :
 
     private fun tabs() {
         binding.autoStatusContainer.showSnackBarNoAction(
-            R.string.internet_vk_news,
+            R.string.internet_vk_news_load,
             Snackbar.LENGTH_SHORT
         )
         binding.viewPager.adapter = ViewPagerAdapter(this)
@@ -40,9 +40,9 @@ class AutoStatusFragment :
             binding.tabLayoutAutoStatus, binding.viewPager
         ) { tab, position ->
             tab.text = when (position) {
-                VIN -> "Проверка ОСАГО"
-                GIBDD -> "Проверка штрафов"
-                else -> "Проверка ОСАГО"
+                VIN -> getString(R.string.ocago_name_status)
+                GIBDD -> getString(R.string.gibdd_name_status)
+                else -> getString(R.string.ocago_name_status)
             }
         }.attach()
 

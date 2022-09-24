@@ -36,7 +36,7 @@
     <string name="vk_news_item_time">Время публикации</string>
     <string name="like_vk_chips">Кол-во лайков</string>
     <string name="vk_view_post">просмотры</string>
-    <string name="internet_vk_news">Загружаем....</string>
+    <string name="internet_vk_news_load">Загружаем....</string>
     <string name="vk_news_item_tittle_group_name">Название группы</string>
     <string name="no_internet_stock">Для загрузки скидки, подключите интернет</string>
     <string name="load_internet_stock">Уже лечу за скидками для Вас!</string>
@@ -63,6 +63,8 @@
     <!--Police status checking-->
     <string name="police_status_check_url">https://гибдд.рф/check/fines</string>
     <string name="ocago_status_check_url">https://гибдд12.рф/status</string>
+    <string name="ocago_name_status">Проверка ОСАГО</string>
+    <string name="gibdd_name_status">Проверка штрафов</string>
     <!--Promo-->
     <string name="promo_code_id">промокод: %1$s</string>
     <string name="discount_1">Скидка № 1</string>
