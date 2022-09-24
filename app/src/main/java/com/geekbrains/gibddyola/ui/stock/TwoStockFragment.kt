@@ -70,6 +70,7 @@ class TwoStockFragment :
                             isFirstResource: Boolean
                         ): Boolean {
                             binding.imageViewErrorInternet.visibility = View.GONE
+                            binding.stocksFlightLogo.visibility = View.GONE
                             binding.layoutPromoConteiner.visibility = View.VISIBLE
                             binding.textviewPromoCodId.text = getString(R.string.promo_code_id, generateId())
                             return false
