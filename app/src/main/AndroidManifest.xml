@@ -22,7 +22,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewSplashScreen"
-        tools:targetApi="31">
+        tools:targetApi="32">
         <activity
             android:name=".StartActivityTheme"
             android:exported="true"
