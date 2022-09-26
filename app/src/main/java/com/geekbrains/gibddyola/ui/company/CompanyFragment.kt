@@ -29,6 +29,11 @@ class CompanyFragment :
     private var yandexMap: MapView? = null
     private val pointOffice: Point = Point(56.64583, 47.87126)
     private val pointOfficeParking: Point = Point(56.64569, 47.87196)
+    private val pointOfficeMy: Point = Point (56.64578, 47.87131)
+
+    private val pointOfficeCompetitor1: Point = Point (56.648803, 47.900531)
+    private val pointOfficeCompetitor2: Point = Point (56.642500, 47.871776)
+    private val pointOfficeCompetitor3: Point = Point (56.638446, 47.802994)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +52,26 @@ class CompanyFragment :
             pointOfficeParking,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_geo_pick)
         )
+        binding.mapView?.map?.mapObjects?.addPlacemark(
+            pointOfficeMy,
+            ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_my_pick)
+        )
+        binding.mapView?.map?.mapObjects?.addPlacemark(
+            pointOfficeCompetitor1,
+            ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
+        )
+        binding.mapView?.map?.mapObjects?.addPlacemark(
+            pointOfficeCompetitor2,
+            ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
+        )
+        binding.mapView?.map?.mapObjects?.addPlacemark(
+            pointOfficeCompetitor3,
+            ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
+        )
+
+
         binding.mapView.map?.move(
-            CameraPosition(pointOffice, 17.2f, 0.0f, 0.0f),
+            CameraPosition(pointOffice, 17.5f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 1f), null
         )
         binding.zoomUp.setOnClickListener {
@@ -88,11 +111,17 @@ class CompanyFragment :
         binding.itemTextContactContactAbout.text = contactAddress
 
         val textTitle = binding.itemTittle.text
-        val spannableStringBuilder = SpannableStringBuilder(textTitle)
-        val red = ForegroundColorSpan(Color.RED)
+        val spannableStringBuilderTittle = SpannableStringBuilder(textTitle)
+        val red = ForegroundColorSpan(resources.getColor(R.color.red_game))
 
-        spannableStringBuilder.setSpan(red, 0, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        binding.itemTittle.text = spannableStringBuilder
+        spannableStringBuilderTittle.setSpan(red, 0, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.itemTittle.text = spannableStringBuilderTittle
+
+        val textContact = binding.itemTextContactContactAbout.text
+        val spannableStringBuilderContact = SpannableStringBuilder(textContact)
+
+        spannableStringBuilderContact.insert(32, "\n")
+        binding.itemTextContactContactAbout.text = spannableStringBuilderContact
 
         binding.itemTextContactCallAbout.setOnClickListener {
             CallIntent.check(requireActivity())

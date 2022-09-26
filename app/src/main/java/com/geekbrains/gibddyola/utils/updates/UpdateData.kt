@@ -12,7 +12,7 @@ object UpdateData {
     private const val timeOutConnection = "Соединение было сброшено"
     private const val connectionError = "Ошибка соединения"
 
-    private const val updateDay = 15
+    private const val updateDay = 30
 
     fun apkUrl() = downloadApkUrl
     fun versionUrl() = versionTextUrl

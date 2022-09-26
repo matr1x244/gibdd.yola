@@ -8,8 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/vk_background_color_gray">
+        android:background="@color/vk_background_color_gray"
+        android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_view_tittle"
@@ -35,7 +35,7 @@
                     android:maxLines="1"
                     android:text="@string/item_tittle_company"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/dp26"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +59,6 @@
                     android:layout_margin="@dimen/dp5"
                     android:text="@string/item_contact_work_time"
                     android:textStyle="bold"
-                    android:textColor="@color/amber_orange_900"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_tittle" />
@@ -70,17 +69,24 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/dp1"
                     android:text="@string/item_contact_time"
+                    android:textColor="@color/amber_orange_500"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_contact_work_time" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/item_text_contact_call_about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:elevation="@dimen/dp5"
                     android:paddingTop="@dimen/dp5"
                     android:text="@string/item_contact_call_about"
-                    android:textColor="@color/amber_orange_900"
+                    android:textColor="@color/black"
+                    app:cornerRadius="@dimen/dp5"
+                    app:icon="@drawable/ic_sos_call"
+                    app:iconSize="@dimen/dp25"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_contact_contact_about" />
@@ -114,9 +120,10 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp5"
                     android:gravity="center"
+                    android:linksClickable="true"
                     android:paddingTop="@dimen/dp1"
                     android:text="@string/item_contact_contact_about"
-                    android:linksClickable="true"
+                    android:textColor="@color/amber_orange_500"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_contact_adress" />
@@ -141,6 +148,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/company_organization"
+                android:textColor="@color/amber_orange_500"
                 android:textSize="@dimen/sp12_text" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -187,11 +195,11 @@
                     android:id="@+id/item_text_maps_license"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:paddingStart="@dimen/dp5"
-                    android:textSize="@dimen/text_size_license_yandex_maps"
                     android:text="@string/text_view_license_yandex_maps"
+                    android:textSize="@dimen/text_size_license_yandex_maps"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
