@@ -22,12 +22,10 @@
     <img src="./app/src/main/assets/Screenshot_1.png">
     <figcaption>Главный экран</figcaption>
 </figure>
-
-
-### О компании
-<p align="center">
-<img src="./app/src/main/assets/Screenshot_2.png">
-</p>
+<figure>
+    <img src="./app/src/main/assets/Screenshot_2.png">
+    <figcaption>О компании</figcaption>
+</figure>
 
 
 ### Информация о сотруднике
