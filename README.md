@@ -1,3 +1,6 @@
+<p align="center">
+<img src="./app/src/main/assets/ic_icon.png">
+</p>
 <h1 align="center">АВАРКОМ</h1>
 <p align="center">
 <img src="./app/src/main/assets/logo_animate.gif">
@@ -14,3 +17,4 @@
 - **Получение** актуальных скидок от партнеров
 - **Игра** на знание ПДД (официальные вопросы ГИБДД)
 - **Возможность** проверки полиса ОСАГО и наличия штрафов ГИБДД
+## Снимки экрана
