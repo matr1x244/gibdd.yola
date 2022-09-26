@@ -23,9 +23,32 @@
 <img src="./app/src/main/assets/Screenshot_1.png">
 </p>
 
-__
+
 ### О компании
 <p align="center">
 <img src="./app/src/main/assets/Screenshot_2.png">
 </p>
 
+
+### Информация о сотруднике
+<p align="center">
+<img src="./app/src/main/assets/Screenshot_3.png">
+</p>
+
+
+### Скидки
+<p align="center">
+<img src="./app/src/main/assets/Screenshot_4.png">
+</p>
+
+
+### Новости
+<p align="center">
+<img src="./app/src/main/assets/Screenshot_5.png">
+</p>
+
+
+### Игра ПДД
+<p align="center">
+<img src="./app/src/main/assets/Screenshot_6.png">
+</p>
