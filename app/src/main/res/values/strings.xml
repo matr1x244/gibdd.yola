@@ -22,6 +22,7 @@
     <string name="company_organization">ООО Организация</string>
     <string name="job_name_avarkom">Аварийный комиссар</string>
     <string name="textview_open_detail_avarkom">Подробнее</string>
+    <string name="sharing_apk">Поделиться приложением</string>
     <!--MENU-->
     <string name="sell">Скидки</string>
     <string name="game">Автошкола</string>

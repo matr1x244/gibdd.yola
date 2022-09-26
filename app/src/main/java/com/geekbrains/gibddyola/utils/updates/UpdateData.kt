@@ -1,6 +1,8 @@
 package com.geekbrains.gibddyola.utils.updates
 
 object UpdateData {
+    const val apkUrlSharing = "https://apps.rustore.ru/app/ru.gosuslugi.auto"
+
     private const val downloadApkUrl = "https://гибдд12.рф/img/photos/posters/app/avarkom_new.apk"
     private const val versionTextUrl = "https://гибдд12.рф/img/photos/posters/app/app_version.txt"
     private const val fileName = "avarkom_new.apk"

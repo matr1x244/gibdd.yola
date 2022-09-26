@@ -86,7 +86,6 @@
                     app:icon="@drawable/ic_sos_call"
                     app:iconSize="@dimen/dp25"
                     app:iconTint="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_contact_contact_about" />
@@ -127,6 +126,21 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_contact_adress" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_sharing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_transparent"
+                    android:text="@string/sharing_apk"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sharing_apk_text"
+                    app:icon="@android:drawable/ic_menu_share"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_text_contact_call_about" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -54,6 +54,7 @@
     <dimen name="main_logo_height">150dp</dimen>
     <dimen name="layout_bottom_margin_iv_stock">30dp</dimen>
     <dimen name="app_bar_conteiner">300dp</dimen>
+    <dimen name="sharing_apk_text">8sp</dimen>
     <!--Game-->
     <dimen name="game_layout_window_bottom">40dp</dimen>
     <dimen name="scroll_view_game_layout_bottom">90dp</dimen>

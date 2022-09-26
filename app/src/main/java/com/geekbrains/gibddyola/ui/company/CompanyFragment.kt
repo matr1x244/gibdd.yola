@@ -1,7 +1,6 @@
 package com.geekbrains.gibddyola.ui.company
 
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableStringBuilder
@@ -12,6 +11,7 @@ import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentAboutCompanyBinding
 import com.geekbrains.gibddyola.utils.CallIntent
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
+import com.geekbrains.gibddyola.utils.updates.UpdateData.apkUrlSharing
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -29,12 +29,12 @@ class CompanyFragment :
     private var yandexMap: MapView? = null
     private val pointOffice: Point = Point(56.64583, 47.87126)
     private val pointOfficeParking: Point = Point(56.64569, 47.87196)
-    private val pointOfficeMy: Point = Point (56.64578, 47.87131)
+    private val pointOfficeMy: Point = Point(56.64578, 47.87131)
 
-    private val pointOfficeCompetitor1: Point = Point (56.648803, 47.900531)
-    private val pointOfficeCompetitor2: Point = Point (56.642500, 47.871776)
-    private val pointOfficeCompetitor3: Point = Point (56.638446, 47.802994)
-    private val pointOfficeCompetitor4: Point = Point (56.627729, 47.878112)
+    private val pointOfficeCompetitor1: Point = Point(56.648803, 47.900531)
+    private val pointOfficeCompetitor2: Point = Point(56.642500, 47.871776)
+    private val pointOfficeCompetitor3: Point = Point(56.638446, 47.802994)
+    private val pointOfficeCompetitor4: Point = Point(56.627729, 47.878112)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +46,7 @@ class CompanyFragment :
 
         maps()
         textEditTitle()
+        btnSharing()
     }
 
     private fun maps() {
@@ -128,6 +129,19 @@ class CompanyFragment :
 
         binding.itemTextContactCallAbout.setOnClickListener {
             CallIntent.check(requireActivity())
+        }
+    }
+
+    private fun btnSharing() {
+        binding.btnSharing.setOnClickListener {
+            val sendIntent = Intent()
+            sendIntent.action = Intent.ACTION_SEND
+            sendIntent.putExtra(
+                Intent.EXTRA_TEXT,
+                apkUrlSharing
+            )
+            sendIntent.type = "text/plain"
+            startActivity(sendIntent)
         }
     }
 
