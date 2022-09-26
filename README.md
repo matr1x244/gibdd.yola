@@ -23,6 +23,7 @@
 <img src="./app/src/main/assets/Screenshot_1.png">
 </p>
 
+__
 ### О компании
 <p align="center">
 <img src="./app/src/main/assets/Screenshot_2.png">
