@@ -107,11 +107,9 @@ class CompanyFragment :
 
     private fun textEditTitle() {
         val organizationTextView = getString(R.string.organization_data)
-        binding.textViewOrganization.text = organizationTextView
         val contactTime = getString(R.string.contact_time)
         binding.itemTextContactTime.text = contactTime
         val contactAddress = getString(R.string.contact_address)
-        binding.itemTextContactContactAbout.text = contactAddress
 
         val textTitle = binding.itemTittle.text
         val spannableStringBuilderTittle = SpannableStringBuilder(textTitle)
@@ -120,11 +118,13 @@ class CompanyFragment :
         spannableStringBuilderTittle.setSpan(red, 0, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.itemTittle.text = spannableStringBuilderTittle
 
-        val textContact = binding.itemTextContactContactAbout.text
-        val spannableStringBuilderContact = SpannableStringBuilder(textContact)
-
+        val spannableStringBuilderContact = SpannableStringBuilder(contactAddress)
         spannableStringBuilderContact.insert(32, "\n")
         binding.itemTextContactContactAbout.text = spannableStringBuilderContact
+
+        val spannableStringBuilderOragization = SpannableStringBuilder(organizationTextView)
+        spannableStringBuilderOragization.insert(17, "\n")
+        binding.textViewOrganization.text = spannableStringBuilderOragization
 
         binding.itemTextContactCallAbout.setOnClickListener {
             CallIntent.check(requireActivity())
