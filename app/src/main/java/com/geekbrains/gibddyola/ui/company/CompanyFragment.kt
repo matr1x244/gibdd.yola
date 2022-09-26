@@ -34,6 +34,7 @@ class CompanyFragment :
     private val pointOfficeCompetitor1: Point = Point (56.648803, 47.900531)
     private val pointOfficeCompetitor2: Point = Point (56.642500, 47.871776)
     private val pointOfficeCompetitor3: Point = Point (56.638446, 47.802994)
+    private val pointOfficeCompetitor4: Point = Point (56.627729, 47.878112)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,8 +69,10 @@ class CompanyFragment :
             pointOfficeCompetitor3,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
         )
-
-
+        binding.mapView?.map?.mapObjects?.addPlacemark(
+            pointOfficeCompetitor4,
+            ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
+        )
         binding.mapView.map?.move(
             CameraPosition(pointOffice, 17.5f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 1f), null
@@ -88,7 +91,7 @@ class CompanyFragment :
             binding.mapView.map.move(
                 CameraPosition(
                     binding.mapView.map?.cameraPosition!!.target,
-                    binding.mapView.map.cameraPosition.zoom - 1, 0.0f, 0.0f
+                    binding.mapView.map.cameraPosition.zoom - 2, 0.0f, 0.0f
                 ),
                 Animation(Animation.Type.SMOOTH, 1f),
                 null
