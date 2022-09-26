@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./app/src/main/assets/ic_icon.png" width="80%">
+<img src="./app/src/main/assets/ic_icon.png" width="10%">
 </p>
 <h1 align="center">АВАРКОМ</h1>
 <p align="center">
