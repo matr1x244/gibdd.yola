@@ -18,34 +18,36 @@
 - **Игра** на знание ПДД (официальные вопросы ГИБДД)
 - **Возможность** проверки полиса ОСАГО и наличия штрафов ГИБДД
 ## Снимки экрана
-<figure>
-    <img src="./app/src/main/assets/Screenshot_1.png">
-    <figcaption>Главный экран</figcaption>
-</figure>
-<figure>
-    <img src="./app/src/main/assets/Screenshot_2.png">
-    <figcaption>О компании</figcaption>
-</figure>
+### Главный экран
+<p align="center">
+<img src="./app/src/main/assets/Screenshot_1.png">
+</p>
 
+___
+### О компании
+<p align="center">
+<img src="./app/src/main/assets/Screenshot_2.png">
+</p>
 
+___
 ### Информация о сотруднике
 <p align="center">
 <img src="./app/src/main/assets/Screenshot_3.png">
 </p>
 
-
+___
 ### Скидки
 <p align="center">
 <img src="./app/src/main/assets/Screenshot_4.png">
 </p>
 
-
+___
 ### Новости
 <p align="center">
 <img src="./app/src/main/assets/Screenshot_5.png">
 </p>
 
-
+___
 ### Игра ПДД
 <p align="center">
 <img src="./app/src/main/assets/Screenshot_6.png">
