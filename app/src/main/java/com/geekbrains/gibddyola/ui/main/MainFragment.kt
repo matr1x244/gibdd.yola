@@ -404,7 +404,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                 viewModel.downloadNewAppApk()
                                 Toast.makeText(
                                     requireActivity(),
-                                    UpdateData.fileName(),
+                                    getString(R.string.download_update_app),
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 viewModel.downloadApkMessage.observe(viewLifecycleOwner) { message ->

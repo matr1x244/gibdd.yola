@@ -57,6 +57,7 @@
     <string name="result_score">Количество правильных ответов: %1$d/%2$d</string>
     <string name="exit_game">Нажмите еще раз для выхода из игры</string>
     <!--Updater-->
+    <string name="download_update_app">Скачивается обновление..</string>
     <string name="update_dialog_title">Обновление готово к установке</string>
     <string name="update_dialog_message">Обновить приложение?</string>
     <string name="update_dialog_install_button">Установить</string>
