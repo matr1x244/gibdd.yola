@@ -72,6 +72,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     private lateinit var imageRotation: ImageRotation
 
+    private var isUpdateIconBlinking = true
+
     private val downloadPath: String by lazy {
         scope.get(named("downloadPath"))
     }
@@ -329,7 +331,11 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
 
             if (openMenu) {
-                binding.optionUpdateContainer.startAnimation(anim)
+                if (isUpdateIconBlinking) {
+                    binding.optionUpdateContainer.startAnimation(anim)
+                } else {
+                    anim.cancel()
+                }
                 if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && localVersion != remoteVersion) {
                     playSoundMain.startSoundUpDate()
                 }
@@ -501,6 +507,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             }
         builder.create()
         builder.show()
+        isUpdateIconBlinking = false
+        binding.optionUpdateContainer.visibility = View.GONE
     }
 
     private fun installApk(): Intent {
@@ -542,6 +550,21 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             })
     }
 
+    private fun onUpdateBackPressBlocking() {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.please_wait_downloading_end),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        )
+    }
+
     private fun downloadBlockingClick(clickable: Boolean) {
         if (clickable) {
             binding.downloadBlockingLayout.isClickable = true
@@ -552,8 +575,10 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                     Toast.LENGTH_SHORT
                 ).show()
             }
+            onUpdateBackPressBlocking()
         } else {
             binding.downloadBlockingLayout.isClickable = false
+            backStackCustom()
         }
     }
 
