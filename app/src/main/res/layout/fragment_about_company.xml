@@ -197,13 +197,28 @@
                     android:id="@+id/zoom_down"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/zoom_up"
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="top|end"
-                    android:layout_marginTop="@dimen/dp60"
+                    android:layout_marginTop="@dimen/dp1"
                     android:layout_marginEnd="@dimen/dp10"
                     android:backgroundTint="@color/amber_orange_500"
                     app:fabSize="mini"
                     app:srcCompat="@drawable/ic_minus" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btn_pick_office"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/zoom_down"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="@dimen/dp1"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:backgroundTint="@color/amber_orange_500"
+                    app:fabSize="mini"
+                    app:maxImageSize="20dp"
+                    app:srcCompat="@drawable/ic_placeholder" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/item_text_maps_license"

@@ -54,23 +54,23 @@ class CompanyFragment :
             pointOfficeParking,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_geo_pick)
         )
-        binding.mapView?.map?.mapObjects?.addPlacemark(
+        binding.mapView.map?.mapObjects?.addPlacemark(
             pointOfficeMy,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_my_pick)
         )
-        binding.mapView?.map?.mapObjects?.addPlacemark(
+        binding.mapView.map?.mapObjects?.addPlacemark(
             pointOfficeCompetitor1,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
         )
-        binding.mapView?.map?.mapObjects?.addPlacemark(
+        binding.mapView.map?.mapObjects?.addPlacemark(
             pointOfficeCompetitor2,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
         )
-        binding.mapView?.map?.mapObjects?.addPlacemark(
+        binding.mapView.map?.mapObjects?.addPlacemark(
             pointOfficeCompetitor3,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
         )
-        binding.mapView?.map?.mapObjects?.addPlacemark(
+        binding.mapView.map?.mapObjects?.addPlacemark(
             pointOfficeCompetitor4,
             ImageProvider.fromResource(requireContext(), R.mipmap.maps_office_competitor_pick)
         )
@@ -78,6 +78,12 @@ class CompanyFragment :
             CameraPosition(pointOffice, 17.5f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 1f), null
         )
+        binding.btnPickOffice.setOnClickListener {
+            binding.mapView.map?.move(
+                CameraPosition(pointOffice, 18.5f, 0.0f, 0.0f),
+                Animation(Animation.Type.SMOOTH, 1f), null
+            )
+        }
         binding.zoomUp.setOnClickListener {
             binding.mapView.map.move(
                 CameraPosition(
