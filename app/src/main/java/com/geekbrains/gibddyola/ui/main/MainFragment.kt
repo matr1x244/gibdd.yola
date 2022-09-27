@@ -162,7 +162,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         binding.textTooltip.text = ""
         getSharedTooltipIndex()
         setTooltip()
-        backStackCustom()
+        backStackCustom(true)
         updateReminder()
     }
 
@@ -528,16 +528,16 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         return intent
     }
 
-    private fun backStackCustom() {
+    private fun backStackCustom(isActive: Boolean) {
         /**
          * custom menu back and exit app
          */
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
+            object : OnBackPressedCallback(isActive) {
                 override fun handleOnBackPressed() {
                     if (openMenu) {
-                        binding.mainMenuLayout.performClick()
+                        binding.mainMenuLayout.callOnClick()
                     } else if (
                         !requireActivity().supportFragmentManager.fragments.contains(this@MainFragment)
                     ) {
@@ -550,10 +550,10 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             })
     }
 
-    private fun onUpdateBackPressBlocking() {
+    private fun onUpdateBackPressBlocking(isActive: Boolean) {
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
+            object : OnBackPressedCallback(isActive) {
                 override fun handleOnBackPressed() {
                     Toast.makeText(
                         requireContext(),
@@ -575,10 +575,12 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            onUpdateBackPressBlocking()
+            backStackCustom(false)
+            onUpdateBackPressBlocking(true)
         } else {
             binding.downloadBlockingLayout.isClickable = false
-            backStackCustom()
+            onUpdateBackPressBlocking(false)
+            backStackCustom(true)
         }
     }
 
