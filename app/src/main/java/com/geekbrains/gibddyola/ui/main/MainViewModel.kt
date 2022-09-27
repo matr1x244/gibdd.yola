@@ -10,6 +10,8 @@ import com.geekbrains.gibddyola.domain.employee.EntityAvarkom
 import com.geekbrains.gibddyola.utils.flow.FlowRepository
 import com.geekbrains.gibddyola.utils.updates.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import java.io.File
 
@@ -34,8 +36,8 @@ class MainViewModel(
     private val _isUpdateDate = MutableLiveData<Boolean>()
     val isUpdateDate: LiveData<Boolean> = _isUpdateDate
 
-    private val _downloadingProcess = MutableLiveData<Int>()
-    val downloadingProcess: LiveData<Int> = _downloadingProcess
+    private val _downloadingProcess = MutableStateFlow(0)
+    val downloadingProcess: StateFlow<Int> = _downloadingProcess
 
     private var tooltipIndex: Int = 0
 
@@ -95,7 +97,7 @@ class MainViewModel(
                         _downloadApkMessage.postValue(it.message)
                     }
                     is DownloadStatus.Progress -> {
-                        _downloadingProcess.postValue(it.progress)
+                        _downloadingProcess.value = it.progress
                     }
                 }
             }

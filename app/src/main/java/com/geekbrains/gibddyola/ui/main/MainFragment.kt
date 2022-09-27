@@ -18,6 +18,9 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterInside
@@ -44,6 +47,7 @@ import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.flow.Tooltips
 import com.geekbrains.gibddyola.utils.updates.IsApkExist
 import com.geekbrains.gibddyola.utils.updates.UpdateData
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 import java.io.File
@@ -54,6 +58,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     private lateinit var sharedTooltips: SharedPreferences
     private lateinit var sharedUpdateParameters: SharedPreferences
     private lateinit var getGlobalScore: SharedPreferences
+
+    private var downloadStarted = false
 
     private val controller by lazy { activity as ControllerOpenFragment }
 
@@ -163,7 +169,9 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         getSharedTooltipIndex()
         setTooltip()
         backStackCustom(true)
-        updateReminder()
+        if (!downloadStarted) {
+            updateReminder()
+        }
     }
 
     private fun updateReminder() {
@@ -401,6 +409,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                 setUpdateParameters(UPDATE_DOWNLOAD_STARTED, true)
                                 binding.optionUpdateContainer.clearAnimation()
 
+                                downloadStarted = true
+
                                 visibility.change(binding.downloadBlockingLayout, true)
                                 downloadBlockingClick(true)
                                 updateIconSwitcher(DOWNLOAD_ICON)
@@ -429,13 +439,21 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                                             downloadBlockingClick(false)
                                             imageRotation.stopAnimation()
                                             showUpdateDialog()
+                                            downloadStarted = false
                                         }
                                     }
                                 }
-                                viewModel.downloadingProcess.observe(viewLifecycleOwner) { percent ->
-                                    val percentString =
-                                        getString(R.string.downloading_percent_count, percent)
-                                    binding.tvDownloadCount.text = percentString
+                                lifecycleScope.launch {
+                                    repeatOnLifecycle(Lifecycle.State.STARTED) {
+                                        viewModel.downloadingProcess.collect { percent ->
+                                            val percentString =
+                                                getString(
+                                                    R.string.downloading_percent_count,
+                                                    percent
+                                                )
+                                            binding.tvDownloadCount.text = percentString
+                                        }
+                                    }
                                 }
                             }
                         } else {
