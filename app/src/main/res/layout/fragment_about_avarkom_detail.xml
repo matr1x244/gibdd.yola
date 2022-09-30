@@ -43,6 +43,7 @@
         android:textColor="@color/black"
         app:layout_anchor="@id/container_bar"
         app:layout_anchorGravity="bottom"
+        android:background="@drawable/nested_bg_detail_avarkom"
         tools:ignore="RtlSymmetry" />
 
     <androidx.appcompat.widget.AppCompatTextView
