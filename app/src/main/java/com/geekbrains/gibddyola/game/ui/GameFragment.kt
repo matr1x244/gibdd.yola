@@ -163,46 +163,8 @@ class GameFragment(private var questionNumber: Int) :
             .load(POSTERS_AUTO_SCHOOL_DJEK)
             .centerInside()
             .transform(RoundedCorners(10))
-            .error(R.mipmap.auto_school)
             .transition(DrawableTransitionOptions.withCrossFade(StockUrl.ALPHA_DURATION_POSTER))
-            .listener(object : RequestListener<Drawable> {
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return false
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    if (ContextCompat.checkSelfPermission(
-                            requireContext(),
-                            android.Manifest.permission.CALL_PHONE
-                        ) != PackageManager.PERMISSION_GRANTED
-                    ) {
-                        ActivityCompat.requestPermissions(
-                            requireActivity(),
-                            arrayOf(android.Manifest.permission.CALL_PHONE),
-                            0
-                        )
-                    } else {
-                        binding.imageAutoSchoolLogo.setOnClickListener {
-                            val number = "+7(937)936-14-44"
-                            val intent = Intent(Intent.ACTION_CALL);
-                            intent.data = Uri.parse("tel:$number")
-                            startActivity(intent)
-                        }
-                    }
-                    return false
-                }
-            })
+            .error(R.mipmap.auto_school)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .skipMemoryCache(true)
             .into(binding.imageAutoSchoolLogo)
