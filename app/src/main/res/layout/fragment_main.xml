@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp3"
             app:cardBackgroundColor="@color/amber_orange_400"
-            app:cardCornerRadius="@dimen/dp5"
+            app:cardCornerRadius="@dimen/dp10"
             app:cardElevation="@dimen/dp2">
 
             <TextView
@@ -76,9 +76,7 @@
             android:shadowColor="@color/color_gray"
             android:shadowDx="0"
             android:shadowDy="0.5"
-            android:shadowRadius="0.5"
             android:text="@string/my_team_avarkom"
-            android:textColor="@color/red_game"
             android:textSize="@dimen/textview_team_avarkom_main" />
 
         <androidx.recyclerview.widget.RecyclerView

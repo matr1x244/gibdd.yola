@@ -17,7 +17,7 @@
             android:layout_margin="@dimen/dp5"
             android:hapticFeedbackEnabled="false"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/dp7"
+            app:cardCornerRadius="@dimen/dp16"
             app:cardElevation="@dimen/dp2">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,8 +31,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="@dimen/dp5"
                     android:cropToPadding="true"
-                    android:padding="@dimen/dp1"
-
+                    android:padding="@dimen/dp2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +45,7 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@string/item_text_name"
-                    android:textColor="@color/black"
+                    android:textColor="@color/red_game"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +58,8 @@
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@string/item_text_about"
-                    android:textColor="@color/red_game"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
                     app:layout_constraintTop_toBottomOf="@+id/item_text_name" />
 
