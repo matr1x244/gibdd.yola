@@ -4,17 +4,21 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.geekbrains.gibddyola.R
@@ -23,9 +27,8 @@ import com.geekbrains.gibddyola.game.domain.entity.AppState
 import com.geekbrains.gibddyola.game.domain.entity.QuestionDomain
 import com.geekbrains.gibddyola.game.ui.recyclerView.GameFragmentAdapter
 import com.geekbrains.gibddyola.ui.main.MainFragment
+import com.geekbrains.gibddyola.ui.stock.StockUrl
 import com.geekbrains.gibddyola.ui.stock.StockUrl.POSTERS_AUTO_SCHOOL_DJEK
-import com.geekbrains.gibddyola.utils.CallIntent
-import com.geekbrains.gibddyola.utils.GenerateIdPromoCodes
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.showSnackBarNoAction
 import com.google.android.material.snackbar.Snackbar
@@ -161,6 +164,7 @@ class GameFragment(private var questionNumber: Int) :
             .centerInside()
             .transform(RoundedCorners(10))
             .error(R.mipmap.auto_school)
+            .transition(DrawableTransitionOptions.withCrossFade(StockUrl.ALPHA_DURATION_POSTER))
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -170,6 +174,7 @@ class GameFragment(private var questionNumber: Int) :
                 ): Boolean {
                     return false
                 }
+
                 override fun onResourceReady(
                     resource: Drawable?,
                     model: Any?,
@@ -177,11 +182,23 @@ class GameFragment(private var questionNumber: Int) :
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    binding.imageAutoSchoolLogo.setOnClickListener {
-                        val number = "+7(937)936-14-44"
-                        val intent = Intent(Intent.ACTION_CALL);
-                        intent.data = Uri.parse("tel:$number")
-                        startActivity(intent)
+                    if (ContextCompat.checkSelfPermission(
+                            requireContext(),
+                            android.Manifest.permission.CALL_PHONE
+                        ) != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        ActivityCompat.requestPermissions(
+                            requireActivity(),
+                            arrayOf(android.Manifest.permission.CALL_PHONE),
+                            0
+                        )
+                    } else {
+                        binding.imageAutoSchoolLogo.setOnClickListener {
+                            val number = "+7(937)936-14-44"
+                            val intent = Intent(Intent.ACTION_CALL);
+                            intent.data = Uri.parse("tel:$number")
+                            startActivity(intent)
+                        }
                     }
                     return false
                 }
