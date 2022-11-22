@@ -22,6 +22,7 @@ class ReceiveServerAppData {
         } catch (d: IOException) {
             d.printStackTrace()
         }
+        println("@@@" + text)
         return text
     }
 }

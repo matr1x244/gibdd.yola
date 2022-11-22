@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--STATUS MONEY DRIVE LICENSE-->
     <integer name="low_density_start">0</integer>
     <integer name="low_density_end">400</integer>
-    <integer name="low_density_y_scroll">870</integer>
+    <integer name="low_density_y_scroll">860</integer>
     <integer name="low_density_y_scroll_defects">910</integer>
     <integer name="middle_density_start">400</integer>
     <integer name="middle_density_end">500</integer>
-    <integer name="middle_density_y_scroll">970</integer>
+    <integer name="middle_density_y_scroll">920</integer>
     <integer name="high_density_start">500</integer>
     <integer name="high_density_end">600</integer>
-    <integer name="high_density_y_scroll">1060</integer>
+    <integer name="high_density_y_scroll">1050</integer>
+    <!--POLIS OSAGO-->
+    <integer name="low_density_start_polis">0</integer>
+    <integer name="low_density_end_polis">400</integer>
+    <integer name="low_density_y_scroll_polis">770</integer>
+    <integer name="low_density_y_scroll_defects_polis">910</integer>
+    <integer name="middle_density_start_polis">400</integer>
+    <integer name="middle_density_end_polis">500</integer>
+    <integer name="middle_density_y_scroll_polis">970</integer>
+    <integer name="high_density_start_polis">500</integer>
+    <integer name="high_density_end_polis">600</integer>
+    <integer name="high_density_y_scroll_polis">1170</integer>
 </resources>

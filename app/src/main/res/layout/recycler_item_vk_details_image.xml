@@ -4,7 +4,7 @@
     android:id="@+id/vk_news_details_rv_image_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/amber_orange_50">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/vk_news_details_rv_item_image"
@@ -12,8 +12,6 @@
         android:layout_height="@dimen/vk_news_full_image_height"
         android:layout_gravity="top|center_horizontal"
         android:scaleType="centerCrop"
-        android:paddingStart="@dimen/dp1"
-        android:paddingEnd="@dimen/dp1"
         tools:src="@mipmap/logo" />
 
     <androidx.appcompat.widget.AppCompatImageView

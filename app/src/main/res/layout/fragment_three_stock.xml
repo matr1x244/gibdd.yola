@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp5"
-        android:background="@drawable/rounded_corner_text_view"
+        android:background="@drawable/bg_rounded_corner_text_view"
         android:backgroundTint="@color/light_green_600"
         android:gravity="center"
         android:orientation="horizontal"

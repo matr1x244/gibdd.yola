@@ -21,9 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp2"
+            android:background="@drawable/bg_his_status_game_main"
             android:drawableEnd="@drawable/ic_license"
+            android:elevation="@dimen/dp2"
             android:gravity="center"
+            android:paddingStart="@dimen/dp3"
             android:textColor="@color/green_game"
             android:textSize="@dimen/global_score_text_10sp" />
 
@@ -50,34 +53,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp3"
-            app:cardBackgroundColor="@color/amber_orange_400"
-            app:cardCornerRadius="@dimen/dp10"
-            app:cardElevation="@dimen/dp2">
+            app:cardBackgroundColor="@color/green_game"
+            app:cardCornerRadius="@dimen/dp10">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_tooltip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/elsie"
                 android:padding="@dimen/dp5"
-                android:shadowColor="@color/color_gray_transparent"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="1"
+                android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 tools:text="@string/text_view_blocks_auto_helper" />
 
         </com.google.android.material.card.MaterialCardView>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:shadowColor="@color/color_gray"
-            android:shadowDx="0"
-            android:shadowDy="0.5"
-            android:text="@string/my_team_avarkom"
-            android:textSize="@dimen/textview_team_avarkom_main" />
+            android:background="@drawable/bg_nested_detail_avarkom"
+            android:elevation="@dimen/dp2">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:shadowColor="@color/color_gray"
+                android:shadowDx="0"
+                android:shadowDy="0.5"
+                android:text="@string/my_team_avarkom"
+                android:textSize="@dimen/textview_team_avarkom_main" />
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_list_avarkom"
@@ -128,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:background="@drawable/rounded_corner_text_view"
+                android:background="@drawable/bg_rounded_corner_text_view"
                 android:backgroundTint="@color/light_green_600"
                 android:padding="@dimen/dp5"
                 android:text="Нажмите для обновления приложения"
@@ -154,7 +160,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="@dimen/dp26"
-                android:background="@drawable/rounded_corner_text_view"
+                android:background="@drawable/bg_rounded_corner_text_view"
                 android:padding="@dimen/dp5"
                 android:text="@string/game"
                 android:textColor="@color/black"
@@ -185,7 +191,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="@dimen/dp26"
-                android:background="@drawable/rounded_corner_text_view"
+                android:background="@drawable/bg_rounded_corner_text_view"
                 android:padding="@dimen/dp5"
                 android:text="@string/sell"
                 android:textColor="@color/black"
@@ -216,7 +222,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="@dimen/dp26"
-                android:background="@drawable/rounded_corner_text_view"
+                android:background="@drawable/bg_rounded_corner_text_view"
                 android:padding="@dimen/dp5"
                 android:text="@string/news"
                 android:textColor="@color/black"
@@ -247,7 +253,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="@dimen/dp26"
-                android:background="@drawable/rounded_corner_text_view"
+                android:background="@drawable/bg_rounded_corner_text_view"
                 android:padding="@dimen/dp5"
                 android:text="@string/company"
                 android:textColor="@color/black"
@@ -278,7 +284,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="@dimen/dp26"
-                android:background="@drawable/rounded_corner_text_view"
+                android:background="@drawable/bg_rounded_corner_text_view"
                 android:padding="@dimen/dp5"
                 android:text="@string/check_auto"
                 android:textColor="@color/black"
@@ -289,6 +295,34 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 app:srcCompat="@drawable/ic_car_crash" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/option_winners_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/dp5"
+            android:alpha="0"
+            android:background="@drawable/bg_rounded_corner_text_view"
+            android:elevation="@dimen/dp16"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp5"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/winner_people_text_view_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/dp5"
+                android:text="winner_people_text_view_block"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
         </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -299,7 +333,7 @@
             android:layout_margin="@dimen/conteiner_botom_nav_margin"
             android:layout_marginBottom="@dimen/dp1"
             android:backgroundTint="@color/amber_orange_400"
-            app:cardCornerRadius="15dp"
+            app:cardCornerRadius="@dimen/bottom_nav_main_cornder_radius"
             app:cardElevation="@dimen/dp5">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -328,9 +362,11 @@
                         android:id="@+id/textView_call_nav"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:shadowColor="@color/black"
+                        android:shadowRadius="1"
                         android:text="@string/text_view_call"
                         android:textColor="@color/vk_background_color_gray"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_size_nav_bottom_main" />
 
                 </LinearLayout>
 
@@ -356,9 +392,11 @@
                         android:id="@+id/textView_stock_nav"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:shadowColor="@color/black"
+                        android:shadowRadius="1"
                         android:text="@string/sell"
                         android:textColor="@color/vk_background_color_gray"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_size_nav_bottom_main" />
 
                 </LinearLayout>
 
@@ -384,9 +422,11 @@
                         android:id="@+id/textView_menu_nav"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:shadowColor="@color/black"
+                        android:shadowRadius="1"
                         android:text="@string/text_view_menu"
                         android:textColor="@color/vk_background_color_gray"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_size_nav_bottom_main" />
 
                 </LinearLayout>
 
@@ -434,7 +474,7 @@
             android:id="@+id/tv_download_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner_text_view"
+            android:background="@drawable/bg_rounded_corner_text_view"
             android:backgroundTint="@color/light_green_400"
             android:padding="2dp"
             android:textColor="@color/black"
@@ -444,7 +484,6 @@
             app:layout_constraintStart_toStartOf="@id/iv_download_progress"
             app:layout_constraintTop_toTopOf="@id/iv_download_progress"
             tools:text="100%" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

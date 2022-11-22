@@ -28,6 +28,8 @@
     <dimen name="dp95">95dp</dimen>
     <dimen name="dp96">96dp</dimen>
     <dimen name="dp100">100dp</dimen>
+    <dimen name="text_size_nav_bottom_main">13sp</dimen>
+    <dimen name="bottom_nav_main_cornder_radius">15dp</dimen>
     <!--VK BLOCKS-->
     <dimen name="vk_news_item_height">100dp</dimen>
     <dimen name="vk_news_item_only_photo_height">150dp</dimen>
@@ -41,6 +43,7 @@
     <dimen name="vk_view_post_size">20dp</dimen>
     <dimen name="vk_news_title_text_size">13sp</dimen>
     <dimen name="vk_news_item_logo_image">40dp</dimen>
+    <dimen name="box_vk_news_detail_like_see">32dp</dimen>
     <!--Yandex MAPS-->
     <dimen name="text_size_license_yandex_maps">10sp</dimen>
     <!--Custom-->

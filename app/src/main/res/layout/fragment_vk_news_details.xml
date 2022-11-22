@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:isScrollContainer="true"
-        app:cardCornerRadius="@dimen/dp5"
+        app:cardCornerRadius="@dimen/dp10"
         app:cardElevation="@dimen/dp5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,58 +30,47 @@
                     android:id="@+id/card_view_view_blocks"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/dp1"
                     android:hapticFeedbackEnabled="false"
-                    app:cardCornerRadius="@dimen/dp5"
-                    app:cardElevation="@dimen/dp5">
+                    app:cardCornerRadius="@dimen/dp0"
+                    app:cardElevation="@dimen/dp2">
 
                     <WebView
                         android:id="@+id/vk_news_details_web_view"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="@dimen/dp1" />
+                        android:layout_height="match_parent"/>
 
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/vk_news_details_vp_image"
                         android:layout_width="match_parent"
                         android:orientation="horizontal"
-                        android:layout_height="@dimen/vk_news_full_image_height"
-                        android:padding="@dimen/dp1" />
+                        android:layout_height="@dimen/vk_news_full_image_height"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/vk_news_details_rv_image"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/vk_news_full_image_height"
-                        android:padding="@dimen/dp1"
                         tools:listitem="@layout/recycler_item_vk_details_image" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/vk_news_details_rv_video"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/vk_news_full_image_height"
-                        android:padding="@dimen/dp1"
                         tools:listitem="@layout/recycler_item_vk_details_video" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/vk_news_details_stock_photo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="@dimen/dp1"
                         android:src="@mipmap/logo"
                         android:visibility="visible" />
 
                 </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                android:foregroundGravity="bottom"
-                android:paddingStart="@dimen/dp5"
-                android:paddingEnd="@dimen/dp5"
-                app:rippleColor="@color/color_transparent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/box_vk_news_detail_like_see"
+            android:background="@drawable/bg_vk_details"
+            android:elevation="@dimen/dp2">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/like_vk"
@@ -90,8 +79,8 @@
                     android:checkable="false"
                     android:text="@string/like_vk_chips"
                     android:textSize="@dimen/like_vk_text_size"
-                    app:chipBackgroundColor="@color/amber_orange_50"
-                    app:chipIcon="@mipmap/ic_heart"
+                    app:chipBackgroundColor="@color/vk_background_color_gray"
+                    app:chipIcon="@drawable/ic_heart_like"
                     app:rippleColor="@color/color_transparent" />
 
                 <com.google.android.material.chip.Chip
@@ -102,20 +91,22 @@
                     android:checkable="false"
                     android:text="@string/vk_view_post"
                     android:textSize="@dimen/view_vk_text_size"
-                    app:chipBackgroundColor="@color/amber_orange_50"
+                    app:chipBackgroundColor="@color/vk_background_color_gray"
                     app:chipIcon="@drawable/ic_view_vk_post"
                     app:chipIconSize="@dimen/view_vk_text_size"
                     app:rippleColor="@color/vk_background_color_gray" />
 
-            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/vk_news_details_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp5"
+                android:layout_marginStart="@dimen/dp5"
+                android:layout_marginEnd="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp3"
                 android:background="@color/vk_background_color_gray"
-                android:scrollbars="vertical"
+                android:scrollbars="none"
                 android:textAlignment="inherit"
                 android:textColor="@color/black" />
 

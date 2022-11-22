@@ -4,8 +4,8 @@
     android:id="@+id/container_fragment_stock"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/amber_orange_50">
+    android:orientation="vertical">
+
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"

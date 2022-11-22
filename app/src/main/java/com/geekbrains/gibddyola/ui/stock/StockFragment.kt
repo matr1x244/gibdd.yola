@@ -29,7 +29,7 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
     private fun viewPagerCustom() {
         binding.viewPager.adapter = ViewPagerAdapter(this)
         binding.viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
-        binding.viewPager.setPageTransformer(ZoomOutPageTransformer())
+        binding.viewPager.setPageTransformer(RotateUpPageTransformer())
 
         TabLayoutMediator(
             binding.tabLayout, binding.viewPager
@@ -42,9 +42,9 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
             }
         }.attach()
 
-        binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
-        binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
-        binding.tabLayout.getTabAt(THREE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
+//        binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
+//        binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
+//        binding.tabLayout.getTabAt(THREE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
     }
 
 

@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 import java.io.File
+import java.io.InputStream
 
 private const val MAIN_ACTIVITY_SCOPE_ID = "mainActivityScopeId"
 
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
     private fun checkConnection() {
         viewModel.checkConnection()
         val dialogBuilder = AlertDialog.Builder(this, R.style.myAlertDialog)
-            .setIcon(R.drawable.ic_car_crash)
+            .setIcon(R.drawable.ic_steering)
             .setTitle(R.string.no_internet_title)
             .setMessage(getString(R.string.no_internet_message))
             .setCancelable(true)
@@ -92,5 +93,4 @@ class MainActivity : AppCompatActivity(), ControllerOpenFragment {
             .addToBackStack("")
             .commit()
     }
-
 }

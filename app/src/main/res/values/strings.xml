@@ -68,14 +68,14 @@
     <string name="ocago_name_status">Проверка ОСАГО</string>
     <string name="gibdd_name_status">Проверка штрафов</string>
     <!--Promo-->
-    <string name="promo_code_id">промокод: %1$s</string>
-    <string name="discount_1">Скидка № 1</string>
-    <string name="discount_2">Скидка № 2</string>
-    <string name="discount_3">Скидка № 3</string>
+    <string name="promo_code_id">купон: %1$s</string>
+    <string name="discount_1">Бензин</string>
+    <string name="discount_2">Автозапчасти</string>
+    <string name="discount_3">Автосервис</string>
     <string name="poster_1_url">https://гибдд12.рф/img/photos/posters/1.jpg</string>
     <string name="poster_2_url">https://гибдд12.рф/img/photos/posters/2.jpg</string>
     <string name="poster_3_url">https://гибдд12.рф/img/photos/posters/3.jpg</string>
-    <string name="no_internet_title">Отсутствует подключение</string>
+    <string name="no_internet_title">ВНИМАНИЕ!</string>
     <string name="no_internet_message">Для просмотра контента требуется подключение к интернету</string>
     <string name="no_internet_refresh_button">Обновить</string>
     <string name="no_internet_close_app">Выйти</string>

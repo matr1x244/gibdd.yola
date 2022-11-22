@@ -57,6 +57,11 @@ class MainMenuOpen {
                     stopValue = -900F
                     anim = View.TRANSLATION_Y
                 }
+                R.id.option_winners_container -> {
+                    startValue = -140F
+                    stopValue = -1400F
+                    anim = View.TRANSLATION_Y
+                }
             }
 
             ObjectAnimator.ofFloat(view, anim, startValue, stopValue)
@@ -117,6 +122,11 @@ class MainMenuOpen {
                 R.id.download_process_layout -> {
                     startValue = -1400F
                     stopValue = -190F
+                    anim = View.TRANSLATION_Y
+                }
+                R.id.option_winners_container -> {
+                    startValue = -1400F
+                    stopValue = -140F
                     anim = View.TRANSLATION_Y
                 }
             }

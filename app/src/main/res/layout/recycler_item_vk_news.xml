@@ -80,7 +80,8 @@
                 tools:src="@mipmap/logo" />
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group"                android:layout_width="0dp"
+                android:id="@+id/chip_group"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp5"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -95,7 +96,7 @@
                     android:text="@string/like_vk_chips"
                     android:textSize="@dimen/like_vk_text_size"
                     app:chipBackgroundColor="@color/color_transparent"
-                    app:chipIcon="@mipmap/ic_heart"
+                    app:chipIcon="@drawable/ic_heart_like"
                     app:rippleColor="@color/color_transparent" />
 
             </com.google.android.material.chip.ChipGroup>

@@ -47,11 +47,15 @@ import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.flow.Tooltips
 import com.geekbrains.gibddyola.utils.updates.IsApkExist
 import com.geekbrains.gibddyola.utils.updates.UpdateData
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
+import java.io.BufferedReader
 import java.io.File
-
+import java.io.IOException
+import java.io.InputStreamReader
+import java.net.MalformedURLException
+import java.net.URL
 
 class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
@@ -102,6 +106,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         private const val SCOPE_ID = "main_fragment_scope"
         private const val UPDATE_ICON = "update_icon"
         private const val DOWNLOAD_ICON = "download _icon"
+        private const val WINNERS_PEOPLE_URL = "https://гибдд12.рф/img/photos/posters/app/winners.txt"
         fun newInstance() = MainFragment()
     }
 
@@ -115,6 +120,28 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         upDateIcon()
         banner()
         hisStatusText()
+        winnersPeople()
+    }
+
+    private fun winnersPeople() {
+        var text = ""
+        MainScope().launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    val url = URL(WINNERS_PEOPLE_URL)
+                    val buffer = BufferedReader(InputStreamReader(url.openStream()))
+                    buffer.readText().let {
+                        text = it
+                    }
+                    buffer.close()
+                } catch (e: MalformedURLException) {
+                    e.printStackTrace()
+                } catch (d: IOException) {
+                    d.printStackTrace()
+                }
+            }
+            binding.winnerPeopleTextViewBlock.text = text
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -327,7 +354,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
         binding.mainMenuLayout.setOnClickListener {
             openMenu = !openMenu
-
             mainMenuOpen.setAnimation(binding.fabMainImage, openMenu)
             mainMenuOpen.setAnimation(binding.optionOneContainer, openMenu)
             mainMenuOpen.setAnimation(binding.optionTwoContainer, openMenu)
@@ -337,15 +363,17 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
             mainMenuOpen.setAnimation(binding.transparentBackground, openMenu)
             mainMenuOpen.setAnimation(binding.downloadProcessLayout, openMenu)
             mainMenuOpen.setAnimation(binding.optionUpdateContainer, openMenu)
+            mainMenuOpen.setAnimation(binding.optionWinnersContainer, openMenu)
 
             if (openMenu) {
+                playSoundMain.startSoundUpDate()
                 if (isUpdateIconBlinking) {
                     binding.optionUpdateContainer.startAnimation(anim)
                 } else {
                     anim.cancel()
                 }
                 if (!getUpdateParameters(UPDATE_DOWNLOAD_STARTED) && localVersion != remoteVersion) {
-                    playSoundMain.startSoundUpDate()
+//                    playSoundMain.startSoundUpDate() звук на обновление
                 }
 
                 visibility.change(binding.optionOneContainer, true)
@@ -353,6 +381,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionThreeContainer, true)
                 visibility.change(binding.optionFourContainer, true)
                 visibility.change(binding.optionFiveContainer, true)
+                visibility.change(binding.optionWinnersContainer, true)
 
                 if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
                     !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED)
@@ -376,6 +405,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionFiveContainer, false)
                 visibility.change(binding.optionUpdateContainer, false)
                 visibility.change(binding.downloadProcessLayout, false)
+                visibility.change(binding.optionWinnersContainer, false)
 
                 binding.transparentBackground.isClickable = false
             }
@@ -613,6 +643,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
 
     override fun onDestroyView() {
         super.onDestroyView()
+        MainScope().cancel()
         playSoundMain.stopSoundAll()
     }
 

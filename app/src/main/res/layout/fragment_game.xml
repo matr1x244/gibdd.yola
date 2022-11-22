@@ -12,7 +12,7 @@
         android:id="@+id/header_layout_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_box"
+        android:background="@drawable/bg_rounded_corner_box"
         android:elevation="@dimen/dp5"
         app:layout_constraintBottom_toTopOf="@+id/setting_layout_count_of_questions"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +84,7 @@
             app:fabSize="mini"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_exit_to_app" />
+            app:srcCompat="@drawable/ic_exit_to_game_pdd" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
