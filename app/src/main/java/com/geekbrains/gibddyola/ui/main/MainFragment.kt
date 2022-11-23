@@ -95,6 +95,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     private var openMenu = false
     private val playSoundMain by lazy { AudioManager(requireContext()) }
 
+    private var textWinnersPeople = ""
+
     companion object {
         private const val SHARED_TOOLTIP_NAME = "shared_tooltip"
         private const val SHARED_UPDATE_NAME = "shared_update_parameters"
@@ -110,8 +112,6 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         fun newInstance() = MainFragment()
     }
 
-    private var win = false
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -126,26 +126,22 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     }
 
     private fun winnersPeople() {
-        var text = ""
         MainScope().launch {
             withContext(Dispatchers.IO) {
                 try {
                     val url = URL(WINNERS_PEOPLE_URL)
                     val buffer = BufferedReader(InputStreamReader(url.openStream()))
                     buffer.readText().let {
-                        text = it
+                        textWinnersPeople = it
                     }
-                    win = true
                     buffer.close()
                 } catch (e: MalformedURLException) {
                     e.printStackTrace()
-                    win = false
                 } catch (d: IOException) {
                     d.printStackTrace()
-                    win = false
                 }
             }
-            binding.winnerPeopleTextViewBlock.text = text
+            binding.winnerPeopleTextViewBlock.text = textWinnersPeople
         }
     }
 
@@ -387,7 +383,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionFourContainer, true)
                 visibility.change(binding.optionFiveContainer, true)
 
-                if(win){
+                if(textWinnersPeople != ""){
                     visibility.change(binding.optionWinnersContainer, true)
                 }
 
@@ -415,7 +411,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionUpdateContainer, false)
                 visibility.change(binding.downloadProcessLayout, false)
 
-                if(!win){
+                if(textWinnersPeople == ""){
                     visibility.change(binding.optionWinnersContainer, false)
                 }
 
