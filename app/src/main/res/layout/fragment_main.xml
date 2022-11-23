@@ -298,19 +298,30 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/option_winners_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_gravity="top"
             android:layout_margin="@dimen/dp5"
             android:alpha="0"
             android:background="@drawable/bg_rounded_corner_text_view"
             android:elevation="@dimen/dp16"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="@dimen/dp5"
             android:visibility="invisible"
             tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/winner_text_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/dp5"
+                android:layout_gravity="center"
+                android:text="УВЕДОМЛЕНИЕ"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/winner_people_text_view_block"
@@ -318,12 +329,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="@dimen/dp5"
-                android:text="winner_people_text_view_block"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/container_bottom_nav"

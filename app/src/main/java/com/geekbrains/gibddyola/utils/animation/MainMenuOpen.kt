@@ -58,8 +58,8 @@ class MainMenuOpen {
                     anim = View.TRANSLATION_Y
                 }
                 R.id.option_winners_container -> {
-                    startValue = -140F
-                    stopValue = -1400F
+//                    startValue = -140F
+//                    stopValue = -1400F
                     anim = View.TRANSLATION_Y
                 }
             }
@@ -125,8 +125,8 @@ class MainMenuOpen {
                     anim = View.TRANSLATION_Y
                 }
                 R.id.option_winners_container -> {
-                    startValue = -1400F
-                    stopValue = -140F
+//                    startValue = -1400F
+//                    stopValue = -140F
                     anim = View.TRANSLATION_Y
                 }
             }
