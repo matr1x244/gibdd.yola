@@ -110,6 +110,8 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
         fun newInstance() = MainFragment()
     }
 
+    private var win = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -133,11 +135,14 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                     buffer.readText().let {
                         text = it
                     }
+                    win = true
                     buffer.close()
                 } catch (e: MalformedURLException) {
                     e.printStackTrace()
+                    win = false
                 } catch (d: IOException) {
                     d.printStackTrace()
+                    win = false
                 }
             }
             binding.winnerPeopleTextViewBlock.text = text
@@ -381,7 +386,11 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionThreeContainer, true)
                 visibility.change(binding.optionFourContainer, true)
                 visibility.change(binding.optionFiveContainer, true)
-                visibility.change(binding.optionWinnersContainer, true)
+
+                if(win){
+                    visibility.change(binding.optionWinnersContainer, true)
+                }
+
 
                 if (getUpdateParameters(UPDATE_DOWNLOAD_STARTED) &&
                     !getUpdateParameters(UPDATE_DOWNLOAD_FINISHED)
@@ -405,7 +414,11 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionFiveContainer, false)
                 visibility.change(binding.optionUpdateContainer, false)
                 visibility.change(binding.downloadProcessLayout, false)
-                visibility.change(binding.optionWinnersContainer, false)
+
+                if(!win){
+                    visibility.change(binding.optionWinnersContainer, false)
+                }
+
 
                 binding.transparentBackground.isClickable = false
             }
