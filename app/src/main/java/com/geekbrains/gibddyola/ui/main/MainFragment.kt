@@ -1,6 +1,7 @@
 package com.geekbrains.gibddyola.ui.main
 
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -96,6 +97,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
     private val playSoundMain by lazy { AudioManager(requireContext()) }
 
     private var textWinnersPeople = ""
+    private var flagWinnersPeople = true
 
     companion object {
         private const val SHARED_TOOLTIP_NAME = "shared_tooltip"
@@ -142,6 +144,12 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 }
             }
             binding.winnerPeopleTextViewBlock.text = textWinnersPeople
+            binding.winnerPeopleTextViewBlock.setOnClickListener {
+                flagWinnersPeople = false
+                ObjectAnimator.ofFloat(binding.optionWinnersContainer, View.TRANSLATION_X, 0.0f, 2000f)
+                    .setDuration(400)
+                    .start()
+            }
         }
     }
 
@@ -383,7 +391,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionFourContainer, true)
                 visibility.change(binding.optionFiveContainer, true)
 
-                if(textWinnersPeople != ""){
+                if(textWinnersPeople != "" && flagWinnersPeople){
                     visibility.change(binding.optionWinnersContainer, true)
                 }
 
@@ -411,7 +419,7 @@ class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBindin
                 visibility.change(binding.optionUpdateContainer, false)
                 visibility.change(binding.downloadProcessLayout, false)
 
-                if(textWinnersPeople == ""){
+                if(textWinnersPeople == "" && flagWinnersPeople){
                     visibility.change(binding.optionWinnersContainer, false)
                 }
 
