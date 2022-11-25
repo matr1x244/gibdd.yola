@@ -15,6 +15,7 @@
         app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
         app:tabIndicatorHeight="@dimen/dp5"
         app:tabIndicator="@drawable/bg_shape_tab_indicator"
+        android:elevation="@dimen/dp10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
