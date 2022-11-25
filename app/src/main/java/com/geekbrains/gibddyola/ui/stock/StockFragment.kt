@@ -28,7 +28,7 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
         super.onViewCreated(view, savedInstanceState)
 
         viewPagerCustom()
-        tabBadgeRemove()
+        tabBadgeClick()
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -40,58 +40,52 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
             binding.tabLayout, binding.viewPager
         ) { tab, position ->
             tab.icon = when (position) {
-//                ONE_STOCK_KEY -> getString(R.string.discount_1)
-//                TWO_STOCK_KEY -> getString(R.string.discount_2)
-//                THREE_STOCK_KEY -> getString(R.string.discount_3)
-//                FOUR_STOCK_KEY -> getString(R.string.discount_4)
+//              ONE_STOCK_KEY -> getString(R.string.discount_1)
                 ONE_STOCK_KEY -> resources.getDrawable(
-                    R.drawable.ic_car_crash,
+                    R.drawable.tab_icon_gas,
                     resources.newTheme()
                 )
                 TWO_STOCK_KEY -> resources.getDrawable(
-                    R.drawable.ic_heart_like,
+                    R.drawable.tab_icon_fender,
                     resources.newTheme()
                 )
                 THREE_STOCK_KEY -> resources.getDrawable(
-                    R.drawable.ic_company,
+                    R.drawable.tab_icon_body_repair,
                     resources.newTheme()
                 )
-                FOUR_STOCK_KEY -> resources.getDrawable(R.drawable.ic_game, resources.newTheme())
-                else -> resources.getDrawable(R.drawable.ic_game, resources.newTheme())
+                FOUR_STOCK_KEY -> resources.getDrawable(R.drawable.tab_icon_tow_truck, resources.newTheme())
+                else -> resources.getDrawable(R.drawable.tab_icon_gas, resources.newTheme())
             }
 
         }.attach()
 
         badgeAdd(1)
-        badgeAdd(2)
-
 //        binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
-//        binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
-//        binding.tabLayout.getTabAt(THREE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
+        binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setText(R.string.discount_1)
+        binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setText(R.string.discount_2)
+        binding.tabLayout.getTabAt(THREE_STOCK_KEY)?.setText(R.string.discount_3)
+        binding.tabLayout.getTabAt(FOUR_STOCK_KEY)?.setText(R.string.discount_4)
+
     }
 
     private fun badgeRemove(position: Int) {
             binding.tabLayout.getTabAt(position)?.removeBadge()
     }
 
-    private fun tabBadgeRemove() {
+    private fun tabBadgeClick() {
         binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                Toast.makeText(requireActivity(), "onTabSelected IF", Toast.LENGTH_SHORT).show()
                 if(binding.tabLayout.getTabAt(2)?.isSelected == true){
                     badgeRemove(2)
                 } else {
-                    Toast.makeText(requireActivity(), "onTabSelected ELSE", Toast.LENGTH_SHORT).show()
+                    //
                 }
-
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                Toast.makeText(requireActivity(), "onTabUnselected", Toast.LENGTH_SHORT).show()
+                //
             }
-
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                Toast.makeText(requireActivity(), "onTabReselected", Toast.LENGTH_SHORT).show()
+                //
             }
 
         })
@@ -101,8 +95,8 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
         val badgeDrawable: BadgeDrawable? = binding.tabLayout.getTabAt(position)?.orCreateBadge
         badgeDrawable?.isVisible = true
         badgeDrawable?.number = 1
-        badgeDrawable?.badgeTextColor = resources.getColor(R.color.white)
-        badgeDrawable?.backgroundColor = resources.getColor(R.color.black)
+        badgeDrawable?.badgeTextColor = resources.getColor(R.color.black)
+        badgeDrawable?.backgroundColor = resources.getColor(R.color.amber_orange_600)
         badgeDrawable?.badgeGravity = BadgeDrawable.BOTTOM_END
     }
 
