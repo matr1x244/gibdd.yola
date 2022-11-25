@@ -22,7 +22,7 @@
     </style>
 
     <style name="MyTabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">9sp</item>
+        <item name="android:textSize">8sp</item>
         <item name="android:textAlignment">center</item>
     </style>
 
