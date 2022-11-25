@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.geekbrains.gibddyola.R
 import com.geekbrains.gibddyola.databinding.FragmentStockBinding
 import com.geekbrains.gibddyola.ui.stock.viewpager.*
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBinding::inflate) {
@@ -26,6 +28,7 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
         super.onViewCreated(view, savedInstanceState)
 
         viewPagerCustom()
+        tabBadgeRemove()
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -61,16 +64,37 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
 
         badgeAdd(1)
         badgeAdd(2)
-//        badgeRemove(2)
-    }
 
 //        binding.tabLayout.getTabAt(ONE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
 //        binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
 //        binding.tabLayout.getTabAt(THREE_STOCK_KEY)?.setIcon(R.drawable.ic_stock)
-
+    }
 
     private fun badgeRemove(position: Int) {
-        binding.tabLayout.getTabAt(position)?.removeBadge()
+            binding.tabLayout.getTabAt(position)?.removeBadge()
+    }
+
+    private fun tabBadgeRemove() {
+        binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                Toast.makeText(requireActivity(), "onTabSelected IF", Toast.LENGTH_SHORT).show()
+                if(binding.tabLayout.getTabAt(2)?.isSelected == true){
+                    badgeRemove(2)
+                } else {
+                    Toast.makeText(requireActivity(), "onTabSelected ELSE", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                Toast.makeText(requireActivity(), "onTabUnselected", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                Toast.makeText(requireActivity(), "onTabReselected", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     private fun badgeAdd(position: Int) {
@@ -87,3 +111,4 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
 }
+
