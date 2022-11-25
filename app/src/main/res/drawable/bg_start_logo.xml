@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:end="45dp"
+        android:top="45dp"
+        android:bottom="45dp"
+        android:start="45dp">
+        <shape android:shape="oval">
+            <corners android:radius="100dp" />
+            <solid android:color="@color/black" />
+        </shape>
+    </item>
+</layer-list>
