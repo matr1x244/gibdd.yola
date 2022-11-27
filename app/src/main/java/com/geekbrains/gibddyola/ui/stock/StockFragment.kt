@@ -42,7 +42,7 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
             tab.icon = when (position) {
 //              ONE_STOCK_KEY -> getString(R.string.discount_1)
                 ONE_STOCK_KEY -> resources.getDrawable(
-                    R.drawable.tab_icon_gas,
+                    R.drawable.tab_icon_cleanup_auto,
                     resources.newTheme()
                 )
                 TWO_STOCK_KEY -> resources.getDrawable(
