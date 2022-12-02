@@ -1,6 +1,7 @@
 <resources>
     <!--MAIN FRAGMENT-->
     <string name="app_name">АВАРКОМ</string>
+    <string name="text_hello_start_load_theme">Аварийный комиссар\nГИБДД12.рф</string>
     <string name="text_hello">Аварийный комиссар в Йошкар-Оле помощь при ДТП: ГИБДД12.рф</string>
     <string name="text_view_menu">Меню</string>
     <string name="text_view_call">Позвонить</string>
