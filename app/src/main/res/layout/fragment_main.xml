@@ -475,9 +475,9 @@
 
         <com.geekbrains.gibddyola.utils.EquilateralImageView
             android:id="@+id/iv_download_progress"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/ic_tire"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_download_progress"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
