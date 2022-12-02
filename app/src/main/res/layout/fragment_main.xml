@@ -330,6 +330,13 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@drawable/bg_gradient_main_bottom"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="45dp" />
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/container_bottom_nav"
             android:layout_width="match_parent"
