@@ -14,10 +14,16 @@
         tools:listitem="@layout/recycler_item_vk_news" />
 
     <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp5"
+        android:background="@drawable/bg_gradient_main_bottom"
+        android:layout_gravity="bottom"/>
+
+    <View
         android:id="@+id/vk_news_hiding_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.5"
+        android:alpha="0.8"
         android:background="@color/black"
         android:visibility="gone" />
 
@@ -25,8 +31,8 @@
         android:id="@+id/vk_news_loading_process_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.6"
-        android:background="@color/light_blue_50"
+        android:alpha="0.5"
+        android:background="@color/white"
         tools:visibility="visible">
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -36,10 +42,10 @@
             android:layout_gravity="center"
             android:indeterminate="true"
             app:indicatorDirectionCircular="clockwise"
+            android:background="@drawable/ic_vkontakte"
             app:trackThickness="@dimen/dp5"
-            app:indicatorSize="@dimen/dp50"
-            app:trackColor="@color/amber_orange_700"
-            app:indicatorColor="@color/white"/>
+            app:indicatorSize="@dimen/dp100"
+            app:indicatorColor="@color/light_green_500"/>
 
     </FrameLayout>
 

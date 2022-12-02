@@ -7,9 +7,11 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_margin="@dimen/dp7"
+    android:paddingBottom="@dimen/dp32"
     tools:context=".ui.news.details.VkNewsDetailsFragment">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -26,51 +28,51 @@
             android:background="@color/vk_background_color_gray"
             android:orientation="vertical">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_view_view_blocks"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_view_blocks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hapticFeedbackEnabled="false"
+                app:cardCornerRadius="@dimen/dp0"
+                app:cardElevation="@dimen/dp2">
+
+                <WebView
+                    android:id="@+id/vk_news_details_web_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vk_news_details_vp_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/vk_news_full_image_height"
+                    android:orientation="horizontal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vk_news_details_rv_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/vk_news_full_image_height"
+                    tools:listitem="@layout/recycler_item_vk_details_image" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vk_news_details_rv_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/vk_news_full_image_height"
+                    tools:listitem="@layout/recycler_item_vk_details_video" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/vk_news_details_stock_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hapticFeedbackEnabled="false"
-                    app:cardCornerRadius="@dimen/dp0"
-                    app:cardElevation="@dimen/dp2">
+                    android:src="@mipmap/logo"
+                    android:visibility="visible" />
 
-                    <WebView
-                        android:id="@+id/vk_news_details_web_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+            </com.google.android.material.card.MaterialCardView>
 
-                    <androidx.viewpager2.widget.ViewPager2
-                        android:id="@+id/vk_news_details_vp_image"
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_height="@dimen/vk_news_full_image_height"/>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/vk_news_details_rv_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/vk_news_full_image_height"
-                        tools:listitem="@layout/recycler_item_vk_details_image" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/vk_news_details_rv_video"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/vk_news_full_image_height"
-                        tools:listitem="@layout/recycler_item_vk_details_video" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/vk_news_details_stock_photo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/logo"
-                        android:visibility="visible" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/box_vk_news_detail_like_see"
-            android:background="@drawable/bg_vk_details"
-            android:elevation="@dimen/dp2">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/box_vk_news_detail_like_see"
+                android:background="@drawable/bg_vk_details"
+                android:elevation="@dimen/dp2">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/like_vk"
@@ -96,16 +98,17 @@
                     app:chipIconSize="@dimen/view_vk_text_size"
                     app:rippleColor="@color/vk_background_color_gray" />
 
-        </LinearLayout>
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/vk_news_details_text_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp5"
-                android:layout_marginEnd="@dimen/dp5"
-                android:layout_marginBottom="@dimen/dp3"
-                android:background="@color/vk_background_color_gray"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_gradient_main_bottom"
+                android:paddingStart="@dimen/dp12"
+                android:paddingEnd="@dimen/dp10"
+                android:paddingBottom="@dimen/dp3"
                 android:scrollbars="none"
                 android:textAlignment="inherit"
                 android:textColor="@color/black" />

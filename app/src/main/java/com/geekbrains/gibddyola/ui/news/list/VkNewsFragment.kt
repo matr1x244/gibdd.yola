@@ -1,5 +1,6 @@
 package com.geekbrains.gibddyola.ui.news.list
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Lifecycle
@@ -17,7 +18,7 @@ import com.geekbrains.gibddyola.ui.news.list.viewModel.VkNewsViewModel
 import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.geekbrains.gibddyola.utils.showSnackBarNoAction
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
 
@@ -102,7 +103,13 @@ class VkNewsFragment : ViewBindingFragment<FragmentVkNewsBinding>(FragmentVkNews
                         true -> {
                             disableBackground(false)
                             viewModel.setNews()
+                            ObjectAnimator.ofFloat(binding.vkNewsRvList, View.TRANSLATION_Y, 2000.0f, 0.0f)
+                                .setDuration(700)
+                                .start()
                             setData()
+                            ObjectAnimator.ofFloat(binding.vkNewsFragmentContainer, View.ALPHA, 0.4f, 1.0f)
+                                .setDuration(1200)
+                                .start()
                         }
                         else -> {
                             disableBackground(true)

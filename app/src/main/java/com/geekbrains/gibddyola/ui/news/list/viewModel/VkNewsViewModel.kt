@@ -50,8 +50,6 @@ class VkNewsViewModel(
         }
     }
 
-
-
     override fun setNews() {
         coroutineScope.launch {
             inProgress.postValue(true)
