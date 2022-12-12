@@ -151,7 +151,7 @@ class VkNewsFragment : ViewBindingFragment<FragmentVkNewsBinding>(FragmentVkNews
         if (isBlock) {
             binding.vkNewsHidingScreen.visibility = View.VISIBLE
         } else {
-            binding.vkNewsHidingScreen.visibility = View.GONE
+            binding.vkNewsHidingScreen.visibility = View.INVISIBLE
         }
         binding.vkNewsHidingScreen.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()

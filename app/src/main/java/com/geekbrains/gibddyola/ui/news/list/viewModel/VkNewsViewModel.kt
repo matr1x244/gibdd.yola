@@ -11,13 +11,10 @@ import com.geekbrains.gibddyola.ui.news.list.VkNewsContract
 import com.geekbrains.gibddyola.utils.checkConnection.ConnectionChecker
 import com.geekbrains.gibddyola.utils.checkConnection.NetworkStatus
 import com.geekbrains.gibddyola.utils.flow_loading.LoadingFlowRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 class VkNewsViewModel(
     private val repoNewsUseCase: RepoVkNewsUseCase,

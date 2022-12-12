@@ -2,14 +2,11 @@ package com.geekbrains.gibddyola
 
 import android.animation.ObjectAnimator
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.animation.doOnEnd
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.FitCenter
@@ -47,7 +44,7 @@ class StartActivityTheme : AppCompatActivity() {
                 .load(R.mipmap.gif_logo_no_road)
                 .transform(FitCenter(), CenterInside())
                 .into(imgStart)
-            ObjectAnimator.ofFloat(imgStart, View.TRANSLATION_X, -800.0f, 0.0f)
+            ObjectAnimator.ofFloat(imgStart, View.TRANSLATION_X, -600.0f, 0.0f)
                 .setDuration(700)
                 .start()
             Handler(mainLooper).postDelayed({
