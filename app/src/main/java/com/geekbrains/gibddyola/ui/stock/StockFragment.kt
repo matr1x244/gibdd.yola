@@ -13,6 +13,7 @@ import com.geekbrains.gibddyola.utils.ViewBindingFragment
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 
 class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBinding::inflate) {
 
@@ -35,6 +36,8 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
     private fun viewPagerCustom() {
         binding.viewPager.adapter = ViewPagerAdapter(this)
         binding.viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
+        binding.dotsIndicator.attachTo(binding.viewPager)
+
         binding.viewPager.setPageTransformer(RotateUpPageTransformer())
         TabLayoutMediator(
             binding.tabLayout, binding.viewPager
@@ -65,7 +68,6 @@ class StockFragment : ViewBindingFragment<FragmentStockBinding>(FragmentStockBin
         binding.tabLayout.getTabAt(TWO_STOCK_KEY)?.setText(R.string.discount_2)
         binding.tabLayout.getTabAt(THREE_STOCK_KEY)?.setText(R.string.discount_3)
         binding.tabLayout.getTabAt(FOUR_STOCK_KEY)?.setText(R.string.discount_4)
-
     }
 
     private fun badgeRemove(position: Int) {

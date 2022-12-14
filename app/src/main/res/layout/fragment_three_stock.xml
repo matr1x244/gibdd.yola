@@ -68,46 +68,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|end"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp7"
-            android:layout_marginLeft="@dimen/dp7"
-            android:layout_marginTop="@dimen/dp7"
-            android:layout_marginEnd="@dimen/dp7"
-            android:layout_marginRight="@dimen/dp7"
-            android:layout_marginBottom="@dimen/dp7"
-            android:src="@drawable/swipe_indicator_passive" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp7"
-            android:layout_marginLeft="@dimen/dp7"
-            android:layout_marginEnd="@dimen/dp7"
-            android:layout_marginRight="@dimen/dp7"
-            android:layout_marginBottom="@dimen/dp7"
-            android:src="@drawable/swipe_indicator_passive" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp7"
-            android:layout_marginLeft="@dimen/dp7"
-            android:layout_marginEnd="@dimen/dp7"
-            android:layout_marginRight="@dimen/dp7"
-            android:layout_marginBottom="@dimen/dp7"
-            android:src="@drawable/swipe_indicator_active" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

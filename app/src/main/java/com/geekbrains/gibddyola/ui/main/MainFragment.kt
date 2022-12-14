@@ -48,7 +48,6 @@ import com.geekbrains.gibddyola.utils.audio_manager.AudioManager
 import com.geekbrains.gibddyola.utils.flow.Tooltips
 import com.geekbrains.gibddyola.utils.updates.IsApkExist
 import com.geekbrains.gibddyola.utils.updates.UpdateData
-import com.google.android.material.badge.BadgeDrawable
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named
