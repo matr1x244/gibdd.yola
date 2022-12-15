@@ -25,7 +25,7 @@
         android:rotation="90"
         android:translationX="45dp"
         app:dampingRatio="1.0"
-        app:dotsColor="@color/gray_green_500"
+        app:dotsColor="@color/amber_orange_600"
         app:dotsCornerRadius="@dimen/dp5"
         app:dotsSize="@dimen/dp10"
         app:dotsSpacing="@dimen/dp2"
